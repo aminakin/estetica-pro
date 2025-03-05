@@ -1,34 +1,37 @@
 # files ext
-*.sql
-*.tgz
-*.tar.gz
-*.tar
-*.rar
-*.zip
-*.mp3
-*.mp4
-*.webm
-*.mov
-*.MOV
-*.wav
-*.flv
-*.db
-*.psd
-*.pdf
-*.doc
-*.docx
-*.txt
-*.text
-*.log
-*.config
-*.xml
-*.tbk
-*.xlsx
-*.json
+/*.sql
+/*.tgz
+/*.tar.gz
+/*.tar
+/*.rar
+/*.zip
+/*.mp3
+/*.mp4
+/*.webm
+/*.mov
+/*.MOV
+/*.wav
+/*.flv
+/*.db
+/*.psd
+/*.pdf
+/*.doc
+/*.docx
+/*.txt
+/*.text
+/*.log
+/*.config
+/*.xml
+/*.tbk
+/*.xlsx
+/*.json
 
 
 # dirs & files
 /.htaccess
+/webstat
+/local/bitrix/modules/sprint.migration/*.txt
+/local/bitrix/modules/sprint.migration/*.json
 
 # core
 /upload
@@ -37,3 +40,4 @@
 
 #project
 /local/vendor1
+/local/*.json

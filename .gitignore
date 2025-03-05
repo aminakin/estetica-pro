@@ -1,0 +1,39 @@
+# files ext
+*.sql
+*.tgz
+*.tar.gz
+*.tar
+*.rar
+*.zip
+*.mp3
+*.mp4
+*.webm
+*.mov
+*.MOV
+*.wav
+*.flv
+*.db
+*.psd
+*.pdf
+*.doc
+*.docx
+*.txt
+*.text
+*.log
+*.config
+*.xml
+*.tbk
+*.xlsx
+*.json
+
+
+# dirs & files
+/.htaccess
+
+# core
+/upload
+/bitrix
+
+
+#project
+/local/vendor1

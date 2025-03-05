@@ -1,0 +1,11 @@
+<?
+$PERM["testtest.php"]["*"]="D";
+$PERM["testtest.php"]["6"]="X";
+$PERM["search.php"]["*"]="D";
+$PERM["search.php"]["6"]="X";
+$PERM["pub"]["5"]="T_8";
+$PERM["upload"]["5"]="T_8";
+$PERM["online"]["*"]="R";
+$PERM["desktop_app"]["*"]="R";
+$PERM["/"]["*"]="R";
+?>

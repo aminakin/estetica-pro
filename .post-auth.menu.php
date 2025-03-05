@@ -1,0 +1,32 @@
+<?
+$aMenuLinks = Array(
+    Array(
+        "Все",
+        "/personal/orders/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Новые",
+        "/personal/orders/?filter_status=N",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Выполенные",
+        "/personal/orders/?filter_status=F",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Отмененные",
+        "/personal/orders/?filter_canceled=Y",
+        Array(),
+        Array(),
+        ""
+    ),
+);
+?>

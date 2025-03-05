@@ -1,0 +1,1 @@
+<a href="#" class="footer-menu-item footer-menu-item-desktop footer-menu-item-mobile">Отзывы</a>

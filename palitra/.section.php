@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Палитра";
+$arDirProperties = Array(
+
+);
+?>

@@ -1,0 +1,117 @@
+<?php
+
+namespace ApiLib\Response\Order;
+
+use ApiLib\Response\JsonResponseAbstract;
+use ApiLib\Response\Order\Grid\GridItemDataResponse;
+use ApiLib\Response\Order\Grid\GridResponse;
+use ApiLib\Response\Order\OrderProp\OrderPropResponse;
+
+class OrderResponse extends JsonResponseAbstract
+{
+    /**
+     * @OA\Schema (
+     *     schema="OrderShema",
+     *     type="object",
+     *     @OA\Property(property="person_type", type="array", @OA\Items(type="object", ref="#/components/schemas/PersonTypeShema")),
+     *     @OA\Property(property="order_prop", type="object", ref="#/components/schemas/OrderPropShema"),
+     *     @OA\Property(property="pay_from_account", type="integer", readOnly="true"),
+     *     @OA\Property(property="grid", type="object", ref="#/components/schemas/GridShema"),
+     *     @OA\Property(property="items_dimensions", type="array", @OA\Items(type="object", ref="#/components/schemas/ItemsDimensionShema")),
+     *     @OA\Property(property="max_dimensions", type="integer", readOnly="true"),
+     *     @OA\Property(property="basket_items", type="array", @OA\Items(type="object", ref="#/components/schemas/GridItemDataShema")),
+     *     @OA\Property(property="delivery", type="array", @OA\Items(type="object", ref="#/components/schemas/DeliveryShema")),
+     *     @OA\Property(property="buyer_store", type="string", readOnly="true"),
+     *     @OA\Property(property="store_list", type="array", @OA\Items(type="object", ref="#/components/schemas/StoreListShema")),
+     *     @OA\Property(property="delivery_extra", type="string", readOnly="true"),
+     *     @OA\Property(property="pay_system", type="array", @OA\Items(type="object", ref="#/components/schemas/PaySystemShema")),
+     *     @OA\Property(property="use_vat", type="string", readOnly="true"),
+     *     @OA\Property(property="use_rate", type="string", readOnly="true"),
+     *     @OA\Property(property="use_sum", type="string", readOnly="true"),
+     *     @OA\Property(property="use_sum_formated", type="string", readOnly="true"),
+     *     @OA\Property(property="tax_lost", type="string", readOnly="true"),
+     *     @OA\Property(property="tax_price", type="string", readOnly="true"),
+     *     @OA\Property(property="basket_positions", type="string", readOnly="true"),
+     *     @OA\Property(property="order_price", type="string", readOnly="true"),
+     *     @OA\Property(property="order_price_formated", type="string", readOnly="true"),
+     *     @OA\Property(property="order_weight", type="string", readOnly="true"),
+     *     @OA\Property(property="order_weight_formated", type="string", readOnly="true"),
+     *     @OA\Property(property="price_without_discount_value", type="string", readOnly="true"),
+     *     @OA\Property(property="basket_price_discount_diff_value", type="string", readOnly="true"),
+     *     @OA\Property(property="basket_price_discount_diff", type="string", readOnly="true"),
+     *     @OA\Property(property="discount_price", type="string", readOnly="true"),
+     *     @OA\Property(property="discount_price_formated", type="string", readOnly="true"),
+     *     @OA\Property(property="delivery_price", type="string", readOnly="true"),
+     *     @OA\Property(property="delivery_price_formated", type="string", readOnly="true"),
+     *     @OA\Property(property="order_total_price", type="string", readOnly="true"),
+     *     @OA\Property(property="order_total_price_formated", type="string", readOnly="true"),
+     *     @OA\Property(property="js_data", type="object", ref="#/components/schemas/JsDataShema"),
+     *     @OA\Property(property="locations", type="string", readOnly="true"),
+     *     @OA\Property(property="order_data", type="string", readOnly="true"),
+     *     @OA\Property(property="user_vals", type="string", readOnly="true"),
+     *     @OA\Property(property="min_bonus", type="string", readOnly="true"),
+     *     @OA\Property(property="max_bonus", type="string", readOnly="true"),
+     *     @OA\Property(property="user_bonus", type="string", readOnly="true"),
+     *     @OA\Property(property="logictim_bonus_user_dostup", type="string", readOnly="true"),
+     *     @OA\Property(property="pay_bonus", type="string", readOnly="true"),
+     *     @OA\Property(property="pay_bonus_formtaed", type="string", readOnly="true"),
+     *     @OA\Property(property="arr_bonus", type="string", readOnly="true"),
+     *     @OA\Property(property="add_bonus", type="string", readOnly="true"),
+     *     @OA\Property(property="order_prop_payment_bonus_id", type="string", readOnly="true"),
+     *     @OA\Property(property="order_prop_add_bonus_id", type="string", readOnly="true"),
+     * )
+     */
+    public static function data($data): array
+    {
+        return [
+            'person_type' => PersonTypeResponse::collection($data['PERSON_TYPE']),
+            'order_prop' => OrderPropResponse::item($data['ORDER_PROP']),
+            'pay_from_account' => $data['PAY_FROM_ACCOUNT'],
+            'grid' => GridResponse::item($data['GRID']),
+            'items_dimensions' => ItemsDimensionResponse::collection($data['ITEMS_DIMENSIONS']),
+            'max_dimensions' => $data['MAX_DIMENSIONS'],
+            'basket_items' => GridItemDataResponse::collection($data['BASKET_ITEMS']),
+            'delivery' => DeliveryResponse::collection($data['DELIVERY']),
+            'buyer_store' => $data['BUYER_STORE'],
+            'store_list' => StoreListResponse::collection($data['STORE_LIST']),
+            'delivery_extra' => $data['DELIVERY_EXTRA'],
+            'pay_system' => PaySystemResponse::collection($data['PAY_SYSTEM']),
+            'use_vat' => $data['USE_VAT'],
+            'use_rate' => $data['VAT_RATE'],
+            'use_sum' => $data['VAT_SUM'],
+            'use_sum_formated' => $data['VAT_SUM_FORMATED'],
+            'tax_lost' => $data['TAX_LIST'],
+            'tax_price' => $data['TAX_PRICE'],
+            'basket_positions' => $data['BASKET_POSITIONS'],
+            'order_price' => $data['ORDER_PRICE'],
+            'order_price_formated' => $data['ORDER_PRICE_FORMATED'],
+            'order_weight' => $data['ORDER_WEIGHT'],
+            'order_weight_formated' => $data['ORDER_WEIGHT_FORMATED'],
+            'price_without_discount_value' => $data['PRICE_WITHOUT_DISCOUNT_VALUE'],
+            'price_without_discount' => $data['PRICE_WITHOUT_DISCOUNT'],
+            'basket_price_discount_diff_value' => $data['BASKET_PRICE_DISCOUNT_DIFF_VALUE'],
+            'basket_price_discount_diff' => $data['BASKET_PRICE_DISCOUNT_DIFF'],
+            'discount_price' => $data['DISCOUNT_PRICE'],
+            'discount_price_formated' => $data['DISCOUNT_PRICE_FORMATED'],
+            'delivery_price' => $data['DELIVERY_PRICE'],
+            'delivery_price_formated' => $data['DELIVERY_PRICE_FORMATED'],
+            'order_total_price' => $data['ORDER_TOTAL_PRICE'],
+            'order_total_price_formated' => $data['ORDER_TOTAL_PRICE_FORMATED'],
+            'js_data' => JsDataResponse::item($data['JS_DATA']),
+            'locations' => $data['LOCATIONS'],
+            'order_data' => $data['ORDER_DATA'],
+            'user_vals' => $data['USER_VALS'],
+            'min_bonus' => $data['MIN_BONUS'],
+            'max_bonus' => $data['MAX_BONUS'],
+            'user_bonus' => $data['USER_BONUS'],
+            'logictim_bonus_user_dostup' => $data['LOGICTIM_BONUS_USER_DOSTUP'],
+            'pay_bonus' => $data['PAY_BONUS'],
+            'pay_bonus_formtaed' => $data['PAY_BONUS_FORMATED'],
+            'arr_bonus' => $data['ARR_BONUS'],
+            'add_bonus' => $data['ADD_BONUS'],
+            'order_prop_payment_bonus_id' => $data['ORDER_PROP_PAYMENT_BONUS_ID'],
+            'order_prop_add_bonus_id' => $data['ORDER_PROP_ADD_BONUS_ID'],
+
+        ];
+    }
+}

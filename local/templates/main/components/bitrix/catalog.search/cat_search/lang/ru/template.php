@@ -1,6 +1,7 @@
 <?
 $MESS["CT_BCSE_SEARCH"] = "Что вы ищете?";
-$MESS["CT_BCSE_NOT_FOUND"] = "Нет результатов по запросу:";
+$MESS["CT_BCSE_NOT_FOUND"] = "Нет результатов по запросу: «#NAME#»";
+$MESS["CT_BCSE_FOUND"] = "Результаты поиска по запросу:  «#NAME#»";
 //$MESS["CT_YOU_NOT_FOUND"] = "Не нашли нужный товар?";
 $MESS["CT_CALL_ASS"] ="Не нашли нужный товар? Мы поможем подобрать похожий";
 $MESS["CT_CALL_ASS_MOBILE"] = "<p>Не нашли нужный товар?<br>

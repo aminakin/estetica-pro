@@ -12,201 +12,199 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<?/*if (!empty($_GET['q'])){?>
-    <div class="search-head-title">
-        <span><?= $_GET['q']?></span>
-    </div>
-<?}*/?>
+
 <div class="search-head-block">
-    <?    $arElements = $APPLICATION->IncludeComponent(
-            "bitrix:search.page",
-            "",
-            Array(
-                "RESTART" => $arParams["RESTART"],
-                "NO_WORD_LOGIC" => $arParams["NO_WORD_LOGIC"],
-                "USE_LANGUAGE_GUESS" => $arParams["USE_LANGUAGE_GUESS"],
-                "CHECK_DATES" => $arParams["CHECK_DATES"],
-                "arrFILTER" => array("iblock_" . $arParams["IBLOCK_TYPE"]),
-                "arrFILTER_iblock_" . $arParams["IBLOCK_TYPE"] => array($arParams["IBLOCK_ID"]),
-                "USE_TITLE_RANK" => "N",
-                "DEFAULT_SORT" => "rank",
-                "FILTER_NAME" => "",
-                "SHOW_WHERE" => "N",
-                "arrWHERE" => array(),
-                "SHOW_WHEN" => "N",
-                "PAGE_RESULT_COUNT" => 999,
-                "DISPLAY_TOP_PAGER" => "N",
-                "DISPLAY_BOTTOM_PAGER" => "N",
-                "PAGER_TITLE" => "",
-                "PAGER_SHOW_ALWAYS" => "N",
-                "PAGER_TEMPLATE" => "N",
-            ),
-            $component,
-            array('HIDE_ICONS' => 'Y')
-        );
+    <? $arElements = $APPLICATION->IncludeComponent(
+        "arturgolubev:search.page",
+        "",
+        array(
+            "RESTART" => $arParams["RESTART"],
+            "NO_WORD_LOGIC" => $arParams["NO_WORD_LOGIC"],
+            "USE_LANGUAGE_GUESS" => $arParams["USE_LANGUAGE_GUESS"],
+            "CHECK_DATES" => $arParams["CHECK_DATES"],
+            "arrFILTER" => array("iblock_" . $arParams["IBLOCK_TYPE"]),
+            "arrFILTER_iblock_" . $arParams["IBLOCK_TYPE"] => array($arParams["IBLOCK_ID"]),
+            "USE_TITLE_RANK" => "N",
+            "DEFAULT_SORT" => "rank",
+            "FILTER_NAME" => "",
+            "SHOW_WHERE" => "N",
+            "arrWHERE" => array(),
+            "SHOW_WHEN" => "N",
+            "PAGE_RESULT_COUNT" => 999,
+            "DISPLAY_TOP_PAGER" => "N",
+            "DISPLAY_BOTTOM_PAGER" => "N",
+            "PAGER_TITLE" => "",
+            "PAGER_SHOW_ALWAYS" => "N",
+            "PAGER_TEMPLATE" => "N",
+        ),
+        $component,
+        array('HIDE_ICONS' => 'Y')
+    );
     ?>
     <?
-        if($arElements !=false){
-            $countNumber = count($arElements);
-        }else{
-            $countNumber = 0;
-        }
-    $APPLICATION->AddViewContent('counter', $countNumber);?>
+    if ($arElements != false) {
+        $countNumber = count($arElements);
+    } else {
+        $countNumber = 0;
+    }
+    $APPLICATION->AddViewContent('counter', $countNumber); ?>
     <div class="search-head-block-title">
-        <?if(empty($arElements) && empty($_GET['q'])) {?>
-        <div class="search-title-text"><?= GetMessage('CT_BCSE_SEARCH');?></div>
+        <? if (empty($arElements) && empty($_GET['q'])) { ?>
+            <div class="search-title-text">
+                <?= GetMessage('CT_BCSE_NOT_FOUND', ["#NAME#" => $_GET['q']]); ?>
+            </div>
         <? } elseif (!empty($arElements) && is_array($arElements)) { ?>
-            
+            <div class="search-title-text">
+                <?= GetMessage('CT_BCSE_FOUND', ["#NAME#" => $_GET['q']]); ?>
+            </div>
         <? } elseif (is_array($arElements) && count($arElements) == 0 && !empty($_GET['q'])) { ?>
             <div class="search-title-text">
-                <div class="search-title-text">
-                    <?= GetMessage('CT_BCSE_NOT_FOUND');?>«<?=  $_GET['q']?>»
-                </div>
+                <?= GetMessage('CT_BCSE_NOT_FOUND', ["#NAME#" => $_GET['q']]); ?>
             </div>
         <? } ?>
     </div>
 </div>
 <div class="search-section row">
-<?
-if (!empty($arElements) && is_array($arElements) && count($arElements) >= 1) {
-    global $searchFilter;
-    $searchFilter = array(
-        "=ID" => $arElements,
-    );
-    $APPLICATION->IncludeComponent(
-        "bitrix:catalog.section",
-        "addamant",
-        array(
-            "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-            "IBLOCK_ID" => $arParams["IBLOCK_ID"],
-            "ELEMENT_SORT_FIELD" => "ID",
-            "ELEMENT_SORT_ORDER" => array_values($arElements),
-            "ELEMENT_SORT_FIELD2" => $arParams["ELEMENT_SORT_FIELD2"],
-            "ELEMENT_SORT_ORDER2" => $arParams["ELEMENT_SORT_ORDER2"],
-            "PAGE_ELEMENT_COUNT" => $arParams["PAGE_ELEMENT_COUNT"],
-            "LINE_ELEMENT_COUNT" => $arParams["LINE_ELEMENT_COUNT"],
-            "PROPERTY_CODE" => $arParams["PROPERTY_CODE"],
-            "OFFERS_CART_PROPERTIES" => $arParams["OFFERS_CART_PROPERTIES"],
-            "OFFERS_FIELD_CODE" => $arParams["OFFERS_FIELD_CODE"],
-            'ENLARGE_PRODUCT' => 'STRICT',
-            'ENLARGE_PROP' => '',
-            "OFFERS_PROPERTY_CODE" =>  array (
-                0 => 'IZGIB',
-                1 => 'TOLSHCHINA',
-                2 => 'TSVET_UPAKOVKI',
-                3 => 'DLINA',
-                4 => 'TSVET',
-                5 => 'TOLSHCHINA_1',
-                6 => 'DLINA_1',
-                7 => 'RAZMER',
-                8 => 'AROMAT',
-                9 => 'IRGIB',
-                10 => 'TOLSHINA',
-                11 => '65',
-                12 => '',
-              ),
-            "OFFERS_SORT_FIELD" => $arParams["OFFERS_SORT_FIELD"],
-            "OFFERS_SORT_ORDER" => $arParams["OFFERS_SORT_ORDER"],
-            "OFFERS_SORT_FIELD2" => $arParams["OFFERS_SORT_FIELD2"],
-            "OFFERS_SORT_ORDER2" => $arParams["OFFERS_SORT_ORDER2"],
-            "OFFERS_LIMIT" => $arParams["OFFERS_LIMIT"],
-            "LIST_OFFERS_PROPERTY_CODE" => array(0=>"TOLSHCHINA",1=>"TSVET_UPAKOVKI",2=>"DLINA",3=>"TSVET",4=>"IZGIB",5=>"TOLSHCHINA_1",6=>"DLINA_1",7=>"IRGIB",8=>"TOLSHINA",9=>"65",10=>"",),
-            "MESS_BTN_ADD_TO_BASKET" => "Добавить в корзину",
-            "PRODUCT_BLOCKS_ORDER" => "price,quantity,quantityLimit,buttons,compare,props,sku",
+    <?
+    if (!empty($arElements) && is_array($arElements) && count($arElements) >= 1) {
+        global $searchFilter;
+        $searchFilter = array(
+            "=ID" => $arElements,
+        );
+        $APPLICATION->IncludeComponent(
+            "bitrix:catalog.section",
+            "addamant",
+            array(
+                "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+                "IBLOCK_ID" => $arParams["IBLOCK_ID"],
+                "ELEMENT_SORT_FIELD" => "ID",
+                "ELEMENT_SORT_ORDER" => array_values($arElements),
+                "ELEMENT_SORT_FIELD2" => $arParams["ELEMENT_SORT_FIELD2"],
+                "ELEMENT_SORT_ORDER2" => $arParams["ELEMENT_SORT_ORDER2"],
+                "PAGE_ELEMENT_COUNT" => $arParams["PAGE_ELEMENT_COUNT"],
+                "LINE_ELEMENT_COUNT" => $arParams["LINE_ELEMENT_COUNT"],
+                "PROPERTY_CODE" => $arParams["PROPERTY_CODE"],
+                "OFFERS_CART_PROPERTIES" => $arParams["OFFERS_CART_PROPERTIES"],
+                "OFFERS_FIELD_CODE" => $arParams["OFFERS_FIELD_CODE"],
+                'ENLARGE_PRODUCT' => 'STRICT',
+                'ENLARGE_PROP' => '',
+                "OFFERS_PROPERTY_CODE" =>  array(
+                    0 => 'IZGIB',
+                    1 => 'TOLSHCHINA',
+                    2 => 'TSVET_UPAKOVKI',
+                    3 => 'DLINA',
+                    4 => 'TSVET',
+                    5 => 'TOLSHCHINA_1',
+                    6 => 'DLINA_1',
+                    7 => 'RAZMER',
+                    8 => 'AROMAT',
+                    9 => 'IRGIB',
+                    10 => 'TOLSHINA',
+                    11 => '65',
+                    12 => '',
+                ),
+                "OFFERS_SORT_FIELD" => $arParams["OFFERS_SORT_FIELD"],
+                "OFFERS_SORT_ORDER" => $arParams["OFFERS_SORT_ORDER"],
+                "OFFERS_SORT_FIELD2" => $arParams["OFFERS_SORT_FIELD2"],
+                "OFFERS_SORT_ORDER2" => $arParams["OFFERS_SORT_ORDER2"],
+                "OFFERS_LIMIT" => $arParams["OFFERS_LIMIT"],
+                "LIST_OFFERS_PROPERTY_CODE" => array(0 => "TOLSHCHINA", 1 => "TSVET_UPAKOVKI", 2 => "DLINA", 3 => "TSVET", 4 => "IZGIB", 5 => "TOLSHCHINA_1", 6 => "DLINA_1", 7 => "IRGIB", 8 => "TOLSHINA", 9 => "65", 10 => "",),
+                "MESS_BTN_ADD_TO_BASKET" => "Добавить в корзину",
+                "PRODUCT_BLOCKS_ORDER" => "price,quantity,quantityLimit,buttons,compare,props,sku",
 
-            "LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false}]",
-            "LIST_PROPERTY_CODE" => array(
-                0 => "",
-                1 => "ICON",
-                2 => "",
-            ),            
-            "OFFERS_SORT_FIELD" => "shows",
-            "OFFERS_SORT_FIELD2" => "shows",
-            "OFFERS_SORT_ORDER" => "asc",
-            "OFFERS_SORT_ORDER2" => "asc",
-            "OFFER_ADD_PICT_PROP" => "-",
-            "PRODUCT_DISPLAY_MODE" => "Y",
-            'SHOW_SLIDER' => 'N',
-            'SLIDER_INTERVAL' => '3000',
-            'SLIDER_PROGRESS' => 'N',
-            'OFFER_ADD_PICT_PROP' => '-',
-            'OFFER_TREE_PROPS' => 
-            array (
-                0 => 'IZGIB',
-                1 => 'TOLSHCHINA',
-                2 => 'TSVET_UPAKOVKI',
-                3 => 'DLINA',
-                4 => 'TSVET',
-                5 => 'RAZMER',
-                6 => 'AROMAT',
+                "LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false}]",
+                "LIST_PROPERTY_CODE" => array(
+                    0 => "",
+                    1 => "ICON",
+                    2 => "",
+                ),
+                "OFFERS_SORT_FIELD" => "shows",
+                "OFFERS_SORT_FIELD2" => "shows",
+                "OFFERS_SORT_ORDER" => "asc",
+                "OFFERS_SORT_ORDER2" => "asc",
+                "OFFER_ADD_PICT_PROP" => "-",
+                "PRODUCT_DISPLAY_MODE" => "Y",
+                'SHOW_SLIDER' => 'N',
+                'SLIDER_INTERVAL' => '3000',
+                'SLIDER_PROGRESS' => 'N',
+                'OFFER_ADD_PICT_PROP' => '-',
+                'OFFER_TREE_PROPS' =>
+                array(
+                    0 => 'IZGIB',
+                    1 => 'TOLSHCHINA',
+                    2 => 'TSVET_UPAKOVKI',
+                    3 => 'DLINA',
+                    4 => 'TSVET',
+                    5 => 'RAZMER',
+                    6 => 'AROMAT',
+                ),
+                "SECTION_URL" => $arParams["SECTION_URL"],
+                "DETAIL_URL" => $arParams["DETAIL_URL"],
+                "BASKET_URL" => $arParams["BASKET_URL"],
+                "ACTION_VARIABLE" => $arParams["ACTION_VARIABLE"],
+                "PRODUCT_ID_VARIABLE" => $arParams["PRODUCT_ID_VARIABLE"],
+                "PRODUCT_QUANTITY_VARIABLE" => $arParams["PRODUCT_QUANTITY_VARIABLE"],
+                "PRODUCT_PROPS_VARIABLE" => $arParams["PRODUCT_PROPS_VARIABLE"],
+                "SECTION_ID_VARIABLE" => $arParams["SECTION_ID_VARIABLE"],
+                "CACHE_TYPE" => $arParams["CACHE_TYPE"],
+                "CACHE_TIME" => $arParams["CACHE_TIME"],
+                "DISPLAY_COMPARE" => $arParams["DISPLAY_COMPARE"],
+                "PRICE_CODE" => $arParams["PRICE_CODE"],
+                "USE_PRICE_COUNT" => $arParams["USE_PRICE_COUNT"],
+                "SHOW_PRICE_COUNT" => $arParams["SHOW_PRICE_COUNT"],
+                "PRICE_VAT_INCLUDE" => $arParams["PRICE_VAT_INCLUDE"],
+                "PRODUCT_PROPERTIES" => $arParams["PRODUCT_PROPERTIES"],
+                "USE_PRODUCT_QUANTITY" => $arParams["USE_PRODUCT_QUANTITY"],
+                "CONVERT_CURRENCY" => $arParams["CONVERT_CURRENCY"],
+                "CURRENCY_ID" => $arParams["CURRENCY_ID"],
+                "HIDE_NOT_AVAILABLE" => 'L',
+                "MESS_NOT_AVAILABLE" => 'Товар отсутствует на складе',
+                "HIDE_NOT_AVAILABLE_OFFERS" => 'L',
+                "DISPLAY_TOP_PAGER" => $arParams["DISPLAY_TOP_PAGER"],
+                "DISPLAY_BOTTOM_PAGER" => $arParams["DISPLAY_BOTTOM_PAGER"],
+                "PAGER_TITLE" => $arParams["PAGER_TITLE"],
+                "PAGER_SHOW_ALWAYS" => $arParams["PAGER_SHOW_ALWAYS"],
+                "PAGER_TEMPLATE" => 'catalog_section_new',
+                "PAGER_DESC_NUMBERING" => $arParams["PAGER_DESC_NUMBERING"],
+                "PAGER_DESC_NUMBERING_CACHE_TIME" => $arParams["PAGER_DESC_NUMBERING_CACHE_TIME"],
+                "PAGER_SHOW_ALL" =>  "N",
+                "FILTER_NAME" => "searchFilter",
+                "SECTION_ID" => "",
+                "SECTION_CODE" => "",
+                "SECTION_USER_FIELDS" => array(),
+                "INCLUDE_SUBSECTIONS" => "Y",
+                "SHOW_ALL_WO_SECTION" => "Y",
+                "META_KEYWORDS" => "",
+                "META_DESCRIPTION" => "",
+                "BROWSER_TITLE" => "",
+                "ADD_SECTIONS_CHAIN" => "N",
+                "SET_TITLE" => "N",
+                "SET_STATUS_404" => "N",
+                "CACHE_FILTER" => "N",
+                "CACHE_GROUPS" => "N",
+                "LAZY_LOAD" => "N",
+                "SHOW_OLD_PRICE" => "Y",
+                "LABEL_PROP" => array(
+                    0 => "SALE_RESNITSY",
+                    1 => "AKTSIONNYY"
+                ),
+                "LABEL_PROP_MOBILE" => array(
+                    0 => "SALE_RESNITSY",
+                    1 => "AKTSIONNYY"
+                ),
+                "MESS_BTN_LAZY_LOAD" => "показать ещё"
             ),
-            "SECTION_URL" => $arParams["SECTION_URL"],
-            "DETAIL_URL" => $arParams["DETAIL_URL"],
-            "BASKET_URL" => $arParams["BASKET_URL"],
-            "ACTION_VARIABLE" => $arParams["ACTION_VARIABLE"],
-            "PRODUCT_ID_VARIABLE" => $arParams["PRODUCT_ID_VARIABLE"],
-            "PRODUCT_QUANTITY_VARIABLE" => $arParams["PRODUCT_QUANTITY_VARIABLE"],
-            "PRODUCT_PROPS_VARIABLE" => $arParams["PRODUCT_PROPS_VARIABLE"],
-            "SECTION_ID_VARIABLE" => $arParams["SECTION_ID_VARIABLE"],
-            "CACHE_TYPE" => $arParams["CACHE_TYPE"],
-            "CACHE_TIME" => $arParams["CACHE_TIME"],
-            "DISPLAY_COMPARE" => $arParams["DISPLAY_COMPARE"],
-            "PRICE_CODE" => $arParams["PRICE_CODE"],
-            "USE_PRICE_COUNT" => $arParams["USE_PRICE_COUNT"],
-            "SHOW_PRICE_COUNT" => $arParams["SHOW_PRICE_COUNT"],
-            "PRICE_VAT_INCLUDE" => $arParams["PRICE_VAT_INCLUDE"],
-            "PRODUCT_PROPERTIES" => $arParams["PRODUCT_PROPERTIES"],
-            "USE_PRODUCT_QUANTITY" => $arParams["USE_PRODUCT_QUANTITY"],
-            "CONVERT_CURRENCY" => $arParams["CONVERT_CURRENCY"],
-            "CURRENCY_ID" => $arParams["CURRENCY_ID"],
-            "HIDE_NOT_AVAILABLE" => 'L',
-            "MESS_NOT_AVAILABLE" => 'Товар отсутствует на складе',
-            "HIDE_NOT_AVAILABLE_OFFERS" => 'L',
-            "DISPLAY_TOP_PAGER" => $arParams["DISPLAY_TOP_PAGER"],
-            "DISPLAY_BOTTOM_PAGER" => $arParams["DISPLAY_BOTTOM_PAGER"],
-            "PAGER_TITLE" => $arParams["PAGER_TITLE"],
-            "PAGER_SHOW_ALWAYS" => $arParams["PAGER_SHOW_ALWAYS"],
-            "PAGER_TEMPLATE" => 'catalog_section_new',
-            "PAGER_DESC_NUMBERING" => $arParams["PAGER_DESC_NUMBERING"],
-            "PAGER_DESC_NUMBERING_CACHE_TIME" => $arParams["PAGER_DESC_NUMBERING_CACHE_TIME"],
-            "PAGER_SHOW_ALL" =>  "N",
-            "FILTER_NAME" => "searchFilter",
-            "SECTION_ID" => "",
-            "SECTION_CODE" => "",
-            "SECTION_USER_FIELDS" => array(),
-            "INCLUDE_SUBSECTIONS" => "Y",
-            "SHOW_ALL_WO_SECTION" => "Y",
-            "META_KEYWORDS" => "",
-            "META_DESCRIPTION" => "",
-            "BROWSER_TITLE" => "",
-            "ADD_SECTIONS_CHAIN" => "N",
-            "SET_TITLE" => "N",
-            "SET_STATUS_404" => "N",
-            "CACHE_FILTER" => "N",
-            "CACHE_GROUPS" => "N",
-            "LAZY_LOAD" => "N",
-            "SHOW_OLD_PRICE" => "Y",
-            "LABEL_PROP" => array(
-                0 => "SALE_RESNITSY",
-                1 => "AKTSIONNYY"
-            ),
-            "LABEL_PROP_MOBILE" => array(
-                0 => "SALE_RESNITSY",
-                1 => "AKTSIONNYY"
-            ),
-            "MESS_BTN_LAZY_LOAD" => "показать ещё"
-        ),
-        $arResult["THEME_COMPONENT"],
-        array('HIDE_ICONS' => 'Y')
-    );
-} elseif (is_array($arElements) && count($arElements) === 0) {
+            $arResult["THEME_COMPONENT"],
+            array('HIDE_ICONS' => 'Y')
+        );
+    } elseif (is_array($arElements) && count($arElements) === 0) {
     ?>
-    </div>
-        <div class="row">
-            <div class="search-catalog-top-title">Популярные запросы</div>
-            <? $APPLICATION->IncludeComponent(
-            "bitrix:catalog.top", 
-            "search", 
+</div>
+<div class="row">
+    <div class="search-catalog-top-title">Популярные запросы</div>
+    <? $APPLICATION->IncludeComponent(
+            "bitrix:catalog.top",
+            "search",
             array(
                 "ACTION_VARIABLE" => "action",
                 "ADD_PICT_PROP" => "MORE_PHOTO",
@@ -252,8 +250,7 @@ if (!empty($arElements) && is_array($arElements) && count($arElements) >= 1) {
                 "MESS_BTN_DETAIL" => "Подробнее",
                 "MESS_NOT_AVAILABLE" => "Нет в наличии",
                 "MESS_SHOW_MAX_QUANTITY" => "Наличие",
-                "OFFERS_CART_PROPERTIES" => array(
-                ),
+                "OFFERS_CART_PROPERTIES" => array(),
                 "OFFERS_FIELD_CODE" => array(
                     0 => "",
                     1 => "",
@@ -287,8 +284,7 @@ if (!empty($arElements) && is_array($arElements) && count($arElements) >= 1) {
                 "PRODUCT_BLOCKS_ORDER" => "price,quantity,buttons,props,sku,quantityLimit",
                 "PRODUCT_DISPLAY_MODE" => "Y",
                 "PRODUCT_ID_VARIABLE" => "id",
-                "PRODUCT_PROPERTIES" => array(
-                ),
+                "PRODUCT_PROPERTIES" => array(),
                 "PRODUCT_PROPS_VARIABLE" => "prop",
                 "PRODUCT_QUANTITY_VARIABLE" => "quantity",
                 "PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false}]",
@@ -297,8 +293,7 @@ if (!empty($arElements) && is_array($arElements) && count($arElements) >= 1) {
                     0 => "",
                     1 => "",
                 ),
-                "PROPERTY_CODE_MOBILE" => array(
-                ),
+                "PROPERTY_CODE_MOBILE" => array(),
                 "ROTATE_TIMER" => "30",
                 "SECTION_URL" => "",
                 "SEF_MODE" => "N",
@@ -318,9 +313,7 @@ if (!empty($arElements) && is_array($arElements) && count($arElements) >= 1) {
                 "VIEW_MODE" => "SECTION"
             ),
             false
-            ); ?> 
-        </div>
-    </div>
+        ); ?>
+</div>
+</div>
 <? } ?>
-
-

@@ -1,0 +1,14 @@
+.footer-menu-list-store a{
+    display: block;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 20px;
+    margin-bottom: 16px;
+}
+@media screen and (max-width: 1024px) {
+    .footer-menu-list-store a{
+        font-size: 14px;
+        line-height: 16px;
+        margin-bottom: 13px; 
+    }
+}

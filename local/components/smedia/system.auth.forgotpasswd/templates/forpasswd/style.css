@@ -1,0 +1,71 @@
+input[type="text"].forpass-input {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #e8e8e8;
+    margin: 0;
+    padding: 14px 0 5px;
+    letter-spacing: 0;
+    margin-bottom: 30px;
+    font-weight: 400;
+    font-size: 12px;
+}
+#forgot {
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-bottom: 60px;
+    padding-top: 0;
+    color: #000;
+}
+#forgot .btnForpasswd:active,
+#forgot .btnForpasswd:focus{
+    outline: none!important;
+}
+#forgot .btnForpasswd:hover{
+    background: #F0D7DC;
+    border: 1px solid #F0D7DC;
+}
+#forgot .btnForpasswd:active{
+    background: #EBC9D1;
+    border: 1px solid #EBC9D1;
+    box-shadow: none;
+}
+#forgot .btnForpasswd {
+    margin-top: 0;
+}
+#forgot .h2 {
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: bold;
+    text-align: left;
+    text-transform: unset;
+    margin: 60px 0 15px;
+}
+#forgot #btnForpasswd label {
+    text-align: left;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 0;
+    line-height: 16px;
+    color: #A9A9A9;
+}
+.bx-authform-text-forgot{
+    font-size: 12px;
+    line-height: 16px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+@media screen and (max-width: 768px){
+    input[type="text"].forpass-input {
+        font-size: 10px;
+        margin-bottom: 10px !important;
+    }
+     #forgot .h2 {
+        margin: 30px 0 20px 0;
+    }
+    #forgot {
+        margin: 0 15px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+    }
+}

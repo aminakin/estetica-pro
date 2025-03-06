@@ -1,0 +1,31 @@
+<?
+$MESS['logout'] = 'Выйти';
+$MESS['login'] = 'Войти';
+$MESS['ACCOUNT'] = 'Аккаунт';
+$MESS['REGISTRATION'] = 'Зарегистрироваться';
+$MESS["AUTH_BONUS"] = "<a href=\"/bonus-system/\">Информация о бонусной системе</a>";
+$MESS['LOGIN_USER'] = 'Вход';
+$MESS['FAVORITES'] = 'Избранное';
+$MESS['SEARCH'] = 'Поиск';
+$MESS['PALITRA'] = 'Палитры гель-лаков';
+$MESS['LEARNING'] = 'Обучение';
+$MESS['WATCHCOURSE'] = 'смотреть 25 курсов';
+$MESS['LEARNING_TIMETABLE'] = 'Расписание курсов';
+$MESS['CATALOG'] = 'Каталог';
+$MESS['PRODUCTS'] = 'Товары';
+$MESS['POPULAR_BRAND'] = 'Популярные бренды';
+$MESS['BRAND'] = 'Каталог по брендам';
+$MESS['FORGOT'] = 'Забыли пароль?';
+$MESS['HEADER_DESC'] = 'Профессиональные материалы для&nbsp;маникюра и наращивания ресниц';
+$MESS['NEW'] = 'NEW';
+$MESS['COOKIE_DESCRIPTION'] = 'Используя данный сайт, вы даете согласие на использование <u>файлов cookie</u>, помогающих нам сделать его удобнее для вас.';
+$MESS['COURSENAILS'] = 'Курсы маникюра';
+$MESS['WATCH_TIMETABLE'] = 'смотреть расписание';
+$MESS['COURSELASHES'] = 'Курсы наращива-ния ресниц';
+$MESS['WATCHING_TIMETABLE'] = 'Расписание курсов';
+$MESS["SBB_BASKET_DEVILERY_INFO"] = 'Сроки и стоимость доставки';
+$MESS["SBB_BASKET_BONUS_INFO"] = 'Информация о бонусной системе';
+$MESS['NEED_REGISTRATION'] = 'Еще нет аккаунта? <span>Зарегистрироваться</span>';
+$MESS['NEED_login'] = 'Уже есть аккаунт? <span>Войти</span>';
+$MESS['TO_CATALOG'] = 'Перейти к покупкам';
+?>

@@ -1,0 +1,141 @@
+.reviews-list{
+	margin-bottom: 102px;
+}
+.reviews-list-slide{
+	padding: 0 32px;
+	margin-bottom: 48px;
+}
+.reviews-list-slide .slick-slider .slick-track{
+	display: flex;
+	align-items: stretch;
+}
+.review-item{
+	border: 1px solid #999999;
+	border-radius: 18px;
+	margin: 0 12px;
+	padding: 32px;
+}
+.review-img{
+	margin-bottom: 22px;
+	overflow: hidden;
+	border-radius: 60px;
+	width: 62px;
+	height: 62px;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: none;
+}
+.review-name,
+.review-text{
+	font-size: 18px;
+	line-height: 20px;
+}
+.review-text{
+	font-weight: 300;
+}
+.review-name{
+	font-weight: 500;
+	text-transform: uppercase;
+	margin-bottom: 16px;
+}
+.review-text_wrap .less-more,
+.review-text_wrap .read-more{
+	font-size: 18px;
+	line-height: 21px;
+	color: #999999;
+	cursor: pointer;
+	margin-top: 12px;
+	display: block;
+}
+.review-text_wrap .less-more{
+	margin-top: 10px;
+}
+.review-text_wrap .less-more,
+.review-text_wrap.active .read-more,
+.review-text-full{
+	display: none;
+}
+.review-text_wrap.active .less-more{
+	display: block;
+}
+.reviews-list .slick-arrow{
+	padding: 0;
+	top: 100px;
+	cursor: pointer;
+}
+.reviews-list .slick-arrow.slick-disabled{
+	opacity: 0.5;
+}
+.reviews-list .slick-next{
+	right: -5px;
+}
+.reviews-list .slick-prev{
+	left: -5px;
+}
+.reviews-list-title{
+	font-family: 'TenorSans';
+    font-size: 40px;
+    line-height: 48px;
+    margin-bottom: 32px;
+	text-transform: uppercase;
+}
+.reviews-list-slide:not(.slick-slider){
+    display: flex;
+}
+.courses-page .reviews-list{
+	padding: 74px 0;
+	border-bottom: 1px solid #C4C4C4;
+	border-top: 1px solid #C4C4C4;
+	margin: 74px 0;
+}
+@media screen and (max-width: 1024px) {
+	.reviews-list{
+		margin-bottom: 64px;
+	}
+	.courses-page .reviews-list{
+		padding: 64px 0;
+		margin: 64px 0;
+	}
+}
+@media screen and (max-width: 850px) {
+	.reviews-list-title{
+		font-size: 24px;
+		line-height: 28px;
+		margin-bottom: 32px;
+	}
+}
+@media screen and (max-width: 768px) {
+	.review-item{
+		margin: 0 27px;
+		border-radius: 20px;
+	}
+	.reviews-list .slick-next{
+		right: 0px;
+	}
+	.reviews-list .slick-prev{
+		left: 0px;
+	}
+	.review-text_wrap .less-more,
+	.review-text_wrap .read-more{
+		font-size: 14px;
+		line-height: 16px;
+		margin-top: 12px;
+	}
+	.review-name{
+		font-size: 16px;
+		line-height: 19px;
+		margin-bottom: 12px;
+	}
+	.review-text{
+		font-size: 14px;
+		line-height: 16px;
+	}
+	.review-img{
+		width: 39px;
+		height: 39px;
+	}
+	.reviews-list-slide{
+		padding: 0;
+	}
+}

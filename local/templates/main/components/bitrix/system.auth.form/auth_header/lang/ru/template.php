@@ -1,0 +1,35 @@
+<?
+$MESS["AUTH_LOGIN_BUTTON"] = "Войти";
+$MESS["AUTH_LOGIN"] = "Телефон или email*";
+$MESS["AUTH_PASSWORD"] = "Пароль*";
+$MESS["AUTH_REMEMBER_ME"] = "Запомнить меня";
+$MESS["AUTH_FORGOT_PASSWORD_2"] = "Забыли пароль?";
+$MESS["AUTH_REGISTER"] = "Регистрация";
+$MESS["AUTH_LOGOUT_BUTTON"] = "Выйти";
+$MESS["AUTH_PROFILE"] = "Мой профиль";
+$MESS["AUTH_A_INTERNAL"] = "Встроенная авторизация";
+$MESS["AUTH_A_OPENID"] = "OpenID";
+$MESS["AUTH_OPENID"] = "OpenID";
+$MESS["AUTH_A_LIVEID"] = "LiveID";
+$MESS["AUTH_LIVEID_LOGIN"] = "Log In";
+$MESS["AUTH_CAPTCHA_PROMT"] = "Введите слово на картинке";
+$MESS["AUTH_REMEMBER_SHORT"] = "Запомнить меня";
+$MESS["socserv_as_user_form"] = "Войти как пользователь:";
+$MESS["AUTH_SECURE_NOTE"]="Перед отправкой формы авторизации пароль будет зашифрован в браузере. Это позволит избежать передачи пароля в открытом виде.";
+$MESS["AUTH_NONSECURE_NOTE"]="Пароль будет отправлен в открытом виде. Включите JavaScript в браузере, чтобы зашифровать пароль перед отправкой.";
+$MESS["auth_form_comp_otp"] = "Одноразовый пароль:";
+$MESS["auth_form_comp_otp_remember_title"] = "Запомнить код на этом компьютере";
+$MESS["auth_form_comp_otp_remember"] = "Запомнить код";
+$MESS["auth_form_comp_auth"] = "Авторизация";
+$MESS["ERROR_MESSAGE"] = "Пользователь не найден или неверно введен пароль";
+$MESS['ERROR_UNDEFINED_EVENT'] = "При попытке сохранения данных произошла ошибка!";
+$MESS['ERROR_BIRTHDAY_FORMAT'] = "Неверный формат поля 'День рождения'";
+$MESS['ERROR_EMPTY_FIELD'] = "Поле не заполнено";
+$MESS['ERROR_EMAIL_FORMAT'] = "Неверный формат поля 'E-mail'";
+$MESS['ERROR_PERSONAL_PHONE_FORMAT'] = "Неверный формат поля 'Телефон'";
+$MESS['ERROR_PASS_LENGTH'] = "От 6 символов";
+$MESS['ERROR_PASS_INVALID'] = "Неверный пароль";
+$MESS['ERROR_USER_NOT_FOUND'] = "Пользователь не найден";
+$MESS['ERROR_PASS_NOT_EQ'] = "Пароли не совпадают";
+$MESS['ERROR_PASS_NOT_SAVE'] = "Ошибка при смене пароля";
+?>

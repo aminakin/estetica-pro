@@ -1,0 +1,118 @@
+.personal-list{
+	margin-bottom: 102px;
+}
+.personal-list-title{
+	font-size: 46px;
+	line-height: 54px;
+	text-transform: uppercase;
+	margin: 0 auto 54px;
+}
+.personal-item_image{
+	position: relative;
+	max-width: 298px;
+	max-height: 298px;
+	text-align: center;
+	border-radius: 50%;
+	margin: 0 auto 32px;
+}
+.personal-item_image img {
+	border-radius: 50%;
+}
+.personal-section-title{
+	font-size: 32px;
+	line-height: 38px;
+	text-transform: uppercase;
+	margin-bottom: 54px;
+	color: #DA8494;
+}
+.personal-item{
+	text-align: center;
+}
+.personal-items_wrap .slick-slider{
+	margin-bottom: 54px;
+}
+.personal-items_wrap .slick-slider:last-child{
+	margin-bottom: 0px;
+}
+.personal-items_wrap .slick-arrow{
+	padding: 0;
+	cursor: pointer;
+	top: 158px;
+}
+.personal-items_wrap .slick-arrow.slick-disabled{
+	opacity: 0.5;
+}
+.personal-items_wrap.slick-next{
+	right: -10px;
+}
+.personal-items_wrap.slick-prev{
+	left: -10px;
+}
+.personal-item_name{
+	font-size: 24px;
+	line-height: 28px;
+	font-weight: 500;
+	text-transform: uppercase;
+	margin-bottom: 12px;
+}
+.personal-item_text{
+	font-size: 20px;
+	line-height: 23px;
+	text-align: center;
+	max-width: 150px;
+	margin: 0 auto;
+}
+.personal-items_wrap>div:not(.slick-slider){
+    display: flex;
+}
+.personal-items_wrap>div.personal-section-title{
+	display: block;
+}
+@media screen and (max-width: 850px) {
+	.personal-list{
+		margin-bottom: 64px;
+	}
+	.personal-list-title{
+		font-size: 24px;
+		line-height: 28px;
+		margin: 0 auto 22px;
+		text-align: center;
+	}
+	.courses-page .personal-list-title{
+		text-align: left;
+	}
+	.personal-section-title{
+		font-size: 18px;
+		text-align: center;
+		line-height: 21px;
+		text-transform: uppercase;
+		margin-bottom: 32px;
+	}
+	.personal-item_image{
+		max-width: 206px;
+		max-height: 206px;
+		margin-bottom: 22px;
+	}
+	.personal-items_wrap .slick-arrow{
+		top: 107px;
+	}
+	.personal-items_wrap .slick-slider{
+		margin-bottom: 32px;
+	}
+	.personal-items_wrap .slick-next{
+		right: 0px;
+	}
+	.personal-items_wrap .slick-prev{
+		left: 0px;
+	}
+	.personal-item_name{
+		font-size: 16px;
+		line-height: 19px;
+		margin-bottom: 6px;
+	}
+	.personal-item_text{
+		font-size: 14px;
+		line-height: 16px;
+		max-width: 100px;
+	}
+}

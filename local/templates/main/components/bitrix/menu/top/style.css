@@ -1,0 +1,56 @@
+.top_menu ul{
+    display: flex;
+}
+.top_menu ul li{
+    padding-right: 32px;
+}
+.top_menu ul li:last-child{
+    padding-right: 0;
+}
+.top_menu a{
+    font-size: 14px;
+    line-height: 16px;
+    color: #FFFFFF;
+}
+.top_menu a:hover{
+    color: #DA8494;
+}
+.header-mobile-menu .top_menu li:first-child a{
+    padding-top: 0;
+}
+.header-mobile-menu .top_menu a{
+    color: #221F20;
+    text-decoration: none;
+    padding-top: 20px;
+    display: inline-block;
+}
+.header-mobile-menu .top_menu ul{
+    display: block;
+}
+.header-mobile-menu .top_menu{
+    margin-top: 16px;
+}
+.header-mobile-menu .top_menu ul li{
+    padding-right: 0;
+}
+.header-mobile-menu .top_menu li a[href="/about-courses/"]{
+    display: flex;
+    align-items: center;
+    padding:  0px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    width: 100%;
+    border: 1px solid #DADADA;
+    border-radius: 10px ;
+}
+.header-mobile-menu .top_menu li a[href="/about-courses/"]:before{
+    content: "";
+    display: block;
+    background-image: url('https://test.estetica-pro.ru/local/templates/main/images/mobile-menu/learn.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 127px;
+    height: 68px;
+    margin-right: 24px;
+}

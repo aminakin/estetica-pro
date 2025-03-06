@@ -1,0 +1,118 @@
+.courses-present{
+	border-bottom: 1px solid #C4C4C4;
+	padding-bottom: 74px;
+	margin-bottom: 74px;
+}
+.courses-present-list{
+	display: flex;
+	justify-content: space-between;
+}
+.present-item{
+	box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.10);
+	border-radius: 30px;
+	padding: 30px 34px;
+	width: 32%;
+	margin-right: 2%;
+}
+.present-item:last-child{
+	margin-right: 0%;
+}
+.present-img{
+	margin-bottom: 36px;
+	overflow: hidden;
+	width: 57px;
+	height: 57px;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.present-text{
+	font-size: 18px;
+	line-height: 21px;
+	letter-spacing: 0.03em
+}
+.present-text span{
+	color: rgba(152, 152, 152, 1);
+}
+.courses-present-list-title{
+	font-size: 46px;
+	line-height: 54px;
+	text-transform: uppercase;
+	margin: 0 auto 54px;
+}
+.courses-present .write_buttom{
+	text-align: center;
+    font-size: 18px;
+    line-height: 58px;
+    border-radius: 50px;
+    display: inline-block;
+    max-width: 254px;
+    width: 100%;
+    background-color: var(--btn-color);
+    margin-top: 54px;
+    cursor: pointer;
+}
+.courses-present .write_buttom:hover{
+	background-color: var(--btn-color-hover);
+}
+@media screen and (max-width: 1024px) {
+	.courses-present{
+		padding-bottom: 56px;
+		margin-bottom: 56px;
+	}
+	.present-item{
+		width: 48.5%;
+		padding: 20px;
+		margin-bottom: 20px;
+		margin-right: 3%;
+		display: flex;
+	}
+	.present-img{
+		margin-bottom: 0;
+		min-width: 57px;
+		margin-right: 15px;
+	}
+	.present-item:nth-child(even){
+		margin-right: 0%;
+	}
+	.present-item:last-child{
+		margin-bottom: 0;
+	}
+	.courses-present-list{
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}
+@media screen and (max-width: 850px) {
+	.courses-present .write_buttom{
+		margin-top: 32px;
+    	line-height: 42px;
+    	max-width: 170px;
+    	font-size: 14px;
+	}
+	.courses-present-list-title{
+		font-size: 24px;
+    	line-height: 28px;
+    	max-width: 220px;
+    	margin-bottom: 32px;
+    	margin-left: 0;
+	}
+	.present-item{
+		border-radius: 20px;
+		width: 100%;
+		padding: 20px;
+		margin-right: 0;
+	}
+}
+@media screen and (max-width: 768px) {
+	.present-text{
+		font-size: 14px;
+		line-height: 16px;
+	}
+	.present-img{
+		min-width: 40px;
+		width: 40px;
+		height: 40px;
+		background-size: contain;
+	}
+}

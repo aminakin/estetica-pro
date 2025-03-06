@@ -1,0 +1,116 @@
+.carousel-wrapper{
+    overflow: hidden;
+    max-height: 564px;
+}
+#myCarousel .slick-list{
+    border-radius: 18px 18px 0 0;
+}
+#myCarousel .slick-arrow{
+    position: absolute;
+    top: 50%;
+    margin-top: -55px;
+    width: 48px;
+    height: 48px;
+    font-size: 0;
+    background: #E9E9ED !important;
+}
+#myCarousel .slick-prev.slick-arrow{
+	left: 20px;
+	background:url(image/left.svg)no-repeat center center;
+}
+#myCarousel .slick-next.slick-arrow{
+	right: 20px;
+	background:url(image/right.svg)no-repeat center center;
+}
+#myCarousel .slick-track .item a:focus{
+    border: none;
+    outline: none;
+}
+#myCarousel .slick-dots {
+    position: absolute;
+    margin: 0 auto;
+    bottom: 40px;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    gap: 22px;
+    width: 100%;
+}
+#myCarousel .slick-dots li {
+    padding: 0;
+    border: solid 1px #FFFFFF;
+    height: 12px;
+    width: 12px;
+    border-radius: 12px;
+    cursor:pointer;
+    transition: background .3s ease 0.3s;
+}
+#myCarousel .slick-dots li.slick-active {
+    padding: 0;
+    border: solid 1px #FFFFFF;
+    background: #FFFFFF;
+}
+#myCarousel .slick-dots li button{
+    display: none;
+}
+
+.slider .item .desktop-img{
+    height: 469px;
+    background-color: grey;
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+@media screen and (max-width: 1400px){
+    .slider .item .desktop-img{
+        height: 400px;
+    }
+}
+@media screen and (max-width: 1024px){
+    .slider .item .desktop-img{
+        height: 350px;
+    }
+    .carousel-wrapper{
+        margin-bottom: 23px;
+        overflow: hidden;
+        max-height: 374px;
+    }
+    #myCarousel .slick-dots {
+        position: relative;
+        margin: 0 auto;
+        margin-top: 16px;
+        display: flex;
+        justify-content: center;
+        z-index: 1;
+        gap: 11px;
+        bottom: auto;
+    }
+    #myCarousel .slick-dots li {
+        padding: 0;
+        border: solid 1px #DADADA;
+        height: 8px;
+        width: 8px;
+        border-radius: 8px;
+        cursor:pointer;
+        transition: background .3s ease 0.3s;
+    }
+    #myCarousel .slick-dots li.slick-active {
+        padding: 0;
+        border: solid 1px #DA8494;
+        background: #DA8494;
+    }
+}
+@media screen and (max-width: 768px){
+    .slider .item .desktop-img{
+        height: 166px; /*226px*/
+    }
+    .carousel-wrapper{
+        overflow: hidden;
+        max-height: 250px;
+    }
+    #myCarousel .slick-arrow{
+        display: none!important;
+    }
+}
+

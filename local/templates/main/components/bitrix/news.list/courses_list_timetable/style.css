@@ -1,0 +1,145 @@
+div.news-list
+{
+	word-wrap: break-word;
+}
+div.news-list img.preview_picture
+{
+	float:left;
+	margin:0 4px 6px 0;
+}
+.news-date-time {
+	color:#486DAA;
+}
+.cources-blocks-list{
+	margin: 0 auto;
+	max-width: 900px;
+}
+.cources-blocks-list.timetable{
+	max-width: 100%;
+}
+.courses-list-name{
+	display: none;
+}
+.datecaption{
+	line-height: 1;
+	margin-top: 25px;
+	position: static;
+	bottom: auto;
+	min-height: 15px;
+}
+.courses-block__slider {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+.cources-blocks-list.timetable .cources-prev-list-bg{
+	display: block;
+}
+.cources-prev-list-bg img{
+	max-width: 690px;
+	width: 100%;
+}
+.courses-list-preview a.btn{
+    font-family: 'Circe', 'Open Sans', sans-serif;
+    letter-spacing: -0.4px;
+    font-size: 16px;
+    min-width: 208px;
+    padding: 13px;
+    border-radius: 3px;
+    background: transparent;
+    border: 1px solid #ff7b92;
+    transition: all .3s ease .1s;
+    margin-top: 20px;
+    color: #ff7b92;
+    margin: 0 auto;
+    display: block;
+    max-width: 230px;
+}
+.courses-list-preview a.btn:active {
+    color: #fff;
+    text-decoration: none;
+}
+.courses-list-preview a.btn:active{
+	color: #fff!important;
+}
+.courses-list-preview a.btn:hover {
+	background: #ff7b92;
+    color: #fff;
+    border-color: #ff7b92;
+}
+.cources-list-price {
+    font-size: 22px;
+    margin: 20px 0;
+    color: #ff7b92;
+    line-height: 1;
+    font-weight: 600;
+}
+.cources-list-element{
+	margin-bottom: 100px;
+}
+.catalog-section-list{
+	margin-bottom: 70px;
+}
+.catalog-section-list ul, .catalog-section-list ul li{
+	padding: 0;
+	margin: 0;
+}
+.catalog-section-list ul li a{
+	float: left;
+  	font-size: 20px;
+  	color: rgb( 76, 76, 76 );
+  	text-decoration: none;
+  	margin-right: 45px;
+}
+.catalog-section-list ul li a:hover{
+	color: #ff7b92;
+}
+.cources-list-element-wrap{
+	max-width: 380px;
+	margin: 0 auto;
+}
+.cources-list-element-wrap.timetable{
+	max-width: 100%;
+	margin: 0 auto;
+}
+.course-link.active a{
+	color: #ff7b92;
+}
+.cources-blocks-list.timetable .phone_courses{
+	clear: both;
+	padding-left: 0!important;
+	font-size: 18px;
+	line-height: 18px;
+}
+.cources-blocks-list.timetable .phone_courses a{
+	padding-left: 10px;
+	font-weight: 600;
+	text-decoration: none;
+}
+.cources-blocks-list.timetable .phone_courses a i{
+	padding-right: 5px;
+	display: none;
+}
+
+@media screen and (max-width: 991px) {
+	.courses-block__slider {
+		justify-content: center;
+	}
+}
+@media screen and (max-width: 768px){
+	.cources-list-element{
+		margin-bottom: 30px;
+		min-height: auto!important;
+	}
+	.datecaption{
+		text-align: center;
+		margin-top: 0px;
+	}
+	.cources-blocks-list.timetable .phone_courses{
+		clear: both;
+		padding: 0!important;
+		font-size: 14px;
+		line-height: 14px;
+		text-align: center;
+	}
+}

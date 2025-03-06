@@ -1,0 +1,134 @@
+.catalog-section-main {
+    /*width: calc(100% + 186px);
+    margin-left: -93px;*/
+    margin-bottom: 30px;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.catalog-section-main .slick-arrow {
+    margin-top: -11px;
+    padding: 0px;
+}
+
+.catalog-section-main .slick-prev {
+    left: -40px;
+}
+
+.catalog-section-main .slick-next {
+    right: -40px;
+}
+
+.product-list-title {
+    font-family: 'TenorSans';
+    font-size: 40px;
+    line-height: 48px;
+    text-transform: uppercase;
+    margin: 0 auto 32px;
+    display: flex;
+    align-items: center;
+}
+
+.product-list-title svg{
+    margin-left: 24px;
+}
+
+.product-list-title a,
+.product-list-title span {
+    display: block;
+}
+
+.product-list-title a {
+    font-size: 20px;
+    line-height: 1;
+    margin-left: 20px;
+}
+
+.catalog-section-main:not(.slick-slider) {
+    display: flex;
+    overflow: hidden;
+}
+
+.catalog-section-main:not(.slick-slider) .product-item-wrapper {
+    width: 25%;
+    min-width: 25%;
+}
+
+.catalog-section-main .product-item-wrapper .product-item-container {
+    width: 100%;
+}
+
+.catalog-section-main .slick-arrow.slick-disabled {
+    opacity: 0.5;
+}
+
+.product-list-more {
+    margin-bottom: 80px;
+}
+
+.product-list-more a {
+    border-radius: 8px;
+    border: 1px solid #F781BF;
+    padding: 21px 36px;
+    line-height: 11px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    text-align: center;
+    text-transform: lowercase;
+}
+
+@media screen and (max-width: 1023px) {
+
+    .catalog-section-main:not(.slick-slider) {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .catalog-section-main {
+        margin-bottom: 0;
+    }
+
+    .catalog-section-main:not(.slick-slider) .product-item-wrapper {
+        width: 48%;
+        min-width: 48%;
+        margin-bottom: 32px;
+    }
+
+    .product-list-more {
+        margin-bottom: 64px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .catalog-section-main:not(.slick-slider) {
+        width: 100%;
+        margin-left: 0px;
+        padding: 0px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .catalog-section-main .product-item-wrapper .product-item-container {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .product-list-title {
+        font-size: 24px;
+        line-height: 28px;
+        margin-bottom: 32px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .product-list-title {
+        gap: 10px;
+        white-space: nowrap;
+    }
+
+    .catalog-section-main:not(.slick-slider) .product-item-wrapper {
+        width: 100% !important;
+    }
+}

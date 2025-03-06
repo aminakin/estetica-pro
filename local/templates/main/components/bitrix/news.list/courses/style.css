@@ -1,0 +1,107 @@
+.courses-full-list{
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+.course-item{
+	width: 30%;
+	padding: 54px 20px;
+	text-align: center;
+	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+	border-radius: 40px;	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 300px;
+	margin-right: 5%;
+	margin-bottom: 54px;
+}
+.course-item:nth-child(3n){
+	margin-right: 0%;
+}
+.course-name{
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 28px;
+	margin-bottom: 28px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.course-type{
+	font-size: 20px;
+	line-height: 23px;
+	text-align: center;
+	margin-bottom: 5px;
+	text-transform: uppercase;
+}
+.course-price {
+	margin-bottom: 25px;
+}
+.course-price span {
+	font-size: 32px;
+	line-height: 36px;
+	color: rgba(218, 132, 148, 1);
+}
+.course-link{
+	background: var(--btn-color);
+	border-radius: 50px;
+	line-height: 52px;
+	display: block;
+	max-width: 210px;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	font-weight: 500;
+	font-size: 18px;
+	text-decoration: none;
+	transition: 0.3s;
+}
+.course-link:hover{
+	background: var(--btn-color-hover);
+}
+.bx-pagination .input-page,
+.bx-pagination .begining,
+.bx-pagination .forward{
+	display: none!important;
+}
+@media screen and (max-width: 1200px) {
+	.course-item{
+		width: 47%
+	}
+	.course-item:nth-child(3n),
+	.course-item:nth-child(odd){
+		margin-right: 6%;
+	}
+	.course-item:nth-child(even){
+		margin-right: 0%;
+	}
+}
+@media screen and (max-width: 1024px) {
+	.courses-full-list{
+		margin-top: 10px;
+	}
+}
+@media screen and (max-width: 850px) {
+	.course-item{
+		width: 100%;
+		padding: 54px 40px;
+		min-height: 280px;
+		margin-bottom: 25px;
+	}
+	.course-item:last-child{
+		margin-bottom: 0;
+	}
+	.course-item:nth-child(3n),
+	.course-item:nth-child(odd){
+		margin-right: 0;
+	}
+	.course-name{
+		font-size: 18px;
+		line-height: 21px;
+	}
+	.course-type{
+		font-size: 14px;
+		line-height: 16px;
+		text-align: center;
+	}
+}

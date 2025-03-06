@@ -1,0 +1,153 @@
+.timetable-item{
+	display: flex;
+	align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #000000;
+    padding: 45px 0;
+}
+/*.timetable-item:nth-child(1){
+	border-top: 1px solid #000000;
+}*/
+.timetable-item .date-wrap{
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 25px;
+}
+.timetable-item .name-wrap{
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 19px;
+}
+.timetable-item .name-wrap p{
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 33px;
+	margin: 0;
+	margin-bottom: 7px;
+}
+.timetable-item .name-wrap p a{
+	text-decoration: none;
+}
+.timetable-item .instr-wrap{
+	display: flex;
+	align-items: start;
+    justify-content: space-between;
+}
+.instr-wrap .img-instr{
+	height: 59px;
+	width: 59px;
+	margin-right: 10px;
+}
+.instr-wrap .img-instr img{
+	width: 100%;
+}
+.instr-wrap .text-instr{
+	font-size: 12px;
+	line-height: 16px;
+	color: #696868;
+	padding-top: 3px;
+}
+.instr-wrap .text-instr p{
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 19px;
+	margin: 0;
+	margin-bottom: 5px;
+	color: #000;
+}
+.timetable-list .title-month{
+	font-size: 36px;
+	line-height: 48px;
+	font-weight: 800;
+	padding-bottom: 60px;
+	border-bottom: 1px solid #000000;
+}
+.timetable-list-wrap{
+	margin-bottom: 140px;
+}
+.timetable-list-wrap:last-child{
+	margin-bottom: 0px;
+}
+.timetable-wrap-button {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 60px;
+}
+.timetable-wrap-button .button-nail,
+.timetable-wrap-button .button-lash{
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 16px;
+	color: #1F1B20;
+	margin-right: 25px;
+}
+.timetable-wrap-button .button-nail:hover,
+.timetable-wrap-button .button-lash:hover{
+	font-weight: 600;
+}
+.timetable-wrap-button .button-nail.active,
+.timetable-wrap-button .button-lash.active{
+	font-weight: 600;
+}
+@media screen and (max-width: 768px){
+	.timetable-list .title-month{
+		font-size: 24px;
+		line-height: 34px;
+		padding-bottom: 15px;
+	}
+	.timetable-wrap-button {
+		margin-bottom: 30px;
+	}
+	.instr-wrap .text-instr p{
+		font-weight: 600;
+		font-size: 12px;
+		line-height: 22px;
+	}
+	.instr-wrap .text-instr{
+		margin-top: 6px;
+		font-size: 10px;
+		line-height: 12px;
+		color: #808189;
+		font-weight: normal;
+		padding: 0;
+	}
+	.instr-wrap .img-instr{
+		height: 50px;
+    	width: 50px;
+    	margin-right: 5px;
+	}
+	.timetable-list-wrap{
+		margin-bottom: 30px;
+	}
+	.timetable-item{
+		padding: 15px 0;
+		display: block;
+	}
+	.timetable-item .date-wrap{
+		font-weight: 800;
+		font-size: 18px;
+		line-height: 28px;
+	}
+	.timetable-item .name-wrap{
+		font-size: 12px;
+		line-height: 22px;
+		padding-top: 5px;
+		color: #808189;
+	}
+	.timetable-item .name-wrap p{
+		font-weight: 800;
+		font-size: 18px;
+		line-height: 28px;
+		color: #000;
+		margin-bottom: 0;
+		padding: 10px 0 15px;
+	}
+	.timetable-item .instr-wrap {
+	    justify-content: start;
+	    margin-top: 15px;
+	}
+	.timetable-list .title-month,
+	.timetable-item{
+		border-color: rgba(105, 104, 104, 0.2);
+	}
+}

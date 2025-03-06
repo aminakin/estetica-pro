@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "RUB";
+    src: url("RUB.eot");
+    src: url("RUB.eot?#iefix")format("embedded-opentype"),
+    url("RUB.woff") format("woff"),
+    url("RUB.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Manrope;
+    src: url("Manrope/Manrope-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: Commissioner;
+    src: url("Commissioner/Commissioner-VariableFont.ttf");
+}
+
+@font-face {
+    font-family: TenorSans;
+    src: url("TenorSans/TenorSans-Regular.ttf");
+}

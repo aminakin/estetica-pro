@@ -1,0 +1,33 @@
+.breadcrumbs{
+    margin-bottom: 54px;
+    display: flex;
+    align-items: center;
+}
+.breadcrumbs a{
+    text-decoration: none;
+}
+.breadcrumbs span{
+    font-size: 16px;
+    line-height: 19px;
+}
+.breadcrumbs .separet{
+    display: flex;
+    align-items: center;
+    margin: 0 22px;
+}
+@media screen and (max-width: 1024px) {
+    /*.breadcrumbs{
+        display: none;
+    }*/
+    .breadcrumbs .separet{
+        margin: 0 10px;
+    }
+    .breadcrumbs{
+        margin-bottom: 28px;
+        flex-wrap: wrap;
+    }
+    .breadcrumbs span{
+        font-size: 14px;
+        line-height: 18px;
+    }
+}

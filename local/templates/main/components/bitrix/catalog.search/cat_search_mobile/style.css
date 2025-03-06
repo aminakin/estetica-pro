@@ -1,0 +1,105 @@
+a.search-page-params {
+	border-bottom: 1px dashed blue;
+	text-decoration: none;
+}
+div.search-page-params {
+	margin-top: 6px;
+}
+.search-item-rate {font-size: 11px;}
+
+.search-not-found {
+	font-size: 18px;
+	text-align: left;
+	font-weight: 300;
+	margin-top: 50px;
+}
+.search-not-found.mobile{
+	display: none;
+}
+.search-not-found .not_found{
+  	font-size: 20px;
+  	color: rgb( 255, 123, 146 );
+  	line-height: 1.35;
+  	margin-top: 10px;
+}
+.search-not-found .you_not_found{
+    font-size: 41px;
+    color: rgb( 56, 56, 56 );
+    line-height: 0.726;
+    font-weight: 500;
+    margin-top: 51px;
+}
+.search-not-found .what_you_found {
+  	font-size: 20px;
+  	color: rgb( 56, 56, 56 );
+  	line-height: 1;
+  	font-weight: 500;
+}
+.search-not-found .call_as{
+  	font-size: 20px;
+  	color: rgb( 56, 56, 56 );
+  	line-height: 1.35;
+  	margin-top: 16px;
+}
+.search-not-found .call_as a{
+  	font-size: 20px;
+  	color: rgb( 255, 123, 146 );
+  	line-height: 1.35;
+  	font-weight: 500;
+  	text-decoration: none;
+}
+.search-not-found .call_as a:hover{
+	color: #000000;
+}
+.search-not-found.mobile .not_found{
+	font-size: 15px;
+	margin-top: 3px;
+}
+.search-not-found.mobile .what_you_found{
+	font-size: 17px;
+}
+.search-not-found.mobile  .you_not_found{
+	font-size: 26px;
+	margin-top: 49px;
+}
+.search-not-found.mobile .call_as{
+	font-size: 13px;
+	margin-top: 10px;
+}
+.search-not-found.mobile a{
+	display: block;
+	  font-size: 17.561px;
+	  color: rgb( 255, 123, 146 );
+	  line-height: 40px;
+	  border-width: 1px;
+	  border-color: rgb( 255, 123, 146 );
+	  border-style: solid;
+	  border-radius: 4px;
+	  background: #fff;
+	  font-weight: 500;
+	  text-decoration:none;
+	  text-align: center;
+	  margin-top: 25px;
+	  max-width: 400px;
+}
+.search-not-found.mobile a:hover{
+	color: #fff;
+	background: rgb( 255, 123, 146 );
+}
+
+.search-not-found.mobile a.whatsapp{
+	color: #fff;
+	background: rgb( 255, 123, 146 );
+}
+.search-not-found.mobile a.whatsapp:hover{
+	color: rgb( 255, 123, 146 );
+	background: #fff;
+}
+@media screen and (max-width: 768px){
+	.search-not-found.decktop{
+		display: none;
+	}
+	.search-not-found.mobile{
+		display: block;
+	}
+}

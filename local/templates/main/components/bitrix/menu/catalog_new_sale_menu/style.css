@@ -1,0 +1,400 @@
+.header-menu .catalog-top-menu-catalog {
+    padding-right: 33px;
+}
+
+.coursesmenu .catalog-top-menu-catalog {
+}
+.top-menu ul {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.catalog-menu-background {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    position: fixed;
+    left: 0px;
+    top: 175px;
+    z-index: 1;
+}
+
+.catalog-menu-block {
+    display: block;
+    position: relative;
+    z-index: 2;
+    background: #fff;
+    padding: 60px 0;
+}
+
+.header-menu__item-modal {
+    background: #FFF;
+    position: absolute;
+    top: 44px;
+    width: 100%;
+    left: 0px;
+    visibility: hidden;
+    opacity: 0;
+    background: #fff;
+}
+.top-menu>ul>li{
+	min-width: 105px;
+	text-align: center;
+}
+.top-menu>ul>li:last-child{
+	min-width: 129px;
+}
+.top-menu li a[href='/sale/'] {
+    color: #D8ABB7;
+    font-weight: 300;
+}
+.top-menu li a[href='/new/'] {
+    color: #33CCCC;
+    font-weight: 300;
+}
+.top-menu li a[href='/sale/']:hover,
+.top-menu li a[href='/sale/']:focus,
+.top-menu li a[href='/sale/']:active{
+    color: #D8ABB7;
+    font-weight: 400;
+}
+.top-menu li a[href='/new/']:hover,
+.top-menu li a[href='/new/']:focus,
+.top-menu li a[href='/new/']:active{
+    color: #33CCCC;
+    font-weight: 400;
+}
+.preload {
+}
+
+.header-menu__item--active .header-menu__item-modal {
+    opacity: 1;
+    visibility: visible;
+}
+
+.catalog-menu-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.catalog-menu-modal {
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.catalog-menu-element-title {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.catalog-modal-brands {
+    width: 60px;
+    height: 60px;
+    background-size: cover!important;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 0px;
+    padding-left: 0;
+}
+
+.catalog-modal-brands-link {
+    display: block;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid transparent;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+}
+
+.catalog-modal-brands-link:hover {
+    opacity: 1;
+    border-color: #696868;
+}
+
+.catalog-modal-brands-one {
+    background-image: url("images/1.png");
+}
+
+.catalog-modal-brands-two {
+    background-image: url("images/2.png");
+}
+
+.catalog-modal-brands-three {
+    background-image: url("images/3.png");
+}
+
+.catalog-modal-brands-four {
+    background-image: url("images/4.png");
+}
+
+.catalog-modal-brands-five {
+    background-image: url("images/5.png");
+}
+
+.catalog-modal-brands-six {
+    background-image: url("images/6.png");
+}
+
+.catalog-modal-brands-seven {
+    background-image: url("images/7.png");
+}
+
+.catalog-modal-brands-eight {
+    background-image: url("images/8.png");
+}
+
+.catalog-menu-flex-element-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    max-width: 240px;
+    padding-top: 0px;
+}
+
+.catalog-menu-flex-element-block-brands {
+}
+.catalog-menu-flex-element-block.catalog-menu-flex-element-block-brands{
+    justify-content: center;
+    margin-top: 60px;
+}
+.catalog-menu-flex-training {
+    width: 160px;
+    height: 276px;
+}
+
+.catalog-menu-flex-training:hover {
+    cursor: pointer;
+}
+
+.catalog-menu-flex-training:first-child {
+    background-color: #FFD9DF;
+    margin-right: 15px;
+}
+
+.catalog-menu-flex-training:last-child {
+    background-color: #E598B8;
+    margin-left: 15px;
+}
+
+.catalog-menu-flex-element-block-training {
+    max-width: 350px;
+}
+
+.menu-flex-training-block-svg {
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.menu-flex-training-block-svg-left {
+    background-image: url("images/manicure.png");
+    height: 55%;
+}
+
+.menu-flex-training-block-svg-right {
+    background-image: url("images/eyes.png");
+    height: 21%;
+    position: relative;
+    top: 52px;
+    margin-left: 3px;
+}
+
+.catalog-menu-training-links {
+    text-decoration: none;
+    background-color: #fff;
+    border-radius: 100px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 9px;
+    line-height: 12px;
+    padding: 9px 0px;
+    position: relative;
+    bottom: -25px;
+    display: block;
+    margin: 0 15px;
+    text-align: center;
+}
+.menu-flex-training-block-text {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 30px;
+    color: #FFFFFF;
+    padding-left: 15px;
+}
+
+.menu-flex-training-block-text-right {
+    position: relative;
+    top: 64px;
+    margin-left: 10px;
+    padding-left: 0px;
+}
+
+.catalog-menu-training-links-left {
+    color: #FFA7B6;
+}
+
+.catalog-menu-training-links-right {
+    color: #E598B8;
+    top: 88px;
+}
+
+.catalog-menu-training-links-left:hover,
+.catalog-menu-training-links-right:hover {
+    opacity: 1;
+}
+
+.catalog-menu-flex-training:hover .catalog-menu-training-links-left {
+    background: #FFA7B6;
+    color: #ffffff;
+}
+
+.catalog-menu-flex-training:hover .catalog-menu-training-links-right {
+    background: #4F397B;
+    color: #ffffff;
+}
+
+.coursesmenu .catalog-menu-element {
+    width: 65%;
+}
+@media screen and (min-width: 992px) {
+    .catalog-menu-modal {
+        width: 940px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .catalog-menu-modal {
+        width: 1140px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .coursesmenu .catalog-menu-flex-element {
+        display: none;
+    }
+
+    .coursesmenu .catalog-menu-element {
+        display: block;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    .catalog-menu-flex-element-block {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .catalog-menu-flex-element-block {
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+    .menu-flex-training-block-svg{
+        background-size: contain;
+    }
+    .catalog-menu-flex-training{
+        width: 46%;
+    }
+    .catalog-menu-training-links {
+        justify-content: center !important;
+        text-transform: none !important;
+        color: #FFA7B6 !important;
+        text-decoration: none !important;
+        background-color: #fff;
+        border-radius: 100px;
+        font-weight: 600;
+        font-size: 9px !important;
+        line-height: 12px !important;
+        padding: 9px 0px !important;
+        position: relative;
+        bottom: -20px;
+        margin: 0 10px;
+        text-align: center
+    }
+
+    .catalog-menu-flex-training:last-child {
+        margin-left: 0px;
+    }
+}
+@media screen and (max-width: 360px) {
+    .menu-flex-training-block-text{
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .catalog-menu-flex-training{
+        height: 258px;
+    }
+    .catalog-menu-training-links-right{
+        top: 85px;
+    }
+}
+
+.top-menu.catalog-page {
+    display: flex;
+    align-items: center;
+}
+.top-menu.catalog-page ul {
+    display: flex;
+    align-items: center;
+}
+.top-menu.catalog-page ul li {
+    width: 100%;
+    height: 200px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 25px;
+    text-decoration: none;
+    min-width: 180px;
+    background: linear-gradient(136.12deg, #ECE4E9 0%, #F0E8EF 42.88%, #F6E6E9 98.11%);
+    max-width: 190px;
+    padding: 0;
+    margin-right: 30px;
+}
+.top-menu.catalog-page ul li:last-child{
+    margin-bottom: 0;
+}
+.top-menu.catalog-page ul li a {
+    display: inline-block;
+    max-width: 100%;
+    color: #696868;
+    font-size: 14.5px;
+    line-height: 16px;
+    padding: 0 5px;
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 430px) {
+    .top-menu.catalog-page {
+        justify-content: center;
+    }
+    .top-menu.catalog-page ul {
+        gap: 20px;
+        flex-direction: column;
+        width: 100%;
+    }
+    .top-menu.catalog-page ul li {
+        max-width: 100%;
+    }
+}

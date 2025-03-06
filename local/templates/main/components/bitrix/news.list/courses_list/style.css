@@ -1,0 +1,137 @@
+.cources-blocks-list{
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+			max-width: 1110px;
+}
+.cources-list-element{
+	/*padding: 15px;*/
+	width: 48.7%;
+	margin-bottom: 30px;
+	border-radius: 15px;
+	overflow: hidden;
+	-webkit-transition: all 0.2s ease;
+  	-moz-transition: all 0.2s ease;
+  	-o-transition: all 0.2s ease;
+  	transition: all 0.2s ease;
+}
+.cources-list-element:hover.nail{
+	box-shadow: 0 0 0 8px #F3F3F5;
+}
+.cources-list-element:hover.lash{
+	box-shadow: 0 0 0 8px #FBF2F4;
+}
+.cources-list-element-wrap{
+	padding: 50px;
+	cursor: pointer;
+	position: relative;
+	min-height: 300px;
+}
+
+.cources-list-element .count-day{
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 25px;
+	margin-bottom: 5px;
+}
+.cources-list-element .courses-list-name{
+	position: absolute;
+	top: 135px;
+	padding-right: 50px;
+}
+.cources-list-element .courses-list-name a{
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 28px;
+	text-decoration: none;
+}
+.cources-list-element .type-course{
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 16px;
+	min-height: 18px;
+	position: absolute;
+    top: 50px;
+    left: 50px;
+}
+.cources-list-element .name-type-count{
+	font-weight: 800;
+	font-size: 24px;
+	line-height: 33px;
+	min-height: 99px;
+	margin-bottom: 10%;
+}
+.cources-list-element .date-begin{
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 18px;
+	position: absolute;
+	bottom: 50px;
+	left: 50px;
+
+}
+.cources-list-element .write-course{
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 22px;
+	color: #E598B8;
+	line-height: 80px;
+	max-width: 380px;
+	display: block;
+	text-align: center;
+	text-decoration : none;
+	border-radius: 80px;
+	margin-top: 9%;
+	margin-right: 7%;
+}
+.load-items.cources-element{
+	margin-top: 30px;
+	font-size: 12px;
+	line-height: 20px;
+}
+.cources-list-element.lash{
+	background: url(images/lash.png)no-repeat center center;
+	background-size: cover;
+} 
+.cources-list-element.nail{
+	background: url(images/nail.png)no-repeat center center;
+	background-size: cover;
+}
+@media screen and (max-width: 1024px){
+	.cources-list-element-wrap{
+		padding: 30px;
+		min-height: 205px;
+	}
+	.cources-list-element .type-course,
+	.cources-list-element .date-begin{
+		font-size: 12px;
+		line-height: 16px;
+		left: 34px;
+	}
+	.cources-list-element .type-course{
+		top: 34px;
+		padding-right: 30px;
+	}
+	.cources-list-element .date-begin{
+		bottom: 34px;
+	}
+	.cources-list-element .courses-list-name{
+		top: 85px;
+	}
+	.cources-list-element .courses-list-name a{
+		font-size: 16px;
+		line-height: 22px;
+	}
+	.cources-list-element{
+		margin-bottom: 20px;
+	}
+}
+@media screen and (max-width: 640px){
+	.cources-list-element{
+		width: 100%;
+		margin-bottom: 15px;
+	}
+}

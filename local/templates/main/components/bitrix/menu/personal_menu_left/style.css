@@ -1,0 +1,17 @@
+
+.left_sidebar .sections a {
+    font-size: 12px;
+    line-height: 16px;
+    color: #A9A9A9;
+    text-decoration: none;
+    display: block;
+}
+
+.left_sidebar .sections a:hover {
+    color: #000000;
+}
+.left_sidebar .sections a.active {
+    color: #000000;
+}
+
+

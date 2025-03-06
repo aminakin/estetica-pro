@@ -1,0 +1,33 @@
+.main-profile-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-profile-menu__part {
+    display: flex;
+}
+
+.main-profile-menu__link {
+    font-size: 16px;
+    line-height: 16px;
+    color: #A9A9A9;
+    text-decoration: none;
+    display: block;
+}
+
+.main-profile-menu__link:not(:first-of-type) {
+    margin-left: 30px;
+}
+
+.main-profile-menu__link:hover,
+.main-profile-menu__link--active {
+    font-weight: 600;
+    color: #000;
+}
+
+@media (max-width: 500px) {
+    .main-profile-menu__link {
+
+    }
+}

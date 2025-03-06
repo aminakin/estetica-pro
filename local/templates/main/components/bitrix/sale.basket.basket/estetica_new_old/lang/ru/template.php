@@ -1,0 +1,62 @@
+<?
+$MESS["SBB_DELETE"] = "Удалить";
+$MESS["SBB_FILTER_EMPTY_RESULT"] = "По данному запросу товаров не найдено";
+$MESS["SBB_BASKET_ITEM_WARNING"] = "В вашей корзине <a href=\"javascript:void(0)\" data-entity=\"basket-items-warning-count\"></a> требует внимания.";
+$MESS["SBB_BASKET_FILTER"] = "Фильтр";
+$MESS["SBB_BASKET_ITEMS_WARNING"] = "c ошибками";
+$MESS["SBB_NOT_AVAILABLE_ITEM"] = "недоступен";
+$MESS["SBB_NOT_AVAILABLE_ITEM_2"] = "недоступно";
+$MESS["SBB_NOT_AVAILABLE_ITEMS"] = "недоступно";
+$MESS["SBB_DELAYED_ITEM"] = "избран";
+$MESS["SBB_DELAYED_ITEM_2"] = "избранных";
+$MESS["SBB_DELAYED_ITEMS"] = "избранных";
+$MESS["SBB_SIMILAR_ITEM"] = "похожий";
+$MESS["SBB_SIMILAR_ITEM_2"] = "похожих";
+$MESS["SBB_SIMILAR_ITEMS"] = "похожих";
+$MESS["SBB_BASKET_ITEM_NOT_AVAILABLE"] = "В данный момент этот товар не доступен";
+$MESS["SBB_BASKET_ITEM_DELAYED"] = "Избранный товар";
+$MESS["SBB_BASKET_ITEM_REMOVE_DELAYED"] = "Добавить к заказу?";
+$MESS["SBB_BASKET_ITEM_SIMILAR_P1"] = "Этот товар";
+$MESS["SBB_BASKET_ITEM_SIMILAR_P2"] = "уже есть в корзине в количестве";
+$MESS["SBB_BASKET_ITEM_SIMILAR_P3"] = "Объединить товары в одну позицию c количеством";
+$MESS["SBB_BASKET_ITEM_PRICE_FOR"] = "цена за";
+$MESS["SBB_BASKET_ITEM_ECONOMY"] = "Экономия";
+$MESS["SBB_BASKET_ITEM_DELETED"] = "был удален из корзины";
+$MESS["SBB_BASKET_ITEM_RESTORE"] = "Восстановить";
+$MESS["SBB_COUPON_ENTER"] = "Введите код купона для скидки";
+$MESS["SBB_COUPON"] = "купон";
+$MESS["SBB_TOTAL"] = "Итого";
+$MESS["SBB_WEIGHT"] = "Общий вес";
+$MESS["SBB_VAT"] = "Сумма НДС";
+$MESS["SBB_ORDER"] = "Перейти к оформлению";
+$MESS["SBB_SHARE"] = "Поделиться корзиной";
+$MESS["SBB_REGISTRATION"] = "Зарегистрироваться";
+$MESS["SBB_WITHOUTREG_ORDER"] = "Оформить без регистрации";
+$MESS["SBB_BASKET_ITEM_MAX_COUNT_EXCEEDED"] = "Перейдите в <a href=#PATH#>корзину</a> для редактирования";
+$MESS["SBB_WARNING_ITEM"] = "c ошибками";
+$MESS["SBB_IN_BASKET"] = "В корзине";
+$MESS["SBB_GOOD_CAP"] = "Товар";
+$MESS["SBB_GOOD"] = "товар";
+$MESS["SBB_GOOD_2"] = "товара";
+$MESS["SBB_GOODS"] = "товаров";
+$MESS["SBB_EMPTY_BASKET_TITLE"] = "посмотрите наши <a href='/new/'>новинки</a><br> или воспользуйтесь <a href='/search/'>поиском</a>";
+$MESS["SBB_EMPTY_BASKET_CONTINE"] = "Продолжить покупки";
+$MESS["SBB_EMPTY_BASKET_MINPRICE"] = "Минимальная сумма заказа на сайте 1 500 ₽";
+$MESS["SBB_BASKET_AUTH"] = "Войдите или зарегистрируйтесь";
+$MESS["SBB_BASKET_AUTH_INFO"] = "Чтобы списать бонусы. Продолжив<br>без регистрации, вы не сможете их списать";
+$MESS["SBB_BASKET_AUTH_ENTER"] = "Войти";
+$MESS["SBB_BASKET_PRICE_DEVILERY_INFO"] = 'Цены и стоимость доставки являются неподтвержденными <br>
+до перехода к разделу оформления заказа.';
+$MESS["SBB_BASKET_PRICE_DEVILERY_INFO_NOT_AUTH"] = 'Бонусы доступны для списания только<br>зарегистрированным пользователям после входа
+в личный кабинет.';
+$MESS["SBB_BASKET_DEVILERY_INFO"] = 'Сроки и стоимость доставки';
+$MESS["SBB_BASKET_BONUS_INFO"] = 'Информация о бонусной системе';
+$MESS["SBB_EMPTY_BASKET_HINT"] = "#A1#Нажмите здесь#A2#, чтобы продолжить покупки";
+$MESS["SBB_BASKET_MINPRICE"] = "Минимальная сумма заказа 1 500 ₽, вам не хватает";
+$MESS["SBB_BASKET_CONTINE"] = "Продолжить покупки";
+$MESS["SBB_BASKET_OUR_NEW"] = "Посмотрите наши новинки";
+$MESS["SBB_BASKET_OUR_NEW_NO_PRODUCT"] = "Новинки";
+$MESS["SBB_WARNING"]  = "Добавление товаров в корзину не означает их бронирования";
+$MESS["SBB_AUTENTION"]  = "Добавление товаров в корзину не означает их бронирования! Минимальный заказ на сайте от 1 500 ₽, заказ с доставкой по России от 2000 ₽.
+Отправка по России только после полной оплаты заказа.";
+?>

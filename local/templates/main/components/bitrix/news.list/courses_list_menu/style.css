@@ -1,0 +1,35 @@
+.cources-menu .cources-menu-element{
+    padding-bottom: 20px;
+}
+.cources-menu .cources-menu-element a{
+	font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px !important;
+    line-height: 16px;
+    color: #696868;
+    cursor: pointer;
+    text-transform: none;
+    padding-top: 0px;
+    white-space: normal;
+    padding-left: 0px;
+    font-weight: 400;
+}
+.cources-menu .cources-menu-element a:hover{
+	font-weight: 600;
+    color: #000000;
+    opacity: 1;
+}
+.cources-menu .cources-menu-element span{
+	font-size: 10px;
+	font-weight: 300;
+}
+.catalog-menu-element-title{
+	padding-bottom: 35px;
+}
+.cources-menu{
+    display: flex;
+}
+.cources-menu .section-menu:nth-child(2){
+    margin-left: 5%;    
+}

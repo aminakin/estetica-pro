@@ -19,15 +19,8 @@
     margin: 0 8px;
     color: #99999932;
 }
-@media screen and (max-width: 1024px) {
-    /*.breadcrumbs{
-        display: none;
-    }*/
-    .breadcrumbs .separet{
-        margin: 0 10px;
-    }
+@media screen and (max-width: 1100px) {
     .breadcrumbs{
-        margin-bottom: 28px;
-        flex-wrap: wrap;
+        margin: 8px 0 32px;
     }
 }

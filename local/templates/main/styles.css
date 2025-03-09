@@ -120,11 +120,6 @@ header .sticky .header-middle .header-phone a{
     .header .sticky .header-mobile-top{
         border:none
     }
-    .baskLink span.small-basket-quantity{
-        right: 0;
-        top: -10px;
-        font-size: 10px;
-    }
     #bx-panel{
         display: none!important;
     }
@@ -162,17 +157,8 @@ header .sticky .header-middle .header-phone a{
 .header-middle .usket>a:first-child{
     padding-left: 0px;
 }
-.header-middle .usket a svg{
-    min-width: 24px;
-}
 .header-middle .logo{
     text-align: center;
-}
-.header-row-content .usket a:hover .header-right-menu-text{
-    color: #989898;
-}
-.header-row-content .usket a:hover svg path{
-    stroke: #989898;
 }
 .header-bottom{
     padding-bottom: 20px;
@@ -214,7 +200,7 @@ header .sticky .header-middle .header-phone a{
 }
 .header-mobile-bottom {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 22px 20px 32px;
 }
 .header-mobile-bottom .header-right-menu-text{
@@ -224,21 +210,14 @@ header .sticky .header-middle .header-phone a{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin-left: 32px;
 }
 .header-mobile-bottom .header-mobile-btn>a{
-    margin-left: 18px;
+    margin-left: 16px;
     position: relative;
 }
-.header-mobile-btn svg{
-    width: 18px;
-}
-.baskLink span.small-basket-quantity {
-    left: 32px;
-    top: -10px;
-    width: 17px;
-    text-align: center;
-    font-size: 12px;
-    color: black;
+.header-mobile-bottom .header-mobile-btn>a:first-child{
+    margin-left: 0px;
 }
 #content-wrap{
     max-width: var(--main-width);
@@ -1331,7 +1310,7 @@ div.bx-soa-item-td {
     border-radius: 30px;
     border: none;
     position: absolute;
-    z-index: 20;
+    z-index: 1;
     display: flex;
     width: 52px;
     height: 52px;
@@ -1932,24 +1911,6 @@ input[type="submit"].btnForpasswd:active,
     color: #ffffff;
     background: #D8ABB7;
     border: 1px solid #D8ABB7;
-}
-.baskLink {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-}
-.baskLink:hover {
-    opacity: 1;
-}
-.linkOpen {
-    font-size: 13px;
-    line-height: 14px;
-    color: #C4C4C4;
-}
-.baskLink path {
-    transition: .2s;
 }
 #reg-icon {
     width: 25px;
@@ -2720,17 +2681,9 @@ header .favorite div {
 .baskcont {
     top: 7px;
 }
-.baskLink {
-    position: relative;
-}
 .favorLink {
     position: relative;
     width: 25px;
-}
-
-.baskLink {
-    text-align: right;
-    z-index: 0;
 }
 .small_basket_price {
     float: right;
@@ -2738,17 +2691,12 @@ header .favorite div {
     margin-top: 8px;
     margin-left: 5px;
 }
-.baskLink span,
 .favorLink span {
     position: absolute;
     font-size: 12px;
     color: #fff;
     right: 8px;
     line-height: 14px;
-}
-.baskLink span {
-    top: 11px;
-    right: 6px;
 }
 .favorLink span {
     top: 4px;
@@ -5889,22 +5837,6 @@ textarea::-webkit-input-placeholder {
     position: absolute;
     bottom: 84px;
 }
-@media (max-width: 768px) {
-    .add-block .jq-number {
-        display: none;
-    }
-    .baskLink {
-        margin-left: 0px;
-        text-align: left;
-    }
-    .baskLink span {
-        left: 6px;
-        right: auto;
-    }
-    #sortc{
-       z-index: 1;
-    }
-}
 .add-block .hover .jq-number {
     position: absolute;
     right: 21px;
@@ -6437,7 +6369,6 @@ main.container {
         top: 3px;
         display: none;
     }
-    .baskLink span,
     .favorLink span {
         right: 6px;
     }
@@ -6836,12 +6767,6 @@ html body .toggleOpen.no_fav_popup .fav-close:hover{
     .phone-icon > svg {
         width: 18px;
         height: 18px;
-    }
-    .baskLink.linkOpen.menu-links {
-        padding-top: 0px;
-    }
-    .baskLink.linkOpen.menu-links img{
-        width: 17px;
     }
     .enterLink.favorit.menu-links img,
     .enterLink.menu-links.search-icon img{
@@ -7390,9 +7315,6 @@ html body .toggleOpen.no_fav_popup .fav-close:hover{
 @media screen and (max-width: 375px) {
     .header-mobile-phone {
         margin-right: -20px;
-    }
-    .baskLink {
-        margin-left: 0px;
     }
 }
 .catalog-top-header{

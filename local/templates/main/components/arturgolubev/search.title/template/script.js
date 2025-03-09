@@ -428,6 +428,22 @@ function JCTitleSearchAG(arParams)
 		
 		BX.bind(window, 'scroll', BX.throttle(this.onScroll, 100, this));
 		BX.bind(window, 'resize', BX.throttle(this.onScroll, 100, this));
+
+		let searchInput = document.getElementById("smart-title-search-input");
+		let parentInput = document.getElementById("smart-title-search");
+		let clearInput = document.querySelector(".bx-search-clear");
+		if(searchInput){
+			searchInput.addEventListener("input", function(){
+				parentInput.classList.add("active");
+			});
+		}
+		if(clearInput){
+			clearInput.addEventListener("click", function(){
+				parentInput.classList.remove("active");
+				searchInput.value = "";
+			});
+		}
+		
 	};
 	BX.ready(function (){
 		_this.Init(arParams);

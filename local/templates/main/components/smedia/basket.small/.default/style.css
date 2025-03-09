@@ -1,0 +1,34 @@
+.baskLink {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+}
+
+.baskLink:hover {
+    opacity: 1;
+}
+
+.baskLink {
+    position: relative;
+}
+
+.baskLink {
+    text-align: right;
+    z-index: 0;
+}
+
+.baskLink span {
+    display: none;
+}
+
+.baskLink div{
+    margin-left: 8px;
+}
+
+@media (max-width: 1024px) {
+    .baskLink div{
+        display: none;
+    }
+}

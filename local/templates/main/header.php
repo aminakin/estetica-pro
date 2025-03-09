@@ -8,9 +8,9 @@ global $USER, $APPLICATION;
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 <!DOCTYPE html>
 <html lang="<?= LANGUAGE_ID; ?>">
-  
+
 <head>
- 
+
     <title><? $APPLICATION->ShowTitle(); ?></title>
     <? $APPLICATION->ShowHead(); ?>
     <meta name="yandex-verification" content="96fc0bb06a46bd08" />
@@ -134,7 +134,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                             <a href="#auth" class="enterLink showPreAuthForm menu-links">
                                                 <?= classBuildSCG::buildSVG('user'); ?>
                                                 <div class="header-right-menu-text">
-                                                    <?= ($USER->GetFullName() != '')? $USER->GetFullName() : $USER->GetEmail();?>
+                                                    <?= ($USER->GetFullName() != '') ? $USER->GetFullName() : $USER->GetEmail(); ?>
                                                 </div>
                                             </a>
                                         <? else: ?>
@@ -288,7 +288,6 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                             "FILTER_NAME" => "",
                                             "INPUT_ID" => "smart-title-search-input",
                                             "INPUT_PLACEHOLDER" => "Поиск",
-                                            "NUM_CATEGORIES" => "1",
                                             "ORDER" => "rank",
                                             "PAGE" => "#SITE_DIR#search/",
                                             "PREVIEW_HEIGHT_NEW" => "34",
@@ -299,11 +298,11 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                             "PRICE_VAT_INCLUDE" => "Y",
                                             "SHOW_HISTORY" => "N",
                                             "SHOW_INPUT" => "Y",
-                                            "SHOW_LOADING_ANIMATE" => "N",
+                                            "SHOW_LOADING_ANIMATE" => "Y",
                                             "SHOW_PREVIEW" => "N",
                                             "SHOW_PREVIEW_TEXT" => "N",
                                             "SHOW_PROPS" => array(),
-                                            "TOP_COUNT" => "5",
+                                            "TOP_COUNT" => "3",
                                             "USE_LANGUAGE_GUESS" => "Y",
                                             "COMPONENT_TEMPLATE" => "template"
                                         ),
@@ -327,23 +326,61 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                         </div>
                         <div class="header-mobile-bottom">
                             <div class="header-mobile-search">
-
+                                <? $APPLICATION->IncludeComponent(
+                                    "arturgolubev:search.title",
+                                    "template-mobile",
+                                    array(
+                                        "ANIMATE_HINTS" => array(),
+                                        "ANIMATE_HINTS_SPEED" => "1",
+                                        "CATEGORY_0" => array(
+                                            0 => "iblock_catalog",
+                                        ),
+                                        "CATEGORY_0_TITLE" => "",
+                                        "CATEGORY_0_iblock_catalog" => array(
+                                            0 => "14",
+                                        ),
+                                        "CHECK_DATES" => "N",
+                                        "CONTAINER_ID" => "smart-title-search-mobile",
+                                        "CONVERT_CURRENCY" => "N",
+                                        "FILTER_NAME" => "",
+                                        "INPUT_ID" => "smart-title-search-input-mobile",
+                                        "INPUT_PLACEHOLDER" => "Поиск",
+                                        "ORDER" => "rank",
+                                        "PAGE" => "#SITE_DIR#search/",
+                                        "PREVIEW_HEIGHT_NEW" => "34",
+                                        "PREVIEW_WIDTH_NEW" => "34",
+                                        "PRICE_CODE" => array(
+                                            0 => "Типовое соглашение с клиентами",
+                                        ),
+                                        "PRICE_VAT_INCLUDE" => "Y",
+                                        "SHOW_HISTORY" => "N",
+                                        "SHOW_INPUT" => "Y",
+                                        "SHOW_LOADING_ANIMATE" => "Y",
+                                        "SHOW_PREVIEW" => "N",
+                                        "SHOW_PREVIEW_TEXT" => "N",
+                                        "SHOW_PROPS" => array(),
+                                        "TOP_COUNT" => "3",
+                                        "USE_LANGUAGE_GUESS" => "Y",
+                                        "COMPONENT_TEMPLATE" => "template"
+                                    ),
+                                    false
+                                ); ?>
                             </div>
                             <div class="header-mobile-btn">
-                                <? $APPLICATION->IncludeComponent("smedia:basket.small", ".default", array(), false); ?>
-                                <a href="/personal/favorites.php"
-                                    class="enterLink menu-links favorit <?= (is_array($favorites) && count($favorites) > 0) ? 'favorites_not-empty' : '' ?>">
-                                    <?= classBuildSCG::buildSVG('fav'); ?>
-                                </a>
                                 <? if ($USER->IsAuthorized()): ?>
                                     <a href="#auth" class="enterLink showPreAuthForm menu-links">
-                                        <?= classBuildSCG::buildSVG('login'); ?>
+                                        <?= classBuildSCG::buildSVG('user'); ?>
                                     </a>
                                 <? else: ?>
                                     <a href="#auth" class="enterLink linkOpen menu-links">
-                                        <?= classBuildSCG::buildSVG('login'); ?>
+                                        <?= classBuildSCG::buildSVG('user'); ?>
                                     </a>
                                 <? endif; ?>
+                                <a href="/personal/favorites.php"
+                                    class="enterLink menu-links favorit <?= (is_array($favorites) && count($favorites) > 0) ? 'favorites_not-empty' : '' ?>">
+                                    <?= classBuildSCG::buildSVG('favorite'); ?>
+                                </a>
+                                <? $APPLICATION->IncludeComponent("smedia:basket.small", ".default", array(), false); ?>
                             </div>
                         </div>
                     </div>

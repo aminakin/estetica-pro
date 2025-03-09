@@ -577,3 +577,14 @@ header .sticky .information-after-launch{
 #auth.toggleOpen.opened.auth-successfull-page-modal .bxmaker-authuserphone-enter{
     font-size: 19px;
 }
+
+.site-shadow{
+    background: #00000080;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    display: none;
+}

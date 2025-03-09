@@ -1,11 +1,9 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
 
 <?php 
-// var_export($arResult);
-// 
 global $smallBasketHeader;
 if (empty($smallBasketHeader))
-	$smallBasketHeader = 1;
+	$smallBasketHeader = 1; 
 else 
 	$smallBasketHeader++;
 ?>
@@ -14,5 +12,6 @@ else
 	<span class="small-basket-quantity">
 		<?= $arResult['FAVORITE_QUANTITY']?>
 	</span>
-      <img src="<?= SITE_TEMPLATE_PATH; ?>/images/headerIconMobile/cart.svg" alt="cart"/>
+    <?= classBuildSCG::buildSVG('cart', $templateFolder."/images" );?>
+	<div><?= GetMessage('TITLE_CART')?></div>
 </a>

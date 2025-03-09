@@ -23,7 +23,7 @@ $INPUT_ID = trim($arParams["~INPUT_ID"]);
 if(strlen($INPUT_ID) <= 0)
 	$INPUT_ID = "smart-title-search-input";
 $INPUT_ID = CUtil::JSEscape($INPUT_ID);
-
+ 
 $CONTAINER_ID = trim($arParams["~CONTAINER_ID"]);
 if(strlen($CONTAINER_ID) <= 0)
 	$CONTAINER_ID = "smart-title-search";
@@ -40,6 +40,7 @@ if($arParams["SHOW_INPUT"] !== "N"):?>
 				<span class="bx-searchtitle-preloader <?if($arParams["SHOW_LOADING_ANIMATE"] == 'Y') echo 'view';?>" id="<?echo $PRELOADER_ID?>"></span>
 				<button class="" type="submit" name="s"><?= classBuildSCG::buildSVG('search-icon', $templateFolder."/images" );?></button>
 			</span>
+			<span class="bx-search-clear"><?= classBuildSCG::buildSVG('search-clear', $templateFolder."/images" );?></span>
 		</div>
 	</form>
 	
@@ -60,6 +61,20 @@ if($arParams["SHOW_INPUT"] !== "N"):?>
 			<?=GetMessage("AG_SMARTIK_CATEGORY_WARRING", array("#NUM_VAL#" => $arParams["NUM_CATEGORIES"]));?>
 		</div>
 	<?endif;?>
+<?endif;?>
+
+<?if($arResult["VISUAL_PARAMS"]["THEME_COLOR"]):?>
+	<style>
+		.bx-searchtitle .bx-input-group .bx-form-control, .bx_smart_searche .bx_item_block.all_result .all_result_button, .bx-searchtitle .bx-input-group-btn button, .bx_smart_searche .bx_item_block_hrline {
+			border-color: <?=$arResult["VISUAL_PARAMS"]["THEME_COLOR"]?> !important;
+		}
+		.bx_smart_searche .bx_item_block.all_result .all_result_button, .bx-searchtitle .bx-input-group-btn button {
+			background-color: <?=$arResult["VISUAL_PARAMS"]["THEME_COLOR"]?>  !important;
+		}
+		.bx_smart_searche .bx_item_block_href_category_name, .bx_smart_searche .bx_item_block_item_name b, .bx_smart_searche .bx_item_block_item_simple_name b {
+			color: <?=$arResult["VISUAL_PARAMS"]["THEME_COLOR"]?>  !important;
+		}
+	</style>
 <?endif;?>
 
 <script>

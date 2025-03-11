@@ -201,7 +201,6 @@ $this->setFrameMode(true);
     ?>
 </div>
 <div class="row">
-    <div class="search-catalog-top-title">Популярные запросы</div>
     <? $APPLICATION->IncludeComponent(
             "bitrix:catalog.top",
             "search",
@@ -219,7 +218,7 @@ $this->setFrameMode(true);
                 "COMPATIBLE_MODE" => "Y",
                 "COMPONENT_TEMPLATE" => "search",
                 "CONVERT_CURRENCY" => "N",
-                "CUSTOM_FILTER" => "{\"CLASS_ID\":\"CondGroup\",\"DATA\":{\"All\":\"AND\",\"True\":\"True\"},\"CHILDREN\":[{\"CLASS_ID\":\"CondIBProp:14:133\",\"DATA\":{\"logic\":\"Equal\",\"value\":361}}]}",
+                "CUSTOM_FILTER" => "{\"CLASS_ID\":\"CondGroup\",\"DATA\":{\"All\":\"AND\",\"True\":\"True\"},\"CHILDREN\":[{\"CLASS_ID\":\"CondIBProp:14:390\",\"DATA\":{\"logic\":\"Equal\",\"value\":764}},{\"CLASS_ID\":\"CondIBProp:14:315\",\"DATA\":{\"logic\":\"Great\",\"value\":0}}]}",
                 "DETAIL_URL" => "",
                 "DISCOUNT_PERCENT_POSITION" => "bottom-right",
                 "DISPLAY_COMPARE" => "N",

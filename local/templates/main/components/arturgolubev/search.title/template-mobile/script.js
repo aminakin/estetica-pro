@@ -1,4 +1,4 @@
-function JCTitleSearchAG(arParams)
+function JCTitleSearchAGmobile(arParams)
 {
 	var _this = this;
 

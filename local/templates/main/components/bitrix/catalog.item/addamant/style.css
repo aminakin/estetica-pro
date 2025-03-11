@@ -355,6 +355,7 @@ input[data-disabled="disabled"] {
     text-overflow: ellipsis;
     margin-right: 16px;
     max-height: 32px;
+    min-height: 32px;
 }
 
 .product-item-title a {
@@ -1279,12 +1280,8 @@ a.btn.btn-link.buyBtn:focus {
         margin: 0;
     }
 
-    .section-item-wrapper:nth-child(odd) {
-        padding-right: 5px !important;
-    }
-
-    .section-item-wrapper:nth-child(even) {
-        padding-left: 5px !important;
+    .section-item-wrapper {
+        padding:0 6px;
     }
 
     .section-item-wrapper {

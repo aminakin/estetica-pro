@@ -79,7 +79,7 @@ if($arParams["SHOW_INPUT"] !== "N"):?>
 
 <script>
 	BX.ready(function(){
-		new JCTitleSearchAG({
+		new JCTitleSearchAGmobile({
 			// 'AJAX_PAGE' : '/your-path/fast_search.php',
 			'AJAX_PAGE' : '<?echo CUtil::JSEscape(POST_FORM_ACTION_URI)?>',
 			'CONTAINER_ID': '<?echo $CONTAINER_ID?>',

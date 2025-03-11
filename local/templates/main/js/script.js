@@ -364,8 +364,10 @@ $(document).ready(function () {
         rows: 1,
         responsive: [
             {
-                breakpoint: 992,
-                settings: "unslick"
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 2
+                  }
             }
         ]
     });

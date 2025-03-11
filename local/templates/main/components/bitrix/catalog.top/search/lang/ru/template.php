@@ -24,4 +24,5 @@ $MESS["CT_BCT_CATALOG_PRICE_TOTAL_PREFIX"] = "на сумму";
 $MESS["CT_BCT_CATALOG_SHOW_MAX_QUANTITY"] = "Наличие";
 $MESS["CT_BCT_CATALOG_RELATIVE_QUANTITY_MANY"] = "много";
 $MESS["CT_BCT_CATALOG_RELATIVE_QUANTITY_FEW"] = "мало";
-?>
+$MESS["CT_BCS_HIT"] = "ХИТЫ ПРОДАЖ";
+$MESS["CT_BCS_HIT_ALL"] = "Все хиты продаж";

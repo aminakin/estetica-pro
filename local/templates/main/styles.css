@@ -361,7 +361,7 @@ header .sticky .header-middle .header-phone a{
         margin-bottom: 9px
     }
     .footer-container-menu.logo-container a.logo svg{
-        width: 138px;
+        width: 170px;
     }
     .footer-container-menu.logo-container a{
         margin-bottom: 10px;
@@ -3268,17 +3268,6 @@ html body .close.basket-close span {
     .top-mobile-menu__catalog-list.brand.top-mobile-menu__catalog-list_active .slick-arrow{
         margin-top: -30px;
     }
-    div.title-search-result {
-        max-width: 350px;
-        height: 552px;
-        position: fixed;
-        top: 102px !important;
-    }
-    div.title-search-result .results {
-        margin-top: 0;
-        height: 100%;
-        background: #EBCFD5;
-    }
     .floating-menu .title-search form .title-search-submit {
         right: 27px;
         background-image: url('/local/templates/main/images/search_white.png');
@@ -3335,9 +3324,6 @@ html body .close.basket-close span {
         -webkit-background-size: 15px;
         background-size: 15px;
         transform: rotate(-90deg);
-    }
-    div.title-search-result {
-        width: 100% !important;
     }
     .delivery-info {
         display: none;
@@ -3924,11 +3910,6 @@ form#basket_form {
     min-width: 15px;
     min-height: 15px;
     margin-right: 8px;
-}
-div.title-search-result {
-    z-index: 1992 !important;
-    border: none !important;
-    /* display: none !important; */
 }
 .title-search-result .results {
     margin-top: 4px;

@@ -298,14 +298,6 @@
 
 
 <!-- modal -->
-<div id="boxes">
-    <div id="dialog" class="window">
-        <div class="top"><a href="#" class="link close"></a></div>
-        <div class="content">
-            <p></p>
-        </div>
-    </div>
-</div>
 <div id="mask"></div>
 <div id="scroller" title="В начало">
     <svg width="12" height="22" viewBox="0 0 12 22" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -458,17 +458,63 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                             ?>
                         </div>
                     </div>
-                    <div class="" style="position: relative; max-width:1253px; width: 100%; margin: 0 auto;">
-                        <div class="modal-background"></div>
-                        <div class="toggleOpen auth-modal" id="auth">
-                            <a href="#" class="close"><span></span><span></span></a>
-                            <? $APPLICATION->IncludeComponent(
-                                "bxmaker:authuserphone.enter",
-                                "template",
-                                array(),
-                                false
-                            ); ?>
-                        </div>
+                    <div class="modal-background"></div>
+                    <div class="toggleOpen auth-modal" id="auth">
+                        <a href="#" class="close">
+                            <?= classBuildSCG::buildSVG('big-cross'); ?>
+                        </a>
+                        <? $APPLICATION->IncludeComponent(
+                            "bxmaker:authuserphone.enter",
+                            "template",
+                            array(),
+                            false
+                        ); ?>
+                        <a href="#register" class="linkOpen auth-logo">регистрация</a>
+                    </div>
+                    <div class="toggleOpen auth-modal <?= $USER->IsAuthorized() ? 'success' : ''; ?>" id="register">
+                        <a href="#" class="close">
+                            <?= classBuildSCG::buildSVG('big-cross'); ?>
+                        </a>
+
+                        <? $APPLICATION->IncludeComponent(
+                            "addamant:main.register",
+                            ".default",
+                            array(
+                                "USER_PROPERTY_NAME" => "",
+                                "SEF_MODE" => "N",
+                                "SHOW_FIELDS" => array(
+                                    0 => "LAST_NAME",
+                                    1 => "NAME",
+                                    2 => "SECOND_NAME",
+                                    3 => "PERSONAL_PHONE",
+                                    4 => "PERSONAL_BIRTHDAY",
+                                    5 => "UF_SUBSCRIBES"
+                                ),
+                                "REQUIRED_FIELDS" => array(
+                                    0 => "NAME",
+                                    1 => "LAST_NAME",
+                                    2 => "PERSONAL_PHONE",
+                                    3 => "SECOND_NAME",
+                                    4 => "EMAIL"
+                                ),
+                                "AUTH" => "Y",
+                                "USE_BACKURL" => "N",
+                                "SUCCESS_PAGE" => $APPLICATION->GetCurPage() . '?registration_success=true',
+                                "SET_TITLE" => "N",
+                                "USER_PROPERTY" => array(
+                                    0 => "UF_PERSONAL_AGREE",
+                                    1 => "UF_DISCOUNT_CARD_NUM"
+                                ),
+                                "COMPONENT_TEMPLATE" => ".default",
+                                "USER_CONSENT" => "Y",
+                                "USER_CONSENT_ID" => "1",
+                                "USER_CONSENT_IS_CHECKED" => "Y",
+                                "USER_CONSENT_IS_LOADED" => "N",
+                                "AJAX_MODE" => "Y"
+                            ),
+                            false
+                        ); ?>
+
                     </div>
                 </div>
                 <div class="modal-bg"></div>

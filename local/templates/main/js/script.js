@@ -367,7 +367,7 @@ $(document).ready(function () {
                 breakpoint: 767,
                 settings: {
                     slidesToShow: 2
-                  }
+                }
             }
         ]
     });
@@ -575,7 +575,7 @@ $(document).ready(function () {
     var hrSearch = window.location.search;
 
     $.get('/local/ajax/getBasketCount.php', function (data) {
-        $('.small-basket-quantity').html(data);
+        //$('.small-basket-quantity').html(data);
     });
     $.get('/local/ajax/getFavoriteCount.php', function (data) {
         $('#smallFavoriteHeader span').html(data);
@@ -771,14 +771,18 @@ $(document).ready(function () {
             window.location.href = "/personal/cart/";
             return;
         }
+
+        /*const prevent = ev => ev.preventDefault();
+        document.body.addEventListener('wheel', prevent, { passive: false });
+
+        if (document.body.clientWidth < 1024) {
+            document.querySelector('body').style.overflow = 'hidden'
+        }*/
+
         $('.detail-popup.bonus').hide();
         var that = $(this);
         var href = that.attr('href');
 
-        if (href == '#auth' && window.innerWidth < 960) {
-            window.location.href = "/login/auth/";
-            return;
-        }
         if (href == '#auth' || href == '#about_bonus') {
             $('.modal-background').fadeIn()
         }
@@ -790,11 +794,11 @@ $(document).ready(function () {
             $('body').removeClass('body-modal')
         }
 
-        toggleOpen.css('top', 0);
         toggleOpen.filter('.opened').not(href).removeClass('opened');
         linkOpen.filter('.opened').not(that).removeClass('opened');
         $(href).toggleClass('opened');
         that.toggleClass('opened');
+
 
         if (href == '#about_bonus') {
             $('.toggleOpen.about_bonus').addClass('opened');
@@ -1056,7 +1060,7 @@ $(document)
 
         let _this = $(this);
 
-        $('.small-basket-quantity').css({ 'display': 'block' });
+        //$('.small-basket-quantity').css({ 'display': 'block' });
         $.post('/local/ajax/add2basket.php', { id: id, quantity: qty }, function (response) {
             if (response.trim() != '0') {
 
@@ -1101,7 +1105,7 @@ $(document)
                 $("a.inFavorite[data-favorite-id = " + id + "]").css("background-image", "url('/local/templates/main/images/icons/heart.svg')");
 
                 $.get('/local/ajax/getBasketCount.php', { urlPage: docHref }, function (dataBasket) {
-                    $('.small-basket-quantity').html(dataBasket)
+                    //$('.small-basket-quantity').html(dataBasket)
                 });
 
                 $.get('/local/ajax/getAllSum.php', { urlPage: docHref }, function (dataBasket) {
@@ -1602,7 +1606,7 @@ $(document).on('click', '.delete_fav', function (e) {
                 $("a.inFavorite[data-favorite-id = " + prod + "]").css("background-image", "");
                 $("a.inFavorite[data-favorite-id = " + prod + "]").removeClass("inFv");
             } else if (fav == 'bask') {
-                $('.small-basket-quantity').html(parseInt($('.small-basket-quantity').html()) - 1);
+                //$('.small-basket-quantity').html(parseInt($('.small-basket-quantity').html()) - 1);
                 $('#smallBasketHeader span').html(parseInt($('#smallBasketHeader span').html()) - 1);
 
                 $(".buyBtn[data-id = " + prod + "]").removeClass("inB");

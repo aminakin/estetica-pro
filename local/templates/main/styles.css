@@ -112,6 +112,9 @@ header .sticky .header-middle .header-phone a{
 @media (max-width: 1024px) {
     .header-mobile{
         display: block;
+        z-index: 3;
+        position: relative;
+        background-color: #ffffff;
     }
     .header-desktop,
     .header .sticky .header-mobile-bottom{
@@ -201,7 +204,7 @@ header .sticky .header-middle .header-phone a{
 .header-mobile-bottom {
     display: flex;
     justify-content: flex-end;
-    padding: 22px 20px 32px;
+    padding: 8px 16px 10px;
 }
 .header-mobile-bottom .header-right-menu-text{
     display: none;
@@ -914,15 +917,6 @@ div.header-right-menu {
         padding-top: 10px;
     }
 }
-.auth-logo {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 19px;
-    text-transform: uppercase;
-    color: #000000;
-    margin: 0px !important;
-    cursor: pointer;
-}
 .header-right-menu-text {
     position: relative;
     font-size: 14px;
@@ -943,30 +937,6 @@ div.header-phone {
     line-height: 18px;
     color: #FFF;
     width: auto;
-}
-.auth-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 460px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 60px;
-    margin-top: 60px;
-    align-items: center;
-}
-.auth-container .h2 {
-    margin: 0 !important;
-}
-.auth-container.success {
-    margin: 50px 0 30px 0;
-    justify-content: center;
-}
-.auth-container.success h3 {
-    font-size: 14px;
-    color: #000;
-    font-weight: 600;
-    margin: 0;
 }
 #change .errortext,
 #forgot .war {
@@ -993,14 +963,6 @@ div.header-phone {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-input,
-button,
-textarea {
-    outline: none;
-    color: #333333;
-    -webkit-appearance: none;
-    font-size: 15px;
-}
 ::selection {
     background: #1a1a1a;
     color: #fff;
@@ -1023,18 +985,6 @@ div.bx-soa-section.bx-selected {
 }
 .bx-soa-coupon-input {
     width: 360px;
-}
-input[type="password"] {
-    color: #EBCFD5;
-}
-.main-profile form.main-profile__form h4 {
-    color: #EBCFD5;
-    font-size: 14px;
-    margin-top: 50px;
-}
-input[name="NEW_PASSWORD"],
-input[name="LOGIN"] {
-    max-width: 360px;
 }
 img {
     border: 0;
@@ -1224,11 +1174,7 @@ div.bx-soa-item-td {
         font-weight: 300 !important;
     }
     html .toggleOpen.auth-modal, html .toggleOpen#change {
-        padding-left: 45px;
-        padding-right: 45px;
-        overflow-y: scroll;
-        max-height: calc(100vh);
-        height: 100vh;
+        
         position: fixed;
     }
     html .bx-changepass-table input[type="submit"] {
@@ -1535,35 +1481,6 @@ a:hover {
     line-height: 19px;
     margin: 0;
 }
-#regform input[type="submit"] {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-}
-#basket_add .blackBtn,
-#regform input[type="submit"] {
-    margin-top: 20px;
-    margin-bottom: 45px;
-    border-radius: 5px;
-    min-width: 150px;
-    letter-spacing: 0.2px;
-    margin-left: -30px;
-    border: 1px solid #EBCFD5;
-    font-size: 14px;
-    background: #EBCFD5;
-    color: #fff;
-    font-weight: bold;
-    margin-right: 27px;
-    transition: all .2s ease .1s !important;
-    padding: 16px 0 !important;
-}
-#basket_add .blackBtn:hover,
-#regform input[type="submit"]:hover {
-    background: #F0D7DC;
-}
-#basket_add .blackBtn:active,
-#regform input[type="submit"]:active {
-    background: #EBC9D1;
-}
 #basket_add .whiteBtn {
     padding: 9px 19px;
     border: 1px solid #ccc;
@@ -1625,146 +1542,24 @@ html body .toggleOpen .close {
     justify-content: center;
     -ms-align-items: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     opacity: 1;
     position: absolute;
-    right: 0;
-    top: 0;
-}
+    right: 24px;
+    top: 24px;
 
-#auth {
-    position: fixed;
-    left: 50%;
-    top: 50% !important;
-    margin-left: 0;
-    transform: translate(-50%, -50%);
-    height: calc(100vh - 50px);
-    overflow-y: auto;
-    display: none;
 }
-
-#auth.opened {
-    display: block;
-}
-
-#auth.toggleOpen .h2 {
-    margin: 15px 0 35px 0;
-}
-#auth form {
-    max-width: 460px;
-}
-#authForm label,
-#regform .row .input-label {
-    font-size: 13px;
-    font-weight: 400;
-    margin-bottom: 10px;
-    display: inline-block;
-    color: #000000;
-    line-height: 12px;
-}
-.registration__password__daw__access {
-    display: none;
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    min-width: 15px;
-    min-height: 15px;
-    right: 17px;
-    bottom: 5px;
-    align-items: center;
-    justify-content: center;
-}
-.registration__password__daw__error {
-    display: none;
-    position: absolute;
-    width: 7px;
-    height: 7px;
-    min-width: 7px;
-    min-height: 7px;
-    right: 17px;
-    bottom: 9px;
-}
-
-.registration__password__eye-open {
-    display: block;
-    position: absolute;
-    cursor: pointer;
-    z-index: 11;
-    bottom: 5px;
-    right: 0px;
-}
-.registration__password__eye-close {
-    display: none;
-    position: absolute;
-    right: 0px;
-    cursor: pointer;
-    bottom: 5px;
-}
-.jq-checkbox ~ .message-input-checkbox {
-    display: block;
-    bottom: -15px;
-}
-.jq-checkbox.checked ~ .message-input-checkbox {
-    display: none;
-}
-.message-input,
-.message-input-spec {
-    font-size: 9px;
-    line-height: 12px;
-    color: #EBCFD5;
-    float: right;
-    position: absolute;
-    bottom: -15px;
-    right: 0;
-}
-.message-input{
-    display: none;
-}
-.message-input.divPERSONAL_PHONE {
-}
-.row.SUBMIT .message-input-spec{
-    top: -15px;
-    bottom: auto;
-    font-size: 12px;
-    text-align: right;
-    line-height: 1.2;
-}
-#regform .row.SUBMIT .message-input-spec{
-    position: static;
-}
-#regform .row.SUBMIT{
-    flex-wrap: wrap;
-    justify-content: flex-end!important;
-}
-#authForm input[type="text"],
-#authForm input[type="password"],
-.bx-changepass-table input[type="text"],
-.bx-changepass-table input[type="password"] {
-    border-radius: 0;
-    margin: 0;
-    letter-spacing: 0;
-    margin-bottom: 30px;
-    font-weight: 400;
-    font-size: 12px;
-    border-bottom: 1px solid #A9A9A9;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    padding: 0 0 5px 0px;
-    background-color: #ffff !important;
-    color: #000000;
-}
-.input-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
-}
-.input-container-svg-box {
-    display: block;
-    position: absolute;
-    top: 2px;
+@media (max-width: 1024px) {
+    html body .toggleOpen .close{
+        width: 32px;
+        height: 32px;
+        margin-top: 16px;
+        margin-right: 16px;
+        margin-left: auto;
+        position: static;
+    }
+    
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -1778,18 +1573,6 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
     background-color: rgb(255, 255, 255);
 }
-#regform > p:first-child {
-    margin-top: 30px;
-}
-#regform > p {
-    font-size: 13px;
-    color: #383838;
-    font-weight: 300;
-    letter-spacing: -0.5px;
-    max-width: 350px;
-    margin: 9px auto 0px;
-    line-height: 17px;
-}
 .toggleOpen::-webkit-scrollbar-track {
     background: transparent;
 }
@@ -1799,7 +1582,7 @@ select:-webkit-autofill:focus {
 }
 .toggleOpen::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background-color: #EBCFD5;
+    background-color: #F781BF;
 }
 .remember-me,
 .terms-line {
@@ -1812,7 +1595,6 @@ select:-webkit-autofill:focus {
     margin-bottom: 0 !important;
 }
 .terms-line a {
-    text-decoration: underline #ccc;
     text-transform: none;
     color: #000;
 }
@@ -1864,25 +1646,6 @@ html body .toggleOpen .close span {
 }
 html body .toggleOpen .close:hover span {
     background: #EBCFD5;
-}
-.toggleOpen
-.toggleOpen .h2 {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 30px 0 60px;
-    color: #000000;
-}
-
-.forgot-ok {
-    font-size: 12px;
-    font-weight: 400;
-    color: #000;
-    text-align: left;
-}
-#auth .bottom {
-    color: #EBCFD5;
-    margin-top: 30px;
-    font-size: 16px;
 }
 input[type="submit"].btnForpasswd,
 .bxmaker-authuserphone-call__block .bxmaker-authuserphone-btn--button,
@@ -2041,10 +1804,6 @@ table {
     border-spacing: 0;
     border-collapse: collapse;
 }
-form {
-    max-width: 450px;
-    margin: 0 auto;
-}
 .modal-background {
     width: 100%;
     height: 100%;
@@ -2052,7 +1811,7 @@ form {
     top: 0px;
     left: 0px;
     padding: 0px;
-    background-color: gray;
+    background-color: #00000080;
     opacity: 0.75;
     z-index: 2;
     display: none;
@@ -2118,24 +1877,8 @@ div.basket-item-price-old {
         margin-top: 19px;
         margin-bottom: 0;
     }
-    input[type="submit"].btnForpasswd,
-    #auth input[type="submit"],
-    #basket_add .blackBtn,
-    #regform input[type="submit"] {
-        font-size: 12px;
-    }
     .forgot-remember-password .linkOpen {
         font-size: 9px;
-    }
-    #auth form input[type="text"],
-    #auth form input[type="password"] {
-        font-size: 14px;
-        line-height: 26px;
-    }
-
-    .auth-modal .terms-line {
-        padding-right: 0%;
-        font-size: 8px;
     }
     .show-more__wrapper {
         padding: 0;
@@ -2209,114 +1952,6 @@ div.basket-item-price-old {
     padding-right: 6px;
     margin-left: auto;
     margin-right: auto;
-}
-.noteBlock {
-    padding: 30px 62px 30px 32px;
-    position: relative;
-    letter-spacing: 1px;
-    color: #fff;
-    background: #333333;
-    font-size: 13px;
-    max-width: 445px;
-    margin: 10px auto 0 auto;
-    border-top: 1px solid #c9c9c9;
-}
-.noteBlock:before {
-    position: absolute;
-    content: '';
-    display: block;
-    left: 50%;
-    margin-left: -10px;
-    top: -20px;
-    border: 10px solid transparent;
-    border-bottom: 10px solid #333333;
-    z-index: 1;
-}
-.noteBlock .close {
-    position: absolute;
-    right: 28px;
-    top: 50%;
-    margin-top: -10px;
-    width: 20px;
-    height: 20px;
-    background: url("images/icons/close.svg") no-repeat 0 0;
-    background-size: 100% auto;
-}
-input[type="text"],
-input[type="email"],
-input[type="password"],
-textarea,
-select {
-    width: 100%;
-    border: 2px solid #ebebeb;
-    border-radius: 5px;
-    padding: 0 12px;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-}
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-textarea:focus,
-select:focus {
-    color: #000 !important;
-}
-textarea {
-    height: 110px;
-    padding-top: 12px;
-    margin-bottom: 20px;
-}
-.dateInp {
-    position: relative;
-}
-.dateInp img {
-    position: absolute;
-    right: 16px;
-    top: 6px;
-}
-.hideFull {
-    display: none;
-}
-label {
-    display: block;
-    margin-bottom: 21px;
-}
-blockquote {
-    max-width: 660px;
-    margin: 30px 0;
-    font-size: 22px;
-}
-blockquote.witPic {
-    max-width: 725px;
-}
-blockquote.witPic .text {
-    padding-left: 28px;
-    display: table-cell;
-    vertical-align: middle;
-    height: 90px;
-    font-size: 15px;
-}
-blockquote .author {
-    color: #aaaab2;
-    margin-top: 10px;
-    font-size: 14px;
-}
-blockquote.witPic img {
-    border-radius: 50%;
-    float: left;
-    margin-left: 34px;
-}
-@media (max-width: 991px) {
-    blockquote.witPic img {
-        float: none;
-        margin: 0 auto 20px auto;
-        display: block;
-    }
-    blockquote.witPic .text {
-        display: block;
-        padding-left: 0;
-    }
-
 }
 .header-social {
     display: -webkit-flex;
@@ -2643,8 +2278,6 @@ nav.top-menu li::marker{display: none;}
     color: #fff;
     opacity: .9;
 }
-
-
 .openMenu {
     float: left;
     height: 18px;
@@ -3022,10 +2655,6 @@ header .favorite div {
     font-size: 14px;
     width: 100%;
 }
-.toggleOpen input[type="submit"] {
-    min-width: 130px;
-    margin-top: 10px;
-}
 .toggleOpen .h2 {
     margin: 15px 0 60px 0;
 }
@@ -3044,20 +2673,6 @@ header .favorite div {
     font-size: 12px;
     color: #878787;
     font-weight: 300;
-}
-.button-submit-registration {
-    width: 100%;
-    border-radius: 0px !important;
-    padding-top: 30px !important;
-    padding-bottom: 30px !important;
-}
-#regform input[type="submit"].button-submit-registration_disabled {
-    width: 100%;
-    border-radius: 0px !important;
-    background: transparent;
-    border-color: #DADADA;
-    color: #DADADA;
-    display: none;
 }
 .floating-menu .search-block {
     display: none;
@@ -3216,9 +2831,6 @@ html body .close.basket-close span {
         line-height: 22px;
         font-weight: 400;
     }
-    nav.top > ul {
-        width: auto !important;
-    }
     .toggleOpen .bottom {
         padding-bottom: 20px;
     }
@@ -3341,9 +2953,6 @@ html body .close.basket-close span {
         transition: right 0.2s ease-out;
         box-shadow: none;
     }
-    nav.top .toToggle:before {
-        display: none !important;
-    }
     .toggleOpen.opened {
         /*transform: translateY(-52px);*/
         right: 0;
@@ -3448,32 +3057,9 @@ html body .close.basket-close span {
     .toggleOpen.auth-modal {
         padding: 0 42px;
     }
-    #auth.auth-modal form {
-        padding: 0;
-    }
-    .auth-container {
-        margin-bottom: 30px;
-    }
     .toggleOpen .bottom {
         position: relative;
         background: #fff;
-    }
-    #auth,
-    #register {
-        overflow-y: scroll;
-        max-height: calc(100vh);
-        height: 100vh;
-        position: fixed;
-    }
-    #register.success {
-        height: 100%;
-    }
-
-    #register {
-        max-height: 100vh;
-        height: 100vh;
-        overflow: hidden;
-        overflow-y: auto;
     }
     .block-contacts-element {
         text-align: center !important;
@@ -3511,60 +3097,6 @@ html body .close.basket-close span {
 .btn:active {
     text-decoration: none;
     outline: none;
-}
-nav.top {
-    position: relative;
-    width: 305px;
-}
-nav.top li:hover > a,
-nav.top a.selected,
-nav.top a:hover {
-    opacity: 1;
-}
-nav.top li {
-    position: static;
-}
-
-nav.top .toToggle:before {
-    content: '';
-    display: block;
-    height: 315px;
-    width: 1px;
-    background: #e6e6e6;
-    position: absolute;
-    left: 0;
-    top: 15px;
-}
-nav.top .toToggle::-webkit-scrollbar-track {
-    background-color: #fff;
-}
-nav.top .toToggle::-webkit-scrollbar {
-    width: 10px;
-    background-color: #fff;
-}
-nav.top .toToggle::-webkit-scrollbar-thumb {
-    background-color: #e6e6e6;
-}
-
-nav.top > ul {
-    width: 305px;
-}
-.toggleCont > .toToggle > .inner {
-    padding-left: 20px;
-}
-nav.top .toToggle a {
-    padding-left: 25px;
-    font-size: 14px;
-    padding-top: 16px;
-    line-height: 18px;
-    padding-right: 0;
-}
-nav.top .toggleLink {
-    position: relative;
-    color: #cacaca;
-}
-nav.top .inner .toggleLink:before {
-    top: 15px;
 }
 .address {
     position: relative;
@@ -3849,58 +3381,7 @@ form#basket_form {
     background-color: #000;
     display: none;
 }
-#boxes {
-    position: relative;
-}
-#boxes .window {
-    position: absolute;
-    top: 0px;
-    -top: 40px;
-    width: 440px;
-    height: 200px;
-    display: none;
-    z-index: 9999;
-    padding: 20px;
-    overflow: hidden;
-}
-#boxes #dialog {
-    width: 280px;
-    height: 60px;
-    background-color: #fff;
-    border: 10px solid #ebebeb;
-    padding: 10px;
-    z-index: 10;
-    transition: opacity 0.1s ease-out, transform 0.5s ease-out;
-    font-size: 14px;
-}
-#boxes .top {
-    position: relative;
-    float: right;
-    width: 30px;
-    height: 30px;
-}
-#boxes .close {
-    display: block;
-    position: absolute;
-    right: 0px;
-    width: 20px;
-    height: 20px;
-    background: url("/local/templates/main/images/icons/close.svg") no-repeat 0 0;
-    background-size: 100% auto;
-    filter: invert(100%);
-    -webkit-filter: invert(100%);
-    -moz-filter: invert(100%);
-    -o-filter: invert(100%);
-    -ms-filter: invert(100%);
-}
-#boxes .content {
-    padding-top: 0px;
-    text-align: center;
-    float: left;
-}
-#boxes .content p {
-    margin: 0;
-}
+
 .bx-auth-reg div.error,
 .bx-auth-reg p.war {
     text-align: center;
@@ -3914,14 +3395,9 @@ form#basket_form {
 .title-search-result .results {
     margin-top: 4px;
 }
-.results b {
-}
 font.errortext {
     text-align: center;
     display: block;
-}
-.bx-authform.forpass p.war {
-    text-align: center;
 }
 
 .authErrorMessage {
@@ -3952,9 +3428,6 @@ font.errortext {
 }
 .sale-prev-bg {
     position: relative;
-}
-.bx-authform-formgroup-container {
-    text-align: center;
 }
 .sale-prev-bg img {
     max-width: 100%;
@@ -7005,17 +6478,6 @@ html body .toggleOpen.no_fav_popup .fav-close:hover{
     display: block;
     text-decoration: none;
     padding: 17px 25px 17px 30px;
-}
-.auth-modal.success .just-do-it{
-    display: none;
-}
-#auth .basket-checkout-container.bonus a,
-#register .basket-checkout-container.bonus a{
-    padding: 17px 15px;
-}
-#register.success .basket-checkout-container.bonus {
-    max-width: 400px;
-    margin: 0 auto 30px;
 }
 .basket-checkout-container.delivery img.arrow-right,
 .basket-checkout-container.bonus img.arrow-right{

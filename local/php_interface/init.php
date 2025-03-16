@@ -1558,9 +1558,6 @@ class AddamantUser
       $arUserFields['CONFIRM_PASSWORD'] = $passwordConfirm;
     }
 
-
-
-
     if (count($errors)) {
       throw new \BXmaker\AuthUserPhone\Exception\BaseException(
         json_encode($errors),

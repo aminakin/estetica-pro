@@ -1,0 +1,387 @@
+div.bx-auth-reg input.bx-auth-input {
+    vertical-align: middle;
+}
+
+.registration-title {
+    font-family: 'TenorSans';
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+
+div.bx-auth-reg {
+    max-width: 550px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+form#regform {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#regform .row {
+    width: 100%;
+    margin: 0px;
+    margin-bottom: 15px !important;
+}
+
+#regform .row:last-child {
+    margin-bottom: 0 !important;
+}
+
+.row {
+    position: relative;
+}
+
+#regform .row.NAME,
+#regform .row.SECOND_NAME,
+#regform .row.EMAIL,
+#regform .row.PERSONAL_PHONE,
+#regform .row.PASSWORD,
+#regform .row.CONFIRM_PASSWORD {
+    width: 48%;
+    margin: 0px;
+    margin-right: 0px;
+    position: relative;
+}
+
+#regform input[type="text"],
+#regform input[type="email"],
+#regform input[type="password"],
+#regform select {
+    padding: 17px 16px;
+    border-radius: 10px;
+    font-size: 18px;
+    line-height: 20px;
+    border: 1px solid #999999;
+    width: 100%;
+}
+
+#regform .row.PASSWORD input,
+#regform .row.CONFIRM_PASSWORD input {
+    padding-right: 40px;
+}
+
+#regform .row.PASSWORD input,
+#regform .row.CONFIRM_PASSWORD input {
+    padding-right: 40px;
+}
+
+#regform label {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #333333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+#regform label .required {
+    color: #F23218;
+    padding-left: 4px;
+}
+
+#regform .jq-selectbox {
+    margin-bottom: 0;
+}
+
+#regform .profile-field__select-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#regform .profile-field__select {
+    width: 30%;
+}
+
+#regform .profile-field__select .jq-selectbox__select {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    border-bottom: 1px solid #C4C4C4;
+    height: auto;
+}
+
+#regform .profile-field__select .jq-selectbox__select-text {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 24px;
+    color: #000000;
+}
+
+#regform .jq-selectbox__trigger-arrow {
+    width: 8px;
+    top: 13px;
+    right: 0px;
+}
+
+#regform .row.UF_PERSONAL_AGREE {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 0 !important;
+}
+
+.registration-svg-block {
+    display: block;
+    position: absolute;
+    bottom: 4px;
+}
+
+.row.NAME {
+    order: 2;
+}
+
+.row.SECOND_NAME {
+    order: 3;
+}
+
+.row.PERSONAL_PHONE {
+    order: 5;
+}
+
+.bx-auth-reg #regform .row.UF_DISCOUNT_CARD_NUM {
+    order: 9;
+    margin-bottom: 20px !important;
+}
+
+.row.EMAIL {
+    order: 4;
+}
+
+.row.PASSWORD {
+    order: 7;
+}
+
+.row.CONFIRM_PASSWORD {
+    order: 8;
+}
+
+.row.PERSONAL_BIRTHDAY {
+    order: 9;
+}
+
+.row.UF_SUBSCRIBES {
+    font-size: 12px;
+    line-height: 16px;
+    color: #000;
+    order: 11;
+}
+
+.row.UF_PERSONAL_AGREE {
+    order: 12;
+}
+
+.row.SUBMIT {
+    order: 13;
+    margin-bottom: 45px;
+}
+
+#regform .jq-checkbox {
+    color: #A9A9A9;
+    border: 1px solid #A9A9A9;
+    margin-right: 10px;
+    border-radius: 2px;
+    margin-top: 4px;
+}
+
+#regform .jq-checkbox.checked {
+    background: #EBCFD5;
+    border: 1px solid #EBCFD5;
+}
+
+#regform .jq-checkbox.checked svg path {
+    stroke: #ffffff;
+}
+
+#regform .profile-field__subscribe {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#regform .profile-field__subscribe .text-line {
+    display: inline;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000000;
+    margin: 0;
+}
+
+#register {
+    height: calc(100vh - 34px);
+    padding-bottom: 0;
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    max-width: 1140px;
+    width: 100%;
+    border-radius: 36px;
+    padding: 130px 0 40px;
+}
+
+#register>div{
+    overflow: auto;
+    height: 100%; 
+}
+
+#register {
+    padding-bottom: 60px;
+}
+
+.message-input {
+    display: none;
+}
+
+.registration__password__eye-open {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    z-index: 11;
+    top: 46px;
+    right: 16px;
+    height: 16px;
+}
+
+.registration__password__eye-close {
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    top: 20px;
+    right: 16px;
+    height: 16px;
+}
+
+.bx-auth-reg .row input[type="checkbox"] {
+    display: none;
+}
+
+.bx-auth-reg .row input[type="checkbox"]:checked+label,
+.bx-auth-reg .row input[type="checkbox"]:not(:checked)+label {
+    display: inline-block;
+    position: relative;
+    padding-left: 42px;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.bx-auth-reg .row input[type="checkbox"]:checked+label:before,
+.bx-auth-reg .row input[type="checkbox"]:not(:checked)+label:before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 24px;
+    height: 24px;
+    background: #F3F3F3;
+    border-radius: 8px;
+}
+
+.bx-auth-reg .row input[type="checkbox"]:checked+label:before {
+    background: url(images/checkbox.png)
+}
+
+.profile-field__personal-agree,
+.profile-field__subscribe {
+    position: relative;
+}
+
+.profile-field__personal-agree a {
+    text-decoration: underline;
+}
+
+.button-submit-registration {
+    margin-top: 24px;
+    padding: 20px 15px;
+    font-size: 22px;
+    line-height: 24px;
+    color: #ffffff;
+    text-transform: lowercase;
+    background: #F781BF;
+    border-radius: 10px;
+    width: 100%;
+    border: none;
+}
+
+.just-do-it{
+    margin-top: 24px;
+}
+
+.just-do-it a {
+    margin-top: 24px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #999999;
+}
+
+.just-do-it a span{
+    color: #F781BF;
+}
+
+#register input.error{
+    border-color: red;
+}
+
+.message-input-spec{
+    color: red;
+}
+
+@media (max-width: 1100px) {
+    .registration-title {
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+
+@media (max-width: 1024px) {
+    #register{
+        transform: none;
+        top: 116px!important;
+        height: 100vh;
+        padding:0;
+        border-radius: 0;
+        overflow: auto;
+        left: 0;
+        padding-bottom: 100px;
+    }
+
+    #register>div{
+        overflow: unset;
+        padding: 48px 0 56px;
+        height: auto;
+    }
+
+    div.bx-auth-reg {
+        max-width: 640px;
+    }
+}
+
+@media (max-width: 690px) {
+    div.bx-auth-reg {
+        padding: 0 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    #regform .row.NAME, 
+    #regform .row.SECOND_NAME, 
+    #regform .row.EMAIL, 
+    #regform .row.PERSONAL_PHONE, 
+    #regform .row.PASSWORD,
+    #regform .row.CONFIRM_PASSWORD,
+    #regform .profile-field__select{
+        width: 100%;
+    }
+
+    #regform .profile-field__select-wrap{
+        flex-wrap: wrap;
+    }
+    .profile-field__select + .profile-field__select{
+        margin-top: 16px;
+    }
+}

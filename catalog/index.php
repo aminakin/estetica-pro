@@ -182,7 +182,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 			2 => "SALE_RESNITSY",
 		),
 		"LABEL_PROP_POSITION" => "top-left",
-		"LAZY_LOAD" => "N",
+		"LAZY_LOAD" => "Y",
 		"LINE_ELEMENT_COUNT" => "31",
 		"LINK_ELEMENTS_URL" => "link.php?PARENT_ELEMENT_ID=#ELEMENT_ID#",
 		"LINK_IBLOCK_ID" => "14",
@@ -213,7 +213,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 			12 => "",
 		),
 		"LIST_PRODUCT_BLOCKS_ORDER" => "price,quantityLimit,sku,quantity,buttons,compare,props",
-		"LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false}]",
+		"LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false}]",
 		"LIST_PROPERTY_CODE" => array(
 			0 => "",
 			1 => "ICON",
@@ -270,7 +270,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"PAGER_SHOW_ALWAYS" => "N",
 		"PAGER_TEMPLATE" => "catalog_section_new",
 		"PAGER_TITLE" => "Товары",
-		"PAGE_ELEMENT_COUNT" => "24",
+		"PAGE_ELEMENT_COUNT" => "16",
 		"PARTIAL_PRODUCT_PROPERTIES" => "Y",
 		"PATH_TO_SMILE" => "/bitrix/images/forum/smile/",
 		"PRICE_CODE" => array(

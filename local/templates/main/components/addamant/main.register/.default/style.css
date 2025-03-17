@@ -216,13 +216,17 @@ form#regform {
     height: calc(100vh - 34px);
     padding-bottom: 0;
     position: fixed;
-    top: 50%;
+    top: -100%;
     transform: translate(-50%, -50%);
     margin: 0;
     max-width: 1140px;
     width: 100%;
     border-radius: 36px;
     padding: 130px 0 40px;
+}
+
+#register.opened{
+    top: 50%; 
 }
 
 #register>div{
@@ -341,13 +345,16 @@ form#regform {
 @media (max-width: 1024px) {
     #register{
         transform: none;
-        top: 116px!important;
         height: 100vh;
         padding:0;
         border-radius: 0;
         overflow: auto;
         left: 0;
         padding-bottom: 100px;
+    }
+
+    #register.opened{
+        top: 116px;
     }
 
     #register>div{

@@ -449,7 +449,7 @@ $isSidebar = ($arParams['SIDEBAR_DETAIL_SHOW'] == 'Y' && !empty($arParams['SIDEB
 
                                 'DISPLAY_TOP_PAGER' => 'N',
                                 'DISPLAY_BOTTOM_PAGER' => 'N',
-                                'HIDE_SECTION_DESCRIPTION' => 'Y',
+                                'HIDE_SECTION_DESCRIPTION' => 'N',
 
                                 'RCM_TYPE' => isset($arParams['BIG_DATA_RCM_TYPE']) ? $arParams['BIG_DATA_RCM_TYPE'] : '',
                                 'RCM_PROD_ID' => $elementId,

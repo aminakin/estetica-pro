@@ -371,56 +371,6 @@ $(document).ready(function () {
             }
         ]
     });
-    $('.bx_catalog_tile_ul_slider').slick({
-        infinite: false,
-        slidesToShow: 5,
-        slidesToScroll: 3,
-        prevArrow: '<button type="button" data-role="none" class="slick-prev slick-arrow catalog-section" aria-label="Prev" role="button" style="" aria-disabled="false">' +
-            '<svg width="12" height="22" viewBox="0 0 12 22" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
-            '<path d="M10 1.5L1 11L10 20.5" stroke="#221F20" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>\n' +
-            '</svg>\n</button>',
-        nextArrow: '<button type="button" data-role="none" class="slick-next slick-arrow catalog-section" aria-label="Next" role="button" style="" aria-disabled="false">' +
-            '<svg width="12" height="22" viewBox="0 0 12 22" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
-            '<path d="M2 1.5L11 11L2 20.5" stroke="#221F20" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>\n' +
-            '</svg>\n</button>',
-        centerMode: false,
-        centerPadding: '90px',
-        arrows: true,
-        responsive: [
-            {
-                breakpoint: 1200,
-                settings: {
-                    slidesToShow: 4
-                }
-            },
-            {
-                breakpoint: 910,
-                settings: {
-                    slidesToShow: 3
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToScroll: 1,
-                    slidesToShow: 3,
-                    swipeToSlide: true,
-                    TouchMove: true,
-                    swipe: true,
-                }
-            },
-            {
-                breakpoint: 650,
-                settings: {
-                    slidesToScroll: 1,
-                    slidesToShow: 2,
-                    swipeToSlide: true,
-                    TouchMove: true,
-                    swipe: true,
-                }
-            }
-        ]
-    });
 
     $('a[href="#new"]').on('click', function (event) {
         event.preventDefault();
@@ -858,7 +808,6 @@ $(document).ready(function () {
         $('.modal-background').fadeOut()
         $('body').removeClass('body-modal');
         $('.toggleOpen.opened').removeClass('opened');
-        toggleOpen.css('top', '0px');
         linkOpen.removeClass('opened');
         return false;
     });

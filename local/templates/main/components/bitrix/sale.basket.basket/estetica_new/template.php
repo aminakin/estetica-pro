@@ -539,7 +539,7 @@ if (empty($arResult['ERROR_MESSAGE']))
 							  'SLIDER_PROGRESS' => 'N',
 							  'DISPLAY_TOP_PAGER' => 'N',
 							  'DISPLAY_BOTTOM_PAGER' => 'N',
-							  'HIDE_SECTION_DESCRIPTION' => 'Y',
+							  'HIDE_SECTION_DESCRIPTION' => 'N',
 							  'RCM_TYPE' => 'personal',
 							  'RCM_PROD_ID' => 53613,
 							  'SHOW_FROM_SECTION' => 'Y',

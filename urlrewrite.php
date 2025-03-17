@@ -40,20 +40,20 @@ $arUrlRewrite=array (
     'PATH' => '/courses/index.php',
     'SORT' => 100,
   ),
-  67 => 
-  array (
-    'CONDITION' => '#^/catalog/#',
-    'RULE' => '',
-    'ID' => 'bitrix:catalog',
-    'PATH' => '/catalog/index.php',
-    'SORT' => 100,
-  ),
   68 => 
   array (
     'CONDITION' => '#^/palitra/#',
     'RULE' => '',
     'ID' => 'bitrix:catalog',
     'PATH' => '/palitra/index.php',
+    'SORT' => 100,
+  ),
+  69 => 
+  array (
+    'CONDITION' => '#^/catalog/#',
+    'RULE' => '',
+    'ID' => 'bitrix:catalog',
+    'PATH' => '/catalog/index.php',
     'SORT' => 100,
   ),
   6 => 

@@ -241,7 +241,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                             <div class="catalog-menu-block">
                                                 <? $APPLICATION->IncludeComponent(
                                                     "bitrix:catalog.section.list",
-                                                    "catalog-top-palitra",
+                                                    "catalog-top",
                                                     array(
                                                         "IBLOCK_TYPE" => 'catalog',
                                                         "IBLOCK_ID" => '25',

@@ -7,6 +7,6 @@ $MESS ['nav_end'] = "Конец";
 $MESS ['nav_paged'] = "По стр.";
 $MESS ['nav_all'] = "Все";
 $MESS ['nav_to'] = "-";
-$MESS ['nav_title'] = "Перейти на страницу";
+$MESS ['nav_title'] = "Перейти на страницу:";
 $MESS ['nav_button'] = "Перейти";
 ?>

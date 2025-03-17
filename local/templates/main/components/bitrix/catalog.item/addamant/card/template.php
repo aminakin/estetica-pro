@@ -312,6 +312,7 @@ use \Bitrix\Main\Localization\Loc;
                                             href="javascript:void(0)" rel="nofollow"
                                             <? if ($actualItem['IBLOCK_SECTION_ID'] == 1190): ?>onclick="ym(51439306,'reachGoal','target')" <? endif; ?>>
                                             <?= getMessage('MESS_BUY'); ?>
+                                            <?= classBuildSCG::buildSVG('cart', $templateFolder."/image"); ?>
                                         </a>
                                     </div>
                                 <?
@@ -620,6 +621,7 @@ use \Bitrix\Main\Localization\Loc;
                                                             data-id="<?= $item['ID'] ?>" id="<?= $itemIds['BUY_LINK'] ?>"
                                                             href="javascript:void(0)" rel="nofollow">
                                                             <?= getMessage('MESS_BUY'); ?>
+                                                            <?= classBuildSCG::buildSVG('cart', $templateFolder."/image"); ?>
                                                         </a>
                                                     </div>
                                                 </div>

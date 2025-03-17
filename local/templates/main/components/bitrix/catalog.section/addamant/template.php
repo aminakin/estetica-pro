@@ -1,6 +1,8 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php
+if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
-use \Bitrix\Main\Localization\Loc;
+use Bitrix\Main\Localization\Loc;
+use Bitrix\Catalog\ProductTable;
 
 /**
  * @global CMain $APPLICATION
@@ -10,6 +12,14 @@ use \Bitrix\Main\Localization\Loc;
  * @var CBitrixComponentTemplate $this
  * @var string $templateName
  * @var string $componentPath
+ *
+ *  _________________________________________________________________________
+ * |	Attention!
+ * |	The following comments are for system use
+ * |	and are required for the component to work correctly in ajax mode:
+ * |	<!-- items-container -->
+ * |	<!-- pagination-container -->
+ * |	<!-- component-end -->
  */
 
 $this->setFrameMode(true);
@@ -55,7 +65,8 @@ if (!empty($arResult['CURRENCIES']))
 $templateData = array(
 	'TEMPLATE_THEME' => $arParams['TEMPLATE_THEME'],
 	'TEMPLATE_LIBRARY' => $templateLibrary,
-	'CURRENCIES' => $currencyList
+	'CURRENCIES' => $currencyList,
+	'USE_PAGINATION_CONTAINER' => $showTopPager || $showBottomPager,
 );
 unset($currencyList, $templateLibrary);
 
@@ -90,59 +101,24 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 	}
 }
 
-$arParams['~MESS_BTN_BUY'] = $arParams['~MESS_BTN_BUY'] ?: Loc::getMessage('CT_BCS_TPL_MESS_BTN_BUY');
-$arParams['~MESS_BTN_DETAIL'] = $arParams['~MESS_BTN_DETAIL'] ?: Loc::getMessage('CT_BCS_TPL_MESS_BTN_DETAIL');
-$arParams['~MESS_BTN_COMPARE'] = $arParams['~MESS_BTN_COMPARE'] ?: Loc::getMessage('CT_BCS_TPL_MESS_BTN_COMPARE');
-$arParams['~MESS_BTN_SUBSCRIBE'] = $arParams['~MESS_BTN_SUBSCRIBE'] ?: Loc::getMessage('CT_BCS_TPL_MESS_BTN_SUBSCRIBE');
-$arParams['~MESS_BTN_ADD_TO_BASKET'] = $arParams['~MESS_BTN_ADD_TO_BASKET'] ?: Loc::getMessage('CT_BCS_TPL_MESS_BTN_ADD_TO_BASKET');
-$arParams['~MESS_NOT_AVAILABLE'] = $arParams['~MESS_NOT_AVAILABLE'] ?: Loc::getMessage('CT_BCS_TPL_MESS_PRODUCT_NOT_AVAILABLE');
-$arParams['~MESS_SHOW_MAX_QUANTITY'] = $arParams['~MESS_SHOW_MAX_QUANTITY'] ?: Loc::getMessage('CT_BCS_CATALOG_SHOW_MAX_QUANTITY');
-$arParams['~MESS_RELATIVE_QUANTITY_MANY'] = $arParams['~MESS_RELATIVE_QUANTITY_MANY'] ?: Loc::getMessage('CT_BCS_CATALOG_RELATIVE_QUANTITY_MANY');
-$arParams['~MESS_RELATIVE_QUANTITY_FEW'] = $arParams['~MESS_RELATIVE_QUANTITY_FEW'] ?: Loc::getMessage('CT_BCS_CATALOG_RELATIVE_QUANTITY_FEW');
+$arParams['~MESS_BTN_BUY'] = ($arParams['~MESS_BTN_BUY'] ?? '') ?: Loc::getMessage('CT_BCS_TPL_MESS_BTN_BUY');
+$arParams['~MESS_BTN_DETAIL'] = ($arParams['~MESS_BTN_DETAIL'] ?? '') ?: Loc::getMessage('CT_BCS_TPL_MESS_BTN_DETAIL');
+$arParams['~MESS_BTN_COMPARE'] = ($arParams['~MESS_BTN_COMPARE'] ?? '') ?: Loc::getMessage('CT_BCS_TPL_MESS_BTN_COMPARE');
+$arParams['~MESS_BTN_SUBSCRIBE'] = ($arParams['~MESS_BTN_SUBSCRIBE'] ?? '') ?: Loc::getMessage('CT_BCS_TPL_MESS_BTN_SUBSCRIBE');
+$arParams['~MESS_BTN_ADD_TO_BASKET'] = ($arParams['~MESS_BTN_ADD_TO_BASKET'] ?? '') ?: Loc::getMessage('CT_BCS_TPL_MESS_BTN_ADD_TO_BASKET');
+$arParams['~MESS_NOT_AVAILABLE'] = ($arParams['~MESS_NOT_AVAILABLE'] ?? '') ?: Loc::getMessage('CT_BCS_TPL_MESS_PRODUCT_NOT_AVAILABLE');
+$arParams['~MESS_NOT_AVAILABLE_SERVICE'] = ($arParams['~MESS_NOT_AVAILABLE_SERVICE'] ?? '') ?: Loc::getMessage('CP_BCS_TPL_MESS_PRODUCT_NOT_AVAILABLE_SERVICE');
+$arParams['~MESS_SHOW_MAX_QUANTITY'] = ($arParams['~MESS_SHOW_MAX_QUANTITY'] ?? '') ?: Loc::getMessage('CT_BCS_CATALOG_SHOW_MAX_QUANTITY');
+$arParams['~MESS_RELATIVE_QUANTITY_MANY'] = ($arParams['~MESS_RELATIVE_QUANTITY_MANY'] ?? '') ?: Loc::getMessage('CT_BCS_CATALOG_RELATIVE_QUANTITY_MANY');
+$arParams['MESS_RELATIVE_QUANTITY_MANY'] = ($arParams['MESS_RELATIVE_QUANTITY_MANY'] ?? '') ?: Loc::getMessage('CT_BCS_CATALOG_RELATIVE_QUANTITY_MANY');
+$arParams['~MESS_RELATIVE_QUANTITY_FEW'] = ($arParams['~MESS_RELATIVE_QUANTITY_FEW'] ?? '') ?: Loc::getMessage('CT_BCS_CATALOG_RELATIVE_QUANTITY_FEW');
+$arParams['MESS_RELATIVE_QUANTITY_FEW'] = ($arParams['MESS_RELATIVE_QUANTITY_FEW'] ?? '') ?: Loc::getMessage('CT_BCS_CATALOG_RELATIVE_QUANTITY_FEW');
 
-$generalParams = array(
-	'SHOW_DISCOUNT_PERCENT' => $arParams['SHOW_DISCOUNT_PERCENT'],
-	'PRODUCT_DISPLAY_MODE' => $arParams['PRODUCT_DISPLAY_MODE'],
-	'SHOW_MAX_QUANTITY' => $arParams['SHOW_MAX_QUANTITY'],
-	'RELATIVE_QUANTITY_FACTOR' => $arParams['RELATIVE_QUANTITY_FACTOR'],
-	'MESS_SHOW_MAX_QUANTITY' => $arParams['~MESS_SHOW_MAX_QUANTITY'],
-	'MESS_RELATIVE_QUANTITY_MANY' => $arParams['~MESS_RELATIVE_QUANTITY_MANY'],
-	'MESS_RELATIVE_QUANTITY_FEW' => $arParams['~MESS_RELATIVE_QUANTITY_FEW'],
-	'SHOW_OLD_PRICE' => $arParams['SHOW_OLD_PRICE'],
-	'USE_PRODUCT_QUANTITY' => $arParams['USE_PRODUCT_QUANTITY'],
-	'PRODUCT_QUANTITY_VARIABLE' => $arParams['PRODUCT_QUANTITY_VARIABLE'],
-	'ADD_TO_BASKET_ACTION' => $arParams['ADD_TO_BASKET_ACTION'],
-	'ADD_PROPERTIES_TO_BASKET' => $arParams['ADD_PROPERTIES_TO_BASKET'],
-	'PRODUCT_PROPS_VARIABLE' => $arParams['PRODUCT_PROPS_VARIABLE'],
-	'SHOW_CLOSE_POPUP' => $arParams['SHOW_CLOSE_POPUP'],
-	'DISPLAY_COMPARE' => $arParams['DISPLAY_COMPARE'],
-	'COMPARE_PATH' => $arParams['COMPARE_PATH'],
-	'COMPARE_NAME' => $arParams['COMPARE_NAME'],
-	'PRODUCT_SUBSCRIPTION' => $arParams['PRODUCT_SUBSCRIPTION'],
-	'PRODUCT_BLOCKS_ORDER' => $arParams['PRODUCT_BLOCKS_ORDER'],
-	'LABEL_POSITION_CLASS' => $labelPositionClass,
-	'DISCOUNT_POSITION_CLASS' => $discountPositionClass,
-	'SLIDER_INTERVAL' => $arParams['SLIDER_INTERVAL'],
-	'SLIDER_PROGRESS' => $arParams['SLIDER_PROGRESS'],
-	'~BASKET_URL' => $arParams['~BASKET_URL'],
-	'~ADD_URL_TEMPLATE' => $arResult['~ADD_URL_TEMPLATE'],
-	'~BUY_URL_TEMPLATE' => $arResult['~BUY_URL_TEMPLATE'],
-	'~COMPARE_URL_TEMPLATE' => $arResult['~COMPARE_URL_TEMPLATE'],
-	'~COMPARE_DELETE_URL_TEMPLATE' => $arResult['~COMPARE_DELETE_URL_TEMPLATE'],
-	'TEMPLATE_THEME' => $arParams['TEMPLATE_THEME'],
-	'USE_ENHANCED_ECOMMERCE' => $arParams['USE_ENHANCED_ECOMMERCE'],
-	'DATA_LAYER_NAME' => $arParams['DATA_LAYER_NAME'],
-	'BRAND_PROPERTY' => $arParams['BRAND_PROPERTY'],
-	'MESS_BTN_BUY' => $arParams['~MESS_BTN_BUY'],
-	'MESS_BTN_DETAIL' => $arParams['~MESS_BTN_DETAIL'],
-	'MESS_BTN_COMPARE' => $arParams['~MESS_BTN_COMPARE'],
-	'MESS_BTN_SUBSCRIBE' => $arParams['~MESS_BTN_SUBSCRIBE'],
-	'MESS_BTN_ADD_TO_BASKET' => $arParams['~MESS_BTN_ADD_TO_BASKET'],
-	'MESS_NOT_AVAILABLE' => $arParams['~MESS_NOT_AVAILABLE']
-);
+$arParams['MESS_BTN_LAZY_LOAD'] = $arParams['MESS_BTN_LAZY_LOAD'] ?: Loc::getMessage('CT_BCS_CATALOG_MESS_BTN_LAZY_LOAD');
 
 $obName = 'ob'.preg_replace('/[^a-zA-Z0-9_]/', 'x', $this->GetEditAreaId($navParams['NavNum']));
 $containerName = 'container-'.$navParams['NavNum'];
+
 if ($showTopPager)
 {
 	?>
@@ -154,34 +130,86 @@ if ($showTopPager)
 	<?
 }
 
-if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
+if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 {
 	?>
 	<div class="bx-section-desc bx-<?=$arParams['TEMPLATE_THEME']?>">
-		<p class="bx-section-desc-post"><?=$arResult['DESCRIPTION']?></p>
+		<p class="bx-section-desc-post"><?=$arResult['DESCRIPTION'] ?? ''?></p>
 	</div>
 	<?
 }
 ?>
 
-<div class="catalog-section <? if (stripos($APPLICATION->GetCurPage(), '/personal/favorites.php') !== false) { echo 'container'; }?>" data-entity="<?=$containerName?>">
-   <?
-	if (!empty($arResult['ITEMS']) && !empty($arResult['ITEM_ROWS'])) {?>
-        <?
-		$areaIds = array();
+<div class="catalog-section bx-<?=$arParams['TEMPLATE_THEME']?>" data-entity="<?=$containerName?>">
+	<?
+	if (!empty($arResult['ITEMS']) && !empty($arResult['ITEM_ROWS']))
+	{
+		$generalParams = [
+			'SHOW_DISCOUNT_PERCENT' => $arParams['SHOW_DISCOUNT_PERCENT'],
+			'PRODUCT_DISPLAY_MODE' => $arParams['PRODUCT_DISPLAY_MODE'],
+			'SHOW_MAX_QUANTITY' => $arParams['SHOW_MAX_QUANTITY'],
+			'RELATIVE_QUANTITY_FACTOR' => $arParams['RELATIVE_QUANTITY_FACTOR'],
+			'MESS_SHOW_MAX_QUANTITY' => $arParams['~MESS_SHOW_MAX_QUANTITY'],
+			'MESS_RELATIVE_QUANTITY_MANY' => $arParams['~MESS_RELATIVE_QUANTITY_MANY'],
+			'MESS_RELATIVE_QUANTITY_FEW' => $arParams['~MESS_RELATIVE_QUANTITY_FEW'],
+			'SHOW_OLD_PRICE' => $arParams['SHOW_OLD_PRICE'],
+			'USE_PRODUCT_QUANTITY' => $arParams['USE_PRODUCT_QUANTITY'],
+			'PRODUCT_QUANTITY_VARIABLE' => $arParams['PRODUCT_QUANTITY_VARIABLE'],
+			'ADD_TO_BASKET_ACTION' => $arParams['ADD_TO_BASKET_ACTION'],
+			'ADD_PROPERTIES_TO_BASKET' => $arParams['ADD_PROPERTIES_TO_BASKET'],
+			'PRODUCT_PROPS_VARIABLE' => $arParams['PRODUCT_PROPS_VARIABLE'],
+			'SHOW_CLOSE_POPUP' => $arParams['SHOW_CLOSE_POPUP'],
+			'DISPLAY_COMPARE' => $arParams['DISPLAY_COMPARE'],
+			'COMPARE_PATH' => $arParams['COMPARE_PATH'],
+			'COMPARE_NAME' => $arParams['COMPARE_NAME'],
+			'PRODUCT_SUBSCRIPTION' => $arParams['PRODUCT_SUBSCRIPTION'],
+			'PRODUCT_BLOCKS_ORDER' => $arParams['PRODUCT_BLOCKS_ORDER'],
+			'LABEL_POSITION_CLASS' => $labelPositionClass,
+			'DISCOUNT_POSITION_CLASS' => $discountPositionClass,
+			'SLIDER_INTERVAL' => $arParams['SLIDER_INTERVAL'],
+			'SLIDER_PROGRESS' => $arParams['SLIDER_PROGRESS'],
+			'~BASKET_URL' => $arParams['~BASKET_URL'],
+			'~ADD_URL_TEMPLATE' => $arResult['~ADD_URL_TEMPLATE'],
+			'~BUY_URL_TEMPLATE' => $arResult['~BUY_URL_TEMPLATE'],
+			'~COMPARE_URL_TEMPLATE' => $arResult['~COMPARE_URL_TEMPLATE'],
+			'~COMPARE_DELETE_URL_TEMPLATE' => $arResult['~COMPARE_DELETE_URL_TEMPLATE'],
+			'TEMPLATE_THEME' => $arParams['TEMPLATE_THEME'],
+			'USE_ENHANCED_ECOMMERCE' => $arParams['USE_ENHANCED_ECOMMERCE'],
+			'DATA_LAYER_NAME' => $arParams['DATA_LAYER_NAME'],
+			'BRAND_PROPERTY' => $arParams['BRAND_PROPERTY'],
+			'MESS_BTN_BUY' => $arParams['~MESS_BTN_BUY'],
+			'MESS_BTN_DETAIL' => $arParams['~MESS_BTN_DETAIL'],
+			'MESS_BTN_COMPARE' => $arParams['~MESS_BTN_COMPARE'],
+			'MESS_BTN_SUBSCRIBE' => $arParams['~MESS_BTN_SUBSCRIBE'],
+			'MESS_BTN_ADD_TO_BASKET' => $arParams['~MESS_BTN_ADD_TO_BASKET'],
+		];
+
+		$areaIds = [];
+		$itemParameters = [];
+
 		foreach ($arResult['ITEMS'] as $item)
 		{
 			$uniqueId = $item['ID'].'_'.md5($this->randString().$component->getAction());
 			$areaIds[$item['ID']] = $this->GetEditAreaId($uniqueId);
 			$this->AddEditAction($uniqueId, $item['EDIT_LINK'], $elementEdit);
 			$this->AddDeleteAction($uniqueId, $item['DELETE_LINK'], $elementDelete, $elementDeleteParams);
+
+			$itemParameters[$item['ID']] = [
+				'SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']],
+				'MESS_NOT_AVAILABLE' => ($arResult['MODULES']['catalog'] && $item['PRODUCT']['TYPE'] === ProductTable::TYPE_SERVICE
+					? $arParams['~MESS_NOT_AVAILABLE_SERVICE']
+					: $arParams['~MESS_NOT_AVAILABLE']
+				),
+			];
 		}
 		?>
+		<!-- items-container -->
 		<?
 		foreach ($arResult['ITEM_ROWS'] as $rowData)
 		{
 			$rowItems = array_splice($arResult['ITEMS'], 0, $rowData['COUNT']);
 			?>
+			<div class="<?=$rowData['CLASS']?>" data-entity="items-row">
 				<?
 				switch ($rowData['VARIANT'])
 				{
@@ -207,8 +235,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 														'BIG_BUTTONS' => 'N',
 														'SCALABLE' => 'N'
 													),
-													'PARAMS' => $generalParams
-														+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+													'PARAMS' => $generalParams + $itemParameters[$item['ID']],
 												),
 												$component,
 												array('HIDE_ICONS' => 'Y')
@@ -247,8 +274,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 															'BIG_BUTTONS' => 'N',
 															'SCALABLE' => 'N'
 														),
-														'PARAMS' => $generalParams
-															+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+														'PARAMS' => $generalParams + $itemParameters[$item['ID']],
 													),
 													$component,
 													array('HIDE_ICONS' => 'Y')
@@ -265,12 +291,17 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 						<?
 						break;
 
-					case 2:?>
+					case 2:
+						?>
+						<div class="col-xs-12 product-item-small-card">
+							<div class="row">
 								<?
 								foreach ($rowItems as $item)
-								{?>
-									<div class="col-xs-6 col-sm-4 col-md-4 section-item-wrapper">
-										
+								{
+									?>
+									<div class="col-sm-4 product-item-big-card">
+										<div class="row">
+											<div class="col-md-12">
 												<?
 												$APPLICATION->IncludeComponent(
 													'bitrix:catalog.item',
@@ -282,29 +313,35 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 															'TYPE' => $rowData['TYPE'],
 															'BIG_LABEL' => 'N',
 															'BIG_DISCOUNT_PERCENT' => 'N',
-															'BIG_BUTTONS' => 'N',
+															'BIG_BUTTONS' => 'Y',
 															'SCALABLE' => 'N'
 														),
-														'PARAMS' => $generalParams
-															+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+														'PARAMS' => $generalParams + $itemParameters[$item['ID']],
 													),
 													$component,
 													array('HIDE_ICONS' => 'Y')
-												); ?>
+												);
+												?>
+											</div>
+										</div>
 									</div>
 									<?
-								}?>
+								}
+								?>
+							</div>
+						</div>
 						<?
 						break;
 
 					case 3:
 						?>
+						<div class="col-xs-12 product-item-small-card">
+							<div class="row">
 								<?
-								/*  мой вывод каталога */
-                            foreach ($rowItems as $item)
+								foreach ($rowItems as $item)
 								{
 									?>
-									<div class="col-xs-6 col-sm-4 col-md-3 section-item-wrapper">
+									<div class="col-xs-6 col-md-3 section-item-wrapper">
 										<?
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
@@ -319,8 +356,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 													'BIG_BUTTONS' => 'N',
 													'SCALABLE' => 'N'
 												),
-												'PARAMS' => $generalParams
-													+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+												'PARAMS' => $generalParams + $itemParameters[$item['ID']],
 											),
 											$component,
 											array('HIDE_ICONS' => 'Y')
@@ -330,6 +366,8 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 									<?
 								}
 								?>
+							</div>
+						</div>
 						<?
 						break;
 
@@ -354,8 +392,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 												'BIG_BUTTONS' => 'Y',
 												'SCALABLE' => 'Y'
 											),
-											'PARAMS' => $generalParams
-												+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+											'PARAMS' => $generalParams + $itemParameters[$item['ID']],
 										),
 										$component,
 										array('HIDE_ICONS' => 'Y')
@@ -386,8 +423,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 													'BIG_BUTTONS' => 'N',
 													'SCALABLE' => 'N'
 												),
-												'PARAMS' => $generalParams
-													+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$rowItems[$i]['IBLOCK_ID']])
+												'PARAMS' => $generalParams + $itemParameters[$rowItems[$i]['ID']],
 											),
 											$component,
 											array('HIDE_ICONS' => 'Y')
@@ -426,8 +462,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 													'BIG_BUTTONS' => 'N',
 													'SCALABLE' => 'N'
 												),
-												'PARAMS' => $generalParams
-													+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$rowItems[$i]['IBLOCK_ID']])
+												'PARAMS' => $generalParams + $itemParameters[$rowItems[$i]['ID']],
 											),
 											$component,
 											array('HIDE_ICONS' => 'Y')
@@ -457,8 +492,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 												'BIG_BUTTONS' => 'Y',
 												'SCALABLE' => 'Y'
 											),
-											'PARAMS' => $generalParams
-												+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+											'PARAMS' => $generalParams + $itemParameters[$item['ID']],
 										),
 										$component,
 										array('HIDE_ICONS' => 'Y')
@@ -494,8 +528,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 													'BIG_BUTTONS' => 'N',
 													'SCALABLE' => 'N'
 												),
-												'PARAMS' => $generalParams
-													+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+												'PARAMS' => $generalParams + $itemParameters[$item['ID']],
 											),
 											$component,
 											array('HIDE_ICONS' => 'Y')
@@ -531,8 +564,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 												'BIG_BUTTONS' => 'Y',
 												'SCALABLE' => 'Y'
 											),
-											'PARAMS' => $generalParams
-												+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+											'PARAMS' => $generalParams + $itemParameters[$item['ID']],
 										),
 										$component,
 										array('HIDE_ICONS' => 'Y')
@@ -563,8 +595,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 													'BIG_BUTTONS' => 'N',
 													'SCALABLE' => 'N'
 												),
-												'PARAMS' => $generalParams
-													+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$rowItems[$i]['IBLOCK_ID']])
+												'PARAMS' => $generalParams + $itemParameters[$rowItems[$i]['ID']],
 											),
 											$component,
 											array('HIDE_ICONS' => 'Y')
@@ -603,8 +634,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 													'BIG_BUTTONS' => 'N',
 													'SCALABLE' => 'N'
 												),
-												'PARAMS' => $generalParams
-													+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$rowItems[$i]['IBLOCK_ID']])
+												'PARAMS' => $generalParams + $itemParameters[$rowItems[$i]['ID']],
 											),
 											$component,
 											array('HIDE_ICONS' => 'Y')
@@ -634,8 +664,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 												'BIG_BUTTONS' => 'Y',
 												'SCALABLE' => 'Y'
 											),
-											'PARAMS' => $generalParams
-												+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+											'PARAMS' => $generalParams + $itemParameters[$item['ID']],
 										),
 										$component,
 										array('HIDE_ICONS' => 'Y')
@@ -670,8 +699,7 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 													'BIG_DISCOUNT_PERCENT' => 'N',
 													'BIG_BUTTONS' => 'N'
 												),
-												'PARAMS' => $generalParams
-													+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+												'PARAMS' => $generalParams + $itemParameters[$item['ID']],
 											),
 											$component,
 											array('HIDE_ICONS' => 'Y')
@@ -688,34 +716,38 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 						break;
 				}
 				?>
+			</div>
 			<?
 		}
-		unset($generalParams, $rowItems);
+		unset($rowItems);
+
+		unset($itemParameters);
+		unset($areaIds);
+
+		unset($generalParams);
 		?>
-	<?} else {?>
-		<div class="col-xs-12">
-			<?echo 'Товары с данными характеристиками не найдены, установите другие параметры.';?>
-		</div>
-	<?} ?>
-  <?
-  if ($showLazyLoad)
-  {?>
-  <div class="last add-block bx-blue col-xs-6 col-md-3"
-       style=""
-       data-use="show-more-<?=$navParams['NavNum']?>"
-  >
-    <div class="title"><?=$arParams['MESS_BTN_LAZY_LOAD']?></div>
-  </div>
-<? } ?>
+		<!-- items-container -->
+		<?
+	}
+	else
+	{
+		// load css for bigData/deferred load
+		$APPLICATION->IncludeComponent(
+			'bitrix:catalog.item',
+			'addamant',
+			array(),
+			$component,
+			array('HIDE_ICONS' => 'Y')
+		);
+	}
+	?>
 </div>
 <?
-
-if ($showLazyLoad && false)
+if ($showLazyLoad)
 {
 	?>
 	<div class="row bx-<?=$arParams['TEMPLATE_THEME']?>">
-		<div class="btn btn-default btn-lg center-block" style="margin: 15px;"
-			data-use="show-more-<?=$navParams['NavNum']?>">
+		<div class="show-more" data-use="show-more-<?=$navParams['NavNum']?>">
 			<?=$arParams['MESS_BTN_LAZY_LOAD']?>
 		</div>
 	</div>
@@ -723,14 +755,15 @@ if ($showLazyLoad && false)
 }
 
 if ($showBottomPager)
-{?>
-<div class="clr"><br/><br/></div>
-<div data-pagination-num="<?= $navParams['NavNum'] ?>">
-    <!-- pagination-container -->
-    <?= $arResult['NAV_STRING'] ?>
-    <!-- pagination-container -->
-</div>
-<?}
+{
+	?>
+	<div data-pagination-num="<?=$navParams['NavNum']?>">
+		<!-- pagination-container -->
+		<?=$arResult['NAV_STRING']?>
+		<!-- pagination-container -->
+	</div>
+	<?
+}
 
 $signer = new \Bitrix\Main\Security\Sign\Signer;
 $signedTemplate = $signer->sign($templateName, 'catalog.section');
@@ -755,22 +788,23 @@ $signedParams = $signer->sign(base64_encode(serialize($arResult['ORIGINAL_PARAME
 		RELATIVE_QUANTITY_MANY: '<?=CUtil::JSEscape($arParams['MESS_RELATIVE_QUANTITY_MANY'])?>',
 		RELATIVE_QUANTITY_FEW: '<?=CUtil::JSEscape($arParams['MESS_RELATIVE_QUANTITY_FEW'])?>',
 		BTN_MESSAGE_COMPARE_REDIRECT: '<?=GetMessageJS('CT_BCS_CATALOG_BTN_MESSAGE_COMPARE_REDIRECT')?>',
-		BTN_MESSAGE_LAZY_LOAD: '<?=$arParams['MESS_BTN_LAZY_LOAD']?>',
+		BTN_MESSAGE_LAZY_LOAD: '<?=CUtil::JSEscape($arParams['MESS_BTN_LAZY_LOAD'])?>',
 		BTN_MESSAGE_LAZY_LOAD_WAITER: '<?=GetMessageJS('CT_BCS_CATALOG_BTN_MESSAGE_LAZY_LOAD_WAITER')?>',
-		SITE_ID: '<?=SITE_ID?>'
+		SITE_ID: '<?=CUtil::JSEscape($component->getSiteId())?>'
 	});
 	var <?=$obName?> = new JCCatalogSectionComponent({
-		siteId: '<?=CUtil::JSEscape(SITE_ID)?>',
+		siteId: '<?=CUtil::JSEscape($component->getSiteId())?>',
 		componentPath: '<?=CUtil::JSEscape($componentPath)?>',
 		navParams: <?=CUtil::PhpToJSObject($navParams)?>,
-		deferredLoad: false, // enable it for deferred load
+		deferredLoad: false,
 		initiallyShowHeader: '<?=!empty($arResult['ITEM_ROWS'])?>',
 		bigData: <?=CUtil::PhpToJSObject($arResult['BIG_DATA'])?>,
 		lazyLoad: !!'<?=$showLazyLoad?>',
 		loadOnScroll: !!'<?=($arParams['LOAD_ON_SCROLL'] === 'Y')?>',
 		template: '<?=CUtil::JSEscape($signedTemplate)?>',
-		ajaxId: '<?=CUtil::JSEscape($arParams['AJAX_ID'])?>',
+		ajaxId: '<?=CUtil::JSEscape($arParams['AJAX_ID'] ?? '')?>',
 		parameters: '<?=CUtil::JSEscape($signedParams)?>',
 		container: '<?=$containerName?>'
 	});
 </script>
+<!-- component-end -->

@@ -171,7 +171,7 @@ header .sticky .header-middle .header-phone a{
     align-items: center;
     position: relative;
     justify-content: space-between;
-    padding: 0px 20px;
+    padding: 0px 16px;
     border-bottom: 1px solid #221F20;
 }
 .header-mobile-top .logo{
@@ -226,12 +226,12 @@ header .sticky .header-middle .header-phone a{
     max-width: var(--main-width);
     margin: 0 auto;
     position: relative;
-    padding: 0 20px;
+    padding: 0 16px;
 }
 #footer{
     max-width: var(--main-width);
     margin: 102px auto 0;
-    padding: 0 20px;
+    padding: 0 16px;
 }
 .footer-container{
     display: flex;
@@ -1887,9 +1887,6 @@ div.basket-item-price-old {
         font-size: 10px;
         padding: 0;
     }
-    .product-item-info-container.product-item-price-container {
-        position: static;
-    }
     .coupon-tooltip__icon {
         position: static;
     }
@@ -1922,9 +1919,6 @@ div.basket-item-price-old {
     }
     main {
         padding-bottom: 0px;
-    }
-    .product-item-info-container.product-item-price-container {
-        width: unset;
     }
     .product-item-container {
         min-height: unset !important;
@@ -2812,15 +2806,6 @@ html body .close.basket-close span {
 @media (max-width: 768px) {
     .header--active .modal-bg{
         top:55px!important;
-    }
-
-    .breadcrumbs a {
-        font-size: 12px;
-        line-height: 16px;
-    }
-    .breadcrumbs > span {
-        font-size: 12px;
-        line-height: 16px;
     }
     footer .footer-copyright {
         font-size: 8px;
@@ -6034,14 +6019,8 @@ h1.cat-detail {
 div[data-property-id-row="44"]{
    display: none;
 }
-.product-item-info-container.product-item-price-container i {
-    font-size: 14px;
-}
 .tabs-block .bx-pagination{
     display: none;
-}
-.tabs-block__content .product-item-info-container.product-item-price-container i {
-    font-size: 18px;
 }
 .call_as_course a {
     color: rgb(255, 123, 146);

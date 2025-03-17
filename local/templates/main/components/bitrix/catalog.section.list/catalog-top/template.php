@@ -15,27 +15,11 @@ $this->setFrameMode(true);
 $arViewModeList = $arResult['VIEW_MODE_LIST'];
 
 $arViewStyles = array(
-	'LIST' => array(
-		'CONT' => 'bx_sitemap',
-		'TITLE' => 'bx_sitemap_title',
-		'LIST' => 'bx_sitemap_ul',
-	),
-	'LINE' => array(
-		'CONT' => 'bx_catalog_line',
-		'TITLE' => 'bx_catalog_line_category_title',
-		'LIST' => 'bx_catalog_line_ul',
-		'EMPTY_IMG' => $this->GetFolder().'/images/line-empty.png'
-	),
-	'TEXT' => array(
-		'CONT' => 'bx_catalog_text',
-		'TITLE' => 'bx_catalog_text_category_title',
-		'LIST' => 'bx_catalog_text_ul'
-	),
 	'TILE' => array(
 		'CONT' => 'bx_catalog_tile',
 		'TITLE' => 'bx_catalog_tile_category_title',
 		'LIST' => 'bx_catalog_tile_ul',
-		'EMPTY_IMG' => $this->GetFolder().'/images/tile-empty.png'
+		'EMPTY_IMG' => $this->GetFolder().'/images/section_bg.svg'
 	)
 );
 $arCurView = $arViewStyles[$arParams['VIEW_MODE']];

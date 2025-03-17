@@ -472,7 +472,7 @@ else
 
 									"DISPLAY_TOP_PAGER" => 'N',
 									"DISPLAY_BOTTOM_PAGER" => 'N',
-									"HIDE_SECTION_DESCRIPTION" => "Y",
+									"HIDE_SECTION_DESCRIPTION" => "N",
 
 									"RCM_TYPE" => isset($arParams['BIG_DATA_RCM_TYPE']) ? $arParams['BIG_DATA_RCM_TYPE'] : '',
 									"SHOW_FROM_SECTION" => 'Y',

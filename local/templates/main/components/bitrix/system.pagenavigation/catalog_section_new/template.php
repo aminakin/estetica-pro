@@ -46,7 +46,6 @@ $strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?".$arResult["Nav
 					<?endif?>
 
 				<?else:?>
-					<li class="begining"><?=GetMessage("nav_begin")?></li>
 					<li style="display: none"><?=GetMessage("nav_prev")?></li>
 				<?endif?>
 				<?while($arResult["nStartPage"] <= $arResult["nEndPage"]):?>
@@ -60,15 +59,11 @@ $strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?".$arResult["Nav
 					<?endif?>
 					<?$arResult["nStartPage"]++?>
 				<?endwhile?>
-				<?//var_export($arResult);?>
 				<?if($arResult["NavPageNomer"] < $arResult["NavPageCount"]):?>
-					<? if($arResult['NavPageCount'] > 10):?>
+					<? if($arResult['NavPageCount'] > 3):?>
 				    	<li class="page decktop"><span class="dots" >...</span><a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=$arResult["NavPageCount"]?>"><?=$arResult["NavPageCount"]?></a></li>
 					<?endif?>
-					<? if($arResult['NavPageCount'] > 5):?>
-				    	<li class="page mobile"><span class="dots" >...</span><a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=$arResult["NavPageCount"]?>"><?=$arResult["NavPageCount"]?></a></li>
-					<?endif?>
-				    <li class="forward"><a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=($arResult["NavPageNomer"]+1)?>"><?=GetMessage("nav_next")?></a></li>
+				    <li class="forward"><a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=($arResult["NavPageNomer"]+1)?>"><?= classBuildSCG::buildSVG('pag-arrow', $templateFolder . '/image'); ?></a></li>
 				<?else:?>
 					<?/*li class="12"><?=GetMessage("nav_next")?></?li><li?><?=GetMessage("nav_end")?></li*/?>
 				<?endif?>

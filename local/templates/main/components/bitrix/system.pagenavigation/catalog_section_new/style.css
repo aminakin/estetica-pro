@@ -1,174 +1,194 @@
 .bx-pagination {
 	margin: 10px 0;
 }
+
 .bx-pagination .bx-pagination-container {
 	text-align: center;
 	position: relative;
+	max-width: 300px;
 }
+
 .bx-pagination .bx-pagination-container ul {
 	padding: 0;
 	margin: 0;
 	list-style: none;
 	display: inline-flex;
 	align-items: center;
+	max-width: 300px;
 }
+
 .bx-pagination .bx-pagination-container ul li {
 	display: flex;
-	padding-left: 15px;
+	padding-right: 8px;
 }
-.bx-pagination .bx-pagination-container ul li b{
+
+.bx-pagination .bx-pagination-container ul li b {
 	display: block;
 	width: 30px;
 	min-height: 30px;
 	background: #EBCFD5;
 }
+
 .bx-pagination .bx-pagination-container ul li:nth-child(1) {
 	padding-left: 0px;
+	display: none;
 }
+
 .bx-pagination .bx-pagination-container ul li span,
 .bx-pagination .bx-pagination-container ul li a {
 	text-decoration: none;
 	display: block;
-	height: 30px;
-	min-width: 30px;
-	color: #000000;
+	height: 38px;
+	min-width: 38px;
+	color: #999999;
 	vertical-align: middle;
-	border-radius: 50%;
-	line-height: 30px;
+	border-radius: 10px;
+	line-height: 36px;
 	background: #ffffff;
+	border: 1px solid transparent;
 }
+
 .bx-pagination .bx-pagination-container ul li a:hover {
-	background: #FBFBFB;
 	color: #000000;
+	border: 1px solid #999999
 }
-.bx-pagination .bx-pagination-container .bx-pag-prev span, .bx-pagination .bx-pagination-container .bx-pag-next span {
+
+.bx-pagination .bx-pagination-container .bx-pag-prev span,
+.bx-pagination .bx-pagination-container .bx-pag-next span {
 	border: none !important;
 	font-size: 0px;
 }
-.bx-pagination .bx-pagination-container li.bx-active span{
-	background: #EBCFD5;
+
+.bx-pagination .bx-pagination-container li.bx-active span {
+	color: #000000;
+	border: 1px solid #999999
 }
+
 .bx-pagination .bx-pagination-container ul li.bx-pag-prev a,
-.bx-pagination .bx-pagination-container ul li.bx-pag-next a{
+.bx-pagination .bx-pagination-container ul li.bx-pag-next a {
 	background: #FBFBFB;
 }
+
 .bx-pagination .bx-pagination-container .bx-pag-next:hover span {
-	background: url('image/pag-arrow-h.svg') no-repeat center center !important;	
+	background: url('image/pag-arrow-h.svg') no-repeat center center !important;
 }
+
 .bx-pagination .bx-pagination-container .bx-pag-prev:hover span {
 	background: url('image/pag-arrow-h.svg') no-repeat center center !important;
 	transform: rotate(180deg);
 }
 
 .bx-pagination .bx-pagination-container ul li.bx-pag-prev>span,
-.bx-pagination .bx-pagination-container ul li.bx-pag-next>span{
+.bx-pagination .bx-pagination-container ul li.bx-pag-next>span {
 	display: none;
 }
-.input-page form{
+
+.input-page form {
 	display: flex;
 	align-items: center;
 }
-.bx-pagination.ozi{
+
+.bx-pagination.ozi {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 15px;
+	margin: 0;
 }
-.bx-pagination .input-page .numpage{
-	line-height: 48px;
-    margin: 0;
-    border-radius: 30px;
-    border: 1px solid #A9A9A9;
-    box-sizing: border-box;
-    margin-right: 8px;
-    max-width: 70px;
+
+.bx-pagination .input-page .numpage {
+	line-height: 36px;
+	margin: 0;
+	border-radius: 5px;
+	border: 1px solid #999999;
+	box-sizing: border-box;
+	margin-right: 10px;
+	min-width: 80px;
 	font-size: 14px;
 	width: 100%;
 	padding: 0 12px;
 	letter-spacing: 1px;
 }
-.bx-pagination .input-page span{
+
+.bx-pagination .input-page span {
 	margin-right: 8px;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 14px;
+	white-space: nowrap;
 }
-.bx-pagination .input-page .submit{
+
+.bx-pagination .input-page .submit {
+	border-radius: 10px;
+	line-height: 38px;
 	background: var(--btn-color);
-	font-weight: 600;
+	text-decoration: none;
+	font-weight: 400;
 	font-size: 14px;
-	line-height: 48px;
+	padding: 0 20px;
+	color: #ffffff;
+	text-transform: lowercase;
+	max-width: 129px;
+	cursor: pointer;
 	border: none;
-	border-radius: 30px;
 }
-.bx-pagination .input-page .submit:hover{
+
+.bx-pagination .input-page .submit:hover {
 	background: var(--btn-color-hover);
 }
+
 .bx-pagination .input-page .submit:active,
-.bx-pagination .input-page .submit:focus{
+.bx-pagination .input-page .submit:focus {
 	background: var(--btn-color-hover);
 }
-.bx-pagination ul li.forward a,
-.bx-pagination ul li.begining a{
-	background: #FBFBFB;
-	padding: 0 10px;
-	border-radius: 30px; 
+
+.bx-pagination .bx-pagination-container ul .page.decktop {
+	padding-right: 0;
 }
-.bx-pagination ul li.forward a:hover,
-.bx-pagination ul li.begining a:hover{
-	background: #F7F7F7;
+
+.bx-pagination .bx-pagination-container ul li.forward a {
+	border: none !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
-.bx-pagination .bx-pagination-container ul .page.mobile,
-.bx-pagination .bx-pagination-container ul .page.decktop{
-	padding-left: 0;
-}
-.bx-pagination .bx-pagination-container ul .page.mobile{
-	display: none;
-}
+
 @media screen and (max-width: 992px) {
-	.bx-pagination.ozi{
+	.bx-pagination.ozi {
 		flex-wrap: wrap;
 		justify-content: end;
 	}
-	.bx-pagination.ozi .input-page{
+
+	.bx-pagination.ozi .input-page {
 		margin-top: 0px;
 	}
-	.bx-pagination .bx-pagination-container ul li{
+
+	.bx-pagination .bx-pagination-container ul li {
 		margin-bottom: 20px;
 		padding: 0 7px;
 	}
-	.bx-pagination .bx-pagination-container ul .page.decktop{
-		display: none;
-	}
-	.bx-pagination .bx-pagination-container ul .page.mobile{
-		display: flex;
-	}
 }
+
 @media screen and (max-width: 768px) {
-	.bx-pagination ul li.forward,
-	.bx-pagination ul li.begining{
-		display: none;
-	}
-	.bx-pagination.ozi{
+	.bx-pagination.ozi {
 		display: block;
 		text-align: center;
 		padding: 0;
 	}
-	.bx-pagination .input-page{
+
+	.bx-pagination .input-page {
 		margin-top: 30px;
 		justify-content: center;
 	}
-	.bx-pagination .input-page .numpage{
-		width: 50px;
-	}
-	.bx-pagination .input-page .numpage,
-	.bx-pagination .input-page .submit{
-		line-height: 28px;
-	}
-	.input-page form{
+
+	.input-page form {
 		justify-content: center;
 	}
 }
+
 @media screen and (max-width: 600px) {
-	.bx-pagination .bx-pagination-container ul{
+	.bx-pagination .bx-pagination-container ul {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;

@@ -149,37 +149,6 @@ endif;?>
             <b><?=GetMessage("SEARCH_SORTED_BY_RANK")?></b>&nbsp;|&nbsp;<a href="<?=$arResult["URL"]?>&amp;how=d<?echo $arResult["REQUEST"]["FROM"]? '&amp;from='.$arResult["REQUEST"]["FROM"]: ''?><?echo $arResult["REQUEST"]["TO"]? '&amp;to='.$arResult["REQUEST"]["TO"]: ''?>"><?=GetMessage("SEARCH_SORT_BY_DATE")?></a>
         <?endif;?>
     </p>
-
-	<?/*foreach($arResult["SEARCH"] as $arItem):?>
-		<a href="<?echo $arItem["URL"]?>"><?echo $arItem["TITLE_FORMATED"]?></a>
-		<p><?echo $arItem["BODY_FORMATED"]?></p>
-		<?if (
-			$arParams["SHOW_RATING"] == "Y"
-			&& strlen($arItem["RATING_TYPE_ID"]) > 0
-			&& $arItem["RATING_ENTITY_ID"] > 0
-		):?>
-			<div class="search-item-rate"><?
-				$APPLICATION->IncludeComponent(
-					"bitrix:rating.vote", $arParams["RATING_TYPE"],
-					Array(
-						"ENTITY_TYPE_ID" => $arItem["RATING_TYPE_ID"],
-						"ENTITY_ID" => $arItem["RATING_ENTITY_ID"],
-						"OWNER_ID" => $arItem["USER_ID"],
-						"USER_VOTE" => $arItem["RATING_USER_VOTE_VALUE"],
-						"USER_HAS_VOTED" => $arItem["RATING_USER_VOTE_VALUE"] == 0? 'N': 'Y',
-						"TOTAL_VOTES" => $arItem["RATING_TOTAL_VOTES"],
-						"TOTAL_POSITIVE_VOTES" => $arItem["RATING_TOTAL_POSITIVE_VOTES"],
-						"TOTAL_NEGATIVE_VOTES" => $arItem["RATING_TOTAL_NEGATIVE_VOTES"],
-						"TOTAL_VALUE" => $arItem["RATING_TOTAL_VALUE"],
-						"PATH_TO_USER_PROFILE" => $arParams["~PATH_TO_USER_PROFILE"],
-					),
-					$component,
-					array("HIDE_ICONS" => "Y")
-				);?>
-			</div>
-		<?endif;?>
-	<?endforeach;*/?>
-
 <!-- -->
 <?
 global $arrFilter;

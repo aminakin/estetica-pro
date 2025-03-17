@@ -89,8 +89,7 @@
 			if (this.showMoreButton)
 			{
 				BX.addClass(this.showMoreButton, 'disabled');
-				$(this.showMoreButton).find('.title').html(BX.message('BTN_MESSAGE_LAZY_LOAD_WAITER'))
-				// this.showMoreButton.innerHTML = BX.message('BTN_MESSAGE_LAZY_LOAD_WAITER');
+				this.showMoreButton.innerHTML = BX.message('BTN_MESSAGE_LAZY_LOAD_WAITER');
 			}
 		},
 
@@ -217,6 +216,7 @@
 				this.navParams.NavPageNomer++;
 				this.processItems(result.items);
 				this.processPagination(result.pagination);
+				this.processEpilogue(result.epilogue);
 				this.checkButton();
 			}
 		},
@@ -242,13 +242,12 @@
 			var items, k, origRows;
 
 			temporaryNode.innerHTML = processed.HTML;
-			items = temporaryNode;//.querySelectorAll('[data-entity="items-row"]');
+			items = temporaryNode.querySelectorAll('[data-entity="items-row"]');
 
-			if (items.length || true)
+			if (items.length)
 			{
 				this.showHeader(true);
 
-        this.container.appendChild(items);
 				for (k in items)
 				{
 					if (items.hasOwnProperty(k))
@@ -267,7 +266,7 @@
 					}
 				}
 
-				/*new BX.easing({
+				new BX.easing({
 					duration: 2000,
 					start: {opacity: 0},
 					finish: {opacity: 100},
@@ -275,7 +274,6 @@
 					step: function(state){
 						for (var k in items)
 						{
-							console.log(items[k].style);
 							if (items.hasOwnProperty(k))
 							{
 								items[k].style.opacity = state.opacity / 100;
@@ -291,7 +289,7 @@
 							}
 						}
 					}
-				}).animate();*/
+				}).animate();
 			}
 
 			BX.ajax.processScripts(processed.SCRIPT);
@@ -312,6 +310,15 @@
 			}
 		},
 
+		processEpilogue: function(epilogueHtml)
+		{
+			if (!epilogueHtml)
+				return;
+
+			var processed = BX.processHTML(epilogueHtml, false);
+			BX.ajax.processScripts(processed.SCRIPT);
+		},
+
 		showHeader: function(animate)
 		{
 			var parentNode = BX.findParent(this.container, {attr: {'data-entity': 'parent-container'}}),
@@ -319,7 +326,7 @@
 
 			if (parentNode && BX.type.isDomNode(parentNode))
 			{
-				header = parentNode.querySelector('[data-entity="header"');
+				header = parentNode.querySelector('[data-entity="header"]');
 
 				if (header && header.getAttribute('data-showed') != 'true')
 				{

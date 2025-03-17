@@ -60,7 +60,7 @@
     display: block;
     width: 100%;
     border: 1px solid #999999;
-    border-radius: 18px;
+    border-radius: 10px;
     overflow: hidden;
 }
 
@@ -497,6 +497,8 @@ input[data-disabled="disabled"] {
     line-height: 1;
     display: block;
     font-weight: 100;
+    width: 24px;
+    height: 24px;
 }
 
 .product-item-amount .product-item-amount-field-container .jq-number__spin.product-item-amount-field-btn-disabled {
@@ -1048,9 +1050,9 @@ div.product-item-label-text.product-item-label-small span.HIT_SALE {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 50px;
-    width: 50px;
-    height: 50px;
+    min-width: 38px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     border: 1px solid #808189;
     margin-right: 15px;
@@ -1115,7 +1117,7 @@ div.product-item-label-text.product-item-label-small span.HIT_SALE {
 
 a.btn.btn-link.buyBtn {
     border-radius: 12px;
-    line-height: 38px;
+    line-height: 36px;
     background: var(--btn-color);
     text-decoration: none;
     font-weight: 400;
@@ -1123,7 +1125,6 @@ a.btn.btn-link.buyBtn {
     padding: 0 20px;
     color: #ffffff;
     text-transform: lowercase;
-    
 }
 
 a.btn.btn-link.buyBtn:hover {
@@ -1145,19 +1146,6 @@ a.btn.btn-link.buyBtn:focus {
     width: 100%;
 }
 
-юcatalog-section
-
-/*.favorites-section .product-item-favorite-image-block svg{
-    display: none;
-}*/
-/*.favorites-section .product-item-favorite-image-block.active {
-    background-image: url(image/delete.svg);
-}
-.favorites-section .product-item-favorite-image-block.active:hover,
-.favorites-section .product-item-favorite-image-block.active:focus,
-.favorites-section .product-item-favorite-image-block.active:active {
-    background-image: url(image/delete-h.svg);
-}*/
 .product-item-container .sku-block-wrap,
 .product-item-container .sku-button .mobile,
 .product-item-container.sku-show .sku-button {
@@ -1280,12 +1268,12 @@ a.btn.btn-link.buyBtn:focus {
         margin: 0;
     }
 
-    .section-item-wrapper {
+    .catalog__main .section-item-wrapper {
         padding:0 6px;
     }
 
     .section-item-wrapper {
-        margin-bottom: 42px;
+        margin-bottom: 12px;
     }
 
     .product-item-scu-item-text {
@@ -1423,6 +1411,32 @@ a.btn.btn-link.buyBtn:focus {
     border-radius: 20px;
     border: 1px solid #000000;
 }
+a.btn.btn-link.buyBtn svg{
+    display: none;
+}
+@media screen and (max-width: 1024px) {
+    a.btn.btn-link.buyBtn svg{
+        display: block;
+    }
+
+    a.btn.btn-link.buyBtn{
+        font-size: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        height: 38px;
+        width: 38px;
+    }
+
+    .product-item-info-container.buttons{
+        margin: 0 16px 16px 16px;
+    }
+
+    .product-item-container .product-item-price-container{
+        margin: 16px 16px 24px;
+    }
+}
 
 @media screen and (max-width: 850px) {
 
@@ -1443,16 +1457,6 @@ a.btn.btn-link.buyBtn:focus {
         line-height: 160%;
     }
 
-    .product-item-price-wrap,
-    .product-item-info-container.buttons {
-        margin-top: 8px;
-    }
-
-    a.btn.btn-link.buyBtn {
-        line-height: 42px;
-        font-size: 14px;
-    }
-
     .product-item-favorite-image-block {
         top: 16px;
         right: 16px;
@@ -1469,28 +1473,40 @@ a.btn.btn-link.buyBtn:focus {
     }
 }
 
-@media screen and (max-width: 560px) {
-    a.btn.btn-link.buyBtn {
-        padding: 0 10px;
-        line-height: 36px;
+@media screen and (max-width: 768px) {
+    .product-item-info-container.product-item-price-container{
+        flex-wrap: wrap;
     }
 
+    .product-item-title{
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .product-item-price-wrap{
+        margin-top: 16px;
+        justify-content: flex-end;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 560px) {
     .product-item-container .sku-button .mobile {
         line-height: 36px;
     }
 
     .product-item-amount .product-item-amount-field-container .product-item-amount-field {
-        line-height: 28px;
-        width: 32px;
-        height: 32px;
-        font-size: 16px;
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+        line-height: 32px;
     }
 
     .product-item-amount .product-item-amount-field-container .jq-number__spin.minus {
-        margin-right: 5px;
+        margin-right: 4px;
     }
 
     .product-item-amount .product-item-amount-field-container .jq-number__spin.plus {
-        margin-left: 5px;
+        margin-left: 4px;
     }
 }

@@ -121,9 +121,9 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/scrollpage.js');?>
 	)
 );*/?>
 <?$APPLICATION->IncludeComponent(
-	"bitrix:news.list",
-	"conditions-main",
-	Array(
+	"bitrix:news.list", 
+	"conditions-main", 
+	array(
 		"ACTIVE_DATE_FORMAT" => "",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
@@ -143,10 +143,13 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/scrollpage.js');?>
 		"DISPLAY_PICTURE" => "N",
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
-		"FIELD_CODE" => array("", ""),
+		"FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "50",
+		"IBLOCK_ID" => "45",
 		"IBLOCK_TYPE" => "data",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "N",
@@ -162,7 +165,11 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/scrollpage.js');?>
 		"PARENT_SECTION" => "",
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array("ICON", ""),
+		"PROPERTY_CODE" => array(
+			0 => "",
+			1 => "ICON",
+			2 => "",
+		),
 		"SET_BROWSER_TITLE" => "N",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_META_DESCRIPTION" => "N",
@@ -174,8 +181,10 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/scrollpage.js');?>
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "ASC",
 		"SORT_ORDER2" => "ASC",
-		"STRICT_SECTION_CHECK" => "N"
-	)
+		"STRICT_SECTION_CHECK" => "N",
+		"COMPONENT_TEMPLATE" => "conditions-main"
+	),
+	false
 );
 ?> <?/*$APPLICATION->IncludeComponent(
 	"bitrix:news.list",

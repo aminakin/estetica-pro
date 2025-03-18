@@ -341,6 +341,9 @@ li.catalog-smart-filter-sort-option-default:after {
 .filter  .labelf.catalog-smart-filter-sorting{
     float: right
 }
+.product-item-list-col-4{
+    width: 100%;
+}
 
 .catalog__main>.row{
     margin-right: -12px;

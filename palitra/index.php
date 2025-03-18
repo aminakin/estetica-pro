@@ -92,7 +92,7 @@ $APPLICATION->SetTitle("Гель-лаки");?><?$APPLICATION->IncludeComponent(
 		"INSTANT_RELOAD" => "N",
 		"LABEL_PROP" => array(
 		),
-		"LAZY_LOAD" => "N",
+		"LAZY_LOAD" => "Y",
 		"LINE_ELEMENT_COUNT" => "3",
 		"LINK_ELEMENTS_URL" => "link.php?PARENT_ELEMENT_ID=#ELEMENT_ID#",
 		"LINK_IBLOCK_ID" => "",
@@ -103,7 +103,7 @@ $APPLICATION->SetTitle("Гель-лаки");?><?$APPLICATION->IncludeComponent(
 		"LIST_META_DESCRIPTION" => "-",
 		"LIST_META_KEYWORDS" => "-",
 		"LIST_PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons,compare",
-		"LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false}]",
+		"LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false}]",
 		"LIST_PROPERTY_CODE" => array(
 			0 => "COLORS",
 			1 => "",
@@ -133,7 +133,7 @@ $APPLICATION->SetTitle("Гель-лаки");?><?$APPLICATION->IncludeComponent(
 		"PAGER_SHOW_ALWAYS" => "N",
 		"PAGER_TEMPLATE" => "catalog_section_new",
 		"PAGER_TITLE" => "Товары",
-		"PAGE_ELEMENT_COUNT" => "24",
+		"PAGE_ELEMENT_COUNT" => "16",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",
 		"PRICE_CODE" => array(
 			0 => "Типовое соглашение с клиентами",

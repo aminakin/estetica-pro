@@ -88,25 +88,3 @@
 .row::before {
 	display: initial;
 }
-
-.show-more{
-	border-radius: 12px;
-    line-height: 38px;
-    background: var(--btn-color);
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 14px;
-    padding: 0 20px;
-    color: #ffffff;
-    text-transform: lowercase;
-	margin: -14px auto 16px;
-	max-width: 129px;
-	cursor: pointer;
-	text-align: center;
-}
-
-@media (max-width:768px) {
-	.show-more{
-		margin: 0 auto 16px;
-	}
-}

@@ -2,7 +2,7 @@ $(document).ready(function () {
     $('#myCarousel').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
-        dots: true,
+        dots: false,
         infinite: true,
         arrows: false,
         autoplay: true,
@@ -16,6 +16,5 @@ $(document).ready(function () {
             '<svg width="12" height="22" viewBox="0 0 12 22" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
             '<path d="M2 1.5L11 11L2 20.5" stroke="#221F20" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>\n' +
             '</svg>\n</button>',
-        arrows: true,
     });
 });

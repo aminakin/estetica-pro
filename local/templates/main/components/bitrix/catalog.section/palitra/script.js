@@ -216,6 +216,7 @@
 				this.navParams.NavPageNomer++;
 				this.processItems(result.items);
 				this.processPagination(result.pagination);
+				this.processEpilogue(result.epilogue);
 				this.checkButton();
 			}
 		},
@@ -241,13 +242,12 @@
 			var items, k, origRows;
 
 			temporaryNode.innerHTML = processed.HTML;
-			items = temporaryNode;//.querySelectorAll('[data-entity="items-row"]');
+			items = temporaryNode.querySelectorAll('[data-entity="items-row"]');
 
-			if (items.length || true)
+			if (items.length)
 			{
 				this.showHeader(true);
 
-        this.container.appendChild(items);
 				for (k in items)
 				{
 					if (items.hasOwnProperty(k))
@@ -310,6 +310,15 @@
 			}
 		},
 
+		processEpilogue: function(epilogueHtml)
+		{
+			if (!epilogueHtml)
+				return;
+
+			var processed = BX.processHTML(epilogueHtml, false);
+			BX.ajax.processScripts(processed.SCRIPT);
+		},
+
 		showHeader: function(animate)
 		{
 			var parentNode = BX.findParent(this.container, {attr: {'data-entity': 'parent-container'}}),
@@ -317,7 +326,7 @@
 
 			if (parentNode && BX.type.isDomNode(parentNode))
 			{
-				header = parentNode.querySelector('[data-entity="header"');
+				header = parentNode.querySelector('[data-entity="header"]');
 
 				if (header && header.getAttribute('data-showed') != 'true')
 				{
@@ -348,39 +357,3 @@
 		}
 	};
 })();
-
-
-/* кастомный селектор свойств в списке */
-jQuery(document).ready(function($) {
-
-	$(".product-item-properties").each(function (index, el){
-		// console.log($(this).children(":not(.not_active)").eq(0).data('price'));
-		// console.log($(this).parents('.product-item-container').find('.product-item-price-current'));
-
-		$(this).parents('.product-item-container').find('.product-item-price-current').html(BX.Currency.currencyFormat($(this).children("li:not(.not_active)").eq(0).data('price'), 'RUB', true));
-
-	});
-
-	$(".product-item-properties li a").on('click', function(event) {
-		event.preventDefault();
-		console.log($(this));
-		$(this).parents('.product-item-container').find('.product-item-price-current').html(BX.Currency.currencyFormat($(this).parent("li").data('price'), 'RUB', true));
-
-
-		$(".product-item-properties li").removeClass('active');
-		$(this).parent('.product-item-properties li').addClass('active');
-
-		// console.log($(this).attr('href'));
-		$(this).parents('.product-item').find('.buyBtn').attr('href', $(this).attr('href'));
-	});
-
-	$('.buyBtn').on('click', function(event) {
-		event.preventDefault();
-        if($(this).attr('href') == '#'){
-        	alert("Сначала выберите цвет");
-        }else{
-        	window.open($(this).attr('href'), '_self');
-        }
-
-	});
-});

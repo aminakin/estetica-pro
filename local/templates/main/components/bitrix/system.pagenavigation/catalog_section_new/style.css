@@ -5,7 +5,6 @@
 .bx-pagination .bx-pagination-container {
 	text-align: center;
 	position: relative;
-	max-width: 300px;
 }
 
 .bx-pagination .bx-pagination-container ul {
@@ -14,7 +13,6 @@
 	list-style: none;
 	display: inline-flex;
 	align-items: center;
-	max-width: 300px;
 }
 
 .bx-pagination .bx-pagination-container ul li {
@@ -93,7 +91,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0 15px;
+	padding: 0 12px;
 	margin: 0;
 }
 
@@ -104,6 +102,7 @@
 	border: 1px solid #999999;
 	box-sizing: border-box;
 	margin-right: 10px;
+	max-width: 80px;
 	min-width: 80px;
 	font-size: 14px;
 	width: 100%;
@@ -154,43 +153,61 @@
 	justify-content: center;
 }
 
-@media screen and (max-width: 992px) {
-	.bx-pagination.ozi {
-		flex-wrap: wrap;
-		justify-content: end;
-	}
 
-	.bx-pagination.ozi .input-page {
-		margin-top: 0px;
-	}
+.show-more{
+	border-radius: 12px;
+    line-height: 38px;
+    background: var(--btn-color);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 0 20px;
+    color: #ffffff;
+    text-transform: lowercase;
+	margin: -14px auto 16px;
+	max-width: 129px;
+	cursor: pointer;
+	text-align: center;
+}
 
-	.bx-pagination .bx-pagination-container ul li {
-		margin-bottom: 20px;
-		padding: 0 7px;
+@media screen and (max-width: 1024px) {
+	.bx-pagination.ozi{
+		padding: 0 6px;
 	}
 }
 
 @media screen and (max-width: 768px) {
+	.input-page form {
+		justify-content: center;
+	}
+
+	.show-more{
+		margin-top: 4px;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.bx-pagination .input-page {
+		margin-top: 30px;
+		justify-content: center;
+	}
+	.bx-pagination.ozi {
+		flex-wrap: wrap;
+		justify-content: end;
+	}
 	.bx-pagination.ozi {
 		display: block;
 		text-align: center;
 		padding: 0;
 	}
-
-	.bx-pagination .input-page {
-		margin-top: 30px;
-		justify-content: center;
-	}
-
-	.input-page form {
-		justify-content: center;
-	}
-}
-
-@media screen and (max-width: 600px) {
 	.bx-pagination .bx-pagination-container ul {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
+	}
+	.show-more{
+		border-radius: 10px;
+		max-width: 100%;
+		width: calc(100% - 40px);
 	}
 }

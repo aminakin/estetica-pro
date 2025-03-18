@@ -1266,6 +1266,7 @@ div.bx-soa-item-td {
     transform: translateY(-50%);
     transition: .2s ease;
     background-color: #f3f3f3;
+    cursor: pointer;
 }
 .slick-arrow.slick-disabled {
     cursor: default;

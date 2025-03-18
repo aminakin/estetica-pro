@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -13,36 +13,58 @@
 $this->setFrameMode(true);
 ?>
 <div class="courses-full-list">
-    <?foreach($arResult["ITEMS"] as $arItem):?>
+    <? foreach ($arResult["ITEMS"] as $arItem): ?>
         <?
         $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
         $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
         ?>
         <div class="course-item">
             <div class="course-name">
-                <?= $arItem['NAME']?>
+                <?= $arItem['NAME'] ?>
             </div>
-            <? if($arItem['PROPERTIES']['TYPE_COURSE']['VALUE']):?>
+            <? if ($arItem['PROPERTIES']['TYPE_COURSE']['VALUE']): ?>
                 <div class="course-type">
-                    <?= $arItem['PROPERTIES']['TYPE_COURSE']['VALUE']?>
+                    <?= $arItem['PROPERTIES']['TYPE_COURSE']['VALUE'] ?>
                 </div>
-            <?endif;?>
-            <? if($arItem['PROPERTIES']['PRICE']['VALUE']): ?>
+            <? endif; ?>
+            <div class="course-date">
+                <?
+                $count = 0;
+                foreach ($arItem['PROPERTIES']['PERIOD_DATE']['VALUE'] as $key => $value) {
+                    $currentDate = strtotime($value);
+                    $now = time();
+
+                    $nextDate = isset($arItem['PROPERTIES']['PERIOD_DATE']['VALUE'][$key + 1]) ? strtotime($arItem['PROPERTIES']['PERIOD_DATE']['VALUE'][$key + 1]) : null;
+
+                    if ($currentDate <= $now) {
+                        continue;
+                    } else {
+                        $count++;
+                        if ($count == 1) {
+                            echo date('d-m-Y', $currentDate) . "\n";
+                        }
+                    }
+                }
+                ?>
+            </div>
+            <? if ($arItem['PROPERTIES']['PRICE']['VALUE']): ?>
                 <div class="course-price">
-                    <? if($arItem['PROPERTIES']['PRICE']['VALUE'] == 'Бесплатно'): ?>
-                        <span><?=GetMessage('FREE_COURSE')?></span>
+                    <? if ($arItem['PROPERTIES']['PRICE']['VALUE'] == 'Бесплатно'): ?>
+                        <span><?= GetMessage('FREE_COURSE') ?></span>
                     <? else: ?>
-                        <span><?=CurrencyFormat($arItem['PROPERTIES']['PRICE']['VALUE'], "RUB");?></span>
+                        <span><?= CurrencyFormat($arItem['PROPERTIES']['PRICE']['VALUE'], "RUB"); ?></span>
                     <? endif; ?>
                 </div>
             <? endif; ?>
-            <a class="course-link" href="<?= $arItem['DETAIL_PAGE_URL'];?>">
-                <?= GetMessage('MORE')?>
+            <a class="course-link" href="<?= $arItem['DETAIL_PAGE_URL']; ?>">
+                <?= GetMessage('MORE') ?>
             </a>
         </div>
-    <?endforeach;?>
-    <?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
-    	<?=$arResult["NAV_STRING"]?><br />
-    <?endif;?>
+    <? endforeach; ?>
 </div>
-
+<div class="courses-timetable">
+    <a href=""></a>
+</div>
+<? if ($arParams["DISPLAY_BOTTOM_PAGER"]): ?>
+    <?= $arResult["NAV_STRING"] ?>
+<? endif; ?>

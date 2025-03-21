@@ -133,7 +133,7 @@ header .sticky .header-middle .header-phone a{
 }
 .header-row{
     max-width: var(--main-width);
-    padding: 0 20px;
+    padding: 0 16px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -6153,17 +6153,37 @@ div[data-property-id-row="44"]{
 .personal-favorites-header-menu-del:hover {
     color: #aaaaaa;
 }
-.personal-favorite-empty-product {
-    font-size: 10px;
-    line-height: 14px;
-    color: #696868;
+
+.personal-favorite-empty{
+    margin-top: 32px;
+    max-width: 540px;
 }
-.personal-favorite-empty-desc {
-    font-size: 12px;
+
+.personal-favorite-empty-message{
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 16px;
+}
+
+.personal-favorite-empty-desc{
+    color: #999999; 
+    margin-bottom: 32px;
+}
+
+.personal-favorite-empty-link{
+    padding: 18px 36px;
+    border-radius: 10px;
+    border-width: 1px;
+    border: 1px solid #F781BF;
+    background-color: #ffffff;
+    font-weight: 400;
+    font-size: 18px;
     line-height: 20px;
-    color: #A9A9A9;
-    margin-top: 30px;
+    text-decoration: none;
+    display: flex;
+    width: fit-content;
 }
+
 html body .toggleOpen.no_fav_popup .fav-close{
     position: static;
     font-size: 9px;
@@ -6187,16 +6207,6 @@ html body .toggleOpen.no_fav_popup .fav-close:hover{
     html body .toggleOpen.no_fav_popup .fav-close{
         font-size: 12px;
         line-height: 16px;
-    }
-    .personal-favorite-empty-message {
-        font-size: 16px;
-        line-height: 22px;
-        font-weight: 400;
-    }
-    .personal-favorite-empty-desc {
-        font-weight: 300;
-        font-size: 12px;
-        line-height: 18px;
     }
     .phone-icon > svg {
         width: 18px;
@@ -6420,19 +6430,7 @@ html body .toggleOpen.no_fav_popup .fav-close:hover{
 .no-bonus-product a svg{
     margin-left: 5px;
 }
-.no-bonus-product span{
-    display: inline-block;
-    text-align: center;
-    width: 15px;
-    height: 15px;
-    color: #000000;
-    border: 1px solid #000000;
-    border-radius: 15px;
-    margin-left: 5px;
-    font-size: 10px;
-    font-weight: bold;
-    line-height: 13px;
-}
+
 .bx-catalog-element .basket-checkout-container.delivery,
 .bx-catalog-element .basket-checkout-container.bonus{
     max-width: 345px;

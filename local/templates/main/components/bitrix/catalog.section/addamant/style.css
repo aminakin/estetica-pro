@@ -88,3 +88,45 @@
 .row::before {
 	display: initial;
 }
+
+.page_section_wrapper>.row{
+    margin-right: -12px;
+    margin-left: -12px;
+}
+
+.page_section_wrapper .section-item-wrapper{
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.page_section_wrapper{
+	margin-top: 30px
+}
+
+.page_section_wrapper .show-more{
+	line-height: 55px;
+	margin: 0px auto 30px;
+}
+
+@media (max-width: 1024px) {
+    .page_section_wrapper>.row{
+        margin-right: -6px;
+        margin-left: -6px;
+    }
+    
+    .page_section_wrapper .section-item-wrapper{
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+}
+
+@media (max-width: 1024px) {
+	.page_section_wrapper{
+		margin-top: 16px
+	}
+
+	.page_section_wrapper .show-more{
+		line-height: 38px;
+		margin: -14px auto 16px;
+	}
+}

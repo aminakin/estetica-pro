@@ -1179,7 +1179,17 @@ section.comment {
 	font-size: 16px;
 	line-height: 19px;
 }
-
+.no-bonus-product span{
+    display: inline-block;
+    text-align: center;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 15px;
+    margin-left: 5px;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 13px;
+}
 @media screen and (max-width: 768px) {
 	.bx-catalog-element .no-bonus-product{
 		position: relative;

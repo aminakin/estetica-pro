@@ -223,13 +223,13 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                             "CHILD_MENU_TYPE" => "top",    // Тип меню для остальных уровней
                                             "COMPONENT_TEMPLATE" => "tree",
                                             "DELAY" => "N",    // Откладывать выполнение шаблона меню
-                                            "MAX_LEVEL" => "2",    // Уровень вложенности меню
+                                            "MAX_LEVEL" => "1",    // Уровень вложенности меню
                                             "MENU_CACHE_GET_VARS" => "",    // Значимые переменные запроса
                                             "MENU_CACHE_TIME" => "3600",    // Время кеширования (сек.)
                                             "MENU_CACHE_TYPE" => "N",    // Тип кеширования
                                             "MENU_CACHE_USE_GROUPS" => "Y",    // Учитывать права доступа
                                             "ROOT_MENU_TYPE" => "top",    // Тип меню для первого уровня
-                                            "USE_EXT" => "Y",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
+                                            "USE_EXT" => "N",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
                                         ),
                                         false
                                     ); ?>
@@ -658,7 +658,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
             </div>
 
             <div id="content-wrap" class="<?= (Page::isPersonal()) ? ' personal' : '' ?>">
-                <? if (!Page::IsMain() && $APPLICATION->GetCurDir() != '/login/auth/' && strpos($APPLICATION->GetCurDir(), 'personal') == false) { ?>
+                <? //if (!Page::IsMain() && $APPLICATION->GetCurDir() != '/login/auth/' && strpos($APPLICATION->GetCurDir(), 'personal') == false) { ?>
 
                     <? $APPLICATION->IncludeComponent(
                         "bitrix:breadcrumb",
@@ -671,7 +671,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                         ),
                         false
                     ); ?>
-                <? } ?>
+                <? //} ?>
                 <? if ($APPLICATION->GetCurDir() == '/personal/cart/') { ?>
                     <div class="cart-mobile-back">
                         <div class="btn-block">

@@ -154,7 +154,7 @@ use \Bitrix\Main\Localization\Loc;
                             <? if ($item['PROPERTIES']['BEZNACHISLENIYABONUSA']['VALUE'] == 'Да'): ?>
                                 <div class="no-bonus-product">
                                     <a class="linkOpen" href="#about_bonus">
-                                        <span><?= GetMessage('CT_BCE_QUESTION'); ?><span>
+                                        <span><?= GetMessage('CT_BCE_QUESTION'); ?></span>
                                                 <?= classBuildSCG::buildSVG('question', $templateFolder . '/image'); ?>
                                     </a>
                                 </div>

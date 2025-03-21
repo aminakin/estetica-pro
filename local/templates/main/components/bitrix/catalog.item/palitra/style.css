@@ -487,10 +487,6 @@ a.btn.btn-link.buyBtn:focus {
     outline: none !important;
 }
 
-.favorites-section {
-    padding-top: 24px;
-}
-
 .favorites-section .catalog-section {
     padding: 0 0;
     width: 100%;

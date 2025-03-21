@@ -1101,7 +1101,17 @@ section.comment {
 .no-bonus-product{
 	display: none;
 }
-
+.no-bonus-product span{
+    display: inline-block;
+    text-align: center;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 15px;
+    margin-left: 5px;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 13px;
+}
 @media screen and (max-width: 768px) {
 	.product-item-detail-pay-block .no-bonus-product span{
 		float: left;

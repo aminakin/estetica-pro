@@ -198,14 +198,9 @@
     background: #4F397B;
     color: #ffffff;
 }
-/*.top-menu li a[href='/sale/'] {
-    color: #D8ABB7;
-    font-weight: 300;
+.top-menu li a{
+    text-transform: uppercase;
 }
-.top-menu li a[href='/new/'] {
-    color: #33CCCC;
-    font-weight: 300;
-}*/
 .top-menu li a[href='/sale/']:hover,
 .top-menu li a[href='/sale/']:focus,
 .top-menu li a[href='/sale/']:active{
@@ -217,6 +212,10 @@
 .top-menu li a[href='/new/']:active{
     color: #33CCCC;
     font-weight: 400;
+}
+.top-menu li a[href='/sale/']:hover,
+.top-menu li a[href='/new/']:hover{
+    text-decoration: underline;
 }
 @media screen and (max-width: 1200px) {
     .coursesmenu .catalog-menu-flex-element {

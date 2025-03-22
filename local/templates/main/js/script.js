@@ -1709,15 +1709,15 @@ $(document).ready(function () {
     setTimeout(scrollAfterLink, 300);
     $('.i-icon.kirov').on('click', function () {
         $('.delivery-popup.kirov').show();
-        $('.delivery-popup-shadow').show();
+        $('.site-shadow').show();
     });
     $('.i-icon.pochta').on('click', function () {
         $('.delivery-popup.pochta').show();
-        $('.delivery-popup-shadow').show();
+        $('.site-shadow').show();
     });
     $('.delivery-popup-close').on('click', function () {
         $('.delivery-popup').hide();
-        $('.delivery-popup-shadow').hide();
+        $('.site-shadow').hide();
     });
     $('.basket-checkout-container.delivery').on('click', function () {
         $('.detail-popup.delivery').show();

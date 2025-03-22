@@ -381,56 +381,66 @@ header .sticky .header-middle .header-phone a{
 .delPay-page{
     display: flex;
     flex-wrap: wrap;
-    gap: 54px;
+    gap: 32px;
+    margin-top: 16px
 }
 .delPay-page-wrap{
-    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 30px;
-    padding: 54px;
+    border: 1px solid #999999;
+    border-radius: 18px;
+    padding: 80px 64px;
     width: 100%;
     font-weight: 400;
     font-size: 18px;
-    line-height: 24px;
+    line-height: 20px;
 }
 .delPay-page-wrap p{
     font-weight: 400;
     font-size: 18px;
-    line-height: 24px;
-    margin: 0 0 23px 0;
+    line-height: 20px;
+    margin: 0 0 16px 0;
 }
 .delPay-page-title{
-    font-size: 46px;
-    line-height: 54px;
+    font-size: 40px;
+    line-height: 48px;
     text-transform: uppercase;
     display: flex;
     font-weight: 400;
     align-items: center;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
+    font-family: 'TenorSans';
 }
 .delPay-page-title svg{
-    margin-right: 34px;
+    margin-right: 20px;
 }
 .delPay-page-important{
-    border: 1px solid var(--btn-color);
-    border-radius: 30px;
-    padding: 28px;
-    margin-top: 54px;
+    border: 1px solid #999999;
+    border-radius: 20px;
+    padding: 32px;
+    margin-top: 32px;
 }
 .delPay-page-wrap.payment ul li{
-    border-bottom: 1px solid #C4C4C4;
-    padding: 54px 0;
+    border-bottom: 1px solid #999999;
+    padding: 24px 0 30px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: space-betweenw;
 }
 .delPay-page-wrap.payment ul li span{
     width: 50%;
+    display: flex;
+    align-items: center;
+}       
+.delPay-page-wrap.payment ul li span svg{
+    margin-left: 16px;
 }
 .delPay-page-wrap.payment ul li span:first-child{
-    font-size: 22px;
-    line-height: 26px;
+    font-size: 24px;
+    line-height: 28px;
 }
 .delPay-page-wrap.payment ul li span:last-child{
-    max-width: 490px;
+    max-width: 494px;
+    font-weight: 300;
+    color: #333333;
 }
 .delPay-page-wrap.payment ul li:first-child{
     padding-top: 0;
@@ -442,64 +452,65 @@ header .sticky .header-middle .header-phone a{
 .delPay-page-wrap.delivery>ul{
     display: flex;
     justify-content: space-between;
-    padding-bottom: 36px;
-    border-bottom: 1px solid #C4C4C4;
+    padding-bottom: 30px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #999999;
 }
-.delPay-page-wrap.delivery>ul li{
-    margin-right: 99px;
+.delPay-page-wrap.delivery>ul:nth-child(4){
+    padding: 0;
+    border: none;
+    margin: 0;
+}
+.delPay-page-wrap.delivery>ul>li{
+    margin-right: 24px;
 }
 .delPay-page-wrap.delivery>ul li:last-child{
     margin-right: 0px;
 }
-.delPay-page-wrap.delivery>ul:nth-child(3){
-    padding-bottom: 0px;
-    padding-top: 54px;
-    border-bottom: none
-}
 .delPay-page-wrap.delivery>ul h3{
-    font-size: 22px;
-    line-height: 26px;
-    font-weight: 500;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    margin: 0 0 32px;
     text-align: left;
-    margin: 0 0 50px 0;
 }
-.delPay-page-wrap.delivery>ul:nth-child(3) h3{
-    display: none;
+.delPay-page-wrap.delivery>ul h4{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: left;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+}
+.delPay-page-wrap.delivery>ul h4 + p{
+    margin-top: 10px;
 }
 .delPay-page-wrap.delivery .grey-text{
-    font-size: 16px;
-    line-height: 19px;
-    color: #717171;
-    margin-bottom: 14px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #999999;
+    margin-bottom: 10px;
 }
 .delPay-page-wrap.delivery>ul>li>ul{
-    display: block;  
+    display: block; 
+    padding-left: 20px;
 }
 .delPay-page-wrap.delivery .i-icon{
-    margin-left: 16px;
+    margin-left: 5px;
+    cursor: pointer;
 }
 .delPay-page-wrap.delivery>ul>li{
     width: 33%;
 }
-.delPay-page-wrap.delivery>ul>li:nth-child(3){
-    max-width: 222px;
-}
 .delPay-page-wrap.delivery>ul>li>ul>li{
-    font-size: 16px;
-    line-height: 19px;
-    color: #717171;
-    display: block;
-    margin-top: 18px;
-    padding-left: 20px;
-    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+    color: #999999;
+    list-style: disc;
 }
-.delPay-page-wrap.delivery>ul>li>ul>li::before{
-    position: absolute;
-    content: ".";
-    display: block;
-    font-size: 24px;
-    top: -9px;
-    left: 8px;
+.delPay-page-wrap.delivery>ul>li>ul>li+li{
+    margin-top: 10px;
 }
 .delPay-page-wrap.return p span{
     font-size: 22px;
@@ -509,7 +520,8 @@ header .sticky .header-middle .header-phone a{
     margin-bottom: 36px;
 }
 .delPay-page-wrap.return a{
-    color: rgba(218, 132, 148, 1);
+    color: var(--btn-color);
+    text-decoration: none;
 }
 .delPay-page-wrap.return a:hover{
     color: #221F20;
@@ -519,34 +531,33 @@ header .sticky .header-middle .header-phone a{
 }
 .delivery-popup-close {
     position: absolute;
-    top: 10px;
-    right: 15px;
+    top: 24px;
+    right: 24px;
     cursor: pointer;
 }
 .delivery-popup {
-    padding: 45px;
+    padding: 96px 64px;
     background: #ffffff;
     position: fixed;
-    width: 540px;
+    max-width: 565px;
+    width: 100%;
     top: 50%;
     left: 50%;
-    margin-left: -270px;
+    transform: translate(-50%, -50%);
     z-index: 930;
     display: none;
-    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 36px;
 }
-.delivery-popup.pochta{
-    margin-top: -240px;
-}
-.delivery-popup.kirov{
-    margin-top: -165px;
+.delivery-popup .delPay-page-title{
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 48px;
 }
 .delivery-popup p {
     margin: 0;
     text-align: center;
 }
 .delivery-popup p b {
-    font-family: Open Sans;
     font-weight: 600;
     font-size: 14px;
     line-height: 19px;
@@ -559,137 +570,94 @@ header .sticky .header-middle .header-phone a{
     font-weight: 300;
 }
 .delivery-popup li {
-    font-family: Open Sans;
-    font-weight: 300;
     font-size: 14px;
     line-height: 16px;
-    padding: 20px 0;
-    border-bottom: 1px solid #696868;
+    padding: 16px 0;
+    border-bottom: 1px solid #F3F3F3;
     margin: 0;
 }
+.delivery-popup li:first-child{
+    padding-top: 0;
+}
+.delivery-popup li:last-child{
+    padding-bottom: 24px;
+}
 .delivery-popup .grey-text {
-    font-family: Open Sans;
-    font-size: 12px;
-    line-height: 13px;
-    color: #777777;
-    margin-top: 10px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #999999;
+    margin-top: 24px;
+    text-align: left;
 }
+
 @media screen and (max-width: 1024px) {
-    .delPay-page-wrap.delivery>ul li{
-        margin-right: 29px;
-    }
-    .delPay-page-wrap.delivery>ul li:last-child{
-        margin-right: 0px;
-    }
-}
-@media screen and (max-width: 850px) {
     .delPay-page-wrap{
-        padding: 22px;
-    }
-    .delPay-page-wrap,
-    .delPay-page-wrap p{
-        font-size: 14px;
-        line-height: 16px;
-    }
-    .delPay-page-wrap p{
-        margin-bottom: 20px;
+        padding: 48px 24px;
     }
     .delPay-page-title{
-        font-weight: 400;
         font-size: 24px;
-        line-height: 28px;
-        margin-bottom: 32px;
+        line-height: 32px;
     }
     .delPay-page-title svg{
-        width: 46px;
-        height: 46px;
-        margin-right: 12px;
+        width: 32px;
+        height: 32px;
+        margin-right: 16px;
     }
-    .delPay-page-wrap.payment ul li{
-        flex-wrap: wrap;
-        padding: 20px 0;
+    .delivery-popup{
+        transform: none;
+        top: 116px;
+        right: 0;
+        left: auto;
+        height: 100%;
+        border-radius: 16px 0 0 16px;
+        padding: 48px 32px;
+        max-width: 480px;
     }
-    .delPay-page-wrap.payment ul li span{
-        width: 100%;
-        max-width: 100%;
-    }
-    .delPay-page-wrap.payment ul li span:first-child{
-        font-size: 18px;
-        line-height: 21px;
-        margin-bottom: 12px;
+    .delivery-popup .delPay-page-title{
+        font-size: 20px;
+        line-height: 28px;
     }
     .delPay-page-important{
-        padding: 18px;
-        margin-top: 32px;
-        border-radius: 20px;
+        padding: 16px;
     }
-    .delPay-page-wrap.delivery .grey-text,
-    .delPay-page-wrap.delivery>ul>li>ul>li{
-        font-size: 14px;
-        line-height: 16px;
+
+    .delivery-popup-close{
+        top: 16px;
+        right: 16px;
     }
-    .delPay-page-wrap.delivery>ul>li>ul>li:before{
-        display: none;
-    }
-    .delPay-page-wrap.delivery>ul>li>ul>li{
-        padding-left: 0;
-    }
-    .delPay-page-wrap.delivery>ul>li>ul>li:last-child{
-        margin-top: 0;
-    }
-    .delPay-page-wrap.delivery>ul h3{
-        font-size: 18px;
-        line-height: 21px;
-        margin-bottom: 12px;
-    }
-    .delPay-page-wrap.delivery>ul:nth-child(3) h3{
-        display: block;
-    }
-    .delPay-page-wrap.delivery>ul{
-        flex-wrap: wrap;
-        border-bottom: none;
-        padding-bottom: 9px;
-    }
-    .delPay-page-wrap.delivery>ul>li{
-        width: 100%;
-        padding-top: 20px;
-        border-top: 1px solid #C4C4C4;
-        margin-right: 0!important;
-    }
-    .delPay-page-wrap.delivery>ul>li:first-child{
-        padding-top: 0px;
-        border-top: none;
-    }
-    .delPay-page-wrap.delivery>ul>li>ul{
-        margin-bottom: 20px;
-    }
-    .delPay-page-wrap.delivery>ul>li:nth-child(3){
-        max-width: 100%;
-    }
-    .delPay-page-wrap.delivery>ul:nth-child(3){
-        padding-top: 0;
+    .delivery-popup-close svg{
+        width: 32px;
+        height: 32px;
     }
 }
-@media screen and (max-width: 768px) {
-    .delivery-popup li b {
-        display: none;
+@media screen and (max-width: 670px){
+    .delPay-page-wrap.payment ul li,
+    .delPay-page-wrap.delivery>ul{
+        flex-wrap: wrap;
     }
-    .delivery-mobile-info,
-    .delivery-popup .mobile-text {
-        display: block;
+
+    .delivery-popup{
+        border-radius: 16px;
     }
-    .delivery-popup li {
-        padding: 10px 0;
+
+    .delPay-page-wrap.payment ul li span,
+    .delPay-page-wrap.delivery>ul>li{
+        width: 100%;
+        margin-right: 0;
     }
-    .delivery-popup li span {
-        display: block;
-        font-family: Open Sans;
-        
-        font-weight: normal;
-        font-size: 9.5px;
-        line-height: 10px;
-        color: #A9A9A9;
-        margin-top: 5px;
+    .delPay-page-wrap.payment ul li span:first-child{
+        margin-bottom: 12px;
+    }
+    .delPay-page-wrap.delivery>ul h3{
+        font-size: 14px;
+        line-height: 16px;
+        margin-bottom: 16px;
+    }
+    .delPay-page-wrap.delivery>ul li p:last-child{
+        margin-bottom: 0;
+    }
+    .delPay-page-wrap.delivery>ul li:not(:last-child){
+        margin-bottom: 32px;
     }
 }
 .about-page .about-page-banner{

@@ -392,3 +392,98 @@ form#regform {
         margin-top: 16px;
     }
 }
+
+
+#register.success {
+    max-width: 540px !important;
+    height: auto;
+    overflow: hidden;
+}
+@media (max-height: 730px) {
+    #register {
+        height: 100vh;
+    }
+
+}
+#register .h2 {
+    margin-bottom: 55px;
+}
+#register .h2.registration-success {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    color: #000;
+    margin: 60px 0 15px;
+    white-space: nowrap;
+}
+
+#register .registration-description{
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    color: #808189; 
+    margin-bottom: 30px;
+}
+#register .to-catalog{
+    display: none;
+}
+#register .to-catalog.success{
+    display: block;
+}
+#register .to-catalog a{
+    display: block;
+    background: #EBCFD5;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    line-height: 50px;
+    color: #FFFFFF;
+    width: 100%;
+    text-decoration: none; 
+}
+#register .to-catalog a:hover{
+    background: #F0D7DC;
+}
+#register .to-catalog a:active,
+#register .to-catalog a:focus{
+    background: #D8ABB7;
+}
+#register .registration-description a{
+    color: #000000; 
+    text-decoration: underline;
+}
+
+#register.success .info_bonus{
+    display: none;
+}
+@media (max-width: 990px) {
+    #register.success {
+        left: 0% !important;
+    }
+}
+#register .reg-after,
+#passwordHadSend .pswd-after {
+    font-weight: 300;
+    font-size: 17px;
+    color: #EBCFD5;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    #register .h2.registration-success{
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 33px;
+        color: #000000;
+        margin: 50px 0 30px;
+        text-align: left;
+        white-space: normal;
+    }
+
+    #register .registration-description{
+        font-size: 14px;
+        line-height: 19px;
+        color: #808189;
+        text-align: left;
+    }
+}

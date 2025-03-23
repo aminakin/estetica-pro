@@ -2684,3 +2684,23 @@ h2.basket-item-info-name {
 .new-design .basket-checkout-container a:hover{
 	text-decoration: none!important;
 }
+.basket-items-block {
+    padding: 30px 45px;
+    border: 1px solid #e0e0e0;
+}
+.basket-items-block__sum {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 30px 0;
+}
+.basket-items-block__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 400;
+    color: #696969;
+    padding-bottom: 14px;
+}
+.basket-items-block__row:last-child {
+    padding-bottom: 0;
+}

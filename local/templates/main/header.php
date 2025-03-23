@@ -658,7 +658,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
             </div>
 
             <div id="content-wrap" class="<?= (Page::isPersonal()) ? ' personal' : '' ?>">
-                <? //if (!Page::IsMain() && $APPLICATION->GetCurDir() != '/login/auth/' && strpos($APPLICATION->GetCurDir(), 'personal') == false) { ?>
+                <? if (!Page::IsMain() /*&& $APPLICATION->GetCurDir() != '/login/auth/' && strpos($APPLICATION->GetCurDir(), 'personal') == false*/) { ?>
 
                     <? $APPLICATION->IncludeComponent(
                         "bitrix:breadcrumb",
@@ -671,7 +671,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                         ),
                         false
                     ); ?>
-                <? //} ?>
+                <? } ?>
                 <? if ($APPLICATION->GetCurDir() == '/personal/cart/') { ?>
                     <div class="cart-mobile-back">
                         <div class="btn-block">

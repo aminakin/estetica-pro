@@ -25,3 +25,9 @@
 	max-width: 286px;
 	width: 100%;
 }
+
+@media (max-width:1024px) {
+	.mobile-title-search-result{
+		border-radius: 0 0 14px 14px;
+	}
+}

@@ -184,14 +184,20 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                                          if($value !== 'Нет'){?>
                                             <span class="<?= $code ?>" title="<?= $code ?>">
                                                 <?switch ($code) {
-                                                    case ('AKTSIONNYY') :
+                                                    case 'AKTSIONNYY':
                                                         echo 'Sale';
                                                         break;
-                                                    case ('SALE_RESNITSY') :
+                                                    case 'SALE_RESNITSY':
                                                         echo 'Sale';
                                                         break;
-                                                    case ('NEW') :
-                                                        echo 'New';
+                                                    case 'NEW':
+                                                        echo 'new';
+                                                        break;
+                                                    case 'HIT_SALE':
+                                                        echo 'hit';
+                                                        break;
+                                                    default:
+                                                        echo $value;
                                                         break;
                                                 }?>
                                             </span>
@@ -530,14 +536,14 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                                                                 <div class="product-item-amount-field-container">
                                                                     <a class="product-item-amount-field-btn-minus jq-number__spin minus product-detail-item-amount-btn-minus"
                                                                        id="<?= $itemIds['QUANTITY_DOWN_ID'] ?>"
-                                                                       href="javascript:void(0)" rel="nofollow">-
+                                                                       href="javascript:void(0)" rel="nofollow"><?= classBuildSCG::buildSVG('minus'); ?>
                                                                     </a>
                                                                     <input class="product-item-amount-field"
                                                                            id="<?= $itemIds['QUANTITY_ID'] ?>" type="number"
                                                                            value="<?= $price['MIN_QUANTITY'] ?>">
                                                                     <a class="product-item-amount-field-btn-plus jq-number__spin plus product-detail-item-amount-btn-plus"
                                                                        id="<?= $itemIds['QUANTITY_UP_ID'] ?>"
-                                                                       href="javascript:void(0)" rel="nofollow">+
+                                                                       href="javascript:void(0)" rel="nofollow"><?= classBuildSCG::buildSVG('plus'); ?>
                                                                     </a>
                                                                     <span class="product-item-amount-description-container"
                                                                           style="display:none">
@@ -562,14 +568,14 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                                                             <div class="product-item-amount-field-container">
                                                                 <a class="product-item-amount-field-btn-minus jq-number__spin minus product-detail-item-amount-btn-minus"
                                                                    id="<?= $itemIds['QUANTITY_DOWN_ID'] ?>"
-                                                                   href="javascript:void(0)" rel="nofollow">-
+                                                                   href="javascript:void(0)" rel="nofollow"><?= classBuildSCG::buildSVG('minus'); ?>
                                                                 </a>
                                                                 <input class="product-item-amount-field"
                                                                        id="<?= $itemIds['QUANTITY_ID'] ?>" type="number"
                                                                        value="<?= $price['MIN_QUANTITY'] ?>">
                                                                 <a class="product-item-amount-field-btn-plus jq-number__spin plus product-detail-item-amount-btn-plus"
                                                                    id="<?= $itemIds['QUANTITY_UP_ID'] ?>"
-                                                                   href="javascript:void(0)" rel="nofollow">+
+                                                                   href="javascript:void(0)" rel="nofollow"><?= classBuildSCG::buildSVG('plus'); ?>
                                                                 </a>
                                                                 <span class="product-item-amount-description-container" style="display:none">
                                                                 <span id="<?= $itemIds['QUANTITY_MEASURE'] ?>">
@@ -617,9 +623,9 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                                                 </div>
                                             <? }?>
                                             <?if($USER->IsAuthorized()):?>
-                                                <div class="product-detail-item-favorite-image-block" data-item="<?= $arResult['ID'];?>"><?= classBuildSCG::buildSVG('favorite');?></div>
+                                                <div class="product-detail-item-favorite-image-block" data-item="<?= $arResult['ID'];?>"><?= classBuildSCG::buildSVG('favorite', $templateFolder . '/images'); ?></div>
                                             <?else:?>
-                                                <a class="product-detail-item-favorite-image-block no_auth_fav linkOpen" href="#no_fav_popup" data-item="<?= $item["ID"];?>"><?= classBuildSCG::buildSVG('favorite');?></a>
+                                                <a class="product-detail-item-favorite-image-block no_auth_fav linkOpen" href="#no_fav_popup" data-item="<?= $item["ID"];?>"><?= classBuildSCG::buildSVG('favorite', $templateFolder . '/images'); ?></a>
                                             <?endif;?>
                                         </div>
                                         
@@ -713,7 +719,6 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
 			</div>
             <? if ($arResult['DETAIL_TEXT'] != ''){?>
                 <div class="product-detail-item-specification-block">
-                    <div class="detail-item-specification-block-subtitle">Описание</div>
                     <div class="detail-item-specification-block-text">
                         <? if ($arResult['PREVIEW_TEXT'] != '' && ($arParams['DISPLAY_PREVIEW_TEXT_MODE'] === 'S' ||  ($arParams['DISPLAY_PREVIEW_TEXT_MODE'] === 'E' && $arResult['DETAIL_TEXT'] == '') )) {
                             echo $arResult['PREVIEW_TEXT_TYPE'] === 'html' ? $arResult['PREVIEW_TEXT'] : '<p>' . $arResult['PREVIEW_TEXT'] . '</p>';

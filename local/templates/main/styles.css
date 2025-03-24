@@ -3281,12 +3281,6 @@ input[type="submit"].linkBlack:hover {
     -o-filter: invert(100%);
     -ms-filter: invert(100%);
 }
-
-.bx-catalog-element {
-    position: relative;
-    clear: both;
-}
-
 #product-cart-slider-thumbnails .slick-active {
     border: 4px solid #fff;
     max-height: 100px;
@@ -4593,12 +4587,6 @@ html body .toggleOpen.no_fav_popup .fav-close:hover {
 .no-bonus-product a svg {
     margin-left: 5px;
 }
-
-.bx-catalog-element .basket-checkout-container.delivery,
-.bx-catalog-element .basket-checkout-container.bonus {
-    max-width: 345px;
-}
-
 .basket-checkout-container.delivery,
 .basket-checkout-container.bonus {
     padding: 0;

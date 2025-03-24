@@ -86,7 +86,7 @@ body .nbr {
 header {
     background: #fff;
     position: relative;
-    z-index: 905;
+    z-index: 6;
 }
 
 header a {
@@ -739,7 +739,7 @@ header .sticky .header-middle .header-phone a {
 
     .delivery-popup {
         transform: none;
-        top: 116px;
+        top: 0;
         right: 0;
         left: auto;
         height: 100%;
@@ -801,6 +801,12 @@ header .sticky .header-middle .header-phone a {
 
     .delPay-page-wrap.delivery>ul li:not(:last-child) {
         margin-bottom: 32px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .delivery-popup {
+        border-radius: 16px 16px 0 0;
     }
 }
 
@@ -4732,11 +4738,6 @@ html body .toggleOpen.no_fav_popup .fav-close:hover {
     .modal-cookie_close {
         right: 22px;
         top: 15px;
-    }
-
-    header {
-        z-index: 900;
-        height: auto;
     }
 
     .bx_catalog_tile .bx_catalog_tile_title {

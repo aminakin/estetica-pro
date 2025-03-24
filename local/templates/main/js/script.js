@@ -1710,14 +1710,17 @@ $(document).ready(function () {
     $('.i-icon.kirov').on('click', function () {
         $('.delivery-popup.kirov').show();
         $('.site-shadow').show();
+        $('.site-shadow').css('z-index', '7');
     });
     $('.i-icon.pochta').on('click', function () {
         $('.delivery-popup.pochta').show();
         $('.site-shadow').show();
+        $('.site-shadow').css('z-index', '7');
     });
     $('.delivery-popup-close').on('click', function () {
         $('.delivery-popup').hide();
         $('.site-shadow').hide();
+        $('.site-shadow').css('z-index', '5');
     });
     $('.basket-checkout-container.delivery').on('click', function () {
         $('.detail-popup.delivery').show();

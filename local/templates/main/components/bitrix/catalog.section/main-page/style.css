@@ -47,6 +47,7 @@
 .catalog-section-main:not(.slick-slider) {
     display: flex;
     overflow: hidden;
+    align-items: stretch;
 }
 
 .catalog-section-main:not(.slick-slider) .product-item-wrapper {
@@ -55,7 +56,7 @@
 }
 
 .catalog-section-main .product-item-wrapper .product-item-container {
-    width: 100%;
+    width: 100%!important;
 }
 
 .catalog-section-main .slick-arrow.slick-disabled {

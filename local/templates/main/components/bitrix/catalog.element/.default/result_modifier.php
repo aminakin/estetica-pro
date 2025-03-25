@@ -1,6 +1,7 @@
 <? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
     die();
 }
+\Bitrix\Main\Loader::includeModule('iblock');
 
 /**
  * @var CBitrixComponentTemplate $this
@@ -14,7 +15,7 @@ do {
     $old_price = $arResult['PROPERTIES']['STARAYA_TSENA_1']['VALUE'];
     $old_price = str_replace(',', '.', $old_price);
     $old_price = preg_replace('/[^\d.]*/i', '', $old_price);
-    
+
     //вся цепочка разделов товара
     $arResult['TRUE_NAV_CHAIN'] =[];
     $sections = CIBlockElement::GetElementGroups($arResult['ID']);
@@ -38,8 +39,14 @@ do {
     if (in_array('Y', $arResult['UF_NO_DANATE'])) {
         $arResult['NO_DANATE'] = true;
     }
-    /*----*/
 
+    if($arResult['NO_DANATE'] == false){
+        $arResult['NO_DANATE'] = $arResult['PROPERTIES']['RETAIL_PRODUCT']['VALUE'] == 'Y' ? true : false;
+    }
+    
+    
+    /*----*/
+    
     if (isset($arResult['ITEM_PRICES'][$arResult['ITEM_PRICE_SELECTED']])
         && $arResult['ITEM_PRICES'][$arResult['ITEM_PRICE_SELECTED']]['PRICE'] < $old_price
     ) {
@@ -63,6 +70,7 @@ do {
         $arResult['ITEM_PRICES'][$arResult['ITEM_PRICE_SELECTED']]['PERCENT'] = round(100 -
             $arResult['ITEM_PRICES'][$arResult['ITEM_PRICE_SELECTED']]['RATIO_PRICE']
             / $arResult['ITEM_PRICES'][$arResult['ITEM_PRICE_SELECTED']]['PRICE'] * 100, 0);
+        
     } else {
         $price = [];
         $action = [];
@@ -134,4 +142,27 @@ do {
                 / $offer['ITEM_PRICES'][$offer['ITEM_PRICE_SELECTED']]['PRICE'] * 100, 0);
         }
     }
+
+    // получение бонусов
+    if($arResult['PROPERTIES']['BEZNACHISLENIYABONUSA']['VALUE'] !== 'Да'){
+        if($arResult['JS_OFFERS'] == NULL){
+            $arResult['ITEM_PRICES'][$arResult['ITEM_PRICE_SELECTED']]['ITEM_BONUS'] = infoBonus($arResult['ITEM_PRICES'][$arResult['ITEM_PRICE_SELECTED']]['RATIO_BASE_PRICE']);
+        }else{
+            foreach ($arResult['JS_OFFERS'] as &$offer) {
+                $offer['ITEM_PRICES'][$offer['ITEM_PRICE_SELECTED']]['ITEM_BONUS'] = infoBonus($offer['ITEM_PRICES'][$offer['ITEM_PRICE_SELECTED']]['RATIO_BASE_PRICE']);
+            }
+        }
+    } 
+
+    if(!empty($arResult['PROPERTIES']['FOOTNOTES']["VALUE"])){
+        foreach($arResult['PROPERTIES']['FOOTNOTES']["VALUE"] as $footnote){
+            $element = \Bitrix\Iblock\Elements\ElementFootnotesTable::getList([
+                'select' => ['DETAIL_TEXT'],
+                'filter' => ['ACTIVE' => 'Y', 'ID' => $footnote]
+            ])->fetch();
+            
+            $arResult['FOOTNOTES'][] = $element['DETAIL_TEXT'];
+        }
+    }
+    
 } while (false);

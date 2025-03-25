@@ -1,7 +1,7 @@
 :root {
     --btn-color: #F781BF;
     --btn-color-hover: #F781BF;
-    --main-width: 1180px;
+    --main-width: 1172px;
 }
 
 input:-webkit-autofill,
@@ -4914,9 +4914,13 @@ html body .toggleOpen.no_fav_popup .fav-close:hover {
         display: block;
     }
 
+    .bonus-page-desc .grey-text{
+        width: 100%;
+    }
+
     .bonus-page-desc .grey-text + .grey-text{
         margin-right: 0;
-        margin-top: 16px;
+        margin-top: 16px; 
     }
 
     .bonus-page .level-item{

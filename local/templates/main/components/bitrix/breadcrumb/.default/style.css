@@ -22,5 +22,6 @@
 @media screen and (max-width: 1100px) {
     .breadcrumbs{
         margin: 8px 0 32px;
+        flex-wrap: wrap;
     }
 }

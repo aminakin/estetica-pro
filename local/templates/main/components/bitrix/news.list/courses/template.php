@@ -41,7 +41,7 @@ $this->setFrameMode(true);
                     } else {
                         $count++;
                         if ($count == 1) {
-                            echo date('d-m-Y', $currentDate) . "\n";
+                            echo date('d.m.Y', $currentDate) . "\n";
                         }
                     }
                 }

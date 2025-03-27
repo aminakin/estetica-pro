@@ -1675,7 +1675,6 @@ input[type="submit"].btnForpasswd:active,
 
 a:hover,
 a:focus {
-    color: inherit;
     outline: none;
     text-decoration: none;
 }

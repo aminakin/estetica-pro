@@ -635,7 +635,7 @@ $APPLICATION->SetTitle("Обучение");
 		"STRICT_SECTION_CHECK" => "N"
 	)
 );?>
-<?$APPLICATION->IncludeComponent(
+<?/*$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"answer-question",
 	Array(
@@ -691,6 +691,6 @@ $APPLICATION->SetTitle("Обучение");
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N"
 	)
-);?>
+);*/?>
 </div>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1681,6 +1681,7 @@ input[type="submit"].btnForpasswd:active,
 
 a:hover,
 a:focus {
+    color: #000000;
     outline: none;
     text-decoration: none;
 }
@@ -2629,45 +2630,6 @@ header .favorite div {
     top: 50% !important;
 }
 
-.bottom-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 30px;
-}
-
-.bottom-buttons>a.button_filled {
-    font-weight: 600;
-}
-
-.button_transparent {
-    width: 100%;
-    height: 58px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 18px;
-    text-decoration: none;
-    line-height: 58px;
-    color: #221F20;
-    border-radius: 52px;
-    background: #EBCFD5;
-    border: 0px solid #B0B0B0;
-}
-
-.button_transparent:hover {
-    background: #F0D7DC;
-    color: #ffffff;
-}
-
-.button_transparent:active,
-.button_transparent:focus {
-    background: #D8ABB7;
-    color: #ffffff;
-    text-decoration: none;
-}
-
 .button_filled {
     width: 100%;
     height: 50px;
@@ -2696,8 +2658,8 @@ header .favorite div {
 
 html body .close.basket-close {
     float: right;
-    width: 38px;
-    height: 38px;
+    width: 48px;
+    height: 48px;
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
@@ -2710,25 +2672,12 @@ html body .close.basket-close {
     margin-right: 0px;
     opacity: 1;
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 24px;
+    right: 24px;
     background-image: none;
     -webkit-filter: none;
     -o-filter: none;
     filter: none;
-}
-
-html body .close.basket-close span:last-child {
-    position: absolute;
-    transform: rotate(-45deg);
-}
-
-html body .close.basket-close span {
-    display: block;
-    width: 26px;
-    height: 1px;
-    background: #000000;
-    transform: rotate(45deg);
 }
 
 .basket input[type="submit"] {
@@ -2942,29 +2891,8 @@ html body .close.basket-close span {
         background: #fff;
     }
 
-    .bottom-buttons {
-        padding-bottom: 0px;
-    }
-
-    .basket-item__row {
-        padding: 10px 0;
-    }
-
-    .bottom-buttons>a {
-        max-width: 48%;
-        margin-top: 10px;
-    }
-
     .toggleOpen .bottom {
         padding-bottom: 10px;
-    }
-
-    .basket-head {
-        padding-bottom: 10px !important;
-    }
-
-    .bottom .total {
-        padding-top: 10px !important;
     }
 }
 
@@ -3076,20 +3004,6 @@ font.errortext {
 .forpassErrorMessage {
     text-align: center;
     color: green;
-}
-
-@media (min-width: 769px) {
-    #basket::-webkit-scrollbar {
-        width: 0;
-    }
-
-    #basket {
-        -ms-overflow-style: none;
-    }
-
-    #basket {
-        overflow: -moz-scrollbars-none;
-    }
 }
 
 @media (min-width: 768px) {
@@ -3621,71 +3535,6 @@ input[type="submit"].linkBlack:hover {
     width: 244px;
 }
 
-#basket {
-    z-index: 10;
-    right: -700px;
-    left: unset;
-    height: 100%;
-    width: 663px;
-    box-shadow: 0 3px 7px rgba(155, 154, 154, 0.15);
-    border: none;
-    padding: 118px 97px 180px 95px;
-    top: 0px;
-    transition: top .2s ease;
-    position: fixed;
-    background-color: #FFF;
-}
-
-#basket form {
-    width: 100%;
-}
-
-#basket .empty_basket {
-    color: #000000;
-    font-size: 14px;
-    font-weight: 600;
-    height: 100%;
-    padding-bottom: 50px;
-    margin: 0;
-    text-align: left;
-}
-
-#basket .empty_basket .our-new {
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 25px;
-    color: #000000;
-    margin: 60px 0 30px;
-}
-
-#basket .empty_basket h1 {
-    font-weight: 800;
-    font-size: 36px;
-    line-height: 49px;
-    text-align: left;
-    max-width: 260px;
-    margin-bottom: 60px;
-    text-transform: none;
-}
-
-#basket .basket-close {
-    top: 40px;
-    right: 61px;
-}
-
-#basket .empty_basket .empty-message {
-    font-size: 14px;
-    line-height: 22px;
-}
-
-#basket .empty_basket .empty-message a {
-    color: #D8ABB7;
-    text-decoration: none;
-}
-
-#basket .empty_basket .empty-message a:hover {
-    text-decoration: underline;
-}
 
 .basket-items {
     max-height: 460px;

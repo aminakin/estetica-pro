@@ -446,7 +446,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                         </div>
                     <? } ?>
                     <div class="custom_popup_block" id="basket">
-                        <a href="#" class="close basket-close"><span></span><span></span></a>
+                        <a href="#" class="close basket-close"><?= classBuildSCG::buildSVG('big-cross'); ?></a>
                         <div id="small-basket-content">
                             <?
                             $basketSmallComponent = new CBitrixComponent();

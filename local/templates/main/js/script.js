@@ -722,6 +722,8 @@ $(document).ready(function () {
             return;
         }
 
+
+
         /*const prevent = ev => ev.preventDefault();
         document.body.addEventListener('wheel', prevent, { passive: false });
 
@@ -733,7 +735,7 @@ $(document).ready(function () {
         var that = $(this);
         var href = that.attr('href');
 
-        if (href == '#auth' || href == '#about_bonus') {
+        if (href == '#auth' || href == '#about_bonus' || href == '#basket') {
             $('.modal-background').fadeIn()
         }
         if (href == '#menu' && !$(this).hasClass('opened')) {
@@ -805,9 +807,14 @@ $(document).ready(function () {
             window.location = '/'
             return false
         }
+        
         $('.modal-background').fadeOut()
         $('body').removeClass('body-modal');
         $('.toggleOpen.opened').removeClass('opened');
+        $('.custom_popup_block.opened').removeClass('opened');
+        $("#basket.custom_popup_block").animate({
+            right: "-700px",
+        }, 300);
         linkOpen.removeClass('opened');
         return false;
     });
@@ -816,7 +823,6 @@ $(document).ready(function () {
 
     if (iOS) {
         $(document).on('touchstart', '.toggleLink', function (e) {
-            // e.target.click();
             $(this).trigger('click')
         });
     }
@@ -960,6 +966,11 @@ function createToast() {
         }
     }
 }
+
+$(document).on('click', '.close-prod', function () {
+    removeFlyProd()
+});
+
 $(document).on('click', '.product-item-amount-field-btn-disabled', function () {
     $('.product-item-detail-slider-image').clone().insertAfter('.image-close-buy');
     var text = $('.image-close-buy').html();
@@ -974,7 +985,12 @@ function createFlyProd(strJSON) {
     let textFlyProd = productIdQty > 1 ? "Доступно для заказа " + productIdQty + " шт." : "Товар добавлен в корзину";
     let prodElems = $("<div class='fly-prod'style='display:none;'></div>")
         .append("<div class='images-wrap'></div>")
-        .append(`<div class='text-prod'>${textFlyProd}</div>`);
+        .append(`<div class='text-prod'>${textFlyProd}</div>`)
+        .append(`<div class='close-prod'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.7071 6.70711C19.0976 6.31658 19.0976 5.68342 18.7071 5.29289C18.3166 4.90237 17.6834 4.90237 17.2929 5.29289L12 10.5858L6.70711 5.29289C6.31658 4.90237 5.68342 4.90237 5.29289 5.29289C4.90237 5.68342 4.90237 6.31658 5.29289 6.70711L10.5858 12L5.29289 17.2929C4.90237 17.6834 4.90237 18.3166 5.29289 18.7071C5.68342 19.0976 6.31658 19.0976 6.70711 18.7071L12 13.4142L17.2929 18.7071C17.6834 19.0976 18.3166 19.0976 18.7071 18.7071C19.0976 18.3166 19.0976 17.6834 18.7071 17.2929L13.4142 12L18.7071 6.70711Z" fill="black"/>
+            </svg>
+            </div>`);
     $('.fly-toast-prod').html(prodElems);
     $('.product-detail-item-by-button span').text('Добавлено');
     $('.product-detail-item-by-button').css("background-color", "#D8ABB7");

@@ -9,7 +9,7 @@
  *
  */
 
-;(function(factory) {
+; (function (factory) {
 	if (typeof define === 'function' && define.amd) {
 		// AMD
 		define(['jquery'], factory);
@@ -19,38 +19,38 @@
 	} else {
 		factory(jQuery);
 	}
-}(function($) {
+}(function ($) {
 
 	'use strict';
 
 	var pluginName = 'styler',
-			defaults = {
-				idSuffix: '-styler',
-				filePlaceholder: 'Файл не выбран',
-				fileBrowse: 'Обзор...',
-				fileNumber: 'Выбрано файлов: %s',
-				selectPlaceholder: 'Выберите...',
-				selectSearch: false,
-				selectSearchLimit: 10,
-				selectSearchNotFound: 'Совпадений не найдено',
-				selectSearchPlaceholder: 'Поиск...',
-				selectVisibleOptions: 0,
-				selectSmartPositioning: true,
-				locale: 'ru',
-				locales: {
-					'en': {
-						filePlaceholder: 'No file selected',
-						fileBrowse: 'Browse...',
-						fileNumber: 'Selected files: %s',
-						selectPlaceholder: 'Select...',
-						selectSearchNotFound: 'No matches found',
-						selectSearchPlaceholder: 'Search...'
-					}
-				},
-				onSelectOpened: function() {},
-				onSelectClosed: function() {},
-				onFormStyled: function() {}
-			};
+		defaults = {
+			idSuffix: '-styler',
+			filePlaceholder: 'Файл не выбран',
+			fileBrowse: 'Обзор...',
+			fileNumber: 'Выбрано файлов: %s',
+			selectPlaceholder: 'Выберите...',
+			selectSearch: false,
+			selectSearchLimit: 10,
+			selectSearchNotFound: 'Совпадений не найдено',
+			selectSearchPlaceholder: 'Поиск...',
+			selectVisibleOptions: 0,
+			selectSmartPositioning: true,
+			locale: 'ru',
+			locales: {
+				'en': {
+					filePlaceholder: 'No file selected',
+					fileBrowse: 'Browse...',
+					fileNumber: 'Selected files: %s',
+					selectPlaceholder: 'Select...',
+					selectSearchNotFound: 'No matches found',
+					selectSearchPlaceholder: 'Search...'
+				}
+			},
+			onSelectOpened: function () { },
+			onSelectClosed: function () { },
+			onFormStyled: function () { }
+		};
 
 	function Plugin(element, options) {
 		this.element = element;
@@ -65,7 +65,7 @@
 	Plugin.prototype = {
 
 		// инициализация
-		init: function() {
+		init: function () {
 
 			var el = $(this.element);
 			var opt = this.options;
@@ -85,7 +85,7 @@
 			// checkbox
 			if (el.is(':checkbox')) {
 
-				var checkboxOutput = function() {
+				var checkboxOutput = function () {
 
 					var att = new Attributes();
 					var checkbox = $('<div class="jq-checkbox"><div class="jq-checkbox__div"><svg width="8" height="7" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M1 3.93103L3.54545 6L7 1" stroke="black" stroke-linecap="round" stroke-linejoin="round"/> </svg></div></div>')
@@ -95,14 +95,14 @@
 						})
 						.addClass(att.classes)
 						.data(att.data)
-					;
+						;
 
 					el.after(checkbox).prependTo(checkbox);
 					if (el.is(':checked')) checkbox.addClass('checked');
 					if (el.is(':disabled')) checkbox.addClass('disabled');
 
 					// клик на псевдочекбокс
-					checkbox.click(function(e) {
+					checkbox.click(function (e) {
 						e.preventDefault();
 						el.triggerHandler('click');
 						if (!checkbox.is('.disabled')) {
@@ -117,45 +117,45 @@
 						}
 					});
 					// клик на label
-					el.closest('label').add('label[for="' + el.attr('id') + '"]').on('click.styler', function(e) {
+					el.closest('label').add('label[for="' + el.attr('id') + '"]').on('click.styler', function (e) {
 						if (!$(e.target).is('a') && !$(e.target).closest(checkbox).length) {
 							checkbox.triggerHandler('click');
 							e.preventDefault();
 						}
 					});
 					// переключение по Space или Enter
-					el.on('change.styler', function() {
+					el.on('change.styler', function () {
 						if (el.is(':checked')) checkbox.addClass('checked');
 						else checkbox.removeClass('checked');
 					})
-					// чтобы переключался чекбокс, который находится в теге label
-					.on('keydown.styler', function(e) {
-						if (e.which == 32) checkbox.click();
-					})
-					.on('focus.styler', function() {
-						if (!checkbox.is('.disabled')) checkbox.addClass('focused');
-					})
-					.on('blur.styler', function() {
-						checkbox.removeClass('focused');
-					});
+						// чтобы переключался чекбокс, который находится в теге label
+						.on('keydown.styler', function (e) {
+							if (e.which == 32) checkbox.click();
+						})
+						.on('focus.styler', function () {
+							if (!checkbox.is('.disabled')) checkbox.addClass('focused');
+						})
+						.on('blur.styler', function () {
+							checkbox.removeClass('focused');
+						});
 
 				}; // end checkboxOutput()
 
 				checkboxOutput();
 
 				// обновление при динамическом изменении
-				el.on('refresh', function() {
+				el.on('refresh', function () {
 					el.closest('label').add('label[for="' + el.attr('id') + '"]').off('.styler');
 					el.off('.styler').parent().before(el).remove();
 					checkboxOutput();
 				});
 
-			// end checkbox
+				// end checkbox
 
-			// radio
+				// radio
 			} else if (el.is(':radio')) {
 
-				var radioOutput = function() {
+				var radioOutput = function () {
 
 					var att = new Attributes();
 					var radio = $('<div class="jq-radio"><div class="jq-radio__div"></div></div>')
@@ -165,7 +165,7 @@
 						})
 						.addClass(att.classes)
 						.data(att.data)
-					;
+						;
 
 					el.after(radio).prependTo(radio);
 					if (el.is(':checked')) radio.addClass('checked');
@@ -173,18 +173,18 @@
 
 					// определяем общего родителя у радиокнопок с одинаковым name
 					// http://stackoverflow.com/a/27733847
-					$.fn.commonParents = function() {
+					$.fn.commonParents = function () {
 						var cachedThis = this;
-						return cachedThis.first().parents().filter(function() {
+						return cachedThis.first().parents().filter(function () {
 							return $(this).find(cachedThis).length === cachedThis.length;
 						});
 					};
-					$.fn.commonParent = function() {
+					$.fn.commonParent = function () {
 						return $(this).commonParents().first();
 					};
 
 					// клик на псевдорадиокнопке
-					radio.click(function(e) {
+					radio.click(function (e) {
 						e.preventDefault();
 						el.triggerHandler('click');
 						if (!radio.is('.disabled')) {
@@ -195,40 +195,40 @@
 						}
 					});
 					// клик на label
-					el.closest('label').add('label[for="' + el.attr('id') + '"]').on('click.styler', function(e) {
+					el.closest('label').add('label[for="' + el.attr('id') + '"]').on('click.styler', function (e) {
 						if (!$(e.target).is('a') && !$(e.target).closest(radio).length) {
 							radio.triggerHandler('click');
 							e.preventDefault();
 						}
 					});
 					// переключение стрелками
-					el.on('change.styler', function() {
+					el.on('change.styler', function () {
 						el.parent().addClass('checked');
 					})
-					.on('focus.styler', function() {
-						if (!radio.is('.disabled')) radio.addClass('focused');
-					})
-					.on('blur.styler', function() {
-						radio.removeClass('focused');
-					});
+						.on('focus.styler', function () {
+							if (!radio.is('.disabled')) radio.addClass('focused');
+						})
+						.on('blur.styler', function () {
+							radio.removeClass('focused');
+						});
 
 				}; // end radioOutput()
 
 				radioOutput();
 
 				// обновление при динамическом изменении
-				el.on('refresh', function() {
+				el.on('refresh', function () {
 					el.closest('label').add('label[for="' + el.attr('id') + '"]').off('.styler');
 					el.off('.styler').parent().before(el).remove();
 					radioOutput();
 				});
 
-			// end radio
+				// end radio
 
-			// file
+				// file
 			} else if (el.is(':file')) {
 
-				var fileOutput = function() {
+				var fileOutput = function () {
 
 					var att = new Attributes();
 					var placeholder = el.data('placeholder');
@@ -238,16 +238,16 @@
 
 					var file =
 						$('<div class="jq-file">' +
-								'<div class="jq-file__name">' + placeholder + '</div>' +
-								'<div class="jq-file__browse">' + browse + '</div>' +
+							'<div class="jq-file__name">' + placeholder + '</div>' +
+							'<div class="jq-file__browse">' + browse + '</div>' +
 							'</div>')
-						.attr({
-							id: att.id,
-							title: att.title
-						})
-						.addClass(att.classes)
-						.data(att.data)
-					;
+							.attr({
+								id: att.id,
+								title: att.title
+							})
+							.addClass(att.classes)
+							.data(att.data)
+						;
 
 					el.after(file).appendTo(file);
 					if (el.is(':disabled')) file.addClass('disabled');
@@ -258,7 +258,7 @@
 					// чтобы при динамическом изменении имя файла не сбрасывалось
 					if (value) name.text(value.replace(/.+[\\\/]/, ''));
 
-					el.on('change.styler', function() {
+					el.on('change.styler', function () {
 						var value = el.val();
 						if (el.is('[multiple]')) {
 							value = '';
@@ -278,54 +278,58 @@
 							file.addClass('changed');
 						}
 					})
-					.on('focus.styler', function() {
-						file.addClass('focused');
-					})
-					.on('blur.styler', function() {
-						file.removeClass('focused');
-					})
-					.on('click.styler', function() {
-						file.removeClass('focused');
-					});
+						.on('focus.styler', function () {
+							file.addClass('focused');
+						})
+						.on('blur.styler', function () {
+							file.removeClass('focused');
+						})
+						.on('click.styler', function () {
+							file.removeClass('focused');
+						});
 
 				}; // end fileOutput()
 
 				fileOutput();
 
 				// обновление при динамическом изменении
-				el.on('refresh', function() {
+				el.on('refresh', function () {
 					el.off('.styler').parent().before(el).remove();
 					fileOutput();
 				});
 
-			// end file
+				// end file
 
 			} else if (el.is('input[type="number"]')) {
 
-				var numberOutput = function() {
+				var numberOutput = function () {
 
 					var att = new Attributes();
 					var number =
 						$('<div class="jq-number">' +
-								'<div class="jq-number__spin minus"></div>' +
-								'<div class="jq-number__spin plus"></div>' +
+							'<div class="jq-number__spin minus"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">' +
+							'<path fill-rule="evenodd" clip-rule="evenodd" d="M4 12C4 11.4477 4.44772 11 5 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H5C4.44772 13 4 12.5523 4 12Z" fill="black"/>' +
+							'</svg></div>' +
+							'<div class="jq-number__spin plus"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">' +
+							'<path fill-rule="evenodd" clip-rule="evenodd" d="M13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5V11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13H11V19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19V13H19C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11H13V5Z" fill="black"/>' +
+							'</svg></div>' +
 							'</div>')
-						.attr({
-							id: att.id,
-							title: att.title
-						})
-						.addClass(att.classes)
-						.data(att.data)
-					;
+							.attr({
+								id: att.id,
+								title: att.title
+							})
+							.addClass(att.classes)
+							.data(att.data)
+						;
 
 					el.after(number).prependTo(number).wrap('<div class="jq-number__field"></div>');
 					if (el.is(':disabled')) number.addClass('disabled');
 
 					var min,
-							max,
-							step,
-							timeout = null,
-							interval = null;
+						max,
+						step,
+						timeout = null,
+						interval = null;
 					if (el.attr('min') !== undefined) min = el.attr('min');
 					if (el.attr('max') !== undefined) max = el.attr('max');
 					if (el.attr('step') !== undefined && $.isNumeric(el.attr('step')))
@@ -333,9 +337,9 @@
 					else
 						step = Number(1);
 
-					var changeValue = function(spin) {
+					var changeValue = function (spin) {
 						var value = el.val(),
-								newValue;
+							newValue;
 
 						if (!$.isNumeric(value)) {
 							value = 0;
@@ -369,24 +373,24 @@
 					};
 
 					if (!number.is('.disabled')) {
-						number.on('mousedown', 'div.jq-number__spin', function() {
+						number.on('mousedown', 'div.jq-number__spin', function () {
 							var spin = $(this);
 							changeValue(spin);
-							timeout = setTimeout(function(){
-								interval = setInterval(function(){ changeValue(spin); }, 40);
+							timeout = setTimeout(function () {
+								interval = setInterval(function () { changeValue(spin); }, 40);
 							}, 350);
-						}).on('mouseup mouseout', 'div.jq-number__spin', function() {
+						}).on('mouseup mouseout', 'div.jq-number__spin', function () {
 							clearTimeout(timeout);
 							clearInterval(interval);
-						}).on('mouseup', 'div.jq-number__spin', function() {
+						}).on('mouseup', 'div.jq-number__spin', function () {
 							el.change();
 						});
-						el.on('focus.styler', function() {
+						el.on('focus.styler', function () {
 							number.addClass('focused');
 						})
-						.on('blur.styler', function() {
-							number.removeClass('focused');
-						});
+							.on('blur.styler', function () {
+								number.removeClass('focused');
+							});
 					}
 
 				}; // end numberOutput()
@@ -394,26 +398,26 @@
 				numberOutput();
 
 				// обновление при динамическом изменении
-				el.on('refresh', function() {
+				el.on('refresh', function () {
 					el.off('.styler').closest('.jq-number').before(el).remove();
 					numberOutput();
 				});
 
-			// end number
+				// end number
 
-			// select
+				// select
 			} else if (el.is('select')) {
 
-				var selectboxOutput = function() {
+				var selectboxOutput = function () {
 
 					// запрещаем прокрутку страницы при прокрутке селекта
 					function preventScrolling(selector) {
 
 						var scrollDiff = selector.prop('scrollHeight') - selector.outerHeight(),
-								wheelDelta = null,
-								scrollTop = null;
+							wheelDelta = null,
+							scrollTop = null;
 
-						selector.off('mousewheel DOMMouseScroll').on('mousewheel DOMMouseScroll', function(e) {
+						selector.off('mousewheel DOMMouseScroll').on('mousewheel DOMMouseScroll', function (e) {
 
 							/**
 							 * нормализация направления прокрутки
@@ -438,14 +442,14 @@
 						for (var i = 0; i < option.length; i++) {
 							var op = option.eq(i);
 							var li = '',
-									liClass = '',
-									liClasses = '',
-									id = '',
-									title = '',
-									dataList = '',
-									optionClass = '',
-									optgroupClass = '',
-									dataJqfsClass = '';
+								liClass = '',
+								liClasses = '',
+								id = '',
+								title = '',
+								dataList = '',
+								optionClass = '',
+								optgroupClass = '',
+								dataJqfsClass = '';
 							var disabled = 'disabled';
 							var selDis = 'selected sel disabled';
 							if (op.prop('selected')) liClass = 'selected sel';
@@ -465,14 +469,14 @@
 								if (data[k] !== '') dataList += ' data-' + k + '="' + data[k] + '"';
 							}
 
-							if ( (liClass + optionClass) !== '' )   liClasses = ' class="' + liClass + optionClass + '"';
+							if ((liClass + optionClass) !== '') liClasses = ' class="' + liClass + optionClass + '"';
 
-							li = '<li' + dataJqfsClass + dataList + liClasses + title + id + '>'+ op.html() +'</li>';
+							li = '<li' + dataJqfsClass + dataList + liClasses + title + id + '>' + op.html() + '</li>';
 
 							// если есть optgroup
 							if (op.parent().is('optgroup')) {
 								if (op.parent().attr('class') !== undefined) optgroupClass = ' ' + op.parent().attr('class');
-								li = '<li' + dataJqfsClass + dataList + ' class="' + liClass + optionClass + ' option' + optgroupClass + '"' + title + id + '>'+ op.html() +'</li>';
+								li = '<li' + dataJqfsClass + dataList + ' class="' + liClass + optionClass + ' option' + optgroupClass + '"' + title + id + '>' + op.html() + '</li>';
 								if (op.is(':first-child')) {
 									li = '<li class="optgroup' + optgroupClass + '">' + op.parent().attr('label') + '</li>' + li;
 								}
@@ -503,24 +507,24 @@
 
 						var selectbox =
 							$('<div class="jq-selectbox jqselect">' +
-									'<div class="jq-selectbox__select">' +
-										'<div class="jq-selectbox__select-text"></div>' +
-										'<div class="jq-selectbox__trigger">' +
-											'<div class="jq-selectbox__trigger-arrow"></div></div>' +
-									'</div>' +
+								'<div class="jq-selectbox__select">' +
+								'<div class="jq-selectbox__select-text"></div>' +
+								'<div class="jq-selectbox__trigger">' +
+								'<div class="jq-selectbox__trigger-arrow"></div></div>' +
+								'</div>' +
 								'</div>')
-							.attr({
-								id: att.id,
-								title: att.title
-							})
-							.addClass(att.classes)
-							.data(att.data)
-						;
+								.attr({
+									id: att.id,
+									title: att.title
+								})
+								.addClass(att.classes)
+								.data(att.data)
+							;
 
 						el.after(selectbox).prependTo(selectbox);
 
 						var selectzIndex = selectbox.css('z-index');
-						selectzIndex = (selectzIndex > 0 ) ? selectzIndex : 1;
+						selectzIndex = (selectzIndex > 0) ? selectzIndex : 1;
 						var divSelect = $('div.jq-selectbox__select', selectbox);
 						var divText = $('div.jq-selectbox__select-text', selectbox);
 						var optionSelected = option.filter(':selected');
@@ -532,7 +536,7 @@
 							'<div class="jq-selectbox__not-found">' + selectSearchNotFound + '</div>';
 						var dropdown =
 							$('<div class="jq-selectbox__dropdown">' +
-									searchHTML + '<ul>' + list + '</ul>' +
+								searchHTML + '<ul>' + list + '</ul>' +
 								'</div>');
 						selectbox.append(dropdown);
 						var ul = $('ul', dropdown);
@@ -551,16 +555,16 @@
 
 						// определяем самый широкий пункт селекта
 						var liWidthInner = 0,
-								liWidth = 0;
-						li.css({'display': 'inline-block'});
-						li.each(function() {
+							liWidth = 0;
+						li.css({ 'display': 'inline-block' });
+						li.each(function () {
 							var l = $(this);
 							if (l.innerWidth() > liWidthInner) {
 								liWidthInner = l.innerWidth();
 								liWidth = l.width();
 							}
 						});
-						li.css({'display': ''});
+						li.css({ 'display': '' });
 
 						// подстраиваем ширину свернутого селекта в зависимости
 						// от ширины плейсхолдера или самого широкого пункта
@@ -595,9 +599,9 @@
 							li.data('li-height', liOuterHeight);
 						}
 						var position = dropdown.css('top');
-						if (dropdown.css('left') == 'auto') dropdown.css({left: 0});
+						if (dropdown.css('left') == 'auto') dropdown.css({ left: 0 });
 						if (dropdown.css('top') == 'auto') {
-							dropdown.css({top: selectHeight});
+							dropdown.css({ top: selectHeight });
 							position = selectHeight;
 						}
 						dropdown.hide();
@@ -620,7 +624,7 @@
 						}
 
 						// при клике на псевдоселекте
-						divSelect.click(function() {
+						divSelect.click(function () {
 
 							// колбек при закрытии селекта
 							if ($('div.jq-selectbox').filter('.opened').length) {
@@ -645,9 +649,9 @@
 							if (visible > 0 && visible < 6) minHeight = newHeight;
 							if (visible === 0) newHeight = 'auto';
 
-							var dropDown = function() {
-								dropdown.height('auto').css({bottom: 'auto', top: position});
-								var maxHeightBottom = function() {
+							var dropDown = function () {
+								dropdown.height('auto').css({ bottom: 'auto', top: position });
+								var maxHeightBottom = function () {
 									ul.css('max-height', Math.floor((bottomOffset - 20 - searchHeight) / liHeight) * liHeight);
 								};
 								maxHeightBottom();
@@ -660,9 +664,9 @@
 								}
 							};
 
-							var dropUp = function() {
-								dropdown.height('auto').css({top: 'auto', bottom: position});
-								var maxHeightTop = function() {
+							var dropUp = function () {
+								dropdown.height('auto').css({ top: 'auto', bottom: position });
+								var maxHeightTop = function () {
 									ul.css('max-height', Math.floor((topOffset - win.scrollTop() - 20 - searchHeight) / liHeight) * liHeight);
 								};
 								maxHeightTop();
@@ -680,7 +684,7 @@
 								if (bottomOffset > (minHeight + searchHeight + 20)) {
 									dropDown();
 									selectbox.removeClass('dropup').addClass('dropdown');
-								// раскрытие вверх
+									// раскрытие вверх
 								} else {
 									dropUp();
 									selectbox.removeClass('dropdown').addClass('dropup');
@@ -693,7 +697,7 @@
 								}
 							} else {
 								// если умное позиционирование отключено
-								dropdown.height('auto').css({bottom: 'auto', top: position});
+								dropdown.height('auto').css({ bottom: 'auto', top: position });
 								ul.css('max-height', newHeight);
 								if (isMaxHeight != 'none') {
 									ul.css('max-height', isMaxHeight);
@@ -703,12 +707,12 @@
 							// если выпадающий список выходит за правый край окна браузера,
 							// то меняем позиционирование с левого на правое
 							if (selectbox.offset().left + dropdown.outerWidth() > win.width()) {
-								dropdown.css({left: 'auto', right: 0});
+								dropdown.css({ left: 'auto', right: 0 });
 							}
 							// конец умного позиционирования
 
-							$('div.jqselect').css({zIndex: (selectzIndex - 1)}).removeClass('opened');
-							selectbox.css({zIndex: selectzIndex});
+							$('div.jqselect').css({ zIndex: (selectzIndex - 1) }).removeClass('opened');
+							selectbox.css({ zIndex: selectzIndex });
 							if (dropdown.is(':hidden')) {
 								$('div.jq-selectbox__dropdown:visible').hide();
 								dropdown.show();
@@ -728,9 +732,9 @@
 							if (search.length) {
 								search.val('').keyup();
 								notFound.hide();
-								search.keyup(function() {
+								search.keyup(function () {
 									var query = $(this).val();
-									li.each(function() {
+									li.each(function () {
 										if (!$(this).html().match(new RegExp('.*?' + query + '.*?', 'i'))) {
 											$(this).hide();
 										} else {
@@ -756,7 +760,7 @@
 								} else {
 									// если нечетное количество видимых пунктов,
 									// то высоту пункта делим пополам для последующего расчета
-									if ( (ul.innerHeight() / liHeight) % 2 !== 0 ) liHeight = liHeight / 2;
+									if ((ul.innerHeight() / liHeight) % 2 !== 0) liHeight = liHeight / 2;
 									ul.scrollTop(ul.scrollTop() + li.filter('.selected').position().top - ul.innerHeight() / 2 + liHeight);
 								}
 							}
@@ -766,13 +770,13 @@
 						}); // end divSelect.click()
 
 						// при наведении курсора на пункт списка
-						li.hover(function() {
+						li.hover(function () {
 							// $(this).siblings().removeClass('selected');
 						});
 						var selectedText = li.filter('.selected').text();
 
 						// при клике на пункт списка
-						li.filter(':not(.disabled):not(.optgroup)').click(function() {
+						li.filter(':not(.disabled):not(.optgroup)').click(function () {
 							el.focus();
 							var t = $(this);
 							var liText = t.text();
@@ -801,12 +805,12 @@
 							opt.onSelectClosed.call(selectbox);
 
 						});
-						dropdown.mouseout(function() {
+						dropdown.mouseout(function () {
 							// $('li.sel', dropdown).addClass('selected');
 						});
 
 						// изменение селекта
-						el.on('change.styler', function() {
+						el.on('change.styler', function () {
 							divText.text(option.filter(':selected').text()).removeClass('placeholder');
 							li.removeClass('selected sel').not('.optgroup').eq(el[0].selectedIndex).addClass('selected sel');
 							// добавляем класс, показывающий изменение селекта
@@ -816,49 +820,49 @@
 								selectbox.removeClass('changed');
 							}
 						})
-						.on('focus.styler', function() {
-							selectbox.addClass('focused');
-							$('div.jqselect').not('.focused').removeClass('opened dropup dropdown').find('div.jq-selectbox__dropdown').hide();
-						})
-						.on('blur.styler', function() {
-							selectbox.removeClass('focused');
-						})
-						// изменение селекта с клавиатуры
-						.on('keydown.styler keyup.styler', function(e) {
-							var liHeight = li.data('li-height');
-							if (el.val() === '') {
-								divText.text(selectPlaceholder).addClass('placeholder');
-							} else {
-								divText.text(option.filter(':selected').text());
-							}
-							li.removeClass('selected sel').not('.optgroup').eq(el[0].selectedIndex).addClass('selected sel');
-							// вверх, влево, Page Up, Home
-							if (e.which == 38 || e.which == 37 || e.which == 33 || e.which == 36) {
+							.on('focus.styler', function () {
+								selectbox.addClass('focused');
+								$('div.jqselect').not('.focused').removeClass('opened dropup dropdown').find('div.jq-selectbox__dropdown').hide();
+							})
+							.on('blur.styler', function () {
+								selectbox.removeClass('focused');
+							})
+							// изменение селекта с клавиатуры
+							.on('keydown.styler keyup.styler', function (e) {
+								var liHeight = li.data('li-height');
 								if (el.val() === '') {
-									ul.scrollTop(0);
+									divText.text(selectPlaceholder).addClass('placeholder');
 								} else {
-									ul.scrollTop(ul.scrollTop() + li.filter('.selected').position().top);
+									divText.text(option.filter(':selected').text());
 								}
-							}
-							// вниз, вправо, Page Down, End
-							if (e.which == 40 || e.which == 39 || e.which == 34 || e.which == 35) {
-								ul.scrollTop(ul.scrollTop() + li.filter('.selected').position().top - ul.innerHeight() + liHeight);
-							}
-							// закрываем выпадающий список при нажатии Enter
-							if (e.which == 13) {
-								e.preventDefault();
-								dropdown.hide();
-								selectbox.removeClass('opened dropup dropdown');
-								// колбек при закрытии селекта
-								opt.onSelectClosed.call(selectbox);
-							}
-						}).on('keydown.styler', function(e) {
-							// открываем выпадающий список при нажатии Space
-							if (e.which == 32) {
-								e.preventDefault();
-								divSelect.click();
-							}
-						});
+								li.removeClass('selected sel').not('.optgroup').eq(el[0].selectedIndex).addClass('selected sel');
+								// вверх, влево, Page Up, Home
+								if (e.which == 38 || e.which == 37 || e.which == 33 || e.which == 36) {
+									if (el.val() === '') {
+										ul.scrollTop(0);
+									} else {
+										ul.scrollTop(ul.scrollTop() + li.filter('.selected').position().top);
+									}
+								}
+								// вниз, вправо, Page Down, End
+								if (e.which == 40 || e.which == 39 || e.which == 34 || e.which == 35) {
+									ul.scrollTop(ul.scrollTop() + li.filter('.selected').position().top - ul.innerHeight() + liHeight);
+								}
+								// закрываем выпадающий список при нажатии Enter
+								if (e.which == 13) {
+									e.preventDefault();
+									dropdown.hide();
+									selectbox.removeClass('opened dropup dropdown');
+									// колбек при закрытии селекта
+									opt.onSelectClosed.call(selectbox);
+								}
+							}).on('keydown.styler', function (e) {
+								// открываем выпадающий список при нажатии Space
+								if (e.which == 32) {
+									e.preventDefault();
+									divSelect.click();
+								}
+							});
 
 						// прячем выпадающий список при клике за пределами селекта
 						if (!onDocumentClick.registered) {
@@ -874,13 +878,13 @@
 						var att = new Attributes();
 						var selectbox =
 							$('<div class="jq-select-multiple jqselect"></div>')
-							.attr({
-								id: att.id,
-								title: att.title
-							})
-							.addClass(att.classes)
-							.data(att.data)
-						;
+								.attr({
+									id: att.id,
+									title: att.title
+								})
+								.addClass(att.classes)
+								.data(att.data)
+							;
 
 						el.after(selectbox);
 
@@ -892,9 +896,9 @@
 						var ulHeight = ul.outerHeight();
 						var liHeight = li.outerHeight();
 						if (size !== undefined && size > 0) {
-							ul.css({'height': liHeight * size});
+							ul.css({ 'height': liHeight * size });
 						} else {
-							ul.css({'height': liHeight * 4});
+							ul.css({ 'height': liHeight * 4 });
 						}
 						if (ulHeight > selectbox.height()) {
 							ul.css('overflowY', 'scroll');
@@ -911,49 +915,49 @@
 						// если селект неактивный
 						if (el.is(':disabled')) {
 							selectbox.addClass('disabled');
-							option.each(function() {
+							option.each(function () {
 								if ($(this).is(':selected')) li.eq($(this).index()).addClass('selected');
 							});
 
-						// если селект активный
+							// если селект активный
 						} else {
 
 							// при клике на пункт списка
-							li.filter(':not(.disabled):not(.optgroup)').click(function(e) {
+							li.filter(':not(.disabled):not(.optgroup)').click(function (e) {
 								el.focus();
 								var clkd = $(this);
-								if(!e.ctrlKey && !e.metaKey) clkd.addClass('selected');
-								if(!e.shiftKey) clkd.addClass('first');
-								if(!e.ctrlKey && !e.metaKey && !e.shiftKey) clkd.siblings().removeClass('selected first');
+								if (!e.ctrlKey && !e.metaKey) clkd.addClass('selected');
+								if (!e.shiftKey) clkd.addClass('first');
+								if (!e.ctrlKey && !e.metaKey && !e.shiftKey) clkd.siblings().removeClass('selected first');
 
 								// выделение пунктов при зажатом Ctrl
-								if(e.ctrlKey || e.metaKey) {
+								if (e.ctrlKey || e.metaKey) {
 									if (clkd.is('.selected')) clkd.removeClass('selected first');
-										else clkd.addClass('selected first');
+									else clkd.addClass('selected first');
 									clkd.siblings().removeClass('first');
 								}
 
 								// выделение пунктов при зажатом Shift
-								if(e.shiftKey) {
+								if (e.shiftKey) {
 									var prev = false,
-											next = false;
+										next = false;
 									clkd.siblings().removeClass('selected').siblings('.first').addClass('selected');
-									clkd.prevAll().each(function() {
+									clkd.prevAll().each(function () {
 										if ($(this).is('.first')) prev = true;
 									});
-									clkd.nextAll().each(function() {
+									clkd.nextAll().each(function () {
 										if ($(this).is('.first')) next = true;
 									});
 									if (prev) {
-										clkd.prevAll().each(function() {
+										clkd.prevAll().each(function () {
 											if ($(this).is('.selected')) return false;
-												else $(this).not('.disabled, .optgroup').addClass('selected');
+											else $(this).not('.disabled, .optgroup').addClass('selected');
 										});
 									}
 									if (next) {
-										clkd.nextAll().each(function() {
+										clkd.nextAll().each(function () {
 											if ($(this).is('.selected')) return false;
-												else $(this).not('.disabled, .optgroup').addClass('selected');
+											else $(this).not('.disabled, .optgroup').addClass('selected');
 										});
 									}
 									if (li.filter('.selected').length == 1) clkd.addClass('first');
@@ -961,7 +965,7 @@
 
 								// отмечаем выбранные мышью
 								option.prop('selected', false);
-								li.filter('.selected').each(function() {
+								li.filter('.selected').each(function () {
 									var t = $(this);
 									var index = t.index();
 									if (t.is('.option')) index -= t.prevAll('.optgroup').length;
@@ -972,29 +976,29 @@
 							});
 
 							// отмечаем выбранные с клавиатуры
-							option.each(function(i) {
+							option.each(function (i) {
 								$(this).data('optionIndex', i);
 							});
-							el.on('change.styler', function() {
+							el.on('change.styler', function () {
 								li.removeClass('selected');
 								var arrIndexes = [];
-								option.filter(':selected').each(function() {
+								option.filter(':selected').each(function () {
 									arrIndexes.push($(this).data('optionIndex'));
 								});
-								li.not('.optgroup').filter(function(i) {
+								li.not('.optgroup').filter(function (i) {
 									return $.inArray(i, arrIndexes) > -1;
 								}).addClass('selected');
 							})
-							.on('focus.styler', function() {
-								selectbox.addClass('focused');
-							})
-							.on('blur.styler', function() {
-								selectbox.removeClass('focused');
-							});
+								.on('focus.styler', function () {
+									selectbox.addClass('focused');
+								})
+								.on('blur.styler', function () {
+									selectbox.removeClass('focused');
+								});
 
 							// прокручиваем с клавиатуры
 							if (ulHeight > selectbox.height()) {
-								el.on('keydown.styler', function(e) {
+								el.on('keydown.styler', function (e) {
 									// вверх, влево, PageUp
 									if (e.which == 38 || e.which == 37 || e.which == 33) {
 										ul.scrollTop(ul.scrollTop() + li.filter('.selected').position().top - liHeight);
@@ -1026,17 +1030,17 @@
 				selectboxOutput();
 
 				// обновление при динамическом изменении
-				el.on('refresh', function() {
+				el.on('refresh', function () {
 					el.off('.styler').parent().before(el).remove();
 					selectboxOutput();
 				});
 
-			// end select
+				// end select
 
-			// reset
+				// reset
 			} else if (el.is(':reset')) {
-				el.on('click', function() {
-					setTimeout(function() {
+				el.on('click', function () {
+					setTimeout(function () {
 						el.closest('form').find('input, select').trigger('refresh');
 					}, 1);
 				});
@@ -1045,7 +1049,7 @@
 		}, // init: function()
 
 		// деструктор
-		destroy: function() {
+		destroy: function () {
 
 			var el = $(this.element);
 
@@ -1062,24 +1066,24 @@
 
 	}; // Plugin.prototype
 
-	$.fn[pluginName] = function(options) {
+	$.fn[pluginName] = function (options) {
 		var args = arguments;
 		if (options === undefined || typeof options === 'object') {
-			this.each(function() {
+			this.each(function () {
 				if (!$.data(this, '_' + pluginName)) {
 					$.data(this, '_' + pluginName, new Plugin(this, options));
 				}
 			})
-			// колбек после выполнения плагина
-			.promise()
-			.done(function() {
-				var opt = $(this[0]).data('_' + pluginName);
-				if (opt) opt.options.onFormStyled.call();
-			});
+				// колбек после выполнения плагина
+				.promise()
+				.done(function () {
+					var opt = $(this[0]).data('_' + pluginName);
+					if (opt) opt.options.onFormStyled.call();
+				});
 			return this;
 		} else if (typeof options === 'string' && options[0] !== '_' && options !== 'init') {
 			var returns;
-			this.each(function() {
+			this.each(function () {
 				var instance = $.data(this, '_' + pluginName);
 				if (instance instanceof Plugin && typeof instance[options] === 'function') {
 					returns = instance[options].apply(instance, Array.prototype.slice.call(args, 1));
@@ -1096,9 +1100,9 @@
 		if (!$(e.target).parents().hasClass('jq-selectbox') && e.target.nodeName != 'OPTION') {
 			if ($('div.jq-selectbox.opened').length) {
 				var selectbox = $('div.jq-selectbox.opened'),
-						search = $('div.jq-selectbox__search input', selectbox),
-						dropdown = $('div.jq-selectbox__dropdown', selectbox),
-						opt = selectbox.find('select').data('_' + pluginName).options;
+					search = $('div.jq-selectbox__search input', selectbox),
+					dropdown = $('div.jq-selectbox__dropdown', selectbox),
+					opt = selectbox.find('select').data('_' + pluginName).options;
 
 				// колбек при закрытии селекта
 				opt.onSelectClosed.call(selectbox);

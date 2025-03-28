@@ -257,7 +257,7 @@
     </div>
 </div>
 <div class="toggleOpen about_bonus" id="about_bonus">
-    <a href="#" class="close basket-close"><span></span><span></span></a>
+    <a href="#" class="close basket-close"><?= classBuildSCG::buildSVG('big-cross'); ?></a>
     <? $APPLICATION->IncludeComponent(
         "bitrix:main.include",
         "",
@@ -270,7 +270,7 @@
     ); ?>
 </div>
 <div class="toggleOpen no_fav_popup" id="no_fav_popup">
-    <a href="#" class="close basket-close"><span></span><span></span></a>
+    <a href="#" class="close basket-close"><?= classBuildSCG::buildSVG('big-cross'); ?></a>
     <? $APPLICATION->IncludeComponent(
         "bitrix:main.include",
         "",
@@ -283,7 +283,7 @@
     ); ?>
 </div>
 <div class="toggleOpen" id="comment">
-    <a href="#" class="close"><span></span><span></span></a>
+    <a href="#" class="close"><?= classBuildSCG::buildSVG('big-cross'); ?></a>
     <div class="h2">Комментарий</div>
     <div class="addcomment">
         <form>

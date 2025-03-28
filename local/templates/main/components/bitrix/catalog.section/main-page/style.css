@@ -20,10 +20,6 @@
 }
 
 .product-list-title {
-    font-family: 'TenorSans';
-    font-size: 40px;
-    line-height: 48px;
-    text-transform: uppercase;
     margin: 0 auto 32px;
     display: flex;
     align-items: center;
@@ -112,14 +108,6 @@
 
     .catalog-section-main .product-item-wrapper .product-item-container {
         padding: 0;
-    }
-}
-
-@media screen and (max-width: 850px) {
-    .product-list-title {
-        font-size: 24px;
-        line-height: 28px;
-        margin-bottom: 32px;
     }
 }
 

@@ -35,7 +35,7 @@ if ($arResult["SHOW_SMS_FIELD"] == true) {
         <div class="registration-description"><?= GetMessage('registration_description'); ?></div>
 
     <? else: ?>
-        <div class="registration-title">
+        <div class="registration-title major-title-pages">
             <?= GetMessage('registration'); ?>
         </div>
         <?

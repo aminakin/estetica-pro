@@ -4,12 +4,6 @@
 	justify-content: space-between;
 	flex-wrap: wrap;
 }
-.courses-list-title{
-	font-size: 46px;
-	line-height: 54px;
-	text-transform: uppercase;
-	margin: 0 auto 54px;
-}
 .course-item{
 	width: 49%;
 	display: flex;
@@ -75,11 +69,6 @@
 	}
 	.course-item:last-child{
 		margin-bottom: 0;
-	}
-	.courses-list-title{
-		font-size: 24px;
-		line-height: 28px;
-		margin-bottom: 32px;
 	}
 	.course-name{
 		font-size: 16px;

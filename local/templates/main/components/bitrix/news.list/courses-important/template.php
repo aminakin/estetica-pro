@@ -13,7 +13,7 @@
 $this->setFrameMode(true);
 ?> 
 <div class="important-wrap">
-	<div class='important-title'>	
+	<div class='important-title major-title-pages'>	
 		<?= $arResult['NAME']?>
 	</div>
 	<ul class="important-items">

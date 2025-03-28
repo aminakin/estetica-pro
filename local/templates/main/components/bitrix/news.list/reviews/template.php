@@ -13,7 +13,7 @@
 $this->setFrameMode(true);
 ?>
 <div class="reviews-list" id="reviews-main">
-	<div class="reviews-list-title">
+	<div class="reviews-list-title major-title-pages">
 	    <?= $arResult['NAME'];?>
 	</div>
 	<div class="reviews-list-slide">

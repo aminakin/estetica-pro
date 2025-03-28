@@ -146,11 +146,11 @@ $containerName = 'container-'.$navParams['NavNum'];?>
 
 
 <?if($arResult['ORIGINAL_PARAMETERS']['LABEL_PROP'][0] == 'NEW'){?>
-	<div class="product-list-title">
+	<div class="product-list-title major-title-pages">
 		<span><?= getMessage('CT_BCS_NEW');?></span><?= classBuildSCG::buildSVG('new', $templateFolder.'/images');?>
 	</div>
 <?}else{?>
-	<div class="product-list-title">
+	<div class="product-list-titl major-title-pagese">
         <span><?= getMessage('CT_BCS_HIT');?></span><?= classBuildSCG::buildSVG('hit', $templateFolder.'/images');?>
 	</div>
 <?}?>

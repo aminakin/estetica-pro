@@ -20,7 +20,7 @@ while ($s = $res->GetNext()) {
   if ($s['ELEMENT_CNT'] <= 0) continue;
   $section[] = ['NAME' => $s['NAME'], 'URL' => $s['SECTION_PAGE_URL'], 'PICTURE' => $s['PICTURE']];
 } ?>
-<div class="courses-list-title" id="courses-list">
+<div class="courses-list-title major-title-pages" id="courses-list">
   <?= GetMessage('COURSES')?>
 </div>
 <div class="courses-list">

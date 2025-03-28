@@ -14,19 +14,13 @@ $(document).ready(function () {
             '</svg>\n</button>',
         responsive: [
             {
-                breakpoint: 1200,
+                breakpoint: 1024,
                 settings: {
                     slidesToShow: 3
                 }
             },
             {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2
-                }
-            },
-            {
-                breakpoint: 768,
+                breakpoint: 700,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1

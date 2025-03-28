@@ -111,7 +111,7 @@ endif;
 	<?php if (!empty($arResult['DETAIL_TEXT'])): ?>
 		<div class="detail-text">
 			<div class="content-program">
-				<div class="title-tab">
+				<div class="title-tab major-title-pages">
 					<?= GetMessage('PROGRAMM'); ?>
 				</div>
 				<?php echo $arResult["DETAIL_TEXT"]; ?>
@@ -180,7 +180,7 @@ endif;
 	); ?>
 	<?php if (!empty($arResult['PROPERTIES']['IMAGES']['VALUE'])): ?>
 		<div class="works-list">
-			<div class="works-list-title">
+			<div class="works-list-title major-title-pages">
 				<?= GetMessage('FOTO'); ?>
 			</div>
 			<div class="works-list-slide">

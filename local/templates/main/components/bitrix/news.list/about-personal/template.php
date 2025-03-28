@@ -12,15 +12,12 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?> 
-<div class="personal-list-title">
+<div class="personal-list-title major-title-pages">
     <?= $arResult['NAME'];?>
 </div>
 <div class="personal-list">
 	<ul class="personal-items_wrap">
 		<?foreach($arResult["SECTION_ITEMS"] as $idSection => $arSection):?>
-			<div class="personal-section-title">
-				<?= $arSection['NAME']?>
-			</div>
 			<?$JSParams[] = $idSection;?>
 			<div class="personal-items_<?= $idSection?>">
 				<?foreach($arSection["ITEMS"] as $arItem):?>

@@ -1,6 +1,6 @@
 <?
 $MESS["SALE_EMPTY"] = "Ваша корзина пуста";
-$MESS["SALE_TO_CART"] = "Перейти к оформлению заказа";
+$MESS["SALE_TO_CART"] = "оформить заказ";
 $MESS["SALE_ORDER_PRICES"] = "Заказ на сумму";
 $MESS["SALE_YOUR_CART"] = "Корзина / ";
 $MESS["SALE_MEASURE"] = "шт";

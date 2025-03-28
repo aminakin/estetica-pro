@@ -57,7 +57,7 @@ $normalCount = count($arResult["ITEMS"]["AnDelCanBuy"]);?>
                 <div class="basket-items__item basket-item" id="<?=$arItem['ID']?>" data-item-name="<?=$arItem['NAME']?>" data-item-brand="" data-item-price="<?=$arItem['PRICE']?>" data-item-currency="RUB">
                     <a href="#" class="basket-item__delete delete_fav" data-id="<?=$arItem['ID']?>" data-type="bask" data-product="<?=$arItem['PRODUCT_ID']?>">
                         <span class="basket-item__delete-text"><?= GetMessage('SALE_DELETE');?></span>
-                        <span class="basket-item__delete-img"></span>
+                        <span class="basket-item__delete-img"><?= classBuildSCG::buildSVG('cart', $templateFolder."/images" );?></span>
                     </a>
                     <div class="basket-item__row">
                         <div class="basket-item__col">

@@ -145,10 +145,6 @@
 
 .detail-text .title-tab,
 .works-list-title {
-	font-family: 'TenorSans';
-	font-size: 40px;
-	line-height: 48px;
-	text-transform: uppercase;
 	margin: 0 0 32px;
 }
 
@@ -299,10 +295,6 @@
 }
 
 .courses-present-list-title{
-	font-family: 'TenorSans';
-    font-size: 40px;
-    line-height: 48px;
-    text-transform: uppercase;
     margin: 0 0 32px;
 }
 .courses-present{
@@ -424,8 +416,6 @@
 	.works-list-title,
 	.courses-present-list-title,
 	.courses-page .answer-list-title{
-		font-size: 24px;
-		line-height: 32px;
 		margin-bottom: 24px;
 	}
 

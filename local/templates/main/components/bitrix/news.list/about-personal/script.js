@@ -6,7 +6,7 @@ paramJs = function (params) {
         BX.ready(function () {
             $('.personal-items_' + id).slick({
                 infinite: false,
-                slidesToShow: 3,
+                slidesToShow: 4,
                 slidesToScroll: 1,
                 rows: 1,
                 prevArrow: '<button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Prev" role="button" style="" aria-disabled="false">' +
@@ -19,22 +19,15 @@ paramJs = function (params) {
                     '</svg>\n</button>',
                 responsive: [
                     {
-                        breakpoint: 1200,
-                        settings: {
-                            slidesToShow: 2
-                        }
-                    },
-                    {
                         breakpoint: 1024,
                         settings: {
-                            slidesToShow: 2
+                            slidesToShow: 3
                         }
                     },
                     {
-                        breakpoint: 768,
+                        breakpoint: 700,
                         settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
+                            slidesToShow: 1
                         }
                     }
                 ]

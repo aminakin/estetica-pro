@@ -14,7 +14,7 @@ $curlastPage = $APPLICATION->GetCurPage(false);
 $this->setFrameMode(true); ?>
 
 <div class="cources-blocks-list">
-  <div class='cources-blocks-title'>
+  <div class='cources-blocks-title major-title-pages'>
     <?= GetMessage('TITLE_BLOCK'); ?>
   </div>
   <div class="cources-blocks-slide">

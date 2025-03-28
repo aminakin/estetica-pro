@@ -34,7 +34,7 @@ if (!empty($arResult['ITEMS'])) {
 		'CURRENCIES' => $currencyList
 	);
 	unset($currencyList, $templateLibrary); ?>
-	<div class="search-catalog-top-title">
+	<div class="search-catalog-top-title major-title-pages">
 		<span><?= getMessage('CT_BCS_HIT'); ?></span><?= classBuildSCG::buildSVG('hit', $templateFolder . '/images'); ?>
 	</div>
 	<?

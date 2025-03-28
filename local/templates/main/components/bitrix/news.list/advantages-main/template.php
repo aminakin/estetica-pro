@@ -12,7 +12,7 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?> 
-<div class="advantages-list-title">
+<div class="advantages-list-title major-title-pages">
     <?= $arResult['NAME'];?>
 </div>
 <div class="advantages-list">

@@ -5,7 +5,7 @@ $APPLICATION->SetTitle("Доставка и оплата");
 ?>
 <div class="delPay-page">
 	<div class="delPay-page-wrap payment">
-		<div class="delPay-page-title"><?= classBuildSCG::buildSVG('pagepayment'); ?> Оплата</div>
+		<div class="delPay-page-title major-title-pages"><?= classBuildSCG::buildSVG('pagepayment'); ?> Оплата</div>
 		<ul>
 			<li>
 				<span>
@@ -34,7 +34,7 @@ $APPLICATION->SetTitle("Доставка и оплата");
 		</ul>
 	</div>
 	<div class="delPay-page-wrap delivery">
-		<div class="delPay-page-title"><?= classBuildSCG::buildSVG('delivery'); ?> Доставка</div>
+		<div class="delPay-page-title major-title-pages"><?= classBuildSCG::buildSVG('delivery'); ?> Доставка</div>
 		<ul>
 			<li>
 				<h3>Условия доставки</h3>
@@ -148,7 +148,7 @@ $APPLICATION->SetTitle("Доставка и оплата");
 		</div>
 	</div>
 	<div class="delPay-page-wrap return">
-		<div class="delPay-page-title"><?= classBuildSCG::buildSVG('return'); ?> Возврат</div>
+		<div class="delPay-page-title major-title-pages"><?= classBuildSCG::buildSVG('return'); ?> Возврат</div>
 		<p><span>Возврат товара надлежащего качества может быть осуществлен <br>при соблюдении следующих условий:</span></p>
 		<p>Сохранение товарного вида и потребительских свойств товара, а именно: возврат в неиспользованном виде, в полной комплектации, в оригинальной упаковке, со всеми ярлыками, наклейками, пломбами или подарками, при наличии таковых изначально;</p>
 		<p>Не принимаются к возврату парфюмерно-косметические товары, технически сложные товары бытового назначения, с установленными гарантийными сроками, предметы личной гигиены и прочие товары надлежащего качества, не подлежащие обмену и/или возврату (на основании Перечня, утвержденного постановлением Правительства РФ от 19 января 1998 г. № 55);</p>
@@ -168,7 +168,7 @@ $APPLICATION->SetTitle("Доставка и оплата");
 		<div class="delivery-popup-close">
 			<?= classBuildSCG::buildSVG('big-cross'); ?>
 		</div>
-		<div class="delPay-page-title">Доставка по г.Киров</div>
+		<div class="delPay-page-title major-title-pages">Доставка по г.Киров</div>
 		</p>
 		<ul>
 			<li>В день заказа с 13-00 до 19-00 при оформлении заказа до 13-00</li>
@@ -184,7 +184,7 @@ $APPLICATION->SetTitle("Доставка и оплата");
 		<div class="delivery-popup-close">
 			<?= classBuildSCG::buildSVG('big-cross'); ?>
 		</div>
-		<div class="delPay-page-title">Доставка по России</div>
+		<div class="delPay-page-title major-title-pages">Доставка по России</div>
 		<ul>
 			<li>Доставка осуществляется Почтой России, СДЭК</li>
 			<li>Товар бронируется на 2 дня после офорлмения заказа</li>

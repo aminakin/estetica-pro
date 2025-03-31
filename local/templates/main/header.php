@@ -316,12 +316,12 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                         <div class="header-mobile-top">
                             <div class="logo">
                                 <a href="/">
-                                    <?= classBuildSCG::buildSVG('logo_svg'); ?>
+                                    <?= classBuildSCG::buildSVG('logo_new_svg'); ?>
                                 </a>
                             </div>
                             <a href="#menu" class="header-burger">
-                                <span class="burger-menu"><?= classBuildSCG::buildSVG('hamburger'); ?></span>
-                                <span class="close-menu" style="display: none"><?= classBuildSCG::buildSVG('close-menu'); ?></span>
+                                <span class="burger-menu"><?= classBuildSCG::buildSVG('burger_menu'); ?></span>
+                                <span class="close-menu" style="display: none"><?= classBuildSCG::buildSVG('burger_cross'); ?></span>
                             </a>
                         </div>
                         <div class="header-mobile-bottom">
@@ -524,7 +524,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                 <div class="header-mobile-menu-wrap">
                     <ul class="menu-block">
                         <li class="header-menu__item">
-                            <a class="top-mobile-menu__catalog_opener root-item-catalog"><span></span><span><?= GetMessage('CATALOG'); ?></span></a>
+                            <a class="top-mobile-menu__catalog_opener root-item-catalog"><span><?= GetMessage('CATALOG'); ?></span></a>
                             <? $APPLICATION->IncludeComponent(
                                 "bitrix:catalog.section.list",
                                 "catalog-menu-top",
@@ -554,7 +554,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                             ); ?>
                         </li>
                         <li class="header-menu__item">
-                            <a class="top-mobile-menu__catalog_opener root-item-brand"><span></span><span><?= GetMessage('BRAND'); ?></span></a>
+                            <a class="top-mobile-menu__catalog_opener root-item-brand"><span><?= GetMessage('BRAND'); ?></span></a>
                             <? $APPLICATION->IncludeComponent(
                                 "bitrix:catalog.section.list",
                                 "catalog-menu-top",
@@ -602,7 +602,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                             false
                         ); ?>
                         <li class="header-menu__item">
-                            <a class="top-mobile-menu__catalog_opener root-item-palitra"><span></span><span><?= GetMessage('PALITRA'); ?></span></a>
+                            <a class="top-mobile-menu__catalog_opener root-item-palitra"><span><?= GetMessage('PALITRA'); ?></span></a>
                             <? $APPLICATION->IncludeComponent(
                                 "bitrix:catalog.section.list",
                                 "catalog-menu-top",
@@ -633,27 +633,11 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                         </li>
                     </ul>
                 </div>
-                <div class="menu-block simple">
-                    <? $APPLICATION->IncludeComponent(
-                        "bitrix:menu",
-                        "top",
-                        array(
-                            "ALLOW_MULTI_SELECT" => "N",
-                            "CHILD_MENU_TYPE" => "",
-                            "COMPONENT_TEMPLATE" => "top",
-                            "DELAY" => "N",
-                            "MAX_LEVEL" => "2",
-                            "MENU_CACHE_GET_VARS" => array(),
-                            "MENU_CACHE_TIME" => "3600",
-                            "MENU_CACHE_TYPE" => "N",
-                            "MENU_CACHE_USE_GROUPS" => "Y",
-                            "ROOT_MENU_TYPE" => "top_menu",
-                            "USE_EXT" => "N"
-                        )
-                    ); ?>
-                </div>
+
                 <div class="header-phone">
-                    <? $APPLICATION->IncludeFile('/include/phone.php'); ?>
+                    <? $APPLICATION->IncludeFile('/include/footerMail.php'); ?>
+                    <div class="nbr"><? $APPLICATION->IncludeFile('/include/footerPhone.php'); ?></div>
+                    <? $APPLICATION->IncludeFile('/include/footerAdress.php'); ?>
                 </div>
             </div>
 

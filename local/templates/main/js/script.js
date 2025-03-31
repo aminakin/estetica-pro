@@ -593,8 +593,8 @@ $(document).ready(function () {
         if ($('#bx-panel').length)
             headerH = $('#bx-panel').height();
 
-        $('.modal-background').css({ 'top': $('.header-mobile-top').height() + headerH + 1 });
-        $('.header-mobile-menu').css({ 'top': $('.header-mobile-top').height() + headerH + 1 });
+        $('.modal-background').css({ 'top': $('.header-mobile').height() + headerH});
+        $('.header-mobile-menu').css({ 'top': $('.header-mobile').height() + headerH});
 
         $(this).addClass('active');
         $('header').addClass('active');
@@ -603,6 +603,7 @@ $(document).ready(function () {
         $('body').css('overflow', 'hidden');
         $('.burger-menu').hide();
         $('.close-menu').show();
+        $('.modal-background').show();
     });
     $(document).on('click', '.header-burger.active', function (e) {
         $('header').removeClass('active');
@@ -612,6 +613,7 @@ $(document).ready(function () {
         $('.header-mobile-menu').slideUp('fast');
         $('.burger-menu').show();
         $('.close-menu').hide();
+        $('.modal-background').hide();
         $('.top-mobile-menu__catalog-list').each(function () {
             $(this).slideUp('fast');
         });
@@ -631,7 +633,7 @@ $(document).ready(function () {
         if ($('#bx-panel').length)
             headerH = $('#bx-panel').height();
 
-        menuWrap.css({ 'top': $('.header-mobile-top').height() + headerH + 1 }).slideDown('fast');
+        menuWrap.css({ 'top': $('.header-mobile').height() + headerH + 1 }).slideDown('fast');
     });
 
     $('.back-menu').on('click', function () {
@@ -651,7 +653,7 @@ $(document).ready(function () {
             if ($('#bx-panel').length)
                 headerH = $('#bx-panel').height();
 
-            menuWrap.css({ 'top': $('.header-mobile-top').height() + headerH + 1 }).slideDown('fast');
+            menuWrap.css({ 'top': $('.header-mobile').height() + headerH + 1 }).slideDown('fast');
         }
     });
 
@@ -957,7 +959,7 @@ function createToast() {
     if (widthWindow < 768) {
         if ($('.fly-toast-prod').length === 0) {
             var newToast = $("<div class='fly-toast-prod'></div>");
-            $('.header-mobile-top').append(newToast);
+            $('.header-mobile').append(newToast);
         }
     } else {
         if ($('.fly-toast-prod').length === 0) {

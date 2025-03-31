@@ -48,7 +48,7 @@
     margin-bottom: 54px;
     text-transform: uppercase;
 }
-
+/*
 .catalog-filter {
 	display: flex;
 	flex-direction: row;
@@ -340,7 +340,7 @@ li.catalog-smart-filter-sort-option-default:after {
 }
 .filter  .labelf.catalog-smart-filter-sorting{
     float: right
-}
+}*/
 .product-item-list-col-4{
     width: 100%;
 }

@@ -1266,13 +1266,6 @@ a.btn.btn-link.buyBtn svg {
 }
 
 @media screen and (max-width: 850px) {
-
-    .product-item-button-subscribe {
-        height: 42px;
-        width: 42px;
-        min-width: 42px;
-    }
-
     .product-item-amount .product-item-amount-field-container .jq-number.product-item-amount-field .product-item-amount-field {
         max-width: 42px;
         line-height: 40px;

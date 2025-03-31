@@ -12,26 +12,14 @@ $(document).ready(function () {
             '<path d="M8.58997 4L16.59 12L8.58997 20" stroke="black" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>\n' +
             '</svg>\n</button>',
         centerMode: false,
-        centerPadding: '90px',
+        centerPadding: '74px',
         arrows: true,
         responsive: [
             {
-                breakpoint: 1200,
-                settings: {
-                    slidesToShow: 4
-                }
-            },
-            {
-                breakpoint: 910,
-                settings: {
-                    slidesToShow: 3
-                }
-            },
-            {
-                breakpoint: 768,
+                breakpoint: 1024,
                 settings: {
                     slidesToScroll: 1,
-                    slidesToShow: 3,
+                    slidesToShow: 4,
                     swipeToSlide: true,
                     TouchMove: true,
                     swipe: true,
@@ -42,7 +30,7 @@ $(document).ready(function () {
                 breakpoint: 700,
                 settings: {
                     slidesToScroll: 1,
-                    slidesToShow: 2,
+                    slidesToShow: 3,
                     swipeToSlide: true,
                     TouchMove: true,
                     swipe: true,
@@ -52,7 +40,7 @@ $(document).ready(function () {
                 }
             },
             {
-                breakpoint: 400,
+                breakpoint: 600,
                 settings: {
                     slidesToScroll: 1,
                     slidesToShow: 2,

@@ -19,21 +19,16 @@ global $orderCatalog2;
 global $notAvailable;
 ?>
 <div class="fliter-mobile-btn-wrap">
-  <div class="back-detail">
-    <div class="btn-block">
-      <button onclick="history.back()"></button>
-    </div>
-  </div>
   <div class="fliter-mobile-btn">
-    <?= GetMessage('CT_BCSF_FILTER'); ?>
+    <span><?= classBuildSCG::buildSVG('filter-mobile', $templateFolder . '/images'); ?></span>
+    <?= GetMessage('CT_BCSF_FILTERS'); ?>
   </div>
 </div>
 <form name="<? echo $arResult["FILTER_NAME"] . "_form" ?>" action="<? echo $arResult["FORM_ACTION"] ?>" method="get" class="smartfilter bx-filter">
   <div class="wrapper-form">
-    <div class="mobile-title"><?= GetMessage('CT_BCSF_FILTERS'); ?></div>
+    <div class="mobile-title major-title-pages"><?= GetMessage('CT_BCSF_FILTERS'); ?></div>
     <div class="close-filter">
-      <span></span>
-      <span></span>
+    <?= classBuildSCG::buildSVG('big-cross'); ?>
     </div>
     <div class="filter-title">
       <div class="filter__sort-button">
@@ -257,8 +252,8 @@ global $notAvailable;
               onkeyup="smartFilter.keyup(this)" />
           </div>
           <div class="button-wrap">
-            <input class="btn btn-themes set_filter" type="submit" id="" name="set_filter" value="<?= GetMessage("CT_BCSF_SET_FILTER") ?>" />
             <input class="btn btn-themes del_filter" type="reset" id="" name="del_filter" value="<?= GetMessage("CT_BCSF_DEL_FILTER") ?>" />
+            <input class="btn btn-themes set_filter" type="submit" id="" name="set_filter" value="<?= GetMessage("CT_BCSF_SET_FILTER") ?>" />
           </div>
         </div>
 

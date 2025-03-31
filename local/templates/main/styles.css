@@ -149,6 +149,7 @@ header .sticky .header-middle .header-phone a {
         z-index: 3;
         position: relative;
         background-color: #ffffff;
+        padding: 0 16px;
     }
 
     .header-desktop,
@@ -218,29 +219,16 @@ header .sticky .header-middle .header-phone a {
     align-items: center;
     position: relative;
     justify-content: space-between;
-    padding: 0px 16px;
-    border-bottom: 1px solid #221F20;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.header-burger .burger-menu{
+    height: 24px;
 }
 
 .header-mobile-top .logo {
-    padding: 15px 0px;
-    width: 100%;
+    padding: 10px 0px 8px;
     text-align: center;
-}
-
-.header-mobile-top .logo a {
-    height: 32px;
-    display: block;
-}
-
-.header-mobile-top .logo svg {
-    max-width: 138px;
-    height: 32px;
-}
-
-.header-mobile-top .header-burger svg {
-    max-width: 32px;
-    height: 32px;
 }
 
 .header-mobile-top .header-burger .close-menu {
@@ -249,16 +237,10 @@ header .sticky .header-middle .header-phone a {
     text-align: center;
 }
 
-.header-mobile-top .header-burger {
-    height: 32px;
-    margin-right: 0;
-    position: absolute;
-}
-
 .header-mobile-bottom {
     display: flex;
     justify-content: flex-end;
-    padding: 8px 16px 10px;
+    padding: 8px 0px 10px;
 }
 
 .header-mobile-bottom .header-right-menu-text {
@@ -385,6 +367,7 @@ header .sticky .header-middle .header-phone a {
     header.active {
         position: fixed;
         width: 100%;
+        top: 0;
     }
 
     .major-title-pages{
@@ -394,26 +377,6 @@ header .sticky .header-middle .header-phone a {
 
     #footer {
         margin-top: 64px;
-    }
-
-    .top-mobile-menu__catalog_opener.root-item-catalog span:first-child {
-        background-image: url('images/mobile-menu/catalog-n.png');
-    }
-
-    .top-mobile-menu__catalog_opener.root-item-brand span:first-child {
-        background-image: url('images/mobile-menu/brands-n.png');
-    }
-
-    .top-mobile-menu__catalog_opener.root-item-palitra span:first-child {
-        background-image: url('images/mobile-menu/palitra-n.png');
-    }
-
-    .header-menu__item a[href="/sale/"] span:first-child {
-        background-image: url('images/mobile-menu/sale-n.png');
-    }
-
-    .header-menu__item a[href="/new/"] span:first-child {
-        background-image: url('images/mobile-menu/new-n.png');
     }
 
     .footer-container {

@@ -167,7 +167,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"GIFTS_SHOW_OLD_PRICE" => "Y",
 		"HIDE_NOT_AVAILABLE" => "N",
 		"HIDE_NOT_AVAILABLE_OFFERS" => "L",
-		"IBLOCK_ID" => "14",
+		"IBLOCK_ID" => IblockHelper::getIdByCode('catalog'),
 		"IBLOCK_TYPE" => "catalog",
 		"INCLUDE_SUBSECTIONS" => "A",
 		"INSTANT_RELOAD" => "N",

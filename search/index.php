@@ -28,7 +28,7 @@ $APPLICATION->SetTitle("Поиск");
 		"ELEMENT_SORT_ORDER2" => "desc",
 		"HIDE_NOT_AVAILABLE" => "N",
 		"HIDE_NOT_AVAILABLE_OFFERS" => "Y",
-		"IBLOCK_ID" => "14",
+		"IBLOCK_ID" => IblockHelper::getIdByCode('catalog'),
 		"IBLOCK_TYPE" => "catalog",
 		"LABEL_PROP" => array(0=>"SALE_RESNITSY",1=>"AKTSIONNYY",),
 		"LABEL_PROP_MOBILE" => array(0=>"SALE_RESNITSY",1=>"AKTSIONNYY",),

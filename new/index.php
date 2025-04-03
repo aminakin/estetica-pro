@@ -44,7 +44,7 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . '/js/scrollpage.js'); ?>
 				"FILTER_NAME" => "",
 				"HIDE_NOT_AVAILABLE" => "N",
 				"HIDE_NOT_AVAILABLE_OFFERS" => "Y",
-				"IBLOCK_ID" => "14",
+				"IBLOCK_ID" => IblockHelper::getIdByCode('catalog'),
 				"IBLOCK_TYPE" => "catalog",
 				"INCLUDE_SUBSECTIONS" => "Y",
 				"LABEL_PROP" => array(

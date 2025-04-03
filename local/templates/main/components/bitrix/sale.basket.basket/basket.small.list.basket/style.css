@@ -1482,7 +1482,7 @@ form.basket {
 	width: 100%;
 	max-width: 54px;
 	height: 54px;
-	background-size: contain;
+	background-size: cover;
 	background-color: #fff;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -1669,7 +1669,6 @@ form.basket {
 #basket .empty_basket {
     color: #000000;
     font-size: 14px;
-    font-weight: 600;
     height: 100%;
     padding-bottom: 50px;
     margin: 0;
@@ -1685,7 +1684,7 @@ form.basket {
 }
 
 #basket .empty_basket h1 {
-    font-weight: 800;
+    font-weight: 600;
     font-size: 36px;
     line-height: 49px;
     text-align: left;

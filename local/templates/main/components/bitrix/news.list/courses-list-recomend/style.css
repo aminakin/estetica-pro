@@ -1,5 +1,5 @@
 .cources-blocks-title {
-    text-transform: uppercase;
+	text-transform: uppercase;
 }
 
 .cources-list-element {
@@ -124,14 +124,14 @@
 
 .cources-link-more a {
 	border-radius: 8px;
-    border: 1px solid #F781BF;
-    padding: 21px 36px;
-    line-height: 11px;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    text-align: center;
-    text-transform: lowercase;
+	border: 1px solid #F781BF;
+	padding: 21px 36px;
+	line-height: 11px;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 18px;
+	text-align: center;
+	text-transform: lowercase;
 }
 
 @media screen and (max-width: 1160px) {
@@ -141,6 +141,19 @@
 
 	.cources-list-element {
 		width: 49%;
+	}
+}
+
+@media (max-width:1024px) {
+
+	.cources-blocks-list {
+		margin-bottom: 40px;
+	}
+
+	.cources-link-more a{
+		padding: 12px 36px;
+		line-height: 12px;
+		width: 100%;
 	}
 }
 
@@ -160,11 +173,6 @@
 	.cource-element-link {
 		max-height: 39px;
 		line-height: 39px;
-	}
-
-	.cources-link-more a {
-		line-height: 36px;
-		max-width: 100%;
 	}
 
 	.cources-blocks-slide {

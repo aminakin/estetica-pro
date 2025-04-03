@@ -1729,9 +1729,5 @@ unset($actualItem, $itemIds, $jsParams); ?>
         history.go(-1)
     }
 </script>
-<?/* global $USER; 
-if ($USER->IsAdmin() && $_GET["admin"] == true){*/ ?>
 <? $APPLICATION->IncludeFile('/include/popup-bonus.php'); ?>
 <? $APPLICATION->IncludeFile('/include/popup-delivery.php'); ?>
-<? //}
-?>

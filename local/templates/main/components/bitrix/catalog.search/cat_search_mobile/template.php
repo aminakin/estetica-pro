@@ -207,7 +207,7 @@ elseif (is_array($arElements))
 		"FILTER_NAME" => "",
 		"HIDE_NOT_AVAILABLE" => "Y",
 		"HIDE_NOT_AVAILABLE_OFFERS" => "Y",
-		"IBLOCK_ID" => "14",
+		"IBLOCK_ID" => IblockHelper::getIdByCode('catalog'),
 		"IBLOCK_TYPE" => "catalog",
 		"LABEL_PROP" => array(
 			0 => "SKIDKA",

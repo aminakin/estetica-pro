@@ -29,7 +29,7 @@ $APPLICATION->SetTitle("Отзывы");?><?$APPLICATION->IncludeComponent(
 		),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "30",
+		"IBLOCK_ID" => IblockHelper::getIdByCode('reviews'),
 		"IBLOCK_TYPE" => "reviews",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "N",

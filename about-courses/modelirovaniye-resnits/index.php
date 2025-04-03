@@ -31,7 +31,7 @@ $APPLICATION->SetTitle("Курсы моделирования ресниц");
 		),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "2",
+		"IBLOCK_ID" => IblockHelper::getIdByCode('courses'),
 		"IBLOCK_TYPE" => "courses",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "N",

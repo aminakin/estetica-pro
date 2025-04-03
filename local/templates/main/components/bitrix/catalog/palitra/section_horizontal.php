@@ -54,7 +54,7 @@ else
         "FIELD_CODE" => array(0=>"",1=>"",),
         "FILTER_NAME" => "",
         "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-        "IBLOCK_ID" => "64",
+        "IBLOCK_ID" => IblockHelper::getIdByCode('palitraSlider'),
         "IBLOCK_TYPE" => "banners",
         "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
         "INCLUDE_SUBSECTIONS" => "Y",

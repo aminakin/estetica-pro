@@ -38,7 +38,7 @@ $APPLICATION->SetTitle("Новости");
 		"DISPLAY_TOP_PAGER" => "N",
 		"FORUM_ID" => "1",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "4",
+		"IBLOCK_ID" => IblockHelper::getIdByCode('news'),
 		"IBLOCK_TYPE" => "banners",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"LIST_ACTIVE_DATE_FORMAT" => "j F Y",

@@ -69,8 +69,8 @@ global $USER;
 		"PRODUCT_BLOCKS_ORDER" => "props,sku,columns",
 		"QUANTITY_FLOAT" => "N",
 		"SET_TITLE" => "Y",
-		"SHOW_DISCOUNT_PERCENT" => "Y",
-		"SHOW_FILTER" => "Y",
+		"SHOW_DISCOUNT_PERCENT" => "N",
+		"SHOW_FILTER" => "N",
 		"SHOW_RESTORE" => "Y",
 		"TEMPLATE_THEME" => "site",
 		"TOTAL_BLOCK_DISPLAY" => array(

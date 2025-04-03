@@ -66,7 +66,7 @@ if ($USER->IsAuthorized()) {
 						"FILTER_NAME" => "arrFilter",
 						"HIDE_NOT_AVAILABLE" => "N",
 						"HIDE_NOT_AVAILABLE_OFFERS" => "L",
-						"IBLOCK_ID" => "14",
+						"IBLOCK_ID" => IblockHelper::getIdByCode('catalog'),
 						"IBLOCK_TYPE" => "catalog",
 						"INCLUDE_SUBSECTIONS" => "A",
 						"LAZY_LOAD" => "Y",

@@ -12,7 +12,7 @@ global $APPLICATION;
 //        "SECTION_PAGE_URL" => "#SECTION_CODE#/",
 //        "DETAIL_PAGE_URL" => "#SECTION_CODE#/#ELEMENT_CODE#.html",
 //        "IBLOCK_TYPE" => "catalog",
-//        "IBLOCK_ID" => "14",
+//        "IBLOCK_ID" => IblockHelper::getIdByCode('catalog'),
 //        "DEPTH_LEVEL" => "2",
 //        "CACHE_TYPE" => "A",
 //        "CACHE_TIME" => "36000000",

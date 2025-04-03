@@ -44,21 +44,13 @@ use Bitrix\Main\Application;
 use Bitrix\Main\EventManager;
 use Bitrix\Sale\DiscountCouponsManager;
 
-function debug($var)
-{
-  global $USER;
-  if ($USER->isAdmin()) {
-    echo "<pre>";
-    var_export($var);
-    echo "</pre>";
-  }
-}
-
 CModule::AddAutoloadClasses(
   '', // не указываем имя модуля
   array(
     'Page' => '/local/classes/Page.php',
     'ChangePriceShipment' => '/local/classes/ChangePriceShipment.php',
+    'IblockHelper' => '/local/classes/IblockHelper.php',
+    'IblockHelperInterface' => '/local/classes/IblockHelperInterface.php',
   )
 );
 

@@ -43,7 +43,7 @@ $APPLICATION->SetTitle("Каталог товаров");?>
 		"DISPLAY_PREVIEW_TEXT" => "N",
 		"DISPLAY_TOP_PAGER" => "N",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "26",
+		"IBLOCK_ID" => IblockHelper::getIdByCode('newcatalog'),
 		"IBLOCK_TYPE" => "catalog",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",

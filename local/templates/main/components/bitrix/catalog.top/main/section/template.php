@@ -131,9 +131,6 @@ $containerName = 'catalog-top-container';
 									<div class="row">
 										<div class="col-md-12">
 											<?
-
-
-
 											$item = reset($rowItems);
 											$APPLICATION->IncludeComponent(
 												'bitrix:catalog.item',
@@ -257,7 +254,7 @@ $containerName = 'catalog-top-container';
 								foreach ($rowItems as $item)
 								{
 									?>
-									<div class="col-xs-6 col-md-3 section-item-wrapper">
+									<div class="col-xs-6 col-sm-3 section-item-wrapper">
 										<?
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',

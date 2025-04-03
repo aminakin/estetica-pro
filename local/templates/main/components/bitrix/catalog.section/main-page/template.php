@@ -150,7 +150,7 @@ $containerName = 'container-'.$navParams['NavNum'];?>
 		<span><?= getMessage('CT_BCS_NEW');?></span><?= classBuildSCG::buildSVG('new', $templateFolder.'/images');?>
 	</div>
 <?}else{?>
-	<div class="product-list-titl major-title-pagese">
+	<div class="product-list-title major-title-pages">
         <span><?= getMessage('CT_BCS_HIT');?></span><?= classBuildSCG::buildSVG('hit', $templateFolder.'/images');?>
 	</div>
 <?}?>

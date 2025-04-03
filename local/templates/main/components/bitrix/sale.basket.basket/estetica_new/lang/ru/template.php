@@ -20,32 +20,32 @@ $MESS["SBB_BASKET_ITEM_SIMILAR_P1"] = "Этот товар";
 $MESS["SBB_BASKET_ITEM_SIMILAR_P2"] = "уже есть в корзине в количестве";
 $MESS["SBB_BASKET_ITEM_SIMILAR_P3"] = "Объединить товары в одну позицию c количеством";
 $MESS["SBB_BASKET_ITEM_PRICE_FOR"] = "цена за";
-$MESS["SBB_BASKET_ITEM_ECONOMY"] = "Экономия";
+$MESS["SBB_BASKET_ITEM_ECONOMY"] = "Скидка";
 $MESS["SBB_BASKET_ITEM_DELETED"] = "был удален из корзины";
 $MESS["SBB_BASKET_ITEM_RESTORE"] = "Восстановить";
 $MESS["SBB_COUPON_ENTER"] = "Введите код купона для скидки";
 $MESS["SBB_NOT_AVAILABLE_ORDER"] = "Заказ недоступен";
 $MESS["SBB_COUPON"] = "купон";
-$MESS["SBB_TOTAL"] = "Итого";
+$MESS["SBB_TOTAL"] = "Итого:";
 $MESS["SBB_WEIGHT"] = "Общий вес";
 $MESS["SBB_VAT"] = "Сумма НДС";
-$MESS["SBB_ORDER"] = "Перейти к оформлению";
-$MESS["SBB_SHARE"] = "Поделиться корзиной";
-$MESS["SBB_REGISTRATION"] = "Зарегистрироваться";
-$MESS["SBB_WITHOUTREG_ORDER"] = "Оформить без регистрации";
+$MESS["SBB_ORDER"] = "оформить заказ";
+$MESS["SBB_SHARE"] = "поделиться корзиной";
+$MESS["SBB_REGISTRATION"] = "зарегистрироваться";
+$MESS["SBB_WITHOUTREG_ORDER"] = "оформить заказ";
 $MESS["SBB_BASKET_ITEM_MAX_COUNT_EXCEEDED"] = "Перейдите в <a href=#PATH#>корзину</a> для редактирования";
 $MESS["SBB_WARNING_ITEM"] = "c ошибками";
 $MESS["SBB_IN_BASKET"] = "В корзине";
 $MESS["SBB_GOOD_CAP"] = "Товар";
 $MESS["SBB_GOOD"] = "товар";
 $MESS["SBB_GOOD_2"] = "товара";
-$MESS["SBB_GOODS"] = "товаров";
+$MESS["SBB_GOODS"] = "Товаров на сумму";
 $MESS["SBB_EMPTY_BASKET_TITLE"] = "В корзине нет товаров";
 $MESS["SBB_EMPTY_BASKET_CONTINE"] = "Перейти к покупкам";
 $MESS["SBB_EMPTY_BASKET_MINPRICE"] = "Минимальная сумма заказа на сайте 1 500 ₽";
 $MESS["SBB_BASKET_AUTH"] = "Войдите или зарегистрируйтесь";
 $MESS["SBB_BASKET_AUTH_INFO"] = "Чтобы списать бонусы. Продолжив<br>без регистрации, вы не сможете их списать";
-$MESS["SBB_BASKET_AUTH_ENTER"] = "Войти";
+$MESS["SBB_BASKET_AUTH_ENTER"] = "войти";
 $MESS["SBB_BASKET_PRICE_DEVILERY_INFO"] = 'Цены и стоимость доставки являются неподтвержденными <br>
 до перехода к разделу оформления заказа.';
 $MESS["SBB_BASKET_PRICE_DEVILERY_INFO_NOT_AUTH"] = 'Бонусы доступны для списания только<br>зарегистрированным пользователям после входа
@@ -60,4 +60,5 @@ $MESS["SBB_BASKET_OUR_NEW_NO_PRODUCT"] = "Новинки";
 $MESS["SBB_WARNING"]  = "Добавление товаров в корзину не означает их бронирования";
 $MESS["SBB_AUTENTION"]  = "Добавление товаров в корзину не означает их бронирования! Минимальный заказ на сайте от 1 500 ₽, заказ с доставкой по России от 2000 ₽.
 Отправка по России только после полной оплаты заказа.";
+$MESS["SBB_BASKET_CLEAR"] = "удалить все";
 ?>

@@ -161,7 +161,7 @@ $arrFilter = $arResult['FILTER'];
 	array(
 		"COMPONENT_TEMPLATE" => "estetica",
 		"IBLOCK_TYPE" => "catalog",
-		"IBLOCK_ID" => "14",
+		"IBLOCK_ID" => IblockHelper::getIdByCode('catalog'),
 		"SECTION_ID" => "",
 		"SECTION_CODE" => "",
 		"SECTION_USER_FIELDS" => array(

@@ -39,7 +39,7 @@
 		"DISPLAY_TOP_PAGER" => "N",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_TYPE" => "banners",
-		"IBLOCK_ID" => "4",
+		"IBLOCK_ID" => IblockHelper::getIdByCode('news'),
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
         "LIST_ACTIVE_DATE_FORMAT" => "j F Y",
 		"LIST_FIELD_CODE" => array(

@@ -341,7 +341,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 								foreach ($rowItems as $item)
 								{
 									?>
-									<div class="col-xs-6 col-md-3 section-item-wrapper">
+									<div class="col-xs-6 col-sm-3 section-item-wrapper">
 										<?
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',

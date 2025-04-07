@@ -69,7 +69,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 		isHttps: window.location.protocol === "https:",
 		orderSaveAllowed: false,
 		socServiceHiddenNode: false,
-
+		sidebarCouponBlock: {},
 		/**
 		 * Initialization of sale.order.ajax component js
 		 */
@@ -121,6 +121,10 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				this.totalInfoBlockNode = this.totalBlockNode.querySelector('.bx-soa-cart-total');
 				this.totalGhostBlockNode = this.totalBlockNode.querySelector('.bx-soa-cart-total-ghost');
 			}
+
+			this.sidebarCouponBlock = document.querySelector(parameters.sidebarCouponBlock)
+
+			this.initSidebarCoupon();
 
 			this.options.deliveriesPerPage = parseInt(parameters.params.DELIVERIES_PER_PAGE);
 			this.options.paySystemsPerPage = parseInt(parameters.params.PAY_SYSTEMS_PER_PAGE);
@@ -193,6 +197,11 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				}
 			}
 			
+		},
+
+		initSidebarCoupon: function()
+		{
+			this.editCoupons(this.sidebarCouponBlock, false);
 		},
 
 		/**

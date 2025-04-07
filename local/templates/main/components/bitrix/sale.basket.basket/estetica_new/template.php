@@ -425,7 +425,7 @@ if (empty($arResult['ERROR_MESSAGE'])) {
 					'PROPERTY_CODE_MOBILE' =>
 					array(),
 					'INCLUDE_SUBSECTIONS' => 'A',
-					'BASKET_URL' => '/personal/cart/',
+					'BASKET_URL' => '/cart/',
 					'ACTION_VARIABLE' => 'action',
 					'PRODUCT_ID_VARIABLE' => 'id',
 					'SECTION_ID_VARIABLE' => 'SECTION_ID',
@@ -652,6 +652,6 @@ if ($_GET['addbasketproducts'] == 'y') {
 	}
 	if ($add == true) {
 		sleep(2);
-		header('Location: https://estetica-pro.ru/personal/cart/');
+		header('Location: https://estetica-pro.ru/cart/');
 	}
 } ?>

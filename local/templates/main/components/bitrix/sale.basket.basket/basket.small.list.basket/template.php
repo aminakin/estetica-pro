@@ -105,8 +105,8 @@ $normalCount = count($arResult["ITEMS"]["AnDelCanBuy"]);?>
                             $minsum_style = '';
                         }
                         ?>
-                        <a style="<?=$buttons_style?>" href="/personal/cart/" class="button button_transparent"><?= GetMessage('SALE_TO_CART');?></a>
-                        <?/*a style="<?=$buttons_style?>" href="/personal/order.php" class="button button_filled"><?= GetMessage('SALE_ORDER');?></?a*/?>
+                        <a style="<?=$buttons_style?>" href="/cart/" class="button button_transparent"><?= GetMessage('SALE_TO_CART');?></a>
+                        <?/*a style="<?=$buttons_style?>" href="/cart/order/" class="button button_filled"><?= GetMessage('SALE_ORDER');?></?a*/?>
                         <div style="<?=$minsum_style?>" class="minsum">
                             <span class="minsum__text">
                                 <?= GetMessage('SALE_MIN_ORDER');?>

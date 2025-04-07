@@ -30,7 +30,7 @@ GLOBAL $USER;
 	<div class="comfirm_wrap">
 		<div class="confirm_order"><?=Loc::getMessage("SOA_ORDER_SUC_CANCEL", array("#ORDER_ID#" => $arResult["ORDER"]["ACCOUNT_NUMBER"] ))?></div>
 		<div class="comfirm_text"><?=Loc::getMessage('SOA_MANAGER')?></div>
-		<div class="order-cancel"><a href="/personal/order.php?ID=<?=$arResult["ORDER"]["ACCOUNT_NUMBER"];?>&CANCEL=Y"><?=Loc::getMessage("SOA_TO_CATALOG")?></a></div>
+		<div class="order-cancel"><a href="/cart/order/?ID=<?=$arResult["ORDER"]["ACCOUNT_NUMBER"];?>&CANCEL=Y"><?=Loc::getMessage("SOA_TO_CATALOG")?></a></div>
 	</div>
 <?}?>
 <div class="wrapper-payment">
@@ -119,4 +119,4 @@ if($arResult["ORDER"]['CANCELED'] != 'Y'){
 		$APPLICATION->SetTitle(Loc::getMessage("SOA_ORDER_SUC_CANCELED"));
 	}
 }
-//http://www.demo.estetica-pro.ru/personal/order.php?ORDER_ID=5174&clear_cache=Y?>
+//http://www.demo.estetica-pro.ru/cart/order/?ORDER_ID=5174&clear_cache=Y?>

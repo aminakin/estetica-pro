@@ -11,5 +11,5 @@ Bitrix\Main\Loader::includeModule("catalog");
 	foreach ($basket as $basketItem) {
 		$basketString .= '&'.$basketItem->getProductId().'='.$basketItem->getQuantity();
 	}
-	echo 'https://estetica-pro.ru/personal/cart/?addbasketproducts=y'. $basketString;
+	echo 'https://estetica-pro.ru/cart/?addbasketproducts=y'. $basketString;
 ?>

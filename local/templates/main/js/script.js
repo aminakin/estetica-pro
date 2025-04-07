@@ -720,7 +720,7 @@ $(document).ready(function () {
         event.preventDefault();
         $('body').addClass('body-modal')
         if ($(this).hasClass('baskLink') && window.innerWidth < 1024) {
-            window.location.href = "/personal/cart/";
+            window.location.href = "/cart/";
             return;
         }
 

@@ -120,7 +120,7 @@ class SaleOrderAjax extends \CBitrixComponent
 		$arParams['PATH_TO_BASKET'] = isset($arParams['PATH_TO_BASKET']) ? trim($arParams['PATH_TO_BASKET']) : '';
 		if ($arParams['PATH_TO_BASKET'] == '')
 		{
-			$arParams['PATH_TO_BASKET'] = '/personal/cart/';
+			$arParams['PATH_TO_BASKET'] = '/cart/';
 		}
 
 		$arParams['NO_PERSONAL'] = isset($arParams['NO_PERSONAL']) && $arParams['NO_PERSONAL'] === 'Y' ? 'Y' : 'N';

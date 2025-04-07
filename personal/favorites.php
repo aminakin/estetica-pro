@@ -45,7 +45,7 @@ if ($USER->IsAuthorized()) {
 						"AJAX_OPTION_JUMP" => "N",
 						"AJAX_OPTION_STYLE" => "Y",
 						"BACKGROUND_IMAGE" => "-",
-						"BASKET_URL" => "/personal/cart/",
+						"BASKET_URL" => "/cart/",
 						"BROWSER_TITLE" => "-",
 						"CACHE_FILTER" => "N",
 						"CACHE_GROUPS" => "Y",

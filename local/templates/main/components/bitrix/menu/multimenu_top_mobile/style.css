@@ -72,15 +72,6 @@
         z-index: 1;
     }
     
-    .catalog-menu-block {
-        display: block;
-        position: relative;
-        background: #fff;
-        max-width: var(--main-width);
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-    
     .header-menu__item-modal {
         background: #FFF;
         position: absolute;

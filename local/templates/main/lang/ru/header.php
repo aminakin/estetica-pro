@@ -4,7 +4,7 @@ $MESS['login'] = 'Войти';
 $MESS['ACCOUNT'] = 'Аккаунт';
 $MESS['REGISTRATION'] = 'Зарегистрироваться';
 $MESS["AUTH_BONUS"] = "<a href=\"/bonus-system/\">Информация о бонусной системе</a>";
-$MESS['LOGIN_USER'] = 'Вход';
+$MESS['LOGIN_USER'] = 'Войти';
 $MESS['FAVORITES'] = 'Избранное';
 $MESS['SEARCH'] = 'Поиск';
 $MESS['PALITRA'] = 'Палитры гель-лаков';

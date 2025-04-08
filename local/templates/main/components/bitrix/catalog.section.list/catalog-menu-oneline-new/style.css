@@ -178,6 +178,12 @@ li.first > .second-ul li.second span{
   }
 }
 
+.catalog-menu-block{
+  max-width: var(--main-width);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
 .bx_sitemap_oneline.brand {
   display: grid;
   grid-template-columns: 33% 33% 33%;

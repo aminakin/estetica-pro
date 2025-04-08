@@ -36,6 +36,8 @@
 	.conditions-list{
 		padding: 24px 32px;
 		margin-bottom: 24px;
+		margin-left: -16px;
+		margin-right: -16px;
 	}
 
 	.conditions-list_wrap{
@@ -58,7 +60,7 @@
 		line-height: 16px;
 	}
 	.conditions-list{
-		padding: 20px;
+		padding: 24px;
 		margin-bottom: 24px;
 	}
 	.conditions-list_icon{
@@ -71,6 +73,7 @@
 		max-width: 100%;
 		margin-right: 0;
 		align-items: flex-start;
+		margin-bottom: 16px;
 	}
 	.conditions-list_wrap{
 		justify-content: flex-start;

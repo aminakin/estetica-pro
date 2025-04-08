@@ -280,7 +280,7 @@ form#regform {
     width: 24px;
     height: 24px;
     background: #F3F3F3;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .bx-auth-reg .row input[type="checkbox"]:checked+label:before {

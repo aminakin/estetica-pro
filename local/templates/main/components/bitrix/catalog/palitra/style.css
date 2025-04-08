@@ -426,6 +426,10 @@ s
     padding-right: 12px;
 }
 
+.filter.catalog-filter{
+    display: none;
+}
+
 @media (max-width: 1024px) {
     .catalog__main>.row{
         margin-right: -6px;

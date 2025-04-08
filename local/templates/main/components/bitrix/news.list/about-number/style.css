@@ -61,7 +61,7 @@
 }
 
 .about-number-more a {
-	border-radius: 8px;
+	border-radius: 10px;
 	border: 1px solid #F781BF;
 	padding: 21px 36px;
 	line-height: 11px;
@@ -87,6 +87,20 @@
 		grid-auto-rows: 1fr 1fr;
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: repeat(2, 1fr);
+	}
+
+	.about-number-more {
+		margin-bottom: 40px;
+	}
+
+	.about-number-more a{
+		font-size: 14px;
+		padding: 11px 20px;
+	}
+
+	.about-number-item_top{
+		font-size: 14px;
+		line-height: 16px;
 	}
 }
 

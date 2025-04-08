@@ -90,7 +90,7 @@
 }
 
 .cources-blocks-list {
-	margin-bottom: 100px;
+	margin-bottom: 80px;
 }
 
 .cources-blocks-list .slick-arrow {
@@ -116,6 +116,7 @@
 
 .cources-blocks-slide .slick-list {
 	padding-bottom: 10px;
+	padding-left: 0!important;
 }
 
 .cources-blocks-slide:not(.slick-slider) {
@@ -123,7 +124,7 @@
 }
 
 .cources-link-more a {
-	border-radius: 8px;
+	border-radius: 10px;
 	border: 1px solid #F781BF;
 	padding: 21px 36px;
 	line-height: 11px;
@@ -134,16 +135,6 @@
 	text-transform: lowercase;
 }
 
-@media screen and (max-width: 1160px) {
-	.cources-list-element:last-child {
-		display: none;
-	}
-
-	.cources-list-element {
-		width: 49%;
-	}
-}
-
 @media (max-width:1024px) {
 
 	.cources-blocks-list {
@@ -151,13 +142,52 @@
 	}
 
 	.cources-link-more a{
-		padding: 12px 36px;
+		font-size: 14px;
+		padding: 12px 20px;
 		line-height: 12px;
+	}
+
+	.cource-element-type{
+		font-size: 14px;
+		line-height: 16px;
+		padding: 8px 12px;
+	}
+
+	.cource-element-bottom{
+		padding: 16px;
+	}
+
+	.cource-element-name{
+		min-height: 48px;
+	}
+
+	.cource-element-price-date{
+		flex-wrap: wrap;
+		justify-content: flex-start;
+	}
+
+	.cource-element-link{
 		width: 100%;
+		margin-left: 0;
+		margin-top: 24px;
+	}
+
+	.cource-element-image{
+		height: 146px;
+	}
+
+	.cources-list-element{
+		margin:  0 6px;
+		border-radius: 16px;
+	}
+
+	.cources-blocks-slide{
+		margin-left: -6px;
+    	margin-right: -6px;
 	}
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 767px) {
 	.cource-element-name span {
 		font-size: 16px;
 	}
@@ -186,5 +216,10 @@
 	.cources-list-element {
 		width: 100%;
 		margin-bottom: 20px;
+	}
+
+	.cources-link-more a{
+		line-height: 12px;
+		width: 100%;
 	}
 }

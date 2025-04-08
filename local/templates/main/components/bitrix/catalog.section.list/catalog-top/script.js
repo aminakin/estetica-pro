@@ -3,16 +3,16 @@ $(document).ready(function () {
         infinite: false,
         slidesToShow: 5,
         slidesToScroll: 3,
-        prevArrow: '<button type="button" data-role="none" class="slick-prev slick-arrow catalog-section" aria-label="Prev" role="button" style="" aria-disabled="false">' +
+        prevArrow: '<button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Prev" role="button" style="" aria-disabled="false">' +
             '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">\n' +
             '<path d="M8.58997 4L16.59 12L8.58997 20" stroke="black" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>\n' +
             '</svg>\n</button>',
-        nextArrow: '<button type="button" data-role="none" class="slick-next slick-arrow catalog-section" aria-label="Next" role="button" style="" aria-disabled="false">' +
+        nextArrow: '<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="" aria-disabled="false">' +
             '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">\n' +
             '<path d="M8.58997 4L16.59 12L8.58997 20" stroke="black" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>\n' +
             '</svg>\n</button>',
         centerMode: false,
-        centerPadding: '74px',
+        centerPadding: '49px',
         arrows: true,
         responsive: [
             {
@@ -49,7 +49,7 @@ $(document).ready(function () {
                     swipe: true,
                     centerMode: true,
                     infinite: true,
-                    centerPadding: '20px',
+                    centerPadding: '32px',
                 }
             }
         ]

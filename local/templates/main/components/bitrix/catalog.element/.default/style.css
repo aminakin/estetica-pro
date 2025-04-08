@@ -1106,7 +1106,7 @@ section.comment {
 	.product-item-detail-slider-controls-image {
 		width: 11px;
 		height: 6px;
-		border-radius: 8px;
+		border-radius: 10px;
 		background: #99999952;
 		margin-bottom: 0;
 	}

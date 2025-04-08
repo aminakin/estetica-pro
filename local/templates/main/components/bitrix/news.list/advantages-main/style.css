@@ -47,7 +47,7 @@
 }
 
 
-@media (max-width:700px) {
+@media (max-width: 700px) {
 	.advantages-item_name {
 		font-size: 48px;
 	}

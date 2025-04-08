@@ -1,12 +1,14 @@
-.carousel-wrapper{
+.carousel-wrapper {
     overflow: hidden;
     max-height: 503px;
     margin: 16px 0;
 }
-#myCarousel .slick-list{
+
+#myCarousel .slick-list {
     border-radius: 18px;
 }
-#myCarousel .slick-arrow{
+
+#myCarousel .slick-arrow {
     position: absolute;
     top: 50%;
     margin-top: -55px;
@@ -15,18 +17,22 @@
     font-size: 0;
     background: #E9E9ED !important;
 }
-#myCarousel .slick-prev.slick-arrow{
-	left: 20px;
-	background:url(image/left.svg)no-repeat center center;
+
+#myCarousel .slick-prev.slick-arrow {
+    left: 20px;
+    background: url(image/left.svg)no-repeat center center;
 }
-#myCarousel .slick-next.slick-arrow{
-	right: 20px;
-	background:url(image/right.svg)no-repeat center center;
+
+#myCarousel .slick-next.slick-arrow {
+    right: 20px;
+    background: url(image/right.svg)no-repeat center center;
 }
-#myCarousel .slick-track .item a:focus{
+
+#myCarousel .slick-track .item a:focus {
     border: none;
     outline: none;
 }
+
 #myCarousel .slick-dots {
     position: absolute;
     margin: 0 auto;
@@ -37,25 +43,28 @@
     gap: 22px;
     width: 100%;
 }
+
 #myCarousel .slick-dots li {
     padding: 0;
     border: solid 1px #FFFFFF;
     height: 12px;
     width: 12px;
     border-radius: 12px;
-    cursor:pointer;
+    cursor: pointer;
     transition: background .3s ease 0.3s;
 }
+
 #myCarousel .slick-dots li.slick-active {
     padding: 0;
     border: solid 1px #FFFFFF;
     background: #FFFFFF;
 }
-#myCarousel .slick-dots li button{
+
+#myCarousel .slick-dots li button {
     display: none;
 }
 
-.slider .item .desktop-img{
+.slider .item .desktop-img {
     height: 503px;
     background-color: grey;
     display: block;
@@ -63,25 +72,24 @@
     background-repeat: no-repeat;
     background-position: center;
 }
-@media (max-width: 1148px) {
-    #myCarousel .slick-list{
-        border-radius: 0
-    }
-}
-@media screen and (max-width: 1400px){
-    .slider .item .desktop-img{
-        height: 400px;
-    }
-}
-@media screen and (max-width: 1024px){
-    .slider .item .desktop-img{
+
+@media screen and (max-width: 1024px) {
+    .slider .item .desktop-img {
         height: 363px;
     }
-    .carousel-wrapper{
-        margin-bottom: 23px;
-        overflow: hidden;
-        max-height: 374px;
+
+    #myCarousel .slick-list {
+        border-radius: 0
     }
+
+    .carousel-wrapper {
+        margin-bottom: 24px;
+        overflow: hidden;
+        max-height: 363px;
+        margin-left: -16px;
+        margin-right: -16px;
+    }
+
     #myCarousel .slick-dots {
         position: relative;
         margin: 0 auto;
@@ -92,31 +100,36 @@
         gap: 11px;
         bottom: auto;
     }
+
     #myCarousel .slick-dots li {
         padding: 0;
         border: solid 1px #DADADA;
         height: 8px;
         width: 8px;
         border-radius: 8px;
-        cursor:pointer;
+        cursor: pointer;
         transition: background .3s ease 0.3s;
     }
+
     #myCarousel .slick-dots li.slick-active {
         padding: 0;
         border: solid 1px #DA8494;
         background: #DA8494;
     }
 }
-@media screen and (max-width: 767px){
-    .slider .item .desktop-img{
-        height: 250px; /*226px*/
+
+@media screen and (max-width: 767px) {
+    .slider .item .desktop-img {
+        height: 250px;
+        /*226px*/
     }
-    .carousel-wrapper{
+
+    .carousel-wrapper {
         overflow: hidden;
         max-height: 250px;
     }
-    #myCarousel .slick-arrow{
-        display: none!important;
+
+    #myCarousel .slick-arrow {
+        display: none !important;
     }
 }
-

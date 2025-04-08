@@ -1487,7 +1487,7 @@ form.basket {
 	background-repeat: no-repeat;
 	background-position: center;
 	margin-right: 16px;
-	border-radius: 8px;
+	border-radius: 10px;
 }
 
 .jq-number.cart-element {

@@ -15,9 +15,12 @@
     .footer-menu-list-payment a{
         font-size: 14px;
         line-height: 16px;
-        margin-bottom: 15px;
+        margin-bottom: 6px;
+    }
+    .footer-menu-list-payment{
+        margin-bottom: 0px;
     }
     .footer-menu-list-payment + img{
-        margin-top: 23px;
+        margin-top: 14px;
     }
 }

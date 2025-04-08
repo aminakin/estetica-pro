@@ -182,7 +182,7 @@ header .sticky .header-middle .header-phone a {
 }
 
 .header-middle {
-    padding: 20px 0 24px;
+    padding: 20px 0 22px;
 }
 
 .header-middle .header-row>div {
@@ -230,6 +230,7 @@ header .sticky .header-middle .header-phone a {
 .header-mobile-top .logo {
     padding: 10px 0px 8px;
     text-align: center;
+    height: 66px;
 }
 
 .header-mobile-top .header-burger .close-menu {
@@ -293,10 +294,11 @@ header .sticky .header-middle .header-phone a {
 .footer-container .footer-container-menu:nth-child(3) {
     max-width: 292px;
     width: 100%;
+    margin-left: 36px;
 }
 
 .footer-container-menu.logo-container a.logo {
-    margin-bottom: 32px;
+    margin-bottom: 27px;
 }
 
 .footer-container-menu.logo-container .nbr a {
@@ -312,6 +314,11 @@ header .sticky .header-middle .header-phone a {
 .footer-container-menu.logo-container {
     font-size: 18px;
     line-height: 20px;
+    font-weight: 300;
+}
+
+.footer-container .footer-container-menu:nth-child(2){
+    margin-left: 41px;
 }
 
 .footer-menu-list-time-work {
@@ -323,13 +330,14 @@ header .sticky .header-middle .header-phone a {
 .footer-menu-list-time-work .footer-menu-item {
     margin-bottom: 16px;
     font-size: 18px;
+    line-height: 20px;
     font-weight: 300;
 }
 
 .footer-copyright-text {
     border-top: 1px solid #F3F3F3;
     margin-top: 50px;
-    padding: 50px 0;
+    padding: 45px 0;
     font-size: 14px;
     line-height: 16px;
     color: #111111;
@@ -342,16 +350,6 @@ header .sticky .header-middle .header-phone a {
     text-decoration: none;
 }
 
-@media screen and (max-width: 440px) {
-    .footer-copyright-text {
-        flex-direction: column;
-    }
-
-    .footer-copyright-text a {
-        margin-top: 15px;
-    }
-}
-
 .footer-copyright-text span {
     font-weight: 300;
 }
@@ -360,7 +358,7 @@ header .sticky .header-middle .header-phone a {
     font-weight: 500;
     font-size: 18px;
     line-height: 21px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     text-transform: uppercase;
 }
 
@@ -393,58 +391,93 @@ header .sticky .header-middle .header-phone a {
 
     .footer-container>div:last-child {
         margin-bottom: 0px;
-    }
-
-    .footer-container .footer-container-menu {
-        width: 100%;
-    }
-
-    .footer-container .footer-container-menu:nth-child(2) {
-        width: 41%;
-        margin-right: 6%;
-    }
-
-    .footer-container .footer-container-menu:nth-child(3) {
-        width: 53%;
+        margin-left: 281px;
     }
 
     .footer-copyright-text {
-        margin-top: 22px;
-        padding: 32px 0 42px;
-    }
-
-    .footer-container-menu a:last-child {
-        margin-bottom: 0;
+        margin-top: 24px;
+        padding: 24px 0 50px;
     }
 
     .footer-container-menu.logo-container {
         font-size: 14px;
         line-height: 16px;
         position: relative;
+        max-width: 249px;
+    }
+    .footer-container .footer-container-menu:nth-child(2){
+        margin-left: 32px;
+        margin-top: 20px;
     }
 
-    .footer-container-menu.logo-container a.logo {
-        margin-bottom: 9px
+    .footer-container .footer-container-menu:nth-child(3){
+        max-width: 211px;
+        width: 100%;
+        margin-left: auto;
+        margin-top: 20px;
+    }
+
+    .footer-container-menu.logo-container a{
+        margin-bottom: 16px;
     }
 
     .footer-container-menu.logo-container a.logo svg {
-        width: 170px;
+        width: 249px;
     }
 
-    .footer-container-menu.logo-container a {
-        margin-bottom: 10px;
-    }
-
-    .footer-menu-list-time-work .footer-menu-item {
-        margin-bottom: 5px;
+    .footer-container-menu.logo-container a.logo{
+        margin-bottom: 24px;
     }
 
     .footer-menu-list-time-work {
         font-size: 14px;
         line-height: 16px;
     }
-}
 
+    #footer .footer-title{
+        font-size: 14px;
+        line-height: 16px;
+        margin-bottom: 22px;
+    }
+
+    .footer-menu-list-time-work .footer-menu-item {
+        font-size: 14px;
+        line-height: 16px;
+    }
+}
+@media (max-width: 700px) {
+    .footer-container-menu.logo-container{
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .footer-container-menu.logo-container a.logo svg{
+        width: 170px;
+        height: 32px;
+    }
+
+    .footer-container .footer-container-menu:nth-child(2){
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    .footer-container>div:last-child{
+        margin-left: 0;
+    }
+
+    .footer-menu-list-time-work .footer-menu-item:last-child{
+        margin-bottom: 0;
+    }
+
+    .footer-container .footer-container-menu:nth-child(3){
+        max-width: 162px;
+        margin-top: 0px;
+    }
+
+    .footer-copyright-text{
+        padding-bottom: 42px;
+    }
+}
 .delPay-page {
     display: flex;
     flex-wrap: wrap;
@@ -2162,7 +2195,7 @@ nav.top-menu li::marker {
     text-transform: uppercase;
     color: #000;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 16px;
     white-space: nowrap;
     text-shadow: 0 0 0 transparent;
@@ -2586,12 +2619,6 @@ html body .close.basket-close {
     footer .footer-copyright {
         font-size: 8px;
         margin-top: -30px;
-    }
-
-    .footer-title {
-        font-size: 16px;
-        line-height: 22px;
-        font-weight: 400;
     }
 
     .toggleOpen .bottom {

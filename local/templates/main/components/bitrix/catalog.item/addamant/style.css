@@ -65,7 +65,7 @@
     display: block;
     width: 100%;
     border: 1px solid #999999;
-    border-radius: 10px;
+    border-radius: 18px;
     overflow: hidden;
 }
 
@@ -508,11 +508,11 @@ input[data-disabled="disabled"] {
 }
 
 .product-item-amount .product-item-amount-field-container .jq-number__spin.minus {
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .product-item-amount .product-item-amount-field-container .jq-number__spin.plus {
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 .product-item-amount .product-item-amount-field-container .jq-number__spin {
@@ -677,7 +677,7 @@ div.product-item-label-text.product-item-label-small span {
     background: none;
     text-transform: lowercase;
     padding: 0px 12px;
-    border-radius: 8px;
+    border-radius: 10px;
     position: absolute;
     top: 24px;
     left: 24px;
@@ -1100,6 +1100,10 @@ a.btn.btn-link.buyBtn:focus {
     .product-item-wrapper>.product-item-container {
         padding: 0 6px;
     }
+
+    .product-item {
+        border-radius: 10px;
+    }
 }
 
 
@@ -1315,6 +1319,15 @@ a.btn.btn-link.buyBtn svg {
         line-height: 28px;
     }
 
+    div.product-item-label-text.product-item-label-small span {
+        top: 16px;
+        left: 16px;
+        padding: 0 8px;
+        line-height: 24px;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
     .product-item-amount .product-item-amount-field-container .jq-number__spin.plus {
         margin-left: 4px;
     }
@@ -1342,10 +1355,7 @@ a.btn.btn-link.buyBtn svg {
         width: 100%;
     }
 
-    div.product-item-label-text.product-item-label-small span {
-        top: 16px;
-        left: 16px;
-    }
+    
 }
 
 @media screen and (max-width: 768px) {

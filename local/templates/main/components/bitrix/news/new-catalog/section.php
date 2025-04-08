@@ -64,7 +64,7 @@ $arrFilter = $arResult['arrFilter']; ?>
             <div class="sections">
                 <? $APPLICATION->IncludeComponent(
                     "bitrix:catalog.section.list",
-                    "catalog-top-new",
+                    "catalog-top",
                     Array(
                         "ADD_SECTIONS_CHAIN" => "Y",
                         "CACHE_GROUPS" => "Y",

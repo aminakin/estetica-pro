@@ -69,11 +69,13 @@
 }
 @media screen and (max-width: 1024px){
     .slider .item .desktop-img{
-        height: 350px;
+        height: 315px;
     }
     .carousel-wrapper{
         overflow: hidden;
-        max-height: 374px;
+        max-height: 315px;
+        margin-left: -16px;
+        margin-right: -16px;
     }
     #myCarousel .slick-dots {
         position: relative;
@@ -90,7 +92,7 @@
         border: solid 1px #DADADA;
         height: 8px;
         width: 8px;
-        border-radius: 8px;
+        border-radius: 10px;
         cursor:pointer;
         transition: background .3s ease 0.3s;
     }
@@ -101,15 +103,12 @@
     }
 }
 @media screen and (max-width: 768px){
-    .slider .item .desktop-img{
-        height: 166px; /*226px*/
-    }
-    .carousel-wrapper{
-        overflow: hidden;
-        max-height: 250px;
-    }
     #myCarousel .slick-arrow{
         display: none!important;
+    }
+
+    .carousel-wrapper{
+        max-height: 161px;
     }
 }
 

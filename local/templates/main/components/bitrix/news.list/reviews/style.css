@@ -72,9 +72,6 @@
 .reviews-list .slick-prev{
 	left: 0px;
 }
-.reviews-list-title{
-    margin-bottom: 32px;
-}
 .reviews-list-slide:not(.slick-slider){
     display: flex;
 }
@@ -89,7 +86,7 @@
 	}
 }
 
-@media (max-width:700px) {
+@media (max-width: 700px) {
 	.review-item{
 		margin: 0;
 	}

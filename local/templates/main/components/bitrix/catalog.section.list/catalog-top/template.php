@@ -18,7 +18,7 @@ $arViewStyles = array(
 	'TILE' => array(
 		'CONT' => 'bx_catalog_tile',
 		'TITLE' => 'bx_catalog_tile_category_title',
-		'LIST' => 'bx_catalog_tile_ul',
+		'LIST' => 'bx_catalog_tile_ul palitra',
 		'EMPTY_IMG' => $this->GetFolder().'/images/section_bg.svg'
 	)
 );

@@ -1,5 +1,5 @@
 <?
-$sSectionName = "Палитра";
+$sSectionName = "ПАЛИТРЫ ГЕЛЬ-ЛАКОВ";
 $arDirProperties = Array(
 
 );

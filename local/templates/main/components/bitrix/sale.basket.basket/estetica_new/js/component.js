@@ -111,6 +111,14 @@
 			this.initFavorites();
 			this.initShareBTN();
 			// this.initFavorites();
+
+			let favoriteBtns = document.querySelectorAll('.product-item-favorite-image-block');
+			favoriteBtns.forEach((btn)=>{
+				const hasItem = parameters.favorites.some(num => num === btn.getAttribute("data-item"));
+				if(hasItem){
+					btn.classList.add('active');
+				}
+			});
 		},
 
 		// initFavorites: function() {
@@ -316,7 +324,6 @@
 
 		addFavorites: function(id) {
 			$.ajax({
-				// '/local/ajax/favorites.php?id=78702&action=add'
 				url: '/local/ajax/favorites.php?id=' + id + '&action=add', // URL отправки запроса
 				type: "GET",
 				dataType: "html",

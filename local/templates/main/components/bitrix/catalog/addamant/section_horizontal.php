@@ -66,7 +66,7 @@ if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMO
                   </div>
               </div>
           <? endif ?>
-          <div class="col-xs-12">
+          <div class="col-xs-12" style="padding: 0;">
             <?$APPLICATION->IncludeComponent(
               "bitrix:catalog.section.list",
               "catalog-top",

@@ -237,6 +237,10 @@ li.catalog-smart-filter-sort-option-default:after {
         padding-left: 6px;
         padding-right: 6px;
     }
+
+    .catalog-section + div .bx-pagination.ozi {
+        padding: 0 12px;
+    }
 }
 @media screen and (max-width: 768px) {
     .catalog-filter{

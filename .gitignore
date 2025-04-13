@@ -35,10 +35,11 @@
 /local/bitrix/modules/sprint.migration/*.txt
 /local/bitrix/modules/sprint.migration/*.json
 
-# core
-/upload
-/bitrix
 
+# core
+/upload/
+/bitrix/
+!/bitrix/modules/logictim.balls/lib/
 
 #project
 /local/vendor1

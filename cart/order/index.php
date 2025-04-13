@@ -6,7 +6,7 @@ global $USER;
 
 $APPLICATION->IncludeComponent(
 	"addamant:sale.order.ajax", 
-	".default", 
+	"order_new", 
 	array(
 		"ACTION_VARIABLE" => "soa-action",
 		"ADDITIONAL_PICT_PROP_14" => "-",

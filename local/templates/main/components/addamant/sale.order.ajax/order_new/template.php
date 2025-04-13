@@ -262,19 +262,8 @@ if (strlen($request->get('ORDER_ID')) > 0) {
 } elseif ($arParams['DISABLE_BASKET_REDIRECT'] === 'Y' && $arResult['SHOW_EMPTY_BASKET']) {
 	include(Main\Application::getDocumentRoot() . $templateFolder . '/empty.php');
 } else {
-
-	//    if((new CUser)->IsAdmin()){
-	//        if ($arResult['ORDER_TOTAL_PRICE'] < 10000){
-	//            
-?><!--<h2-->
-	<!--            style="background: #EBCFD5; color: #fff; padding: 15px 0"-->
-	<!--            >Выберите товары еще на --><? //=(10000 - $arResult['ORDER_TOTAL_PRICE'])
-												?><!-- рублей, чтобы получить бесплатную доставку Почтой России.</h2>--><?php
-																																									//        }
-																																									//    }
-
-																																									$hideDelivery = empty($arResult['DELIVERY']);
-																																									?>
+	$hideDelivery = empty($arResult['DELIVERY']);
+?>
 	<form action="<?= POST_FORM_ACTION_URI ?>" method="POST" name="ORDER_FORM" id="bx-soa-order-form" enctype="multipart/form-data">
 		<?
 		echo bitrix_sessid_post();
@@ -286,11 +275,11 @@ if (strlen($request->get('ORDER_ID')) > 0) {
 		<input type="hidden" name="<?= $arParams['ACTION_VARIABLE'] ?>" value="saveOrderAjax">
 		<input type="hidden" name="location_type" value="code">
 		<input type="hidden" name="BUYER_STORE" id="BUYER_STORE" value="<?= $arResult['BUYER_STORE'] ?>">
-		<div id="bx-soa-order" class="row bx-<?= $arParams['TEMPLATE_THEME'] ?> <? if ($USER->IsAdmin()) {
-																					echo "isAdmin";
-																				} ?>" style="opacity: 0">
+		<div id="bx-soa-order" class="bx-<?= $arParams['TEMPLATE_THEME'] ?> <? if ($USER->IsAdmin()) {
+																				echo "isAdmin";
+																			} ?>" style="opacity: 0">
 			<!--	MAIN BLOCK	-->
-			<div class="col-md-8 bx-soa">
+			<div class="bx-soa">
 				<div id="bx-soa-main-notifications">
 					<div class="alert alert-danger" style="display:none"></div>
 					<div data-type="informer" style="display:none"></div>
@@ -298,23 +287,17 @@ if (strlen($request->get('ORDER_ID')) > 0) {
 				<!--	AUTH BLOCK	-->
 				<div id="bx-soa-auth" class="bx-soa-section bx-soa-auth" style="display:none">
 					<div class="bx-soa-section-title-container">
-						<h2 class="bx-soa-section-title">
+						<div class="bx-soa-section-title major-title-pages">
 							<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_CONTACT_INFO'); ?>
-						</h2>
+						</div>
 					</div>
 					<div class="bx-soa-section-content container-fluid"></div>
 				</div>
-
-				<!--	DUPLICATE MOBILE ORDER SAVE BLOCK	-->
-				<div id="bx-soa-total-mobile" style="margin-bottom: 6px;"></div>
 
 				<? if ($arParams['BASKET_POSITION'] === 'before'): ?>
 					<!--	BASKET ITEMS BLOCK	-->
 					<div id="bx-soa-basket" data-visited="false" class="bx-soa-section bx-active">
 						<div class="bx-soa-section-title-container">
-							<h2 class="bx-soa-section-title">
-								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_CONTACT_INFO'); ?>
-							</h2>
 							<div class="col-xs-12 col-sm-3 text-right"><a href="javascript:void(0)" class="bx-soa-editstep"><?= $arParams['MESS_EDIT'] ?></a></div>
 						</div>
 						<div class="bx-soa-section-content container-fluid"></div>
@@ -324,27 +307,22 @@ if (strlen($request->get('ORDER_ID')) > 0) {
 				<!--	BUYER PROPS BLOCK	-->
 				<div id="bx-soa-properties" data-visited="false" class="bx-soa-section bx-active">
 					<div class="bx-soa-section-title-container">
-						<h2 class="bx-soa-section-title">
+						<div class="bx-soa-section-title major-title-pages">
 							<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_CONTACT_INFO'); ?>
-						</h2>
-						<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?= $arParams['MESS_EDIT'] ?></a></div>
+						</div>
+						
 					</div>
 					<div class="bx-soa-section-content container-fluid"></div>
-					<? if ($USER->IsAuthorized()) { ?>
-						<div class="auth-block bonus-cart"><?= Loc::getMessage('SBB_BONUS_CART_OK'); ?></div>
-					<? } else { ?>
-						<div class="auth-block need-auth"><?= Loc::getMessage('SBB_PLEASE_AUTH'); ?></div>
-					<? } ?>
 				</div>
 
 				<? if ($arParams['DELIVERY_TO_PAYSYSTEM'] === 'p2d'): ?>
 					<!--	PAY SYSTEMS BLOCK	-->
 					<div id="bx-soa-paysystem" data-visited="false" class="bx-soa-section bx-active">
 						<div class="bx-soa-section-title-container">
-							<h2 class="bx-soa-section-title">
+							<div class="bx-soa-section-title major-title-pages">
 								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_PAYMENT'); ?>
-							</h2>
-							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?= $arParams['MESS_EDIT'] ?></a></div>
+							</div>
+							
 						</div>
 						<div class="bx-soa-section-content container-fluid"></div>
 					</div>
@@ -352,10 +330,10 @@ if (strlen($request->get('ORDER_ID')) > 0) {
 					<!--	REGION BLOCK	-->
 					<div id="bx-soa-region" data-visited="false" class="bx-soa-section bx-active">
 						<div class="bx-soa-section-title-container">
-							<h2 class="bx-soa-section-title">
+							<div class="bx-soa-section-title major-title-pages">
 								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_ADRESS'); ?>
-							</h2>
-							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?= $arParams['MESS_EDIT'] ?></a></div>
+							</div>
+							
 						</div>
 						<div class="bx-soa-section-content">
 
@@ -365,10 +343,10 @@ if (strlen($request->get('ORDER_ID')) > 0) {
 					<!--	DELIVERY BLOCK	-->
 					<div id="bx-soa-delivery" data-visited="false" class="bx-soa-section bx-active" <?= ($hideDelivery ? 'style="display:none"' : '') ?>>
 						<div class="bx-soa-section-title-container">
-							<h2 class="bx-soa-section-title">
+							<div class="bx-soa-section-title major-title-pages">
 								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_DELIVERY'); ?>
-							</h2>
-							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?= $arParams['MESS_EDIT'] ?></a></div>
+							</div>
+							
 						</div>
 						<div class="bx-soa-section-content container-fluid"></div>
 					</div>
@@ -378,10 +356,10 @@ if (strlen($request->get('ORDER_ID')) > 0) {
 					<!--	PICKUP BLOCK	-->
 					<div id="bx-soa-pickup" data-visited="false" class="bx-soa-section" style="display:none">
 						<div class="bx-soa-section-title-container">
-							<h2 class="bx-soa-section-title">
+							<div class="bx-soa-section-title major-title-pages">
 								<span class="bx-soa-section-title-count"></span>
-							</h2>
-							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?= $arParams['MESS_EDIT'] ?></a></div>
+							</div>
+							
 						</div>
 						<div class="bx-soa-section-content container-fluid"></div>
 					</div>
@@ -390,23 +368,23 @@ if (strlen($request->get('ORDER_ID')) > 0) {
 					<!--	PICKUP BLOCK	-->
 					<div id="bx-soa-pickup" data-visited="false" class="bx-soa-section" style="display:none">
 						<div class="bx-soa-section-title-container">
-							<h2 class="bx-soa-section-title">
+							<div class="bx-soa-section-title major-title-pages">
 								<span class="bx-soa-section-title-count"></span>
-							</h2>
-							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?= $arParams['MESS_EDIT'] ?></a></div>
+							</div>
+							
 						</div>
 						<div class="bx-soa-section-content container-fluid"></div>
 					</div>
 
-					
+
 
 					<!--	DELIVERY BLOCK	-->
 					<div id="bx-soa-delivery" data-visited="false" class="bx-soa-section bx-active" <?= ($hideDelivery ? 'style="display:none"' : '') ?>>
 						<div class="bx-soa-section-title-container">
-							<h2 class="bx-soa-section-title">
+							<div class="bx-soa-section-title major-title-pages">
 								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_DELIVERY'); ?>
-							</h2>
-							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?= $arParams['MESS_EDIT'] ?></a></div>
+							</div>
+							
 						</div>
 						<div class="bx-soa-section-content container-fluid"></div>
 					</div>
@@ -416,10 +394,10 @@ if (strlen($request->get('ORDER_ID')) > 0) {
 					<!--	REGION BLOCK	-->
 					<div id="bx-soa-region" data-visited="false" class="bx-soa-section bx-active">
 						<div class="bx-soa-section-title-container">
-							<h2 class="bx-soa-section-title">
+							<div class="bx-soa-section-title major-title-pages">
 								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_ADRESS'); ?>
-							</h2>
-							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?= $arParams['MESS_EDIT'] ?></a></div>
+							</div>
+							
 						</div>
 						<div class="bx-soa-section-content"></div>
 					</div>
@@ -427,10 +405,10 @@ if (strlen($request->get('ORDER_ID')) > 0) {
 					<!--	PAY SYSTEMS BLOCK	-->
 					<div id="bx-soa-paysystem" data-visited="false" class="bx-soa-section bx-active">
 						<div class="bx-soa-section-title-container">
-							<h2 class="bx-soa-section-title">
+							<div class="bx-soa-section-title major-title-pages">
 								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_PAYMENT'); ?>
-							</h2>
-							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?= $arParams['MESS_EDIT'] ?></a></div>
+							</div>
+							
 						</div>
 						<div class="bx-soa-section-content container-fluid"></div>
 					</div>
@@ -439,7 +417,7 @@ if (strlen($request->get('ORDER_ID')) > 0) {
 
 				<div class="bx-soa-comment bx-soa-section">
 					<div class="bx-soa-section-title-container">
-						<h2 class="bx-soa-section-title"> <?= Loc::getMessage('SOA_COMMENT') ?></h2>
+						<div class="bx-soa-section-title major-title-pages"> <?= Loc::getMessage('SOA_COMMENT') ?></div>
 
 						<div id="bx-soa-comment">
 
@@ -455,9 +433,6 @@ if (strlen($request->get('ORDER_ID')) > 0) {
 					<!--	BASKET ITEMS BLOCK	-->
 					<div id="bx-soa-basket" data-visited="false" class="bx-soa-section bx-active">
 						<div class="bx-soa-section-title-container">
-							<h2 class="bx-soa-section-title">
-								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_YOUR_PRODUCT'); ?>
-							</h2>
 							<div class="col-xs-12 col-sm-3 text-right"><a href="javascript:void(0)" class="bx-soa-editstep"><?= $arParams['MESS_EDIT'] ?></a></div>
 						</div>
 						<div class="bx-soa-section-content container-fluid"></div>
@@ -506,84 +481,52 @@ if (strlen($request->get('ORDER_ID')) > 0) {
 			</div>
 
 			<!--	SIDEBAR BLOCK	-->
-			<div id="bx-soa-total" class="col-md-4 bx-soa-sidebar">
+			<div id="bx-soa-total" class="bx-soa-sidebar">
 				<div class="bx-soa-cart-total-ghost"></div>
-				<div class="bx-soa-cart-total-wrap bx-soa-section">
-					<h2 class="bx-soa-section-title"><?= Loc::getMessage('SOA_YOUR_ORDER') ?></h2>
+				<div class="bx-soa-cart-total-wrap">
 					<div class="bx-soa-cart-total">
 
 					</div>
 					<? //-------LOGICTIM BONUS FEILD-------//
-                	if(isset($arResult["PAY_BONUS"]) && $arResult["PAY_BONUS"] >= 0) {
-                	    $arResult["PAY_BONUS"] = round($arResult["PAY_BONUS"]);?>
-                	   <div class="" id="bonus_payment_block">
-                        <div class="bonus_comment bx-soa-section">
-                            <?/*div class="bx-soa-section-title-container">
-                                <h2 class="bx-soa-section-title">
-								<!-- <span class="bx-soa-section-title-count"></span>-->
-                                    
-                                    <?= \Bitrix\Main\Localization\Loc::getMessage('SOA_YOUR_BONUS');?>
-                                </h2>
-                            </div*/?>
-                            <div class="bx-soa-section-content container-fluid bonus-opened">
+					if (isset($arResult["PAY_BONUS"]) && $arResult["PAY_BONUS"] >= 0) {
+						$arResult["PAY_BONUS"] = round($arResult["PAY_BONUS"]); ?>
+						<div class="" id="bonus_payment_block">
+							<div class="bonus_comment">
+								<div class="bx-soa-section-content container-fluid bonus-opened">
 									<div class="user_bonus">
-										<?= Loc::getMessage('SOA_YOUR_BONUS_TEXT', array('#NUM#' => $arResult['USER_BONUS']));?>
-										
-									<?//=COption::GetOptionString("logictim.balls", "CAN_BONUS_TEXT", 'Can use bonus')?>
-
-                                        <?/* if($arResult["MIN_BONUS"] > 0 || $arResult["MAX_BONUS"] > 0) {?>
-                                            (
-                                            <?	if($arResult["MIN_BONUS"] > 0) {
-                                                echo COption::GetOptionString("logictim.balls", "MIN_BONUS_TEXT", 'Min use bonus').$arResult["MIN_BONUS"];
-                                            }
-                                            if($arResult["MIN_BONUS"] > 0 && $arResult["MAX_BONUS"] > 0) {
-                                                echo ', ';
-                                            }
-                                            if($arResult["MAX_BONUS"] > 0) {
-                                                echo COption::GetOptionString("logictim.balls", "MAX_BONUS_TEXT", 'Max use bonus').$arResult["MAX_BONUS"];
-                                            }?>
-                                            )
-                                        <? }*/ ?>
+										<?= Loc::getMessage('SOA_YOUR_BONUS_TEXT', array('#NUM#' => $arResult['USER_BONUS'])); ?>
 									</div>
+									<div class="" id="bonus_payfield_block">
+										<input type="number" onchange="BX.Sale.OrderAjaxComponent.sendRequest();" maxlength="250" size="0" value="<?= $arResult["PAY_BONUS"] ?>" name="ORDER_PROP_<?= $arResult["ORDER_PROP_PAYMENT_BONUS_ID"] ?>" id="LOGICTIM_PAYMENT_BONUS" max="<?= $arResult["MAX_BONUS"] ?>">
+									</div>
+									<div class="bonus-max">
+										<? if ($arResult["MAX_BONUS"] > 0) {
+											echo Loc::getMessage('SOA_MAX_BONUS_TEXT', array('#NUM#' => $arResult['MAX_BONUS']));
+										} ?>
+									</div>
+									<div class="bonus-accept" onclick="BX.Sale.OrderAjaxComponent.sendRequest();"><?= Loc::getMessage('SOA_BONUS_LEFT'); ?></div>
+								</div>
 
-                                <div class="" id="bonus_payfield_block">
- 								<!--  <strong>--><?//=COption::GetOptionString("logictim.balls", "PAY_BONUS_TEXT", 'Pay from bonus')?><!--</strong>-->
-                                    <input   type="number" onchange="BX.Sale.OrderAjaxComponent.sendRequest();" maxlength="250" size="0" value="<?=$arResult["PAY_BONUS"]?>" name="ORDER_PROP_<?=$arResult["ORDER_PROP_PAYMENT_BONUS_ID"]?>" id="LOGICTIM_PAYMENT_BONUS" max="<?=$arResult["MAX_BONUS"]?>">
-                                    <span class="btn btn-default" onclick="BX.Sale.OrderAjaxComponent.sendRequest();"><?= Loc::getMessage('SOA_BONUS_LEFT');?></span>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                    </div>
-                	<?} //-------LOGICTIM BONUS FEILD-------//?>
-                    <div class="bx-soa-cart-sidebar-coupon"></div>
-				</div>
-				<div class="checkout-container delivery" data-entity="basket-checkout-aligner">
-					<a href="/delivery/">
-						<img src="/local/templates/main/components/bitrix/sale.order.ajax/order_new/images/bag.svg">
-						<?= Loc::getMessage('SBB_BASKET_DEVILERY_INFO') ?>
-					</a>
-				</div>
-				<div class="checkout-container bonus" data-entity="basket-checkout-aligner">
-					<a href="/bonus-system/">
-						<img src="/local/templates/main/components/bitrix/sale.order.ajax/order_new/images/info.svg">
-						<?= Loc::getMessage('SBB_BASKET_BONUS_INFO') ?>
-					</a>
+							</div>
+						<? } //-------LOGICTIM BONUS FEILD-------//
+						?>
+						<div class="bx-soa-cart-sidebar-coupon"></div>
+						</div>
+						<div class="checkout-container delivery" data-entity="basket-checkout-aligner">
+							<a href="/delivery/">
+								<?= Loc::getMessage('SBB_BASKET_DEVILERY_INFO') ?>
+								<?= classBuildSCG::buildSVG('arrow', $templateFolder."/images" );?>
+							</a>
+						</div>
+						<div class="checkout-container bonus" data-entity="basket-checkout-aligner">
+							<a href="/bonus-system/">
+								<?= Loc::getMessage('SBB_BASKET_BONUS_INFO') ?>
+								<?= classBuildSCG::buildSVG('arrow', $templateFolder."/images" );?>
+							</a>
+						</div>
 				</div>
 			</div>
-		</div>
 	</form>
-	<?/*if ($USER->IsAdmin()){?>
-		<div class="info-online-pay-popup">
-			<div class="pay-popup-close">
-				<img src="/images/close-delivery.png">
-			</div>
-			Пожалуйста, перед оплатой заказа отключите VPN!
-		</div>
-		<div class="pay-popup-shadow"></div>
-	<?}*/ ?>
 	<div id="bx-soa-saved-files" style="display:none"></div>
 	<div id="bx-soa-soc-auth-services" style="display:none">
 		<?
@@ -639,6 +582,10 @@ if (strlen($request->get('ORDER_ID')) > 0) {
 	$signer = new Main\Security\Sign\Signer;
 	$signedParams = $signer->sign(base64_encode(serialize($arParams)), 'sale.order.ajax');
 	$messages = Loc::loadLanguageFile(__FILE__);
+
+    $rsUser = CUser::GetByID($USER->GetID());
+    $arUser = $rsUser->Fetch();
+    $arFavorites = $arUser['UF_FAVORITES'];
 	?>
 	<script>
 		BX.message(<?= CUtil::PhpToJSObject($messages) ?>);
@@ -680,7 +627,8 @@ if (strlen($request->get('ORDER_ID')) > 0) {
 			propsBlockId: 'bx-soa-properties',
 			totalBlockId: 'bx-soa-total',
 			totalBlockCartWrap: '.bx-soa-cart-total-delivery-info',
-            sidebarCouponBlock: '.bx-soa-cart-sidebar-coupon'
+			sidebarCouponBlock: '.bx-soa-cart-sidebar-coupon',
+			favorites: <?= CUtil::PhpToJSObject($arFavorites) ?>
 		});
 	</script>
 	<script>
@@ -688,7 +636,8 @@ if (strlen($request->get('ORDER_ID')) > 0) {
 		// spike: for children of cities we place this prompt
 		$city = \Bitrix\Sale\Location\TypeTable::getList(array('filter' => array('=CODE' => 'CITY'), 'select' => array('ID')))->fetch();
 		?>
-		BX.saleOrderAjax.init(<?= CUtil::PhpToJSObject(array(
+		BX.saleOrderAjax.init(
+			<?= CUtil::PhpToJSObject(array(
 									'source' => $component->getPath() . '/get.php',
 									'cityTypeId' => intval($city['ID']),
 									'messages' => array(

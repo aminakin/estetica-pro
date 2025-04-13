@@ -153,29 +153,13 @@ if (empty($arResult['ERROR_MESSAGE'])) {
 		);
 	}
 
-	if ($arResult['BASKET_ITEM_MAX_COUNT_EXCEEDED']) {
-?>
+	if ($arResult['BASKET_ITEM_MAX_COUNT_EXCEEDED']) {?>
 		<div id="basket-item-message">
 			<?= Loc::getMessage('SBB_BASKET_ITEM_MAX_COUNT_EXCEEDED', array('#PATH#' => $arParams['PATH_TO_BASKET'])) ?>
 		</div>
 	<?
 	}
 	?>
-
-	<?/*div class="personal-basket-header">
-			<div class="personal-basket-header-title">Корзина</div>
-			<div class="container" style="position: relative;">
-				<a class="personal-basket-header-back" href="/">
-					<svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M6.9043 13L1.09588 6.94897" stroke="black" stroke-width="0.75" stroke-linecap="round"></path>
-						<path d="M1.09082 6.87183L6.91308 1.00005" stroke="black" stroke-width="0.75" stroke-linecap="round"></path>
-					</svg>
-				</a>
-			</div>
-		</div*/ ?>
-	<?/*<div class="notification-supercart" id="messageNoKirov" style="display: none !important;">
-		<p>Для минимальной суммы заказа выберите товар еще на <b><span class="minPrice"></span></b> рублей. </p><p>Для бесплатной доставки выберите товар еще на <b><span class="freeDost"></span></b> рублей.</p>
-		</div>*/ ?>
 	<div id="basket-root" class="bx-basket bx-<?= $arParams['TEMPLATE_THEME'] ?> bx-step-opacity" style="opacity: 0;">
 		<?
 		if (
@@ -189,19 +173,6 @@ if (empty($arResult['ERROR_MESSAGE'])) {
 		<?
 		}
 		?>
-
-		<?/*div class="row">
-			<div class="col-xs-12">
-				<div class="alert alert-warning alert-dismissable" id="basket-warning" style="display: none;">
-					<span class="close" data-entity="basket-items-warning-notification-close">&times;</span>
-					<div data-entity="basket-general-warnings"></div>
-					<div data-entity="basket-item-warnings">
-						<?//=Loc::getMessage('SBB_BASKET_ITEM_WARNING'?>
-					</div>
-				</div>
-				<div class="basket-attention"><span>!</span><?//= GetMessage('SBB_AUTENTION');?></div>
-			</div>
-		</div*/ ?>
 
 		<div class="row">
 			<div class="col-xs-12">
@@ -284,298 +255,6 @@ if (empty($arResult['ERROR_MESSAGE'])) {
 		<p>Для минимальной суммы заказа выберите товар еще на <b><span class="minPrice"></span></b> рублей. </p>
 		<p>Для бесплатной доставки выберите товар еще на <b><span class="freeDost"></span></b> рублей.</p>
 	</div>
-	<?/*<div class="our-new-wrap">
-	<div class="our-new">
-		<?= GetMessage('SBB_BASKET_OUR_NEW');*/ ?>
-	<?/*</div>
-	<? $APPLICATION->IncludeComponent(
-                "bitrix:catalog.top",
-                "search",
-                array(
-                    "ACTION_VARIABLE" => "action",
-                    "ADD_PICT_PROP" => "MORE_PHOTO",
-                    "ADD_PROPERTIES_TO_BASKET" => "Y",
-                    "ADD_TO_BASKET_ACTION" => "ADD",
-                    "BASKET_URL" => "/personal/basket.php",
-                    "CACHE_FILTER" => "N",
-                    "CACHE_GROUPS" => "Y",
-                    "CACHE_TIME" => "36000000",
-                    "CACHE_TYPE" => "A",
-                    "COMPARE_NAME" => "CATALOG_COMPARE_LIST",
-                    "COMPATIBLE_MODE" => "Y",
-                    "COMPONENT_TEMPLATE" => "search",
-                    "CONVERT_CURRENCY" => "N",
-                    "CUSTOM_FILTER" => "{\"CLASS_ID\":\"CondGroup\",\"DATA\":{\"All\":\"AND\",\"True\":\"True\"},\"CHILDREN\":[{\"CLASS_ID\":\"CondIBProp:14:133\",\"DATA\":{\"logic\":\"Equal\",\"value\":361}}]}",
-                    "DETAIL_URL" => "",
-                    "DISCOUNT_PERCENT_POSITION" => "bottom-right",
-                    "DISPLAY_COMPARE" => "N",
-                    "ELEMENT_COUNT" => "8",
-                    "ELEMENT_SORT_FIELD" => "shows",
-                    "ELEMENT_SORT_FIELD2" => "shows",
-                    "ELEMENT_SORT_ORDER" => "asc",
-                    "ELEMENT_SORT_ORDER2" => "asc",
-                    "ENLARGE_PRODUCT" => "STRICT",
-                    "FILTER_NAME" => "",
-                    "HIDE_NOT_AVAILABLE" => "Y",
-                    "HIDE_NOT_AVAILABLE_OFFERS" => "Y",
-                    "IBLOCK_ID" => IblockHelper::getIdByCode('catalog'),
-                    "IBLOCK_TYPE" => "catalog",
-                    "LABEL_PROP" => array(
-                    ),
-                    "LABEL_PROP_MOBILE" => "",
-                    "LABEL_PROP_POSITION" => "top-left",
-                    "LINE_ELEMENT_COUNT" => "4",
-                    "MESS_BTN_ADD_TO_BASKET" => "Добавить в корзину",
-                    "MESS_BTN_BUY" => "Купить",
-                    "MESS_BTN_COMPARE" => "Сравнить",
-                    "MESS_BTN_DETAIL" => "Подробнее",
-                    "MESS_NOT_AVAILABLE" => "Нет в наличии",
-                    "MESS_SHOW_MAX_QUANTITY" => "Наличие",
-                    "OFFERS_CART_PROPERTIES" => array(
-                    ),
-                    "OFFERS_FIELD_CODE" => array(
-                        0 => "",
-                        1 => "",
-                    ),
-                    "OFFERS_LIMIT" => "5",
-                    "OFFERS_PROPERTY_CODE" => array(
-                        0 => "IZGIB",
-                        1 => "TOLSHCHINA",
-                        2 => "TSVET_UPAKOVKI",
-                        3 => "DLINA",
-                        4 => "TSVET",
-                        5 => "",
-                    ),
-                    "OFFERS_SORT_FIELD" => "shows",
-                    "OFFERS_SORT_FIELD2" => "shows",
-                    "OFFERS_SORT_ORDER" => "asc",
-                    "OFFERS_SORT_ORDER2" => "asc",
-                    "OFFER_ADD_PICT_PROP" => "-",
-                    "OFFER_TREE_PROPS" => array(
-                        0 => "IZGIB",
-                        1 => "TOLSHCHINA",
-                        2 => "TSVET_UPAKOVKI",
-                        3 => "DLINA",
-                        4 => "TSVET",
-                    ),
-                    "PARTIAL_PRODUCT_PROPERTIES" => "N",
-                    "PRICE_CODE" => array(
-                        0 => "Типовое соглашение с клиентами",
-                    ),
-                    "PRICE_VAT_INCLUDE" => "Y",
-                    "PRODUCT_BLOCKS_ORDER" => "price,quantity,buttons,props,sku,quantityLimit",
-                    "PRODUCT_DISPLAY_MODE" => "Y",
-                    "PRODUCT_ID_VARIABLE" => "id",
-                    "PRODUCT_PROPERTIES" => array(
-                    ),
-                    "PRODUCT_PROPS_VARIABLE" => "prop",
-                    "PRODUCT_QUANTITY_VARIABLE" => "quantity",
-                    "PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false}]",
-                    "PRODUCT_SUBSCRIPTION" => "Y",
-                    "PROPERTY_CODE" => array(
-                        0 => "",
-                        1 => "",
-                    ),
-                    "PROPERTY_CODE_MOBILE" => array(
-                    ),
-                    "ROTATE_TIMER" => "30",
-                    "SECTION_URL" => "",
-                    "SEF_MODE" => "N",
-                    "SHOW_CLOSE_POPUP" => "N",
-                    "SHOW_DISCOUNT_PERCENT" => "Y",
-                    "SHOW_MAX_QUANTITY" => "Y",
-                    "SHOW_OLD_PRICE" => "Y",
-                    "SHOW_PAGINATION" => "Y",
-                    "SHOW_PRICE_COUNT" => "1",
-                    "SHOW_SLIDER" => "Y",
-                    "SLIDER_INTERVAL" => "3000",
-                    "SLIDER_PROGRESS" => "N",
-                    "TEMPLATE_THEME" => "site",
-                    "USE_ENHANCED_ECOMMERCE" => "N",
-                    "USE_PRICE_COUNT" => "N",
-                    "USE_PRODUCT_QUANTITY" => "Y",
-                    "VIEW_MODE" => "SECTION"
-                ),
-                false
-            ); */ ?>
-	<?/*</div>*/ /*?>
-	<div class="popular" data-entity="parent-container">
-		<div class="catalog-block-header" data-entity="header" data-showed="false">
-			Вам может понравиться </div>
-		<div class="detail-section">
-			<?
-			$APPLICATION->IncludeComponent(
-				'bitrix:catalog.section',
-				'detail-page',
-				array(
-					'IBLOCK_TYPE' => 'catalog',
-					'IBLOCK_ID' => '14',
-					'SECTION_ID' => 0,
-					'SECTION_CODE' => 'enigma',
-					'ELEMENT_SORT_FIELD' => 'shows',
-					'ELEMENT_SORT_ORDER' => 'desc',
-					'ELEMENT_SORT_FIELD2' => 'sort',
-					'ELEMENT_SORT_ORDER2' => 'asc',
-					'PROPERTY_CODE' =>
-					array(
-						0 => '',
-						1 => 'ICON',
-						2 => '',
-					),
-					'PROPERTY_CODE_MOBILE' =>
-					array(),
-					'INCLUDE_SUBSECTIONS' => 'A',
-					'BASKET_URL' => '/cart/',
-					'ACTION_VARIABLE' => 'action',
-					'PRODUCT_ID_VARIABLE' => 'id',
-					'SECTION_ID_VARIABLE' => 'SECTION_ID',
-					'PRODUCT_QUANTITY_VARIABLE' => 'quantity',
-					'PRODUCT_PROPS_VARIABLE' => 'prop',
-					'CACHE_TYPE' => 'A',
-					'CACHE_TIME' => '36000000',
-					'CACHE_FILTER' => 'N',
-					'CACHE_GROUPS' => 'Y',
-					'DISPLAY_COMPARE' => 'N',
-					'PRICE_CODE' =>
-					array(
-						0 => 'Типовое соглашение с клиентами',
-					),
-					'USE_PRICE_COUNT' => 'N',
-					'SHOW_PRICE_COUNT' => '1',
-					'PAGE_ELEMENT_COUNT' => 4,
-					'FILTER_IDS' =>
-					array(
-						0 => 53613,
-					),
-					'SET_TITLE' => 'N',
-					'SET_BROWSER_TITLE' => 'N',
-					'SET_META_KEYWORDS' => 'N',
-					'SET_META_DESCRIPTION' => 'N',
-					'SET_LAST_MODIFIED' => 'N',
-					'ADD_SECTIONS_CHAIN' => 'N',
-					'PRICE_VAT_INCLUDE' => 'Y',
-					'USE_PRODUCT_QUANTITY' => 'Y',
-					'ADD_PROPERTIES_TO_BASKET' => 'Y',
-					'PARTIAL_PRODUCT_PROPERTIES' => 'Y',
-					'PRODUCT_PROPERTIES' =>
-					array(),
-					'OFFERS_CART_PROPERTIES' =>
-					array(
-						0 => 'IZGIB',
-						1 => 'TOLSHCHINA',
-						2 => 'TSVET_UPAKOVKI',
-						3 => 'DLINA',
-						4 => 'TSVET',
-						5 => 'TOLSHCHINA_1',
-						6 => 'RAZMER',
-						7 => 'AROMAT',
-					),
-					'OFFERS_FIELD_CODE' =>
-					array(
-						0 => '',
-						1 => '',
-					),
-					'OFFERS_PROPERTY_CODE' =>
-					array(
-						0 => 'IZGIB',
-						1 => 'TOLSHCHINA',
-						2 => 'TSVET_UPAKOVKI',
-						3 => 'DLINA',
-						4 => 'TSVET',
-						5 => 'TOLSHCHINA_1',
-						6 => 'DLINA_1',
-						7 => 'RAZMER',
-						8 => 'AROMAT',
-						9 => 'IRGIB',
-						10 => 'TOLSHINA',
-						11 => '65',
-						12 => '',
-					),
-					'OFFERS_SORT_FIELD' => 'shows',
-					'OFFERS_SORT_ORDER' => 'asc',
-					'OFFERS_SORT_FIELD2' => 'shows',
-					'OFFERS_SORT_ORDER2' => 'asc',
-					'OFFERS_LIMIT' => '0',
-					'SECTION_URL' => '/catalog/#SECTION_CODE#/',
-					'DETAIL_URL' => '/catalog/#SECTION_CODE#/#ELEMENT_CODE#/',
-					'USE_MAIN_ELEMENT_SECTION' => 'N',
-					'CONVERT_CURRENCY' => 'N',
-					'CURRENCY_ID' => '',
-					'HIDE_NOT_AVAILABLE' => 'N',
-					'HIDE_NOT_AVAILABLE_OFFERS' => 'L',
-					'LABEL_PROP' =>
-					array(
-						0 => 'NEW',
-						1 => 'AKTSIONNYY',
-						2 => 'SALE_RESNITSY',
-					),
-					'LABEL_PROP_MOBILE' =>
-					array(
-						0 => 'NEW',
-						1 => 'AKTSIONNYY',
-						2 => 'SALE_RESNITSY',
-					),
-					'LABEL_PROP_POSITION' => 'top-left',
-					'ADD_PICT_PROP' => 'MORE_PHOTO',
-					'PRODUCT_DISPLAY_MODE' => 'Y',
-					'PRODUCT_BLOCKS_ORDER' => 'price,quantityLimit,sku,quantity,buttons,compare,props',
-					'PRODUCT_ROW_VARIANTS' => '[{\'VARIANT\':\'3\',\'BIG_DATA\':false}]',
-					'ENLARGE_PRODUCT' => 'STRICT',
-					'ENLARGE_PROP' => '',
-					'SHOW_SLIDER' => 'N',
-					'SLIDER_INTERVAL' => '3000',
-					'SLIDER_PROGRESS' => 'N',
-					'DISPLAY_TOP_PAGER' => 'N',
-					'DISPLAY_BOTTOM_PAGER' => 'N',
-					'HIDE_SECTION_DESCRIPTION' => 'N',
-					'RCM_TYPE' => 'personal',
-					'RCM_PROD_ID' => 53613,
-					'SHOW_FROM_SECTION' => 'Y',
-					'OFFER_ADD_PICT_PROP' => '-',
-					'OFFER_TREE_PROPS' =>
-					array(
-						0 => 'IZGIB',
-						1 => 'TOLSHCHINA',
-						2 => 'TSVET_UPAKOVKI',
-						3 => 'DLINA',
-						4 => 'TSVET',
-						5 => 'RAZMER',
-						6 => 'AROMAT',
-					),
-					'PRODUCT_SUBSCRIPTION' => 'Y',
-					'SHOW_DISCOUNT_PERCENT' => 'Y',
-					'DISCOUNT_PERCENT_POSITION' => 'bottom-right',
-					'SHOW_OLD_PRICE' => 'Y',
-					'SHOW_MAX_QUANTITY' => 'N',
-					'MESS_SHOW_MAX_QUANTITY' => 'Наличие',
-					'RELATIVE_QUANTITY_FACTOR' => '',
-					'MESS_RELATIVE_QUANTITY_MANY' => '',
-					'MESS_RELATIVE_QUANTITY_FEW' => '',
-					'MESS_BTN_BUY' => 'Купить',
-					'MESS_BTN_ADD_TO_BASKET' => 'В корзину',
-					'MESS_BTN_SUBSCRIBE' => 'Сообщить о поступлении',
-					'MESS_BTN_DETAIL' => 'Подробнее',
-					'MESS_NOT_AVAILABLE' => 'Сообщить о поступлении',
-					'MESS_BTN_COMPARE' => 'Сравнение',
-					'USE_ENHANCED_ECOMMERCE' => 'N',
-					'DATA_LAYER_NAME' => '',
-					'BRAND_PROPERTY' => '',
-					'TEMPLATE_THEME' => 'site',
-					'ADD_TO_BASKET_ACTION' =>
-					array(
-						0 => 'ADD',
-					),
-					'SHOW_CLOSE_POPUP' => 'Y',
-					'COMPARE_PATH' => '/catalog/compare.php?action=#ACTION_CODE#',
-					'COMPARE_NAME' => 'CATALOG_COMPARE_LIST',
-					'BACKGROUND_IMAGE' => '',
-					'DISABLE_INIT_JS_IN_COMPONENT' => 'N',
-				),
-				$component
-			);
-			?>
-		</div>
-	</div*/ ?>
 	<?
 	if (!empty($arResult['CURRENCIES']) && Main\Loader::includeModule('currency')) {
 		CJSCore::Init('currency');
@@ -591,6 +270,10 @@ if (empty($arResult['ERROR_MESSAGE'])) {
 	$signedTemplate = $signer->sign($templateName, 'sale.basket.basket');
 	$signedParams = $signer->sign(base64_encode(serialize($arParams)), 'sale.basket.basket');
 	$messages = Loc::loadLanguageFile(__FILE__);
+
+	$rsUser = CUser::GetByID($USER->GetID());
+    $arUser = $rsUser->Fetch();
+    $arFavorites = $arUser['UF_FAVORITES'];
 	?>
 	<script>
 		BX.message(<?= CUtil::PhpToJSObject($messages) ?>);
@@ -603,7 +286,8 @@ if (empty($arResult['ERROR_MESSAGE'])) {
 			templateFolder: '<?= CUtil::JSEscape($templateFolder) ?>',
 			dotButton: '.basket-items-list-table-inner-block__basket-three-dot-title',
 			shareButton: '.basket-checkout-section-share',
-			dotMenu: '.basket-items-list-table-inner-block__basket-three-dot-menu'
+			dotMenu: '.basket-items-list-table-inner-block__basket-three-dot-menu',
+			favorites: <?= CUtil::PhpToJSObject($arFavorites) ?>,
 		});
 	</script>
 

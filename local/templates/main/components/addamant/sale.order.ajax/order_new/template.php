@@ -3,7 +3,7 @@
 use Bitrix\Main,
 	Bitrix\Main\Localization\Loc;
 
-CJSCore::Init(array('currency')); 
+CJSCore::Init(array('currency'));
 /**
  * @var array $arParams
  * @var array $arResult
@@ -16,22 +16,18 @@ global $USER;
 $context = Main\Application::getInstance()->getContext();
 $request = $context->getRequest();
 
-if (empty($arParams['TEMPLATE_THEME']))
-{
+if (empty($arParams['TEMPLATE_THEME'])) {
 	$arParams['TEMPLATE_THEME'] = Main\ModuleManager::isModuleInstalled('bitrix.eshop') ? 'site' : 'blue';
 }
 
-if ($arParams['TEMPLATE_THEME'] === 'site')
-{
+if ($arParams['TEMPLATE_THEME'] === 'site') {
 	$templateId = Main\Config\Option::get('main', 'wizard_template_id', 'eshop_bootstrap', $component->getSiteId());
 	$templateId = preg_match('/^eshop_adapt/', $templateId) ? 'eshop_adapt' : $templateId;
-	$arParams['TEMPLATE_THEME'] = Main\Config\Option::get('main', 'wizard_'.$templateId.'_theme_id', 'blue', $component->getSiteId());
+	$arParams['TEMPLATE_THEME'] = Main\Config\Option::get('main', 'wizard_' . $templateId . '_theme_id', 'blue', $component->getSiteId());
 }
 
-if (!empty($arParams['TEMPLATE_THEME']))
-{
-	if (!is_file(Main\Application::getDocumentRoot().'/bitrix/css/main/themes/'.$arParams['TEMPLATE_THEME'].'/style.css'))
-	{
+if (!empty($arParams['TEMPLATE_THEME'])) {
+	if (!is_file(Main\Application::getDocumentRoot() . '/bitrix/css/main/themes/' . $arParams['TEMPLATE_THEME'] . '/style.css')) {
 		$arParams['TEMPLATE_THEME'] = 'blue';
 	}
 }
@@ -39,8 +35,7 @@ if (!empty($arParams['TEMPLATE_THEME']))
 $arParams['ALLOW_USER_PROFILES'] = $arParams['ALLOW_USER_PROFILES'] === 'Y' ? 'Y' : 'N';
 $arParams['SKIP_USELESS_BLOCK'] = $arParams['SKIP_USELESS_BLOCK'] === 'N' ? 'N' : 'Y';
 
-if (!isset($arParams['SHOW_ORDER_BUTTON']))
-{
+if (!isset($arParams['SHOW_ORDER_BUTTON'])) {
 	$arParams['SHOW_ORDER_BUTTON'] = 'final_step';
 }
 
@@ -53,8 +48,7 @@ $arParams['SHOW_DELIVERY_INFO_NAME'] = $arParams['SHOW_DELIVERY_INFO_NAME'] === 
 $arParams['SHOW_DELIVERY_PARENT_NAMES'] = $arParams['SHOW_DELIVERY_PARENT_NAMES'] === 'N' ? 'N' : 'Y';
 $arParams['SHOW_STORES_IMAGES'] = $arParams['SHOW_STORES_IMAGES'] === 'N' ? 'N' : 'Y';
 
-if (!isset($arParams['BASKET_POSITION']) || !in_array($arParams['BASKET_POSITION'], array('before', 'after')))
-{
+if (!isset($arParams['BASKET_POSITION']) || !in_array($arParams['BASKET_POSITION'], array('before', 'after'))) {
 	$arParams['BASKET_POSITION'] = 'after';
 }
 
@@ -78,262 +72,214 @@ $arParams['BRAND_PROPERTY'] = isset($arParams['BRAND_PROPERTY']) ? trim($arParam
 
 $useDefaultMessages = !isset($arParams['USE_CUSTOM_MAIN_MESSAGES']) || $arParams['USE_CUSTOM_MAIN_MESSAGES'] != 'Y';
 
-if ($useDefaultMessages || !isset($arParams['MESS_AUTH_BLOCK_NAME']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_AUTH_BLOCK_NAME'])) {
 	$arParams['MESS_AUTH_BLOCK_NAME'] = Loc::getMessage('AUTH_BLOCK_NAME_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_REG_BLOCK_NAME']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_REG_BLOCK_NAME'])) {
 	$arParams['MESS_REG_BLOCK_NAME'] = Loc::getMessage('REG_BLOCK_NAME_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_BASKET_BLOCK_NAME']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_BASKET_BLOCK_NAME'])) {
 	$arParams['MESS_BASKET_BLOCK_NAME'] = Loc::getMessage('BASKET_BLOCK_NAME_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_REGION_BLOCK_NAME']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_REGION_BLOCK_NAME'])) {
 	$arParams['MESS_REGION_BLOCK_NAME'] = Loc::getMessage('REGION_BLOCK_NAME_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_PAYMENT_BLOCK_NAME']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_PAYMENT_BLOCK_NAME'])) {
 	$arParams['MESS_PAYMENT_BLOCK_NAME'] = Loc::getMessage('PAYMENT_BLOCK_NAME_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_DELIVERY_BLOCK_NAME']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_DELIVERY_BLOCK_NAME'])) {
 	$arParams['MESS_DELIVERY_BLOCK_NAME'] = Loc::getMessage('DELIVERY_BLOCK_NAME_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_BUYER_BLOCK_NAME']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_BUYER_BLOCK_NAME'])) {
 	$arParams['MESS_BUYER_BLOCK_NAME'] = Loc::getMessage('BUYER_BLOCK_NAME_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_BACK']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_BACK'])) {
 	$arParams['MESS_BACK'] = Loc::getMessage('BACK_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_FURTHER']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_FURTHER'])) {
 	$arParams['MESS_FURTHER'] = Loc::getMessage('FURTHER_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_EDIT']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_EDIT'])) {
 	$arParams['MESS_EDIT'] = Loc::getMessage('EDIT_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_ORDER']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_ORDER'])) {
 	$arParams['MESS_ORDER'] = $arParams['~MESS_ORDER'] = Loc::getMessage('ORDER_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_PRICE']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_PRICE'])) {
 	$arParams['MESS_PRICE'] = Loc::getMessage('PRICE_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_PERIOD']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_PERIOD'])) {
 	$arParams['MESS_PERIOD'] = Loc::getMessage('PERIOD_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_NAV_BACK']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_NAV_BACK'])) {
 	$arParams['MESS_NAV_BACK'] = Loc::getMessage('NAV_BACK_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_NAV_FORWARD']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_NAV_FORWARD'])) {
 	$arParams['MESS_NAV_FORWARD'] = Loc::getMessage('NAV_FORWARD_DEFAULT');
 }
 
 $useDefaultMessages = !isset($arParams['USE_CUSTOM_ADDITIONAL_MESSAGES']) || $arParams['USE_CUSTOM_ADDITIONAL_MESSAGES'] != 'Y';
 
-if ($useDefaultMessages || !isset($arParams['MESS_PRICE_FREE']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_PRICE_FREE'])) {
 	$arParams['MESS_PRICE_FREE'] = Loc::getMessage('PRICE_FREE_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_ECONOMY']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_ECONOMY'])) {
 	$arParams['MESS_ECONOMY'] = Loc::getMessage('ECONOMY_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_REGISTRATION_REFERENCE']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_REGISTRATION_REFERENCE'])) {
 	$arParams['MESS_REGISTRATION_REFERENCE'] = Loc::getMessage('REGISTRATION_REFERENCE_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_AUTH_REFERENCE_1']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_AUTH_REFERENCE_1'])) {
 	$arParams['MESS_AUTH_REFERENCE_1'] = Loc::getMessage('AUTH_REFERENCE_1_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_AUTH_REFERENCE_2']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_AUTH_REFERENCE_2'])) {
 	$arParams['MESS_AUTH_REFERENCE_2'] = Loc::getMessage('AUTH_REFERENCE_2_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_AUTH_REFERENCE_3']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_AUTH_REFERENCE_3'])) {
 	$arParams['MESS_AUTH_REFERENCE_3'] = Loc::getMessage('AUTH_REFERENCE_3_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_ADDITIONAL_PROPS']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_ADDITIONAL_PROPS'])) {
 	$arParams['MESS_ADDITIONAL_PROPS'] = Loc::getMessage('ADDITIONAL_PROPS_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_USE_COUPON']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_USE_COUPON'])) {
 	$arParams['MESS_USE_COUPON'] = Loc::getMessage('USE_COUPON_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_COUPON']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_COUPON'])) {
 	$arParams['MESS_COUPON'] = Loc::getMessage('COUPON_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_PERSON_TYPE']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_PERSON_TYPE'])) {
 	$arParams['MESS_PERSON_TYPE'] = Loc::getMessage('PERSON_TYPE_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_SELECT_PROFILE']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_SELECT_PROFILE'])) {
 	$arParams['MESS_SELECT_PROFILE'] = Loc::getMessage('SELECT_PROFILE_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_REGION_REFERENCE']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_REGION_REFERENCE'])) {
 	$arParams['MESS_REGION_REFERENCE'] = Loc::getMessage('REGION_REFERENCE_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_PICKUP_LIST']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_PICKUP_LIST'])) {
 	$arParams['MESS_PICKUP_LIST'] = Loc::getMessage('PICKUP_LIST_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_NEAREST_PICKUP_LIST']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_NEAREST_PICKUP_LIST'])) {
 	$arParams['MESS_NEAREST_PICKUP_LIST'] = Loc::getMessage('NEAREST_PICKUP_LIST_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_SELECT_PICKUP']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_SELECT_PICKUP'])) {
 	$arParams['MESS_SELECT_PICKUP'] = Loc::getMessage('SELECT_PICKUP_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_INNER_PS_BALANCE']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_INNER_PS_BALANCE'])) {
 	$arParams['MESS_INNER_PS_BALANCE'] = Loc::getMessage('INNER_PS_BALANCE_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_ORDER_DESC']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_ORDER_DESC'])) {
 	$arParams['MESS_ORDER_DESC'] = Loc::getMessage('ORDER_DESC_DEFAULT');
 }
 
 $useDefaultMessages = !isset($arParams['USE_CUSTOM_ERROR_MESSAGES']) || $arParams['USE_CUSTOM_ERROR_MESSAGES'] != 'Y';
 
-if ($useDefaultMessages || !isset($arParams['MESS_PRELOAD_ORDER_TITLE']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_PRELOAD_ORDER_TITLE'])) {
 	$arParams['MESS_PRELOAD_ORDER_TITLE'] = Loc::getMessage('PRELOAD_ORDER_TITLE_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_SUCCESS_PRELOAD_TEXT']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_SUCCESS_PRELOAD_TEXT'])) {
 	$arParams['MESS_SUCCESS_PRELOAD_TEXT'] = Loc::getMessage('SUCCESS_PRELOAD_TEXT_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_FAIL_PRELOAD_TEXT']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_FAIL_PRELOAD_TEXT'])) {
 	$arParams['MESS_FAIL_PRELOAD_TEXT'] = Loc::getMessage('FAIL_PRELOAD_TEXT_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_DELIVERY_CALC_ERROR_TITLE']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_DELIVERY_CALC_ERROR_TITLE'])) {
 	$arParams['MESS_DELIVERY_CALC_ERROR_TITLE'] = Loc::getMessage('DELIVERY_CALC_ERROR_TITLE_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_DELIVERY_CALC_ERROR_TEXT']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_DELIVERY_CALC_ERROR_TEXT'])) {
 	$arParams['MESS_DELIVERY_CALC_ERROR_TEXT'] = Loc::getMessage('DELIVERY_CALC_ERROR_TEXT_DEFAULT');
 }
 
-if ($useDefaultMessages || !isset($arParams['MESS_PAY_SYSTEM_PAYABLE_ERROR']))
-{
+if ($useDefaultMessages || !isset($arParams['MESS_PAY_SYSTEM_PAYABLE_ERROR'])) {
 	$arParams['MESS_PAY_SYSTEM_PAYABLE_ERROR'] = Loc::getMessage('PAY_SYSTEM_PAYABLE_ERROR_DEFAULT');
 }
 
 $scheme = $request->isHttps() ? 'https' : 'http';
 
-switch (LANGUAGE_ID)
-{
+switch (LANGUAGE_ID) {
 	case 'ru':
-		$locale = 'ru-RU'; break;
+		$locale = 'ru-RU';
+		break;
 	case 'ua':
-		$locale = 'ru-UA'; break;
+		$locale = 'ru-UA';
+		break;
 	case 'tk':
-		$locale = 'tr-TR'; break;
+		$locale = 'tr-TR';
+		break;
 	default:
-		$locale = 'en-US'; break;
+		$locale = 'en-US';
+		break;
 }
 
 $this->addExternalCss('/bitrix/css/main/bootstrap.css');
-$APPLICATION->SetAdditionalCSS('/bitrix/css/main/themes/'.$arParams['TEMPLATE_THEME'].'/style.css', true);
-$APPLICATION->SetAdditionalCSS($templateFolder.'/style.css', true);
-$this->addExternalJs($templateFolder.'/order_ajax.js');
+$APPLICATION->SetAdditionalCSS('/bitrix/css/main/themes/' . $arParams['TEMPLATE_THEME'] . '/style.css', true);
+$APPLICATION->SetAdditionalCSS($templateFolder . '/style.css', true);
+$this->addExternalJs($templateFolder . '/order_ajax.js');
 \Bitrix\Sale\PropertyValueCollection::initJs();
-$this->addExternalJs($templateFolder.'/script.js');
+$this->addExternalJs($templateFolder . '/script.js');
 ?>
-	<NOSCRIPT>
-		<div style="color:red"><?=Loc::getMessage('SOA_NO_JS')?></div>
-	</NOSCRIPT>
+<NOSCRIPT>
+	<div style="color:red"><?= Loc::getMessage('SOA_NO_JS') ?></div>
+</NOSCRIPT>
 <?
 
-if (strlen($request->get('ORDER_ID')) > 0)
-{
-	include(Main\Application::getDocumentRoot().$templateFolder.'/confirm.php');
-}
-elseif ($arParams['DISABLE_BASKET_REDIRECT'] === 'Y' && $arResult['SHOW_EMPTY_BASKET'])
-{
-	include(Main\Application::getDocumentRoot().$templateFolder.'/empty.php');
-}
-else
-{
-
-//    if((new CUser)->IsAdmin()){
-//        if ($arResult['ORDER_TOTAL_PRICE'] < 10000){
-//            ?><!--<h2-->
-<!--            style="background: #EBCFD5; color: #fff; padding: 15px 0"-->
-<!--            >Выберите товары еще на --><?//=(10000 - $arResult['ORDER_TOTAL_PRICE'])?><!-- рублей, чтобы получить бесплатную доставку Почтой России.</h2>--><?php
-//        }
-//    }
-
+if (strlen($request->get('ORDER_ID')) > 0) {
+	include(Main\Application::getDocumentRoot() . $templateFolder . '/confirm.php');
+} elseif ($arParams['DISABLE_BASKET_REDIRECT'] === 'Y' && $arResult['SHOW_EMPTY_BASKET']) {
+	include(Main\Application::getDocumentRoot() . $templateFolder . '/empty.php');
+} else {
 	$hideDelivery = empty($arResult['DELIVERY']);
-	?>
-	<form action="<?=POST_FORM_ACTION_URI?>" method="POST" name="ORDER_FORM" id="bx-soa-order-form" enctype="multipart/form-data">
+?>
+	<form action="<?= POST_FORM_ACTION_URI ?>" method="POST" name="ORDER_FORM" id="bx-soa-order-form" enctype="multipart/form-data">
 		<?
 		echo bitrix_sessid_post();
 
-		if (strlen($arResult['PREPAY_ADIT_FIELDS']) > 0)
-		{
+		if (strlen($arResult['PREPAY_ADIT_FIELDS']) > 0) {
 			echo $arResult['PREPAY_ADIT_FIELDS'];
 		}
 		?>
-		<input type="hidden" name="<?=$arParams['ACTION_VARIABLE']?>" value="saveOrderAjax">
+		<input type="hidden" name="<?= $arParams['ACTION_VARIABLE'] ?>" value="saveOrderAjax">
 		<input type="hidden" name="location_type" value="code">
-		<input type="hidden" name="BUYER_STORE" id="BUYER_STORE" value="<?=$arResult['BUYER_STORE']?>">
-		<div id="bx-soa-order" class="row bx-<?=$arParams['TEMPLATE_THEME']?> <? if($USER->IsAdmin()){echo "isAdmin";}?>" style="opacity: 0">
+		<input type="hidden" name="BUYER_STORE" id="BUYER_STORE" value="<?= $arResult['BUYER_STORE'] ?>">
+		<div id="bx-soa-order" class="bx-<?= $arParams['TEMPLATE_THEME'] ?> <? if ($USER->IsAdmin()) {
+																				echo "isAdmin";
+																			} ?>" style="opacity: 0">
 			<!--	MAIN BLOCK	-->
-			<div class="col-md-8 bx-soa">
+			<div class="bx-soa">
 				<div id="bx-soa-main-notifications">
 					<div class="alert alert-danger" style="display:none"></div>
 					<div data-type="informer" style="display:none"></div>
@@ -341,172 +287,163 @@ else
 				<!--	AUTH BLOCK	-->
 				<div id="bx-soa-auth" class="bx-soa-section bx-soa-auth" style="display:none">
 					<div class="bx-soa-section-title-container">
-						<h2 class="bx-soa-section-title">
-							<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_CONTACT_INFO');?>
-						</h2>
+						<div class="bx-soa-section-title major-title-pages">
+							<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_CONTACT_INFO'); ?>
+						</div>
 					</div>
 					<div class="bx-soa-section-content container-fluid"></div>
 				</div>
-
-				<!--	DUPLICATE MOBILE ORDER SAVE BLOCK	-->
-				<div id="bx-soa-total-mobile" style="margin-bottom: 6px;"></div>
 
 				<? if ($arParams['BASKET_POSITION'] === 'before'): ?>
 					<!--	BASKET ITEMS BLOCK	-->
 					<div id="bx-soa-basket" data-visited="false" class="bx-soa-section bx-active">
 						<div class="bx-soa-section-title-container">
-							<h2 class="bx-soa-section-title">
-								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_CONTACT_INFO');?>
-							</h2>
-							<div class="col-xs-12 col-sm-3 text-right"><a href="javascript:void(0)" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
+							<div class="col-xs-12 col-sm-3 text-right"><a href="javascript:void(0)" class="bx-soa-editstep"><?= $arParams['MESS_EDIT'] ?></a></div>
 						</div>
 						<div class="bx-soa-section-content container-fluid"></div>
 					</div>
 				<? endif ?>
 
-                <!--	BUYER PROPS BLOCK	-->
-                <div id="bx-soa-properties" data-visited="false" class="bx-soa-section bx-active">
-                    <div class="bx-soa-section-title-container">
-                        <h2 class="bx-soa-section-title">
-                            <span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_CONTACT_INFO');?>
-                        </h2>
-                        <div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
-                    </div>
-                    <div class="bx-soa-section-content container-fluid"></div>
-                    <?if ($USER->IsAuthorized()){?>
-                    	<div class="auth-block bonus-cart"><?= Loc::getMessage('SBB_BONUS_CART_OK');?></div>
-                    <?}else{?>
-                    	<div class="auth-block need-auth"><?= Loc::getMessage('SBB_PLEASE_AUTH');?></div>
-                    <?}?>
-                </div>
+				<!--	BUYER PROPS BLOCK	-->
+				<div id="bx-soa-properties" data-visited="false" class="bx-soa-section bx-active">
+					<div class="bx-soa-section-title-container">
+						<div class="bx-soa-section-title major-title-pages">
+							<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_CONTACT_INFO'); ?>
+						</div>
+						
+					</div>
+					<div class="bx-soa-section-content container-fluid"></div>
+				</div>
 
 				<? if ($arParams['DELIVERY_TO_PAYSYSTEM'] === 'p2d'): ?>
 					<!--	PAY SYSTEMS BLOCK	-->
 					<div id="bx-soa-paysystem" data-visited="false" class="bx-soa-section bx-active">
 						<div class="bx-soa-section-title-container">
-							<h2 class="bx-soa-section-title">
-								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_PAYMENT');?>
-							</h2>
-							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
+							<div class="bx-soa-section-title major-title-pages">
+								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_PAYMENT'); ?>
+							</div>
+							
 						</div>
 						<div class="bx-soa-section-content container-fluid"></div>
 					</div>
 
 					<!--	REGION BLOCK	-->
-                    <div id="bx-soa-region" data-visited="false" class="bx-soa-section bx-active">
-                        <div class="bx-soa-section-title-container">
-                            <h2 class="bx-soa-section-title">
-                                <span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_ADRESS');?>
-                            </h2>
-                            <div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
-                        </div>
-                        <div class="bx-soa-section-content">
-
-                        </div>
-                    </div>
-
-                    <!--	DELIVERY BLOCK	-->
-					<div id="bx-soa-delivery" data-visited="false" class="bx-soa-section bx-active" <?=($hideDelivery ? 'style="display:none"' : '')?>>
+					<div id="bx-soa-region" data-visited="false" class="bx-soa-section bx-active">
 						<div class="bx-soa-section-title-container">
-							<h2 class="bx-soa-section-title">
-								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_DELIVERY');?>
-							</h2>
-							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
+							<div class="bx-soa-section-title major-title-pages">
+								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_ADRESS'); ?>
+							</div>
+							
+						</div>
+						<div class="bx-soa-section-content">
+
+						</div>
+					</div>
+
+					<!--	DELIVERY BLOCK	-->
+					<div id="bx-soa-delivery" data-visited="false" class="bx-soa-section bx-active" <?= ($hideDelivery ? 'style="display:none"' : '') ?>>
+						<div class="bx-soa-section-title-container">
+							<div class="bx-soa-section-title major-title-pages">
+								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_DELIVERY'); ?>
+							</div>
+							
 						</div>
 						<div class="bx-soa-section-content container-fluid"></div>
 					</div>
 
+					<div class="bx-soa-cart-total-delivery-info sidebar"></div>
+
 					<!--	PICKUP BLOCK	-->
 					<div id="bx-soa-pickup" data-visited="false" class="bx-soa-section" style="display:none">
 						<div class="bx-soa-section-title-container">
-							<h2 class="bx-soa-section-title">
+							<div class="bx-soa-section-title major-title-pages">
 								<span class="bx-soa-section-title-count"></span>
-							</h2>
-							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
+							</div>
+							
 						</div>
 						<div class="bx-soa-section-content container-fluid"></div>
 					</div>
 				<? else: ?>
-					
+
 					<!--	PICKUP BLOCK	-->
 					<div id="bx-soa-pickup" data-visited="false" class="bx-soa-section" style="display:none">
 						<div class="bx-soa-section-title-container">
-							<h2 class="bx-soa-section-title">
+							<div class="bx-soa-section-title major-title-pages">
 								<span class="bx-soa-section-title-count"></span>
-							</h2>
-							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
+							</div>
+							
 						</div>
 						<div class="bx-soa-section-content container-fluid"></div>
 					</div>
 
-					<!--	REGION BLOCK	-->
-                    <div id="bx-soa-region" data-visited="false" class="bx-soa-section bx-active">
-                        <div class="bx-soa-section-title-container">
-                            <h2 class="bx-soa-section-title">
-                                <span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_ADRESS');?>
-                            </h2>
-                            <div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
-                        </div>
-                        <div class="bx-soa-section-content"></div>
-                    </div>
+
 
 					<!--	DELIVERY BLOCK	-->
-					<div id="bx-soa-delivery" data-visited="false" class="bx-soa-section bx-active" <?=($hideDelivery ? 'style="display:none"' : '')?>>
+					<div id="bx-soa-delivery" data-visited="false" class="bx-soa-section bx-active" <?= ($hideDelivery ? 'style="display:none"' : '') ?>>
 						<div class="bx-soa-section-title-container">
-							<h2 class="bx-soa-section-title">
-								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_DELIVERY');?>
-							</h2>
-							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
+							<div class="bx-soa-section-title major-title-pages">
+								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_DELIVERY'); ?>
+							</div>
+							
 						</div>
 						<div class="bx-soa-section-content container-fluid"></div>
 					</div>
 
-                    <!--	PAY SYSTEMS BLOCK	-->
+					<div class="bx-soa-cart-total-delivery-info sidebar"></div>
+
+					<!--	REGION BLOCK	-->
+					<div id="bx-soa-region" data-visited="false" class="bx-soa-section bx-active">
+						<div class="bx-soa-section-title-container">
+							<div class="bx-soa-section-title major-title-pages">
+								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_ADRESS'); ?>
+							</div>
+							
+						</div>
+						<div class="bx-soa-section-content"></div>
+					</div>
+
+					<!--	PAY SYSTEMS BLOCK	-->
 					<div id="bx-soa-paysystem" data-visited="false" class="bx-soa-section bx-active">
 						<div class="bx-soa-section-title-container">
-							<h2 class="bx-soa-section-title">
-								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_PAYMENT');?>
-							</h2>
-							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
+							<div class="bx-soa-section-title major-title-pages">
+								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_PAYMENT'); ?>
+							</div>
+							
 						</div>
 						<div class="bx-soa-section-content container-fluid"></div>
 					</div>
 				<? endif ?>
 
 
-                <div class="bx-soa-comment bx-soa-section">
-                    <div class="bx-soa-section-title-container">
-                        <h2 class="bx-soa-section-title"> <?=Loc::getMessage('SOA_COMMENT')?></h2>
+				<div class="bx-soa-comment bx-soa-section">
+					<div class="bx-soa-section-title-container">
+						<div class="bx-soa-section-title major-title-pages"> <?= Loc::getMessage('SOA_COMMENT') ?></div>
 
-                        <div id="bx-soa-comment">
+						<div id="bx-soa-comment">
 
-                        </div>
-                    </div>
-                </div>
+						</div>
+					</div>
+				</div>
 
-                <div id="bx-soa-manager-call">
+				<div id="bx-soa-manager-call">
 
-                </div>
+				</div>
 
 				<? if ($arParams['BASKET_POSITION'] === 'after'): ?>
 					<!--	BASKET ITEMS BLOCK	-->
 					<div id="bx-soa-basket" data-visited="false" class="bx-soa-section bx-active">
 						<div class="bx-soa-section-title-container">
-							<h2 class="bx-soa-section-title">
-								<span class="bx-soa-section-title-count"></span><?= Loc::getMessage('SOA_YOUR_PRODUCT');?>
-							</h2>
-							<div class="col-xs-12 col-sm-3 text-right"><a href="javascript:void(0)" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
+							<div class="col-xs-12 col-sm-3 text-right"><a href="javascript:void(0)" class="bx-soa-editstep"><?= $arParams['MESS_EDIT'] ?></a></div>
 						</div>
 						<div class="bx-soa-section-content container-fluid"></div>
 					</div>
 				<? endif ?>
 
-                <!--	ORDER SAVE BLOCK	-->
+				<!--	ORDER SAVE BLOCK	-->
 				<div id="bx-soa-orderSave">
 					<div class="checkbox">
 						<?
-						if ($arParams['USER_CONSENT'] === 'Y')
-						{
+						if ($arParams['USER_CONSENT'] === 'Y') {
 							$APPLICATION->IncludeComponent(
 								'bitrix:main.userconsent.request',
 								'',
@@ -526,7 +463,7 @@ else
 						?>
 					</div>
 					<a href="javascript:void(0)" style="margin: 10px 0" class="pull-right btn btn-default btn-lg hidden-xs hidden-sm hidden-md hidden-lg" data-save-button="true">
-						<?=$arParams['MESS_ORDER']?>
+						<?= $arParams['MESS_ORDER'] ?>
 					</a>
 				</div>
 
@@ -544,88 +481,52 @@ else
 			</div>
 
 			<!--	SIDEBAR BLOCK	-->
-			<div id="bx-soa-total" class="col-md-4 bx-soa-sidebar">
-                <? //-------LOGICTIM BONUS FEILD-------//
+			<div id="bx-soa-total" class="bx-soa-sidebar">
+				<div class="bx-soa-cart-total-ghost"></div>
+				<div class="bx-soa-cart-total-wrap">
+					<div class="bx-soa-cart-total">
 
-                if(isset($arResult["PAY_BONUS"]) && $arResult["PAY_BONUS"] >= 0) {
-                    $arResult["PAY_BONUS"] = round($arResult["PAY_BONUS"]);
-                    ?>
-                    <div class="" id="bonus_payment_block">
-                        <div class="bonus_comment bx-soa-section">
-                            <?/*div class="bx-soa-section-title-container">
-                                <h2 class="bx-soa-section-title">
-								<!-- <span class="bx-soa-section-title-count"></span>-->
-                                    
-                                    <?= \Bitrix\Main\Localization\Loc::getMessage('SOA_YOUR_BONUS');?>
-                                </h2>
-                            </div*/?>
-                            <div class="bx-soa-section-content container-fluid bonus-opened">
+					</div>
+					<? //-------LOGICTIM BONUS FEILD-------//
+					if (isset($arResult["PAY_BONUS"]) && $arResult["PAY_BONUS"] >= 0) {
+						$arResult["PAY_BONUS"] = round($arResult["PAY_BONUS"]); ?>
+						<div class="" id="bonus_payment_block">
+							<div class="bonus_comment">
+								<div class="bx-soa-section-content container-fluid bonus-opened">
 									<div class="user_bonus">
-										<?= Loc::getMessage('SOA_YOUR_BONUS_TEXT', array('#NUM#' => $arResult['USER_BONUS']));?>
-										
-									<?//=COption::GetOptionString("logictim.balls", "CAN_BONUS_TEXT", 'Can use bonus')?>
-
-                                        <?/* if($arResult["MIN_BONUS"] > 0 || $arResult["MAX_BONUS"] > 0) {?>
-                                            (
-                                            <?	if($arResult["MIN_BONUS"] > 0) {
-                                                echo COption::GetOptionString("logictim.balls", "MIN_BONUS_TEXT", 'Min use bonus').$arResult["MIN_BONUS"];
-                                            }
-                                            if($arResult["MIN_BONUS"] > 0 && $arResult["MAX_BONUS"] > 0) {
-                                                echo ', ';
-                                            }
-                                            if($arResult["MAX_BONUS"] > 0) {
-                                                echo COption::GetOptionString("logictim.balls", "MAX_BONUS_TEXT", 'Max use bonus').$arResult["MAX_BONUS"];
-                                            }?>
-                                            )
-                                        <? }*/ ?>
+										<?= Loc::getMessage('SOA_YOUR_BONUS_TEXT', array('#NUM#' => $arResult['USER_BONUS'])); ?>
 									</div>
+									<div class="" id="bonus_payfield_block">
+										<input type="number" onchange="BX.Sale.OrderAjaxComponent.sendRequest();" maxlength="250" size="0" value="<?= $arResult["PAY_BONUS"] ?>" name="ORDER_PROP_<?= $arResult["ORDER_PROP_PAYMENT_BONUS_ID"] ?>" id="LOGICTIM_PAYMENT_BONUS" max="<?= $arResult["MAX_BONUS"] ?>">
+									</div>
+									<div class="bonus-max">
+										<? if ($arResult["MAX_BONUS"] > 0) {
+											echo Loc::getMessage('SOA_MAX_BONUS_TEXT', array('#NUM#' => $arResult['MAX_BONUS']));
+										} ?>
+									</div>
+									<div class="bonus-accept" onclick="BX.Sale.OrderAjaxComponent.sendRequest();"><?= Loc::getMessage('SOA_BONUS_LEFT'); ?></div>
+								</div>
 
-                                <div class="" id="bonus_payfield_block">
- 								<!--  <strong>--><?//=COption::GetOptionString("logictim.balls", "PAY_BONUS_TEXT", 'Pay from bonus')?><!--</strong>-->
-                                    <input   type="number" onchange="BX.Sale.OrderAjaxComponent.sendRequest();" maxlength="250" size="0" value="<?=$arResult["PAY_BONUS"]?>" name="ORDER_PROP_<?=$arResult["ORDER_PROP_PAYMENT_BONUS_ID"]?>" id="LOGICTIM_PAYMENT_BONUS" max="<?=$arResult["MAX_BONUS"]?>">
-                                    <span class="btn btn-default" onclick="BX.Sale.OrderAjaxComponent.sendRequest();"><?= Loc::getMessage('SOA_BONUS_LEFT');?></span>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                    </div>
-                <? }
-                //-------LOGICTIM BONUS FEILD-------//?>
-
-
-                <div class="bx-soa-cart-total-ghost"></div>
-                <div class="bx-soa-cart-total-wrap bx-soa-section">
-                	<h2 class="bx-soa-section-title"><?= Loc::getMessage('SOA_YOUR_ORDER') ?></h2>
-				<div class="bx-soa-cart-total">
-					
-				</div>
-				</div>
-				<div class="checkout-container delivery" data-entity="basket-checkout-aligner">
-					<a href="/delivery/">
-						<img src="/local/templates/main/components/bitrix/sale.order.ajax/order_new/images/bag.svg">
-						<?= Loc::getMessage('SBB_BASKET_DEVILERY_INFO') ?>
-					</a>
-				</div>
-				<div class="checkout-container bonus" data-entity="basket-checkout-aligner">
-					<a href="/bonus-system/">
-						<img src="/local/templates/main/components/bitrix/sale.order.ajax/order_new/images/info.svg">
-						<?= Loc::getMessage('SBB_BASKET_BONUS_INFO') ?>
-					</a>
+							</div>
+						<? } //-------LOGICTIM BONUS FEILD-------//
+						?>
+						<div class="bx-soa-cart-sidebar-coupon"></div>
+						</div>
+						<div class="checkout-container delivery" data-entity="basket-checkout-aligner">
+							<a href="/delivery/">
+								<?= Loc::getMessage('SBB_BASKET_DEVILERY_INFO') ?>
+								<?= classBuildSCG::buildSVG('arrow', $templateFolder."/images" );?>
+							</a>
+						</div>
+						<div class="checkout-container bonus" data-entity="basket-checkout-aligner">
+							<a href="/bonus-system/">
+								<?= Loc::getMessage('SBB_BASKET_BONUS_INFO') ?>
+								<?= classBuildSCG::buildSVG('arrow', $templateFolder."/images" );?>
+							</a>
+						</div>
 				</div>
 			</div>
-		</div>
 	</form>
-	<?/*if ($USER->IsAdmin()){?>
-		<div class="info-online-pay-popup">
-			<div class="pay-popup-close">
-				<img src="/images/close-delivery.png">
-			</div>
-			Пожалуйста, перед оплатой заказа отключите VPN!
-		</div>
-		<div class="pay-popup-shadow"></div>
-	<?}*/?>					
 	<div id="bx-soa-saved-files" style="display:none"></div>
 	<div id="bx-soa-soc-auth-services" style="display:none">
 		<?
@@ -636,16 +537,14 @@ else
 		if (Main\ModuleManager::isModuleInstalled('intranet') || Main\ModuleManager::isModuleInstalled('rest'))
 			$arResult['FOR_INTRANET'] = true;
 
-		if (Main\Loader::includeModule('socialservices') && $arResult['ALLOW_SOCSERV_AUTHORIZATION'] === 'Y')
-		{
+		if (Main\Loader::includeModule('socialservices') && $arResult['ALLOW_SOCSERV_AUTHORIZATION'] === 'Y') {
 			$oAuthManager = new CSocServAuthManager();
 			$arServices = $oAuthManager->GetActiveAuthServices(array(
 				'BACKURL' => $this->arParams['~CURRENT_PAGE'],
 				'FOR_INTRANET' => $arResult['FOR_INTRANET'],
 			));
 
-			if (!empty($arServices))
-			{
+			if (!empty($arServices)) {
 				$APPLICATION->IncludeComponent(
 					'bitrix:socserv.auth.form',
 					'flat',
@@ -683,17 +582,21 @@ else
 	$signer = new Main\Security\Sign\Signer;
 	$signedParams = $signer->sign(base64_encode(serialize($arParams)), 'sale.order.ajax');
 	$messages = Loc::loadLanguageFile(__FILE__);
+
+    $rsUser = CUser::GetByID($USER->GetID());
+    $arUser = $rsUser->Fetch();
+    $arFavorites = $arUser['UF_FAVORITES'];
 	?>
 	<script>
-		BX.message(<?=CUtil::PhpToJSObject($messages)?>);
+		BX.message(<?= CUtil::PhpToJSObject($messages) ?>);
 		BX.Sale.OrderAjaxComponent.init({
-			result: <?=CUtil::PhpToJSObject($arResult['JS_DATA'])?>,
-			locations: <?=CUtil::PhpToJSObject($arResult['LOCATIONS'])?>,
-			params: <?=CUtil::PhpToJSObject($arParams)?>,
-			signedParamsString: '<?=CUtil::JSEscape($signedParams)?>',
-			siteID: '<?=CUtil::JSEscape($component->getSiteId())?>',
-			ajaxUrl: '<?=CUtil::JSEscape($component->getPath().'/ajax.php')?>',
-			templateFolder: '<?=CUtil::JSEscape($templateFolder)?>',
+			result: <?= CUtil::PhpToJSObject($arResult['JS_DATA']) ?>,
+			locations: <?= CUtil::PhpToJSObject($arResult['LOCATIONS']) ?>,
+			params: <?= CUtil::PhpToJSObject($arParams) ?>,
+			signedParamsString: '<?= CUtil::JSEscape($signedParams) ?>',
+			siteID: '<?= CUtil::JSEscape($component->getSiteId()) ?>',
+			ajaxUrl: '<?= CUtil::JSEscape($component->getPath() . '/ajax.php') ?>',
+			templateFolder: '<?= CUtil::JSEscape($templateFolder) ?>',
 			propertyValidation: true,
 			showWarnings: true,
 			pickUpMap: {
@@ -722,7 +625,10 @@ else
 			deliveryBlockId: 'bx-soa-delivery',
 			pickUpBlockId: 'bx-soa-pickup',
 			propsBlockId: 'bx-soa-properties',
-			totalBlockId: 'bx-soa-total'
+			totalBlockId: 'bx-soa-total',
+			totalBlockCartWrap: '.bx-soa-cart-total-delivery-info',
+			sidebarCouponBlock: '.bx-soa-cart-sidebar-coupon',
+			favorites: <?= CUtil::PhpToJSObject($arFavorites) ?>
 		});
 	</script>
 	<script>
@@ -730,85 +636,83 @@ else
 		// spike: for children of cities we place this prompt
 		$city = \Bitrix\Sale\Location\TypeTable::getList(array('filter' => array('=CODE' => 'CITY'), 'select' => array('ID')))->fetch();
 		?>
-		BX.saleOrderAjax.init(<?=CUtil::PhpToJSObject(array(
-			'source' => $component->getPath().'/get.php',
-			'cityTypeId' => intval($city['ID']),
-			'messages' => array(
-				'otherLocation' => '--- '.Loc::getMessage('SOA_OTHER_LOCATION'),
-				'moreInfoLocation' => '--- '.Loc::getMessage('SOA_NOT_SELECTED_ALT'), // spike: for children of cities we place this prompt
-				'notFoundPrompt' => '<div class="-bx-popup-special-prompt">'.Loc::getMessage('SOA_LOCATION_NOT_FOUND').'.<br />'.Loc::getMessage('SOA_LOCATION_NOT_FOUND_PROMPT', array(
-						'#ANCHOR#' => '<a href="javascript:void(0)" class="-bx-popup-set-mode-add-loc">',
-						'#ANCHOR_END#' => '</a>'
-					)).'</div>'
-			)
-		))?>);
+		BX.saleOrderAjax.init(
+			<?= CUtil::PhpToJSObject(array(
+									'source' => $component->getPath() . '/get.php',
+									'cityTypeId' => intval($city['ID']),
+									'messages' => array(
+										'otherLocation' => '--- ' . Loc::getMessage('SOA_OTHER_LOCATION'),
+										'moreInfoLocation' => '--- ' . Loc::getMessage('SOA_NOT_SELECTED_ALT'), // spike: for children of cities we place this prompt
+										'notFoundPrompt' => '<div class="-bx-popup-special-prompt">' . Loc::getMessage('SOA_LOCATION_NOT_FOUND') . '.<br />' . Loc::getMessage('SOA_LOCATION_NOT_FOUND_PROMPT', array(
+											'#ANCHOR#' => '<a href="javascript:void(0)" class="-bx-popup-set-mode-add-loc">',
+											'#ANCHOR_END#' => '</a>'
+										)) . '</div>'
+									)
+								)) ?>);
 	</script>
 	<?
-	if ($arParams['SHOW_PICKUP_MAP'] === 'Y' || $arParams['SHOW_MAP_IN_PROPS'] === 'Y')
-	{
-		if ($arParams['PICKUP_MAP_TYPE'] === 'yandex')
-		{
-			$this->addExternalJs($templateFolder.'/scripts/yandex_maps.js');
-			?>
-			<script src="<?=$scheme?>://api-maps.yandex.ru/2.1.50/?load=package.full&lang=<?=$locale?>"></script>
+	if ($arParams['SHOW_PICKUP_MAP'] === 'Y' || $arParams['SHOW_MAP_IN_PROPS'] === 'Y') {
+		if ($arParams['PICKUP_MAP_TYPE'] === 'yandex') {
+			$this->addExternalJs($templateFolder . '/scripts/yandex_maps.js');
+	?>
+			<script src="<?= $scheme ?>://api-maps.yandex.ru/2.1.50/?load=package.full&lang=<?= $locale ?>"></script>
 			<script>
-				(function bx_ymaps_waiter(){
+				(function bx_ymaps_waiter() {
 					if (typeof ymaps !== 'undefined' && BX.Sale && BX.Sale.OrderAjaxComponent)
 						ymaps.ready(BX.proxy(BX.Sale.OrderAjaxComponent.initMaps, BX.Sale.OrderAjaxComponent));
 					else
 						setTimeout(bx_ymaps_waiter, 100);
 				})();
 			</script>
-			<?
+		<?
 		}
 
-		if ($arParams['PICKUP_MAP_TYPE'] === 'google')
-		{
-			$this->addExternalJs($templateFolder.'/scripts/google_maps.js');
+		if ($arParams['PICKUP_MAP_TYPE'] === 'google') {
+			$this->addExternalJs($templateFolder . '/scripts/google_maps.js');
 			$apiKey = htmlspecialcharsbx(Main\Config\Option::get('fileman', 'google_map_api_key', ''));
-			?>
+		?>
 			<script async defer
-				src="<?=$scheme?>://maps.googleapis.com/maps/api/js?key=<?=$apiKey?>&callback=bx_gmaps_waiter">
+				src="<?= $scheme ?>://maps.googleapis.com/maps/api/js?key=<?= $apiKey ?>&callback=bx_gmaps_waiter">
 			</script>
 			<script>
-				function bx_gmaps_waiter()
-				{
+				function bx_gmaps_waiter() {
 					if (BX.Sale && BX.Sale.OrderAjaxComponent)
 						BX.Sale.OrderAjaxComponent.initMaps();
 					else
 						setTimeout(bx_gmaps_waiter, 100);
 				}
 			</script>
-			<?
+		<?
 		}
 	}
 
-	if ($arParams['USE_YM_GOALS'] === 'Y')
-	{
+	if ($arParams['USE_YM_GOALS'] === 'Y') {
 		?>
 		<script>
-			(function bx_counter_waiter(i){
+			(function bx_counter_waiter(i) {
 				i = i || 0;
 				if (i > 50)
 					return;
 
-				if (typeof window['yaCounter<?=$arParams['YM_GOALS_COUNTER']?>'] !== 'undefined')
+				if (typeof window['yaCounter<?= $arParams['YM_GOALS_COUNTER'] ?>'] !== 'undefined')
 					BX.Sale.OrderAjaxComponent.reachGoal('initialization');
 				else
-					setTimeout(function(){bx_counter_waiter(++i)}, 100);
+					setTimeout(function() {
+						bx_counter_waiter(++i)
+					}, 100);
 			})();
 		</script>
-		<?
+	<?
 	}
 }
-if ($USER->IsAuthorized()){?>
+if ($USER->IsAuthorized()) { ?>
 	<script type="text/javascript">
 		$('#soa-property-43').val('Y');
 	</script>
-<?}?>
-<?if (!$USER->IsAuthorized()){?>
+<? } ?>
+<? if (!$USER->IsAuthorized()) { ?>
 	<script type="text/javascript">
-			/*$('body').on('change', '#soa-property-3', function(){
+		/*$('body').on('change', '#soa-property-3', function(){
 				var val = $(this).val();
 				val = (val.replace(/[^\d]/g, ''));
 				if (val != false) {
@@ -828,20 +732,19 @@ if ($USER->IsAuthorized()){?>
 				}
 				return false;
 			});*/
-		</script>
-<?}?>
-<?	
-	$rsUser = CUser::GetByID($USER->GetID());
-	$arUser = $rsUser->Fetch();
-	$name = $arUser['NAME']; 
-	$lastName = $arUser['LAST_NAME']; 
-	$secondName = $arUser['SECOND_NAME']; ?>
-	<script type="text/javascript">
-		var mainName = '<?php echo $name;?>';
-		var lastName = '<?php echo $lastName;?>';
-		var secondName = '<?php echo $secondName;?>';
-		$('#soa-property-34').val(lastName);
-		$('#soa-property-35').val(mainName);
-		$('#soa-property-36').val(secondName);
-	
 	</script>
+<? } ?>
+<?
+$rsUser = CUser::GetByID($USER->GetID());
+$arUser = $rsUser->Fetch();
+$name = $arUser['NAME'];
+$lastName = $arUser['LAST_NAME'];
+$secondName = $arUser['SECOND_NAME']; ?>
+<script type="text/javascript">
+	var mainName = '<?php echo $name; ?>';
+	var lastName = '<?php echo $lastName; ?>';
+	var secondName = '<?php echo $secondName; ?>';
+	$('#soa-property-34').val(lastName);
+	$('#soa-property-35').val(mainName);
+	$('#soa-property-36').val(secondName);
+</script>

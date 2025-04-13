@@ -63,7 +63,7 @@ global $USER;
 		),
 		"OFFERS_PROPS" => array(
 		),
-		"PATH_TO_ORDER" => "/personal/order.php",
+		"PATH_TO_ORDER" => "/cart/order/",
 		"PRICE_DISPLAY_MODE" => "N",
 		"PRICE_VAT_SHOW_VALUE" => "N",
 		"PRODUCT_BLOCKS_ORDER" => "props,sku,columns",

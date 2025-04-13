@@ -1151,14 +1151,6 @@ div.header-phone {
     color: transparent;
 }
 
-div.bx-soa-section.bx-selected {
-    border: none;
-}
-
-.bx-soa-coupon-input {
-    width: 360px;
-}
-
 img {
     border: 0;
     vertical-align: middle;
@@ -1218,40 +1210,9 @@ img {
     border: 1px solid #d1d1d1;
 }
 
-.bx-soa-basket-info .bx-soa-item-block {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    -ms-align-items: center;
-    align-items: center;
-}
-
-div.bx-soa-item-tr {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    -ms-align-items: center;
-    align-items: center;
-}
-
 .personal-field-wrapper .right-side input.index-input {
     width: 170px;
-}
-
-div.bx-soa-item-td {
-    border: none;
-}
-
-.bx-soa-item-title a {
-    font-size: 16px;
-    text-decoration: none;
-    color: #383838;
-    font-weight: 700;
-}
+} 
 
 .basket-item__deleted {
     display: flex;
@@ -1364,21 +1325,6 @@ div.bx-soa-item-td {
     .coupon-tooltip__block_new br {
         display: none;
     }
-}
-
-.bx-soa-table-header {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #EBCFD5;
-    color: #383838;
-    font-size: 18px;
-    text-transform: uppercase;
-    font-weight: 700;
 }
 
 .cources-prev-list-bg {
@@ -1899,11 +1845,6 @@ main {
 
     .filterbody .sections br {
         display: none;
-    }
-
-    .bx-soa-coupon-description {
-        position: relative;
-        width: 360px;
     }
 
     .coupon-tooltip__block {
@@ -4372,10 +4313,6 @@ html body .toggleOpen.no_fav_popup .fav-close:hover {
 
     .product-item-amount {
         margin-left: 0px;
-    }
-
-    .bx-soa-item-td-title {
-        display: none !important;
     }
 
     .order-block {

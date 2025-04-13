@@ -8,7 +8,7 @@ $APPLICATION->SetTitle("Личный кабинет");
 <p><a href="/personal/profile/">Мои данные</a></p>
 <p><a href="/personal/orders/">Мои заказы</a></p>
 <p><a href="/personal/bonuses/">Мои бонусы</a></p>
-<p><a href="/personal/cart/">Корзина</a></p>
+<p><a href="/cart/">Корзина</a></p>
 <p><a href="/personal/subscribe/">Мои подписки</a></p>
 
 

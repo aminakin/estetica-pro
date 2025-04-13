@@ -1084,7 +1084,7 @@ a.btn.btn-link.buyBtn:focus {
 
 .section-item-wrapper {
     outline: none;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 }
 
 @media (max-width: 1024px) {

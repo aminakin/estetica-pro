@@ -1,7 +1,3 @@
-.bx-pagination {
-	margin: 10px 0;
-}
-
 .bx-pagination .bx-pagination-container {
 	text-align: center;
 	position: relative;
@@ -92,7 +88,9 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 12px;
-	margin: 0;
+	margin-top: 6px;
+	flex-wrap: wrap;
+	gap: 16px;
 }
 
 .bx-pagination .input-page .numpage {
@@ -153,7 +151,6 @@
 	justify-content: center;
 }
 
-
 .show-more{
 	border-radius: 12px;
     line-height: 38px;
@@ -164,7 +161,7 @@
     padding: 0 20px;
     color: #ffffff;
     text-transform: lowercase;
-	margin: -14px auto 16px;
+	margin: 6px auto 24px;
 	max-width: 129px;
 	cursor: pointer;
 	text-align: center;
@@ -175,7 +172,7 @@
 		padding: 0 6px;
 	}
 	.show-more{
-		margin-top: 4px;
+		margin: 4px auto 12px;
 	}
 }
 
@@ -183,13 +180,11 @@
 	.input-page form {
 		justify-content: center;
 	}
-
-	
 }
 
 @media screen and (max-width: 700px) {
 	.bx-pagination .input-page {
-		margin-top: 30px;
+		margin-top: 16px;
 		justify-content: center;
 	}
 	.bx-pagination.ozi {

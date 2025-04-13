@@ -3,7 +3,7 @@ $APPLICATION->SetTitle("Авторизация");
 header_remove();
 global $USER;
 if ($USER->IsAuthorized()){ 
-	header("Location: /personal/order.php");
+	header("Location: /cart/order/");
 }
 ?>
 
@@ -35,7 +35,7 @@ if ($USER->IsAuthorized()){
 	<div class="order-unregister">
 		<div class="h2">Без регистрации</div>
 		<p class="order-description">оформление заказа без регистрации</p>
-		<a href="/personal/order.php" class="btn btn-link whiteBtn">оформить заказ</a>
+		<a href="/cart/order/" class="btn btn-link whiteBtn">оформить заказ</a>
 	</div>
 </div>
 <div class="order-block mobile">
@@ -46,7 +46,7 @@ if ($USER->IsAuthorized()){
 		<a href="#register" class="enterLink linkOpen">Регистрация</a>
 	</div>
 	<div class="order-unregister">
-		<a href="/personal/order.php" class="enterLink">Без регистрации</a>
+		<a href="/cart/order/" class="enterLink">Без регистрации</a>
 	</div>
 </div>
 

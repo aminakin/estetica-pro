@@ -86,8 +86,8 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 
 <body class="mainPage">
     <? $APPLICATION->ShowPanel(); ?>
-    <div id="layer" <? if ($APPLICATION->GetCurDir() != '/personal/cart/') { ?>style="overflow:hidden" <? } ?>>
-        <div class="layer_body<?= CSite::inDir('/personal/cart/') ? ' hide_mobile_header' : '' ?>">
+    <div id="layer" <? if ($APPLICATION->GetCurDir() != '/cart/') { ?>style="overflow:hidden" <? } ?>>
+        <div class="layer_body<?= CSite::inDir('/cart/') ? ' hide_mobile_header' : '' ?>">
             <header>
                 <div class="header-wrap">
                     <div class="header-desktop">
@@ -656,14 +656,14 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                         false
                     ); ?>
                 <? } ?>
-                <? if ($APPLICATION->GetCurDir() == '/personal/cart/') { ?>
+                <? if ($APPLICATION->GetCurDir() == '/cart/') { ?>
                     <div class="cart-mobile-back">
                         <div class="btn-block">
                             <a onclick="javascript:history.back(); return false;"><?= classBuildSCG::buildSVG('back-menu'); ?></a>
                         </div>
                     </div>
                 <? } ?>
-                <? if (Page::IsMain() != true && $APPLICATION->GetCurDir() == '/search1/' && $APPLICATION->GetCurDir() != '/personal/cart/') { ?>
+                <? if (Page::IsMain() != true && $APPLICATION->GetCurDir() == '/search1/' && $APPLICATION->GetCurDir() != '/cart/') { ?>
                     <div class="title-header">
                         <h1><?= $APPLICATION->ShowTitle(false); ?></h1>
                     </div>

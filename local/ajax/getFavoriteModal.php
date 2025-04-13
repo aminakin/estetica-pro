@@ -26,7 +26,7 @@ $APPLICATION->IncludeComponent(
             3 => "QUANTITY",
         ),
         "TEMPLATE_THEME" => "blue", 
-        "PATH_TO_ORDER" => "/personal/order.php",   
+        "PATH_TO_ORDER" => "/cart/order/",   
         "HIDE_COUPON" => "Y",   
         "PRICE_VAT_SHOW_VALUE" => "N",  
         "USE_PREPAYMENT" => "N",    

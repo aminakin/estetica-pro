@@ -117,7 +117,7 @@ $arComponentParameters = Array(
 			"NAME" => GetMessage("SBB_PATH_TO_ORDER"),
 			"TYPE" => "STRING",
 			"MULTIPLE" => "N",
-			"DEFAULT" => "/personal/order.php",
+			"DEFAULT" => "/cart/order/",
 			"COLS" => 25,
 			"PARENT" => "ADDITIONAL_SETTINGS",
 		),

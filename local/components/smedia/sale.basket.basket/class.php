@@ -27,7 +27,7 @@ class CustomBasketComponent extends CBitrixComponent
 	public $priceVatShowValue = "N";
 	public $hideCoupon = "N";
 	public $usePrepayment = "N";
-	public $pathToOrder = "/personal/order.php";
+	public $pathToOrder = "/cart/order/";
 	public $columns = array();
 	public $offersProps = array();
 	protected static $iblockIncluded = null;

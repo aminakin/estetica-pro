@@ -145,20 +145,6 @@ function addFavoriteDetail(id, action) {
 /* Избранное */
 
 $(document).ready(function () {
-    //let elementWrapper = document.querySelector("#basket-items-list-wrapper");
-    //let element = document.querySelector(".basket-checkout-container");
-    //document.addEventListener("scroll", (event) => {
-    //    let height = elementWrapper.getBoundingClientRect();
-    //    console.log(height.y);
-    //
-    //    if(height.y < 210){
-    //        element.style.position = "absolute";
-    //
-    //    }else{
-    //        element.style.position = "static";
-    //
-    //    }
-    //});
     $('.reviews-link_link').on('click', function (e) {
         e.preventDefault();
         var anchor = $(this).attr('href');
@@ -720,7 +706,7 @@ $(document).ready(function () {
         event.preventDefault();
         $('body').addClass('body-modal')
         if ($(this).hasClass('baskLink') && window.innerWidth < 1024) {
-            window.location.href = "/personal/cart/";
+            window.location.href = "/cart/";
             return;
         }
 

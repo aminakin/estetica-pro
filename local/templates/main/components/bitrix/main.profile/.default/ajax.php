@@ -76,10 +76,9 @@ if (isset($_POST['event']) && $_POST['event'] !== '') {
                 (new CUser)->Update($userID, $fields);
                 $result['success'] = true;
             }
-            break;
-        case 'UPDATE_LOCATION':
-
-            $fields = [
+            /*break;
+                case 'UPDATE_LOCATION':*/
+            $fieldsLocation = [
                 'CITY' => [
                     'VALUE' => $_POST['CITY'],
                     'ID' => $_POST['CITY_id'],
@@ -102,8 +101,7 @@ if (isset($_POST['event']) && $_POST['event'] !== '') {
                 ]
             ];
 
-
-            foreach ($fields as $k => $v) {
+            foreach ($fieldsLocation as $k => $v) {
                 if ($v['VALUE'] == '')
                     $error[$k] = 'ERROR_EMPTY_FIELD';
                 elseif ($v['ID'] == '')
@@ -116,7 +114,7 @@ if (isset($_POST['event']) && $_POST['event'] !== '') {
                 $result['success'] = false;
                 $result['error'] = $error;
             } else {
-                foreach ($fields as $v) {
+                foreach ($fieldsLocation as $v) {
                     $arFields = array('VALUE' => $v['VALUE']);
 
                     if ($v['TYPE'] == 'LOCATION') {
@@ -129,87 +127,80 @@ if (isset($_POST['event']) && $_POST['event'] !== '') {
 
                 $result['success'] = true;
             }
-            break;
-        case 'UPDATE_PASSWORD':
+            /*break;
+                case 'UPDATE_PASSWORD':*/
             $currentPassword = $_POST['CURRENT_PASSWORD'];
             $newPassword = $_POST['NEW_PASSWORD'];
             $confirmPassword = $_POST['NEW_PASSWORD_CONFIRM'];
 
-            /*
-            $securityPolicy = \CUser::GetGroupPolicy([2]);
-            $errors = (new \CUser)->CheckPasswordAgainstPolicy($currentPassword, $securityPolicy);
-             * */
-            if ($currentPassword == '') {
-                $error['CURRENT_PASSWORD'] = 'ERROR_EMPTY_FIELD';
-            } elseif (strlen($currentPassword) < 6) {
-                $error['CURRENT_PASSWORD'] = 'ERROR_PASS_LENGTH';
-            } else {
-                $rsUser = CUser::GetByID($userID);
-                $checkUserPassword = false;
+            if ($currentPassword !== '' && $newPassword !== '' && $confirmPassword !== '') {
 
-                if ($arUser = $rsUser->Fetch()) {
-                    $hashLength = strlen($arUser["PASSWORD"]);
 
-                    if ($hashLength > 100) {
-                        $salt = substr($arUser["PASSWORD"], 3, 16);
-                        $hashPassword = crypt($currentPassword, "$6$" . $salt . "$");
-                    } else if ($hashLength > 32) {
-                        $salt = substr($arUser["PASSWORD"], 0, $hashLength - 32);
-                        $hashPassword = $salt . md5($salt . $currentPassword);
+
+                if (strlen($currentPassword) < 6) {
+                    $error['CURRENT_PASSWORD'] = 'ERROR_PASS_LENGTH';
+                } else {
+                    $rsUser = CUser::GetByID($userID);
+                    $checkUserPassword = false;
+
+                    if ($arUser = $rsUser->Fetch()) {
+                        $hashLength = strlen($arUser["PASSWORD"]);
+
+                        if ($hashLength > 100) {
+                            $salt = substr($arUser["PASSWORD"], 3, 16);
+                            $hashPassword = crypt($currentPassword, "$6$" . $salt . "$");
+                        } else if ($hashLength > 32) {
+                            $salt = substr($arUser["PASSWORD"], 0, $hashLength - 32);
+                            $hashPassword = $salt . md5($salt . $currentPassword);
+                        } else {
+                            $salt = "";
+                            $hashPassword = $arUser["PASSWORD"];
+                        }
+
+                        if ($hashPassword != $arUser["PASSWORD"]) {
+                            $error['CURRENT_PASSWORD'] = 'ERROR_PASS_INVALID';
+                        }
                     } else {
-                        $salt = "";
-                        $hashPassword = $arUser["PASSWORD"];
+                        $error['CURRENT_PASSWORD'] = 'ERROR_USER_NOT_FOUND';
                     }
-
-                    if ($hashPassword != $arUser["PASSWORD"]) {
-                        $error['CURRENT_PASSWORD'] = 'ERROR_PASS_INVALID';
-                    }
-                } else {
-                    $error['CURRENT_PASSWORD'] = 'ERROR_USER_NOT_FOUND';
                 }
-            }
 
-            $passInvalid = false;
+                $passInvalid = false;
 
-            if ($newPassword == '') {
-                $error['NEW_PASSWORD'] = 'ERROR_EMPTY_FIELD';
-                $passInvalid = true;
-            } elseif (strlen($newPassword) < 6) {
-                $error['NEW_PASSWORD'] = 'ERROR_PASS_LENGTH';
-                $passInvalid = true;
-            }
+                if (strlen($newPassword) < 6) {
+                    $error['NEW_PASSWORD'] = 'ERROR_PASS_LENGTH';
+                    $passInvalid = true;
+                }
 
-            if ($confirmPassword == '') {
-                $error['NEW_PASSWORD_CONFIRM'] = 'ERROR_EMPTY_FIELD';
-                $passInvalid = true;
-            } elseif (strlen($confirmPassword) < 6) {
-                $error['NEW_PASSWORD_CONFIRM'] = 'ERROR_PASS_LENGTH';
-                $passInvalid = true;
-            }
+                if (strlen($confirmPassword) < 6) {
+                    $error['NEW_PASSWORD_CONFIRM'] = 'ERROR_PASS_LENGTH';
+                    $passInvalid = true;
+                }
 
-            if ($newPassword != $confirmPassword && !$passInvalid) {
-                $error['NEW_PASSWORD'] = 'ERROR_PASS_NOT_EQ';
-                $error['NEW_PASSWORD_CONFIRM'] = 'ERROR_PASS_NOT_EQ';
-            }
+                if ($newPassword != $confirmPassword && !$passInvalid) {
+                    $error['NEW_PASSWORD'] = 'ERROR_PASS_NOT_EQ';
+                    $error['NEW_PASSWORD_CONFIRM'] = 'ERROR_PASS_NOT_EQ';
+                }
 
-            if (count($error)) {
-                $result['success'] = false;
-                $result['error'] = $error;
-            } else {
-                $fields = array(
-                    "PASSWORD" => $newPassword,
-                    "CONFIRM_PASSWORD" => $confirmPassword
-                );
-
-                $changePassResult = $USER->Update($userID, $fields);
-                if (!$changePassResult) {
+                if (count($error)) {
                     $result['success'] = false;
-                    $result['error'] = [
-                        'NEW_PASSWORD' => 'ERROR_PASS_NOT_SAVE',
-                        'CONFIRM_PASSWORD' => 'ERROR_PASS_NOT_SAVE',
-                    ];
+                    $result['error'] = $error;
                 } else {
-                    $result['success'] = true;
+                    $fields = array(
+                        "PASSWORD" => $newPassword,
+                        "CONFIRM_PASSWORD" => $confirmPassword
+                    );
+
+                    $changePassResult = $USER->Update($userID, $fields);
+                    if (!$changePassResult) {
+                        $result['success'] = false;
+                        $result['error'] = [
+                            'NEW_PASSWORD' => 'ERROR_PASS_NOT_SAVE',
+                            'CONFIRM_PASSWORD' => 'ERROR_PASS_NOT_SAVE',
+                        ];
+                    } else {
+                        $result['success'] = true;
+                    }
                 }
             }
             break;
@@ -222,7 +213,7 @@ if (isset($_POST['event']) && $_POST['event'] !== '') {
         case 'UPDATE_SUBSCRIBE':
             $subscribe = $_POST['SUBSCRIBE'] == 'Y';
             $personal = $_POST['PERSONAL_DATA'] == 'Y';
-           
+
             if (!$personal) {
                 $result['success'] = false;
                 $result['error'] = ['PERSONAL_DATA' => 'ERROR_EMPTY_PERSONAL_DATA'];
@@ -230,8 +221,6 @@ if (isset($_POST['event']) && $_POST['event'] !== '') {
                 $res = \Bitrix\Sender\Subscription::getMailingList([]);
                 $subscribeList = [];
                 $uEmail = $USER->getEmail();
-
-                
 
                 foreach ($res as $mailList) {
                     $subscribeList[] = $mailList['ID'];
@@ -242,12 +231,12 @@ if (isset($_POST['event']) && $_POST['event'] !== '') {
                 if ($subscribe) {
                     foreach ($subscribeList as $item) {
                         $contact->subscribe($item);
-                        $fields = Array( "UF_SUBSCRIBES" => '1',); 
+                        $fields = array("UF_SUBSCRIBES" => '1',);
                         $USER->Update($USER->GetID(), $fields);
                     }
                 } else {
                     foreach ($subscribeList as $item) {
-                        $fields = Array( "UF_SUBSCRIBES" => '0',); 
+                        $fields = array("UF_SUBSCRIBES" => '0',);
                         $USER->Update($USER->GetID(), $fields);
                         $contact->unsubscribe($item);
                         $contact->removeById($contactId);
@@ -261,7 +250,6 @@ if (isset($_POST['event']) && $_POST['event'] !== '') {
             $result['message'] = 'undefined event';
             break;
     }
-
 } else {
     $result['success'] = false;
     $result['message'] = 'undefined event';

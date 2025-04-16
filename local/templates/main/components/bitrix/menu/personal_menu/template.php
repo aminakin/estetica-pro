@@ -17,8 +17,8 @@
         <div class="main-profile-menu__part">
             <? if ($USER->IsAuthorized()) { ?>
                 <div class="main-profile-menu__item">
-                    <a class="main-profile-menu__link logout"
-                       href="<?= $APPLICATION->GetCurPageParam('logout=yes', 'logout') ?>">
+                    <a class="main-profile-menu__link logout" href="<?= $APPLICATION->GetCurPageParam('logout=yes', 'logout') ?>">
+                        <?= classBuildSCG::buildSVG('logout', $templateFolder."/images" );?>
                         <?= GetMessage('LOGOUT') ?>
                     </a>
                 </div>

@@ -108,11 +108,6 @@ BX.namespace('BX.Sale.PersonalOrderComponent');
             let orderDetailPopup = document.createElement('div');
             orderDetailPopup.id = 'order-datail-popup';
 
-            let preloader = document.createElement('img');
-            preloader.src = params.templateFolder + '/images/loader.svg';
-
-            orderDetailPopup.appendChild(preloader);
-
             document.body.appendChild(orderDetailPopup);
 
             BX.ajax(

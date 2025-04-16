@@ -45,12 +45,6 @@ if (!empty($arResult['ERRORS']['FATAL'])) {
         </div>
     <?php } else {
         foreach ($arResult['ORDERS'] as $key => $order) { ?>
-            <?php
-                global  $USER;
-                if ($USER->IsAdmin()) {
-                    //echo "<pre>"; var_dump($order); echo "</pre>";
-                }
-            ?>
             <div class="main-profile-orders__item order-item">
                 <div class="order-item__header">
                     <div class="order-item__header-col order-item__col--3 order-item__col--left order-item__header-order_number">
@@ -129,32 +123,10 @@ if (!empty($arResult['ERRORS']['FATAL'])) {
                                     </a>
                                 </div>
                             <? } ?>
-                            <div class="order-item__products-item order-item__other-products order-item__other-products--middle">
-                                <a href="javascript:void(0);"
-                                   onclick="BX.Sale.PersonalOrderComponent.PersonalOrderList.showDetailOrder(<?= htmlspecialcharsbx($order['ORDER']['ACCOUNT_NUMBER']) ?>, <?= $javascriptParams ?>)">
-                                    +<?= count($order['BASKET_ITEMS']) - 2 ?>
-                                </a>
-                            </div>
-                            <div class="order-item__products-item order-item__other-products order-item__other-products--small">
-                                <a href="javascript:void(0);"
-                                   onclick="BX.Sale.PersonalOrderComponent.PersonalOrderList.showDetailOrder(<?= htmlspecialcharsbx($order['ORDER']['ACCOUNT_NUMBER']) ?>, <?= $javascriptParams ?>)">
-                                    +<?= count($order['BASKET_ITEMS']) - 1 ?>
-                                </a>
-                            </div>
                         </div>
                     </div>
                     <div class="order-item__content-col order-item__col--4">
                         <div class="order-item__action">
-                            <? if ($order['ORDER']['CANCELED'] != 'Y' && $order['ORDER']['CAN_CANCEL'] == 'Y' && $order['ORDER']['STATUS_ID'] != 'F') { ?>
-                                <a class="order-item__link"
-                                   href="<?= htmlspecialcharsbx($order["ORDER"]["URL_TO_CANCEL"]) ?>">
-                                    <?= Loc::getMessage('SPOL_TPL_CANCEL_ORDER') ?>
-                                </a>
-                            <? } else { ?>
-                                <a class="order-item__link"
-                                   href="javascript:void(0);">
-                                </a>
-                            <? } ?>
                             <? if (false) { ?>
                                 <a class="order-item__link"
                                    href="<?= htmlspecialcharsbx($order["ORDER"]["URL_TO_COPY"]) ?>">
@@ -166,6 +138,12 @@ if (!empty($arResult['ERRORS']['FATAL'])) {
                                onclick="BX.Sale.PersonalOrderComponent.PersonalOrderList.showDetailOrder(<?= htmlspecialcharsbx($order['ORDER']['ACCOUNT_NUMBER']) ?>, <?= $javascriptParams ?>)">
                                 <?= Loc::getMessage('SPOL_TPL_MORE_ON_ORDER') ?>
                             </a>
+                            <? if ($order['ORDER']['CANCELED'] != 'Y' && $order['ORDER']['CAN_CANCEL'] == 'Y' && $order['ORDER']['STATUS_ID'] != 'F') { ?>
+                                <a class="order-item__link cancel"
+                                   href="<?= htmlspecialcharsbx($order["ORDER"]["URL_TO_CANCEL"]) ?>">
+                                    <?= Loc::getMessage('SPOL_TPL_CANCEL_ORDER') ?>
+                                </a>
+                            <? } ?>
                         </div>
                     </div>
                 </div>

@@ -103,6 +103,10 @@
     }
 }
 @media screen and (max-width: 768px){
+    .slider .item .desktop-img{
+        height: 161px;
+    }
+
     #myCarousel .slick-arrow{
         display: none!important;
     }

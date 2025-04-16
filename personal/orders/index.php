@@ -1,7 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetPageProperty("description", "Профессиональные материалы для маникюра и наращивания ресниц. Известные и востребованные бренды по официальным ценам производителей. Отправляем в любой город РФ. Быстрая онлайн-оплата заказа на сайте.");
-$APPLICATION->SetTitle("Мои заказы");
+$APPLICATION->SetTitle("Личный кабинет");
 ?>
 <?global $USER;
 	if ($USER->IsAuthorized()) {
@@ -23,7 +23,7 @@ $APPLICATION->SetTitle("Мои заказы");
 	    )
 	); ?>
 
-    <div class="main_profile_wrapper">
+    <div class="main_profile_wrapper orders">
     	
         <?$APPLICATION->IncludeComponent(
 			"bitrix:sale.personal.order", 
@@ -72,25 +72,9 @@ $APPLICATION->SetTitle("Мои заказы");
 			),
 			false
 		); ?>
-		<? }else{?>
-        <?$APPLICATION->SetTitle("Авторизация");?>
-        <div class="auth_page" id="auth">
-            <? $APPLICATION->IncludeComponent(
-                "bitrix:system.auth.form",
-                "auth_header",
-                array(
-                    "FORGOT_PASSWORD_URL" => "/login/forgot.php",
-                    "PROFILE_URL" => "/personal",
-                    "REGISTER_URL" => "/login/registration.php",
-                    "SHOW_ERRORS" => "Y",
-                    "COMPONENT_TEMPLATE" => "auth_header"
-                ),
-                   false
-            );
-            ?>
-            <div class="info_bonus"><?= GetMessage('AUTH_BONUS'); ?></div>
-        </div> 
-    <?} ?>
+		<? }else{
+       	LocalRedirect("/");
+    	} ?>
     </div>
 
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

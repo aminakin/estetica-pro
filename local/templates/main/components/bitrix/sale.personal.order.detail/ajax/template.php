@@ -27,10 +27,8 @@ if (!empty($arResult['ERRORS']['FATAL'])) {
     }
     ?>
     <div class="sale-order-detail">
-        <div class="sale-order-detail__close"
-             onclick="BX.Sale.PersonalOrderComponent.PersonalOrderList.closeDetailOrder()">
-            <div class="sale-order-detail__close-line"></div>
-            <div class="sale-order-detail__close-line"></div>
+        <div class="sale-order-detail__close" onclick="BX.Sale.PersonalOrderComponent.PersonalOrderList.closeDetailOrder()">
+             <?= classBuildSCG::buildSVG('big-cross'); ?>
         </div>
         <div class="sale-order-detail__header">
             <h1 class="sale-order-detail__title">
@@ -97,20 +95,20 @@ if (!empty($arResult['ERRORS']['FATAL'])) {
                             <? } ?>
                         </div>
                     </div>
-                    <? if (count($arResult['PAY'])) { ?>
+                    <? /*if (count($arResult['PAY'])) { ?>
                         <div class="order-pay__buttons">
                             <? foreach ($arResult['PAY'] as $pay) {
                                 echo $pay;
                             } ?>
                         </div>
-                    <? } ?>
+                    <? } */?>
                 </div>
             </div>
             <div class="order-detail-products">
                 <div class="order-detail-products__header">
                     <div class="order-detail-products__line">
                         <div class="order-detail-products__part">
-                            <?= declOfNum(count($arResult['BASKET']), ['товар', 'товара', 'товаров']) ?>
+                            <?= declOfNum(count($arResult['BASKET']), ['Товар заказан:', 'Товара заказано:', 'Товаров заказано:']) ?>
                         </div>
                         <div class="order-detail-products__part">
                             <div class="order-detail-products__count"><?= Loc::getMessage('COUNT') ?></div>
@@ -138,37 +136,19 @@ if (!empty($arResult['ERRORS']['FATAL'])) {
                                     <a href="<?= $basketItem['DETAIL_PAGE_URL'] ?>" class="order-detail-products__link">
                                         <?= htmlspecialcharsbx($basketItem['NAME']) ?>
                                     </a>
-                                </div>
-                            </div>
-                            <div class="order-detail-products__part">
-                                <div class="order-detail-products__count">
+                                    <div class="order-detail-products__count">
                                     <?= $basketItem['QUANTITY'] ?>
                                 </div>
                                 <div class="order-detail-products__price">
                                     <?= $basketItem['PRICE_FORMATED'] ?>
                                 </div>
+                                </div>
+                               
                             </div>
                         </div>
                     <? } ?>
                 </div>
             </div>
         </div>
-    </div><!--sale-order-detail-general-->
-
-    <?
-    /*$javascriptParams = array(
-        "url" => CUtil::JSEscape($this->__component->GetPath() . '/ajax.php'),
-        "templateFolder" => CUtil::JSEscape($templateFolder),
-        "templateName" => $this->__component->GetTemplateName(),
-        "paymentList" => $paymentData,
-        "returnUrl" => $arResult['RETURN_URL'],
-    );
-    $javascriptParams = CUtil::PhpToJSObject($javascriptParams);
-    */ ?><!--
-    <script>
-        BX.Sale.PersonalOrderComponent.PersonalOrderDetail.init(<?/*=$javascriptParams*/ ?>);
-    </script>
-    --><?
-}
-?>
-
+    </div>
+<?}?>

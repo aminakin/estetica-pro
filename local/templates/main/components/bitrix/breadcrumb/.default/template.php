@@ -18,10 +18,9 @@ $itemSize = count($arResult);
 if (stripos($APPLICATION->GetCurDir(), '/personal/') !== false) {
     $itemSize = 0;
     $strReturn .= '
-			
-				<a href="'.$arResult[count($arResult) - 1 ]["LINK"].'" title="'. $arResult[count($arResult) - 1 ]['TITLE'] .'" itemprop="url">
-					<span itemprop="title">'. $arResult[count($arResult) - 1 ]['TITLE'] .'</span>
-				</a>
+					<a href="/" title="Эстетика-PRO" itemprop="url"><span itemprop="title">Эстетика-PRO</span></a>
+					<span class="separet"> / </span>  
+					<span>Личный кабинет</span>
 			';
 }
 for($index = 0; $index < $itemSize; $index++){

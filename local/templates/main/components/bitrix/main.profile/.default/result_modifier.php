@@ -79,7 +79,7 @@ if ($lastOrderId) {
     $db_propVals = CSaleOrderUserPropsValue::GetList(array("ID" => "ASC"), array("USER_PROPS_ID" => GetContragentID($lastOrderId)));
 
     while ($arPropValues = $db_propVals->Fetch()) {
-        if ($arPropValues['PROP_CODE'] == 'CITY' || $arPropValues['PROP_CODE'] == 'STREET' || $arPropValues['PROP_CODE'] == 'HOUSE' || $arPropValues['PROP_CODE'] == 'INDEX') {
+        if ($arPropValues['PROP_CODE'] == 'CITY' || $arPropValues['PROP_CODE'] == 'STREET' || $arPropValues['PROP_CODE'] == 'HOUSE' || $arPropValues['PROP_CODE'] == 'INDEX' || $arPropValues['PROP_CODE'] == 'APARTMENT') {	
             if ($arPropValues['PROP_CODE'] == 'CITY') {
                 if ($arPropValues['VALUE'] == null) {
                     $ipAddress = \Bitrix\Main\Service\GeoIp\Manager::getRealIp();

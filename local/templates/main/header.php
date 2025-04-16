@@ -321,8 +321,8 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                             </div>
                             <a href="#menu" class="header-burger">
                                 <span class="burger-menu"><?= classBuildSCG::buildSVG('burger_menu'); ?></span>
-                                <span class="close-menu" style="display: none"><?= classBuildSCG::buildSVG('burger_cross'); ?></span>
                             </a>
+                            <span class="close-menu" style="display: none"><?= classBuildSCG::buildSVG('burger_cross'); ?></span>
                         </div>
                         <div class="header-mobile-bottom">
                             <div class="header-mobile-search">
@@ -663,8 +663,8 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                         </div>
                     </div>
                 <? } ?>
-                <? if (Page::IsMain() != true && $APPLICATION->GetCurDir() == '/search1/' && $APPLICATION->GetCurDir() != '/cart/') { ?>
+                <? if (!Page::IsMain() && ($APPLICATION->GetCurDir() == '/personal/orders/' || $APPLICATION->GetCurDir() == '/personal/bonuses/' || $APPLICATION->GetCurDir() == '/personal/profile/') && $APPLICATION->GetCurDir() != '/cart/') { ?>
                     <div class="title-header">
-                        <h1><?= $APPLICATION->ShowTitle(false); ?></h1>
+                        <h1 class="major-title-pages"><?= $APPLICATION->ShowTitle(false); ?></h1>
                     </div>
                 <? } ?>

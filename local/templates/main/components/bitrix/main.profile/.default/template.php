@@ -1,4 +1,5 @@
 <?
+
 /**
  * @param array $arParams
  * @param array $arResult
@@ -13,7 +14,9 @@ use \Bitrix\Main\Localization\Loc;
 Loader::includeModule('sale');
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
     die();
-$APPLICATION->SetTitle("Мой аккаунт");
+$APPLICATION->SetTitle("Личный кабинет");
+
+$birthdayArray = explode(".", $arResult["arUser"]["PERSONAL_BIRTHDAY"]);
 //$this->addExternalCss(SITE_TEMPLATE_PATH . "/js/jqueryui/jquery-ui.min.css");
 //$this->addExternalJS(SITE_TEMPLATE_PATH . "/js/jqueryui/jquery-ui.min.js");
 
@@ -35,37 +38,34 @@ Loc::loadMessages(__FILE__);
     <? endif; ?>
 
     <form method="post" class="main-profile__form" name="profile_form" action="<?= $arResult["FORM_TARGET"] ?>"
-          enctype="multipart/form-data">
+        enctype="multipart/form-data">
         <?= $arResult["BX_SESSION_CHECK"] ?>
 
-        <input disabled type="hidden" name="lang" value="<?= LANG ?>"/>
-        <input disabled type="hidden" name="ID" value=<?= $arResult["ID"] ?>/>
+        <input disabled type="hidden" name="lang" value="<?= LANG ?>" />
+        <input disabled type="hidden" name="ID" value=<?= $arResult["ID"] ?> />
 
         <div class="main-profile__block main-profile-block">
             <div class="main-profile-block__head">
                 <div class="main-profile__title"><?= Loc::getMessage('PROFILE_BLOCK') ?></div>
-                <div class="main-profile__edit" data-event="UPDATE_PROFILE"><?= Loc::getMessage('EDIT_BLOCK') ?></div>
             </div>
             <div class="main-profile-block__body">
-                <div class="main-profile-block__field profile-field">
-                    <div class="profile-field__inner">
-                        <div class="profile-field__title">
-                            <?= Loc::getMessage('NAME') ?>
-                        </div>
-                        <div class="profile-field__input-wrap">
-                            <input disabled class="profile-field__input" type="text" name="NAME" maxlength="50"
-                                   value="<?= $arResult["arUser"]["NAME"] ?>"/>
-                        </div>
-                    </div>
-                </div>
                 <div class="main-profile-block__field profile-field">
                     <div class="profile-field__inner">
                         <div class="profile-field__title">
                             <?= Loc::getMessage('LAST_NAME') ?>
                         </div>
                         <div class="profile-field__input-wrap">
-                            <input disabled class="profile-field__input" type="text" name="LAST_NAME" maxlength="50"
-                                   value="<?= $arResult["arUser"]["LAST_NAME"] ?>"/>
+                            <input class="profile-field__input" type="text" name="LAST_NAME" maxlength="50" placeholder="<?= GetMessage("PLACEHOLDER_LAST_NAME")?>" value="<?= $arResult["arUser"]["LAST_NAME"] ?>" />
+                        </div>
+                    </div>
+                </div>
+                <div class="main-profile-block__field profile-field">
+                    <div class="profile-field__inner">
+                        <div class="profile-field__title">
+                            <?= Loc::getMessage('NAME') ?>
+                        </div>
+                        <div class="profile-field__input-wrap">
+                            <input class="profile-field__input" type="text" name="NAME" placeholder="<?= GetMessage("PLACEHOLDER_NAME")?>" maxlength="50" value="<?= $arResult["arUser"]["NAME"] ?>" />
                         </div>
                     </div>
                 </div>
@@ -75,19 +75,7 @@ Loc::loadMessages(__FILE__);
                             <?= Loc::getMessage('SECOND_NAME') ?>
                         </div>
                         <div class="profile-field__input-wrap">
-                            <input disabled class="profile-field__input" type="text" name="SECOND_NAME" maxlength="50"
-                                   value="<?= $arResult["arUser"]["SECOND_NAME"] ?>"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="main-profile-block__field profile-field">
-                    <div class="profile-field__inner">
-                        <div class="profile-field__title">
-                            <?= Loc::getMessage('EMAIL') ?><?= $arResult["EMAIL_REQUIRED"] ? '*' : '' ?>
-                        </div>
-                        <div class="profile-field__input-wrap">
-                            <input disabled class="profile-field__input" type="email" name="EMAIL" maxlength="50"
-                                   value="<?= $arResult["arUser"]["EMAIL"] ?>"/>
+                            <input class="profile-field__input" type="text" name="SECOND_NAME" maxlength="50" placeholder="<?= GetMessage("PLACEHOLDER_SECOND_NAME")?>" value="<?= $arResult["arUser"]["SECOND_NAME"] ?>" />
                         </div>
                     </div>
                 </div>
@@ -97,10 +85,11 @@ Loc::loadMessages(__FILE__);
                             <?= Loc::getMessage('USER_PHONE') ?>
                         </div>
                         <div class="profile-field__input-wrap">
-                            <input disabled class="profile-field__input" type="text" name="PERSONAL_PHONE"
-                                   maxlength="50"
-                                   data-mask-type="phone" autocomplete="tel"
-                                   value="<?= $arResult["arUser"]["PERSONAL_PHONE"] ?>"/>
+                            <input class="profile-field__input" type="text" name="PERSONAL_PHONE"
+                                placeholder="<?= GetMessage("PLACEHOLDER_PHONE")?>"
+                                maxlength="50"
+                                data-mask-type="phone" autocomplete="tel"
+                                value="<?= $arResult["arUser"]["PERSONAL_PHONE"] ?>" />
                             <? if ($arResult["arUser"]["UF_DISCOUNT_CARD_NUM"] != null) { ?>
                                 <span class="profile-field__desc">
                                     <?= Loc::getMessage('BONUS_DESC', ['#CARD#' => $arResult["arUser"]["UF_BONUS_CART"]]) ?>
@@ -109,57 +98,42 @@ Loc::loadMessages(__FILE__);
                         </div>
                     </div>
                 </div>
-
                 <div class="main-profile-block__field profile-field">
+                    <div class="profile-field__inner">
+                        <div class="profile-field__title">
+                            <?= Loc::getMessage('EMAIL') ?>
+                        </div>
+                        <div class="profile-field__input-wrap">
+                            <input class="profile-field__input" type="email" placeholder="<?= GetMessage("PLACEHOLDER_EMAIL")?>" name="EMAIL" maxlength="50" value="<?= $arResult["arUser"]["EMAIL"] ?>" />
+                        </div>
+                    </div>
+                </div>
+                <div class="main-profile-block__field profile-field date">
                     <div class="profile-field__inner">
                         <div class="profile-field__title profile-field--static">
                             <?= Loc::getMessage('USER_BIRTHDAY') ?>
                         </div>
                         <div class="profile-field__input-wrap">
-                            <div class="profile-field__select-wrap">
-                                <div class="profile-field__select">
-                                    <select name="USER_BIRTHDAY_DAY" id="USER_BIRTHDAY_DAY" disabled
-                                            onchange="changeBithday(this)" data-type="day">
-                                        <? foreach ($arResult['CALENDAR']['DAY'] as $k => $item) { ?>
-                                            <option value="<?= $k ?>" <?= $k == 0 ? 'disabled' : '' ?> <?= $arResult['BIRTHDAY']['DAY'] == $k ? 'selected' : '' ?>>
-                                                <?= $item ?>
-                                            </option>
-                                        <? } ?>
-                                    </select>
-                                </div>
-                                <div class="profile-field__select">
-                                    <select name="USER_BIRTHDAY_MONTH" id="USER_BIRTHDAY_MONTH" disabled
-                                            onchange="changeBithday(this)" data-type="month">
-                                        <? foreach ($arResult['CALENDAR']['MONTH'] as $k => $item) { ?>
-                                            <option value="<?= $k ?>" <?= $k == 0 ? 'disabled' : '' ?> <?= $arResult['BIRTHDAY']['MONTH'] == $k ? 'selected' : '' ?>>
-                                                <?= $item ?>
-                                            </option>
-                                        <? } ?>
-                                    </select>
-                                </div>
-                                <div class="profile-field__select">
-                                    <select name="USER_BIRTHDAY_YEAR" id="USER_BIRTHDAY_YEAR" disabled
-                                            onchange="changeBithday(this)" data-type="year">
-                                        <? foreach ($arResult['CALENDAR']['YEAR'] as $k => $item) { ?>
-                                            <option value="<?= $k ?>" <?= $k == 0 ? 'disabled' : '' ?> <?= $arResult['BIRTHDAY']['YEAR'] == $k ? 'selected' : '' ?>>
-                                                <?= $item ?>
-                                            </option>
-                                        <? } ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <input type="hidden" name="PERSONAL_BIRTHDAY" maxlength="50" class="profile-field__input"
-                                   value="<?= $arResult["arUser"]["PERSONAL_BIRTHDAY"] ?>"/>
+                            <input class="profile-field__input date" name="USER_BIRTHDAY_DAY" placeholder="<?= GetMessage("PLACEHOLDER_DAY")?>" id="USER_BIRTHDAY_DAY" maxlength="2" data-type="day" value="<?= $birthdayArray[0]?>" />     
                         </div>
                     </div>
+                    <div class="profile-field__inner">
+                        <div class="profile-field__input-wrap">
+                            <input class="profile-field__input date" name="USER_BIRTHDAY_MONTH" placeholder="<?= GetMessage("PLACEHOLDER_MONTH")?>" id="USER_BIRTHDAY_MONTH" maxlength="2" data-type="month" value="<?= $birthdayArray[1]?>" />
+                        </div>
+                    </div>
+                    <div class="profile-field__inner">
+                        <div class="profile-field__input-wrap">
+                            <input class="profile-field__input date" name="USER_BIRTHDAY_YEAR" placeholder="<?= GetMessage("PLACEHOLDER_YEAR")?>" id="USER_BIRTHDAY_YEAR" maxlength="4" data-type="year" value="<?= $birthdayArray[2]?>" />
+                        </div>
+                    </div>
+                    <input type="hidden" name="PERSONAL_BIRTHDAY" maxlength="50" class="profile-field__input"value="<?= $arResult["arUser"]["PERSONAL_BIRTHDAY"] ?>" />
                 </div>
             </div>
-            <div class="main-profile-block__footer"></div>
         </div>
-        <div class="main-profile__block main-profile-block">
+        <div class="main-profile__block main-profile-block delivery">
             <div class="main-profile-block__head">
                 <div class="main-profile__title"><?= Loc::getMessage('DELIVERY_BLOCK') ?></div>
-                <div class="main-profile__edit" data-event="UPDATE_LOCATION"><?= Loc::getMessage('EDIT_BLOCK') ?></div>
             </div>
             <div class="main-profile-block__body">
                 <? foreach ($arResult['DELIVERY_BLOCK'] as $v): ?>
@@ -169,21 +143,21 @@ Loc::loadMessages(__FILE__);
                                 <?= $v['NAME'] ?>
                             </div>
                             <div class="profile-field__input-wrap">
-                                <input disabled class="profile-field__input" type="text" name="<?= $v['CODE'] ?>"
-                                       maxlength="50"
-                                       value="<?= $v["VALUE"] ?>"/>
+                                <input class="profile-field__input" type="text" name="<?= $v['CODE'] ?>"
+                                    placeholder="<?= Loc::getMessage('PLACEHOLDER_'.$v['CODE']) ?>"
+                                    maxlength="50"
+                                    value="<?= $v["VALUE"] ?>" />
                                 <input class="profile-field__input" type="hidden" name="<?= $v['CODE'] ?>_id"
-                                       value="<?= $v["ID"] ?>">
+                                    value="<?= $v["ID"] ?>">
                                 <input class="profile-field__input" type="hidden" name="<?= $v['CODE'] ?>_type"
-                                       value="<?= $v["TYPE"] ?>">
+                                    value="<?= $v["TYPE"] ?>">
                             </div>
                         </div>
                     </div>
                 <? endforeach; ?>
             </div>
-            <div class="main-profile-block__footer"></div>
         </div>
-        <div class="main-profile__block main-profile-block main-profile__block-half">
+        <div class="main-profile__block main-profile-block password">
             <div class="main-profile-block__head password">
                 <div class="main-profile__title"><?= Loc::getMessage('PASSWORD_BLOCK') ?></div>
             </div>
@@ -191,62 +165,60 @@ Loc::loadMessages(__FILE__);
                 <div class="main-profile-block__field profile-field">
                     <div class="profile-field__inner">
                         <div class="profile-field__title">
-                            <?= Loc::getMessage('CURRENT_PASSWORD') ?>
+                            <?= Loc::getMessage('CURRENT_PASSWORD') ?><span>*</span>
                         </div>
                         <div class="profile-field__input-wrap">
                             <input class="profile-field__input" data-type="password" type="password"
-                                   name="CURRENT_PASSWORD"
-                                   maxlength="50" value=""/>
+                                name="CURRENT_PASSWORD"
+                                maxlength="50" value="" />
                         </div>
                     </div>
                 </div>
                 <div class="main-profile-block__field profile-field">
                     <div class="profile-field__inner">
                         <div class="profile-field__title">
-                            <?= Loc::getMessage('NEW_PASSWORD') ?>
+                            <?= Loc::getMessage('NEW_PASSWORD') ?><span>*</span>
                         </div>
                         <div class="profile-field__input-wrap">
                             <input class="profile-field__input" data-type="password" type="password" name="NEW_PASSWORD"
-                                   maxlength="50" value=""/>
+                                maxlength="50" value="" />
                         </div>
                     </div>
                 </div>
                 <div class="main-profile-block__field profile-field">
                     <div class="profile-field__inner">
                         <div class="profile-field__title">
-                            <?= Loc::getMessage('NEW_PASSWORD_CONFIRM') ?>
+                            <?= Loc::getMessage('NEW_PASSWORD_CONFIRM') ?><span>*</span>
                         </div>
                         <div class="profile-field__input-wrap">
                             <input class="profile-field__input" data-type="password" type="password"
-                                   name="NEW_PASSWORD_CONFIRM"
-                                   maxlength="50" value=""/>
+                                name="NEW_PASSWORD_CONFIRM"
+                                maxlength="50" value="" />
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="main-profile-block__footer">
-                <div class="main-profile__save" data-event="UPDATE_PASSWORD" onclick="saveProfileBlock(this)">
-                    <?= Loc::getMessage('SAVE_BLOCK') ?>
-                </div>
-            </div>
         </div>
-        <div class="main-profile__block main-profile-block main-profile__block-half" style="display: none;">
+
+        <? /** Сохранение */ ?>
+        <div class="main-profile__save all-data" data-event="UPDATE_PROFILE" onclick="saveProfileBlock(this)"><?= Loc::getMessage('SAVE_BLOCK') ?></div>
+
+        <div class="main-profile__block main-profile-block subscribe">
             <div class="main-profile-block__head">
                 <div class="main-profile__title"><?= Loc::getMessage('SUBSCRIBE_BLOCK') ?></div>
             </div>
             <div class="main-profile-block__body">
                 <div class="main-profile-block__subscribe subscribe-block">
                     <div class="subscribe-block__subscribe<?= $arResult['HAS_SUBSCRIBE'] ? ' subscribe-block--active' : '' ?>"
-                         data-subscribe="Y">
+                        data-subscribe="Y">
                         <?= Loc::getMessage('SUBSCRIBE_DESC') ?>
                     </div>
                     <div class="subscribe-block__subscribe<?= !$arResult['HAS_SUBSCRIBE'] ? ' subscribe-block--active' : '' ?>"
-                         data-subscribe="N">
+                        data-subscribe="N">
                         <?= Loc::getMessage('UNSUBSCRIBE_DESC') ?>
                     </div>
-                    
-                    <input type="hidden" class="profile-field__input" name="SUBSCRIBE"
-                           value="<?= $arResult['HAS_SUBSCRIBE'] ? 'Y' : 'N' ?>">
+
+                    <input type="hidden" class="profile-field__input" name="SUBSCRIBE" value="<?= $arResult['HAS_SUBSCRIBE'] ? 'Y' : 'N' ?>">
                     <input type="hidden" class="profile-field__input" name="PERSONAL_DATA" value="Y">
                 </div>
             </div>
@@ -255,15 +227,13 @@ Loc::loadMessages(__FILE__);
                     <?= Loc::getMessage('SAVE_BLOCK') ?>
                 </div>
                 <div class="policy-privacy policy-privacy--active">
-                        <?= Loc::getMessage('PRIVACY') ?>
-                    </div>
+                    <?= Loc::getMessage('PRIVACY') ?>
+                </div>
             </div>
         </div>
-        <div class="main-profile__block main-profile-block main-profile__block-half">
+        <div class="main-profile__block main-profile-block remove">
             <div class="main-profile-block__head remove">
                 <div class="main-profile__title"><?= Loc::getMessage('REMOVE_BLOCK') ?></div>
-            </div>
-            <div class="main-profile-block__body">
                 <div class="main-profile-block__desc">
                     <?= Loc::getMessage('WARNING_REMOVE_BLOCK') ?>
                 </div>
@@ -274,7 +244,6 @@ Loc::loadMessages(__FILE__);
                 </div>
             </div>
         </div>
-        <div class="basket-checkout-container bonus"><a href="/personal/profile/?logout=yes"><?= getMessage('USER_LOGOUT');?> <img class="arrow-right" src="/local/templates/main/images/arrow-right.svg"></a></div>
     </form>
 </div>
 
@@ -302,7 +271,7 @@ Loc::loadMessages(__FILE__);
         ERROR_EMPTY_PERSONAL_DATA: "<?= Loc::getMessage("ERROR_EMPTY_PERSONAL_DATA") ?>",
     }
     var params = {
-        TEMPLATE_PATH: '<?=$templateFolder?>'
+        TEMPLATE_PATH: '<?= $templateFolder ?>'
     };
     initMainProfileForm();
 </script>

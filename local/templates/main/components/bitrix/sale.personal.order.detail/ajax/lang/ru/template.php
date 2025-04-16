@@ -108,6 +108,6 @@ $MESS["ADDRESS_DELIVERY"] = "Адрес доставки";
 $MESS["COAST_DELIVERY"] = "Стоимость доставки";
 $MESS["PAYMENT"] = "Способ оплаты";
 $MESS["TOTAL_PRICE"] = "К оплате";
-$MESS["COUNT"] = "Кол-во";
+$MESS["COUNT"] = "Количество";
 
 ?>

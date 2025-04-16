@@ -1,17 +1,95 @@
+.help-menu-wrapper a:first-child {
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+    margin-bottom: 24px;
+    cursor: default;
+    pointer-events: none;
+}
 
-.left_sidebar .sections a {
-    font-size: 12px;
+.help-menu-wrapper a:first-child svg{
+    display: none;
+}
+
+.help-menu-wrapper a {
+    font-size: 14px;
     line-height: 16px;
-    color: #A9A9A9;
+    margin-bottom: 16px;
     text-decoration: none;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.left_sidebar .sections a:hover {
-    color: #000000;
-}
-.left_sidebar .sections a.active {
-    color: #000000;
+.main_profile_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-top: 48px;
 }
 
+.main_profile_wrapper .left_sidebar {
+    min-width: 291px;
+    max-width: 291px;
+    width: 100%;
+    margin-right: 48px;
+    display: flex;
+    flex-direction: column;
+}
 
+@media screen and (max-width: 1024px) {
+    .main_profile_wrapper {
+        display: block;
+        position: relative;
+    }
+    
+    .help-menu-wrapper{
+        order: 1;
+    }
+
+    .main-profile-orders__filter{
+        order: 2;
+    }
+
+    .main_profile_wrapper {
+        margin-top: 32px;
+    }
+
+    .help-menu-wrapper a {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .help-menu-wrapper a:first-child {
+        margin-bottom: 24px;
+    }
+
+    .help-menu-wrapper a:last-child {
+        margin-bottom: 0px;
+    }
+
+    .main_profile_wrapper.orders .left_sidebar{
+        max-width: 170px;
+        min-width: 170px;
+    }
+    .main_profile_wrapper.orders .help-menu-wrapper{
+        margin-bottom: 32px;
+        min-width: 291px;
+        max-width: 291px;
+    }
+
+    .main_profile_wrapper.orders .help-menu-wrapper a{
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 767px) {
+    .main-profile-orders__filter{
+        margin-bottom: 32px;
+    }
+
+    .main_profile_wrapper.orders .left_sidebar{
+        min-width: 100%;
+        max-width: 100%;
+    }
+}

@@ -285,6 +285,9 @@
                 </div>
 
                 <div class="auth-form__menu">
+                <div class="auth-form__menu-item">
+                        <a class="auth-form__menu-link" href="/bonus-system/"><?= GetMessage('BONUS_SYSTEM') ?></a>
+                    </div>
                     <div class="auth-form__menu-item">
                         <a class="auth-form__menu-link" href="<?= $APPLICATION->GetCurPageParam("logout=yes", array(
                             "login",
@@ -294,9 +297,6 @@
                             "change_password")); ?>">
                             <?= GetMessage('logout') ?>
                         </a>
-                    </div>
-                    <div class="auth-form__menu-item">
-                        <a class="auth-form__menu-link" href="/bonus-system/"><?= GetMessage('BONUS_SYSTEM') ?></a>
                     </div>
                 </div>
             <? } ?>

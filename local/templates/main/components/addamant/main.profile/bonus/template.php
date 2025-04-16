@@ -10,7 +10,7 @@ use Bitrix\Main\Localization\Loc;
 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
     die();
-$APPLICATION->SetTitle("Мой аккаунт");
+$APPLICATION->SetTitle("Личный кабинет");
 Loc::loadMessages(__FILE__);
 
 global $USER;
@@ -111,29 +111,4 @@ $arResult['arUser']['UF_LOGICTIM_BONUS'];------- Количество бонус
 	),
 	false
 ); ?>
-    <? if (intval($arResult['arUser']['UF_CURPERCENT'])) { ?>
-        <div class="bonus__history bonus-history">
-            <div class="bonus-history__header">
-                <div class="bonus-history__header-count"><?= Loc::getMessage('MAY_BONUS') ?></div>
-                <div class="bonus-history__header-date"><?= Loc::getMessage('TERM') ?></div>
-            </div>
-            <div class="bonus-history__list">
-                <? $tableBonus = $arResult['arUser']['UF_QUANTITY_DATE'];
-                $tableBonus = explode(";", $tableBonus); ?>
-                <? foreach ($tableBonus as $bonusItems):
-                    $bonusItems = explode("/", $bonusItems); ?>
-                    <div class="bonus-history__item">
-                        <div class="bonus-history__item-count">
-                            <?= declOfNum(intval($bonusItems[0]), [
-                                Loc::getMessage('BONUS_F_FORM'),
-                                Loc::getMessage('BONUS_S_FORM'),
-                                Loc::getMessage('BONUS_T_FORM'),
-                            ]); ?>
-                        </div>
-                        <div class="bonus-history__item-date"><?= GetMessage('DATE_TO'); ?> <?= $bonusItems[1]; ?></div>
-                    </div>
-                <? endforeach; ?>
-            </div>
-        </div>
-    <? } ?>
 </div>

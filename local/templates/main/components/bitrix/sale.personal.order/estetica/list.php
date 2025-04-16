@@ -34,21 +34,6 @@ foreach ($arParams as $key => $val)
 ?>
 
 <div class="main-profile-orders section <? $APPLICATION->ShowViewContent('empty_orders'); ?>">
-    <div class="main-profile-orders__toggle-filter toggle-filter">
-        <div class="toggle-filter__toggler">
-            <div class="toggle-filter__toggler-inner">
-                <div class="toggle-filter__toggler-title"><?= Loc::getMessage('ALL_ORDERS') ?></div>
-                <? $APPLICATION->ShowViewContent('filter_all_orders'); ?>
-                <div class="toggle-filter__toggler-arrow">
-                    <div class="toggle-filter__toggler-line"></div>
-                    <div class="toggle-filter__toggler-line"></div>
-                </div>
-            </div>
-        </div>
-        <div class="toggle-filter__modal">
-            <? include 'parts/filter.php' ?>
-        </div>
-    </div>
     <div class="main-profile-orders__sidebar left_sidebar">
         <? include 'parts/filter.php' ?>
 

@@ -591,7 +591,7 @@ $(document).ready(function () {
         $('.close-menu').show();
         $('.modal-background').show();
     });
-    $(document).on('click', '.header-burger.active', function (e) {
+    $(document).on('click', '.header-burger.active, .close-menu', function (e) {
         $('header').removeClass('active');
         $(this).removeClass('active');
         $('body').css('overflow', 'auto');
@@ -752,22 +752,23 @@ $(document).ready(function () {
     });
 
     $(document).on('click', '.showPreAuthForm', function (e) {
-        if (window.innerWidth < 1024) {
-            window.location.href = "/personal/profile/";
-            return;
-        } else {
-            e.preventDefault();
-            $('body').addClass('body-modal')
-            $('.auth-form').addClass('auth-form--showed').find('.auth-form__inner').css({
-                'right': $(window).width() - $(this).offset().left - 110,
-                'top': $(this).height() + $(this).position().top + 55,
-            });
-        }
+        e.preventDefault();
+        $(this).addClass('active');
+        $('body').addClass('body-modal')
+        $('.auth-form').addClass('auth-form--showed').find('.auth-form__inner').css({
+            'right': $(window).width() - $(this).offset().left - 110,
+            'top': $(this).height() + $(this).position().top + 55,
+        });
+        $('.burger-menu').hide()
+        $('.close-menu').show()
     })
 
-    $(document).on('click', '.auth-form__layout', function (e) {
+    $(document).on('click', '.auth-form__layout, .close-menu', function (e) {
         $('body').removeClass('body-modal')
         $('.auth-form').removeClass('auth-form--showed')
+        $('.showPreAuthForm').removeClass('active')
+        $('.burger-menu').show()
+        $('.close-menu').hide()
     })
 
     $(document).on('click', '.auth-form__button, .auth-form__link', function (e) {
@@ -1423,17 +1424,6 @@ $(document).on('click', '[href="#comment"]', function () {
             Recaptchafree.reset();
         }
     });
-});
-
-//фильтр каталога в мобильной версии
-$(document).on('click', '.filterblock', function () {
-    if ($(this).hasClass('active')) {
-        $(this).removeClass('active');
-        $('.filterbody').removeClass('active');
-    } else {
-        $(this).addClass('active');
-        $('.filterbody').addClass('active');
-    }
 });
 
 //сортировка в каталоге

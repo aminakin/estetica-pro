@@ -19,9 +19,9 @@ Loc::loadMessages(__FILE__);
 
 $arPrefix = ['FIRST', 'SECOND', 'THIRD'];
 $icons = [
-    'signal' => '<div></div><div></div><div></div>',
-    'percent' => '%',
-    'b' => Loc::getMessage('B')
+    'signal' => classBuildSCG::buildSVG('money', $templateFolder . "/images"),
+    'percent' => classBuildSCG::buildSVG('percent', $templateFolder . "/images"),
+    'b' => classBuildSCG::buildSVG('bonus', $templateFolder . "/images")
 ];
 
 $currentBonus = declOfNum(intval($arParams['USER_BONUS']), [
@@ -44,7 +44,7 @@ $currentLeftSum = declOfNum(intval($arParams['USER_LEFT_SUM']), [
 $search = ["#BONUS#", "#SUM#", "#PERCENT#", "#LEFT_SUM#"];
 $replace = [$currentBonus, $currentSum, $currentPercent, $currentLeftSum];
 ?>
-<? 
+<?
 foreach ($arResult["ITEMS"] as $arItem): ?>
     <?
     $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
@@ -63,12 +63,10 @@ foreach ($arResult["ITEMS"] as $arItem): ?>
                 <div class="bonus-card__item-desc">
                     <?= str_ireplace($search, $replace, $arItem['PROPERTIES'][$prefix . '_DESC']['~VALUE']['TEXT']); ?>
                 </div>
-                <? if ($arItem['PROPERTIES'][$prefix . '_LINK']['VALUE'] != '' && $arItem['PROPERTIES'][$prefix . '_LINK_NAME']['VALUE'] != '') { ?>
-                    <a class="bonus-card__item-link" href="<?= $arItem['PROPERTIES'][$prefix . '_LINK']['VALUE'] ?>">
-                        <?= $arItem['PROPERTIES'][$prefix . '_LINK_NAME']['VALUE'] ?>
-                    </a>
-                <? } ?>
             </div>
         <? } ?>
     </div>
+    <a class="bonus-card__item-link" href="/catalog/">
+        к покупкам
+    </a>
 <? endforeach; ?>

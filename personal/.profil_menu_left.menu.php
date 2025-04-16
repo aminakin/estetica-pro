@@ -8,14 +8,14 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Бонусная система", 
+		"Информация о бонусной системе", 
 		SITE_DIR."/bonus-system/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Связаться с нами WhatApp", 
+		"Связаться с нами", 
 		"https://wa.me/79229776867", 
 		Array(), 
 		Array(), 

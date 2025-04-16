@@ -11,14 +11,14 @@ $MESS["forum_SHOW_NAME"] = "Показывать имя:";
 $MESS["forum_SIGNATURE"] = "Подпись:";
 $MESS["LAST_UPDATE"] = "Дата обновления:";
 $MESS["ACTIVE"] = "Активен:";
-$MESS["NAME"] = "Имя*";
-$MESS["LAST_NAME"] = "Фамилия*";
-$MESS["SECOND_NAME"] = "Отчество*";
-$MESS["EMAIL"] = "E-mail";
+$MESS["NAME"] = "Имя";
+$MESS["LAST_NAME"] = "Фамилия";
+$MESS["SECOND_NAME"] = "Отчество";
+$MESS["EMAIL"] = "Электронная почта";
 $MESS["LOGIN"] = "Логин (мин. 3 символа):";
-$MESS["CURRENT_PASSWORD"] = "Текущий пароль*";
-$MESS["NEW_PASSWORD"] = "Новый пароль*";
-$MESS["NEW_PASSWORD_CONFIRM"] = "Подтвердите новый пароль*";
+$MESS["CURRENT_PASSWORD"] = "Текущий пароль";
+$MESS["NEW_PASSWORD"] = "Новый пароль";
+$MESS["NEW_PASSWORD_CONFIRM"] = "Подтвердите новый пароль";
 $MESS["INFO_FOR_USER"] = "Оповестить пользователя:";
 $MESS["INFO_FOR_USER_LANG"] = "Шаблон сайта";
 $MESS["GROUPS"] = "Группы:";
@@ -36,7 +36,7 @@ $MESS["USER_FEMALE"] = "Женский";
 $MESS["USER_BIRTHDAY"] = "День рождения";
 $MESS["USER_BIRTHDAY_DT"] = "Дата рождения";
 $MESS["USER_PHOTO"] = "Фотография:";
-$MESS["USER_PHONE"] = "Телефон:";
+$MESS["USER_PHONE"] = "Контактный телефон";
 $MESS["USER_FAX"] = "Факс:";
 $MESS["UF_DISCOUNT_CARD_NUM"] = 'Дисконтная карта';
 $MESS["USER_MOBILE"] = "Мобильный:";
@@ -118,7 +118,23 @@ $MESS['ERROR_EMPTY_PERSONAL_DATA'] = "Не дано согласие на обр
 
 $MESS['SUBSCRIBE_DESC'] = "Да, получать по email информацию об акциях, новинках, сроках списания бонусов.";
 $MESS['UNSUBSCRIBE_DESC'] = "Нет, не получать по email информацию об акциях, новинках, сроках списания бонусов.";
-$MESS['PRIVACY'] = "Я ознакомлен (а) с <a href='/privacy-policy'>Политикой Конфиденциальности</a> и даю согласие на обработку данных";
+$MESS['PRIVACY'] = "Нажимая кнопку «Оформить заказ», вы принимаете условия Пользовательского соглашения и <a href='/privacy-policy'>Политикой Конфиденциальности</a>";
 
-$MESS['WARNING_REMOVE_BLOCK'] = "Вы больше не сможете войти в этот аккаунт, восстановить его будет невозможно.";
-?>
+
+$MESS['WARNING_REMOVE_BLOCK'] = "Вы больше не сможете войти в этот аккаунт, <br>восстановить его будет невозможно.";
+
+$MESS["PLACEHOLDER_NAME"] = "Введите имя";
+$MESS["PLACEHOLDER_LAST_NAME"] = "Введите фамилию";
+$MESS["PLACEHOLDER_SECOND_NAME"] = "Введите отчество";
+$MESS["PLACEHOLDER_EMAIL"] = "Введите email";
+$MESS["PLACEHOLDER_PHONE"] = "+7";
+
+$MESS["PLACEHOLDER_INDEX"] = "Введите индекс";
+$MESS["PLACEHOLDER_CITY"] = "Укажите город или населенный пункт";
+$MESS["PLACEHOLDER_STREET"] = "Укажите улицу";
+$MESS["PLACEHOLDER_HOUSE"] = "Укажите дом, корпус";
+$MESS["PLACEHOLDER_APARTMENT"] = "Укажите квартиру (офис)";
+
+$MESS["PLACEHOLDER_DAY"] = "День";
+$MESS["PLACEHOLDER_MONTH"] = "Месяц";
+$MESS["PLACEHOLDER_YEAR"] = "Год";

@@ -132,9 +132,9 @@ a[data-filter="delayed"] {
 }
 
 @media screen and (max-width: 768px) {
-    header .sticky .header-mobile-bottom {
+    /*header .sticky .header-mobile-bottom {
         display: none;
-    }
+    }*/
 
     .order-block.desktop {
         display: none;

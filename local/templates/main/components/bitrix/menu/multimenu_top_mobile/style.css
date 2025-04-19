@@ -80,9 +80,8 @@
         left: 0px;
         display: none;
         background: #fff;
-        padding: 54px 0;
+        padding: 50px 0;
         z-index: 2;
-        box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
     }
     .header-menu__item--active .header-menu__item-modal {
         opacity: 1;
@@ -190,26 +189,6 @@
     .catalog-menu-flex-training:hover .catalog-menu-training-links-right {
         background: #4F397B;
         color: #ffffff;
-    }
-    .top-menu li a[href='/sale/'] {
-        color: #D8ABB7;
-        font-weight: 300;
-    }
-    .top-menu li a[href='/new/'] {
-        color: #33CCCC;
-        font-weight: 300;
-    }
-    .top-menu li a[href='/sale/']:hover,
-    .top-menu li a[href='/sale/']:focus,
-    .top-menu li a[href='/sale/']:active{
-        color: #D8ABB7;
-        font-weight: 400;
-    }
-    .top-menu li a[href='/new/']:hover,
-    .top-menu li a[href='/new/']:focus,
-    .top-menu li a[href='/new/']:active{
-        color: #33CCCC;
-        font-weight: 400;
     }
 }
 @media screen and (max-width: 768px) {

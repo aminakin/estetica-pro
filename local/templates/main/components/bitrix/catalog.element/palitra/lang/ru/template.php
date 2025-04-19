@@ -1,6 +1,6 @@
 <?
 $MESS["CT_BCE_QUANTITY"] = "Количество";
-$MESS["CT_BCE_COLOR"] = "Оттенок:";
+$MESS["CT_BCE_COLOR"] = "Оттенок";
 $MESS["CT_BCE_CATALOG_BUY"] = "Купить";
 $MESS["CT_BCE_CATALOG_ADD"] = "В корзину";
 $MESS["CT_BCE_CATALOG_COMPARE"] = "Сравнить";

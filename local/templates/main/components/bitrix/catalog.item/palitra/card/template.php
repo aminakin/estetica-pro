@@ -412,7 +412,7 @@ if (!empty($arParams['PRODUCT_BLOCKS_ORDER'])) {
                                 <ul class="product-item-properties palitra">
                                     <?
                                     $counter = 0;
-                                    while (count($displayProperty['DISPLAY_VALUE']) > $counter) {
+                                    while (is_array($displayProperty['DISPLAY_VALUE']) && count($displayProperty['DISPLAY_VALUE']) > $counter) {
                                         preg_match_all("/href=\"(.*?)\">/m", $displayProperty['DISPLAY_VALUE'][$counter], $propHrefs, PREG_SET_ORDER, 0);
                                         preg_match_all('|\d+|', $displayProperty['DESCRIPTION'][$counter], $propDescriptions);
                                         $ar_res = CCatalogProduct::GetByID($displayProperty['VALUE'][$counter]);

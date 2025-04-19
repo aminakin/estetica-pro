@@ -495,7 +495,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                         </a>
                         <? $APPLICATION->IncludeComponent(
                             "bxmaker:authuserphone.enter",
-                            "template",
+                            "",
                             array(),
                             false
                         ); ?>

@@ -26,7 +26,7 @@
 }
 
 .product-item-container.hover {
-    z-index: 200;
+    z-index: 2;
 }
 
 .product-item-container.sku-show .count-color {
@@ -312,9 +312,6 @@ input[data-disabled="disabled"] {
 }
 
 .product-item-properties {
-    color: #a5a5a5;
-    font-size: 12px;
-    margin: 0;
     display: block;
     overflow: hidden;
 }

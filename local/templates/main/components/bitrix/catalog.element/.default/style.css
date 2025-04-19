@@ -1826,11 +1826,12 @@ section.comment {
 	margin-top: 24px;
 }
 
+.bx-catalog-element .new-design .basket-checkout-container.delivery{
+	margin-bottom: 5px;
+}
+
 .bx-catalog-element .new-design .basket-checkout-container.delivery,
 .bx-catalog-element .new-design .basket-checkout-container.bonus {
-	margin-top: 0;
-	margin-bottom: 5px;
-	padding: 0;
 	box-shadow: none;
 	cursor: pointer;
 	color: #999999;
@@ -1843,6 +1844,7 @@ section.comment {
 .bx-catalog-element .new-design .basket-checkout-container.delivery svg,
 .bx-catalog-element .new-design .basket-checkout-container.bonus svg {
 	margin-left: 10px;
+	height: 16px;
 }
 
 .bx-catalog-element .no-bonus-product a {

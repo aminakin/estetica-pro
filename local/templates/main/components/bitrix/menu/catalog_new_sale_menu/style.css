@@ -49,28 +49,6 @@
 .top-menu>ul>li:last-child{
 	min-width: 129px;
 }
-.top-menu li a[href='/sale/'] {
-    color: #D8ABB7;
-    font-weight: 300;
-}
-.top-menu li a[href='/new/'] {
-    color: #33CCCC;
-    font-weight: 300;
-}
-.top-menu li a[href='/sale/']:hover,
-.top-menu li a[href='/sale/']:focus,
-.top-menu li a[href='/sale/']:active{
-    color: #D8ABB7;
-    font-weight: 400;
-}
-.top-menu li a[href='/new/']:hover,
-.top-menu li a[href='/new/']:focus,
-.top-menu li a[href='/new/']:active{
-    color: #33CCCC;
-    font-weight: 400;
-}
-.preload {
-}
 
 .header-menu__item--active .header-menu__item-modal {
     opacity: 1;

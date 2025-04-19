@@ -29,7 +29,7 @@ $(document).ready(function() {
         });
     });
 
-    $('.second-block li span a').click(function(event) {
+    /*$('.second-block li span a').click(function(event) {
         if(!$(this).parents('li').hasClass('no_children')) {
             event.preventDefault();
         }
@@ -74,5 +74,5 @@ $(document).ready(function() {
             secondBlock.find('.elem-active-children').removeClass('hover-elem')
             secondBlock.removeClass('hover');
         }
-    );
+    );*/
 });

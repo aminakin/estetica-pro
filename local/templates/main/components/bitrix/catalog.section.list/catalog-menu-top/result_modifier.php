@@ -96,4 +96,9 @@ if (0 < $arResult['SECTIONS_COUNT'])
 		}
 	}
 }
-?>
+
+foreach ($arResult['SECTIONS'] as &$arSection){
+	if($arSection['IBLOCK_ID'] == 25){
+		$arSection['SECTION_PAGE_URL'] = '/palitra/'. $arSection['CODE'] .'/';
+	}
+}

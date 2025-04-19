@@ -1431,7 +1431,6 @@ a {
     color: inherit;
     text-decoration: underline;
     outline: none;
-    transition: color 0.2s linear, border-color 0.2s linear, background-color 0.2s linear, opacity 0.2s linear;
 }
 
 a:hover {
@@ -2092,28 +2091,11 @@ nav.top-menu li::marker {
     display: inline;
     text-transform: uppercase;
     color: #000;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 14px;
     line-height: 16px;
     white-space: nowrap;
     text-shadow: 0 0 0 transparent;
-}
-
-.catalog-top-menu-catalog:hover,
-.catalog-top-menu-catalog.active {
-    opacity: 1;
-    color: #000000;
-    text-decoration: underline;
-}
-
-.top-mobile-menu ul li a[href='/sale/'] {
-    color: #D8ABB7 !important;
-    font-weight: 400;
-}
-
-.top-mobile-menu ul li a[href='/new/'] {
-    color: #33CCCC !important;
-    ;
 }
 
 .title-search form {
@@ -2550,33 +2532,6 @@ html body .close.basket-close {
         transform: rotate(90deg);
     }
 
-    .top-mobile-menu__catalog-list {
-        display: none;
-        padding-bottom: 10px;
-    }
-
-    .top-mobile-menu__catalog-list.brand {
-        position: absolute;
-        left: 110%;
-    }
-
-    .top-mobile-menu__catalog-list.brand.top-mobile-menu__catalog-list_active {
-        position: static;
-    }
-
-    .top-mobile-menu__catalog-list.brand.top-mobile-menu__catalog-list_active .catalog-modal-brands a {
-        height: 60px;
-        margin-bottom: 0;
-    }
-
-    .top-mobile-menu__catalog-list.brand.top-mobile-menu__catalog-list_active .slick-track {
-        width: 600px !important;
-    }
-
-    .top-mobile-menu__catalog-list.brand.top-mobile-menu__catalog-list_active .slick-arrow {
-        margin-top: -30px;
-    }
-
     .element-detail-text.open {
         max-height: 1000px;
     }
@@ -2648,48 +2603,6 @@ html body .close.basket-close {
         height: calc(100vh - 50px);
         padding: 0;
 
-    }
-
-    .catalog-menu-flex-element-block.catalog-menu-flex-element-block-brands {
-        margin-top: 0 !important;
-    }
-
-    .catalog-menu-flex-element .catalog-menu-flex-element-block-brands {
-        margin: 0;
-        padding-top: 0px;
-        padding-bottom: 30px;
-        max-width: unset;
-    }
-
-    .catalog-menu-flex-element .catalog-modal-brands {
-        height: 60px !important;
-        width: 60px !important;
-        margin-right: 7px !important;
-        margin-left: 7px !important;
-        padding: 0;
-        margin: 0;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-
-    .catalog-menu-flex-element.brand .catalog-menu-element-title {
-        padding-bottom: 15px;
-        text-transform: unset;
-    }
-
-    .catalog-menu-flex-element-block .slick-prev.slick-arrow {
-        left: 0px;
-    }
-
-    .catalog-menu-flex-element-block .slick-next.slick-arrow {
-        right: 0px;
-    }
-
-    .catalog-menu-flex-element .catalog-menu-element-title {
-        font-size: 14px;
-        line-height: 14px;
-        font-weight: 400;
     }
 
     .toggleOpen .h2 {

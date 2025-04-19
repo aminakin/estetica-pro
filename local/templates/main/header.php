@@ -184,6 +184,22 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                                     array("HIDE_ICONS" => "Y")
                                                 ); ?>
                                             </div>
+                                            <div class="catalog-menu-flex-element">
+                                                <ul class="catalog-menu-flex-element-block catalog-menu-flex-element-block-brands">
+                                                    <?
+                                                    $arSelect = array();
+                                                    $arFilter = array("IBLOCK_ID" => 6, "ACTIVE_DATE" => "Y", "ACTIVE" => "Y");
+                                                    $res = CIBlockElement::GetList(array('ACTIVE_FROM' => "ASC"), $arFilter, false, array(), $arSelect);
+                                                    while ($ob = $res->GetNextElement()) {
+                                                        $arProperties = $ob->GetProperties();
+                                                    ?>
+                                                        <a class="catalog-modal-brands-link"
+                                                            href="<?= $arProperties['LINK']['VALUE'] ?>"
+                                                            style="background-image: url(<?= CFile::GetPath($arProperties['IMAGE']['VALUE']) ?>);">
+                                                        </a>
+                                                    <? } ?>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="header-menu__item catalogmenu">
@@ -219,17 +235,17 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                         "bitrix:menu",
                                         "multimenu_top",
                                         array(
-                                            "ALLOW_MULTI_SELECT" => "N",    // Разрешить несколько активных пунктов одновременно
-                                            "CHILD_MENU_TYPE" => "top",    // Тип меню для остальных уровней
+                                            "ALLOW_MULTI_SELECT" => "N",
+                                            "CHILD_MENU_TYPE" => "top",
                                             "COMPONENT_TEMPLATE" => "tree",
-                                            "DELAY" => "N",    // Откладывать выполнение шаблона меню
-                                            "MAX_LEVEL" => "1",    // Уровень вложенности меню
-                                            "MENU_CACHE_GET_VARS" => "",    // Значимые переменные запроса
-                                            "MENU_CACHE_TIME" => "3600",    // Время кеширования (сек.)
-                                            "MENU_CACHE_TYPE" => "N",    // Тип кеширования
-                                            "MENU_CACHE_USE_GROUPS" => "Y",    // Учитывать права доступа
-                                            "ROOT_MENU_TYPE" => "top",    // Тип меню для первого уровня
-                                            "USE_EXT" => "N",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
+                                            "DELAY" => "N",
+                                            "MAX_LEVEL" => "1",
+                                            "MENU_CACHE_GET_VARS" => "",
+                                            "MENU_CACHE_TIME" => "3600",
+                                            "MENU_CACHE_TYPE" => "N",
+                                            "MENU_CACHE_USE_GROUPS" => "Y",
+                                            "ROOT_MENU_TYPE" => "top",
+                                            "USE_EXT" => "N",
                                         ),
                                         false
                                     ); ?>
@@ -262,10 +278,24 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="menu__item">
-                                        <li class="catalog-top-menu-catalog">
-                                            <? $APPLICATION->IncludeFile('/include/menu-courses.php'); ?>
-                                        </li>
+                                    <div class="header-menu__item coursesmenu">
+                                        <div class="catalog-top-menu-catalog">
+                                            <a href="/courses/"><?= GetMessage('LEARNING'); ?></a>
+                                        </div>
+                                        <div class="header-menu__item-modal catalog-menu-modal-container-example-coursesmenu">
+                                            <div class="catalog-menu-block">
+                                                <ul class="bx_sitemap_ul_oneline">
+                                                    <li class="first">
+                                                        <a href="/courses/kursy-manikyura/">Маникюр</a>
+                                                        <?= classBuildSCG::buildSVG('arrow'); ?>
+                                                    </li>
+                                                    <li class="first">
+                                                        <a href="/courses/raspisanie/" class="">Расписание курсов</a>
+                                                        <?= classBuildSCG::buildSVG('arrow'); ?>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="header-search-line">
@@ -548,7 +578,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                     "SECTION_URL" => "",
                                     "SECTION_USER_FIELDS" => array(0 => "", 1 => "",),
                                     "SHOW_PARENT_NAME" => "Y",
-                                    "TOP_DEPTH" => "3",
+                                    "TOP_DEPTH" => "2",
                                     "VIEW_MODE" => "LIST"
                                 )
                             ); ?>
@@ -630,6 +660,9 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                     "VIEW_MODE" => "LIST"
                                 )
                             ); ?>
+                        </li>
+                        <li class="header-menu__item">
+                            <span><? $APPLICATION->IncludeFile('/include/menu-courses.php'); ?></span>
                         </li>
                     </ul>
                 </div>

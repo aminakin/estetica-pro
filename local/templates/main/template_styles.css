@@ -569,3 +569,123 @@ a[data-filter="delayed"] {
     z-index: 5;
     display: none;
 }
+
+.bxmaker-authuserphone-enter{
+    max-width: 552px;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: none;
+    padding: 0;
+    display: block;
+}
+
+.bxmaker-authuserphone-button__inner{
+    background: #F781BF!important;
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 0;
+}
+
+.bxmaker-authuserphone-button__title{
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 64px;
+    text-transform: lowercase;
+}
+
+.auth_to_registration{
+    max-width: 552px;
+    margin: 24px auto 0;
+    width: 100%;
+    color: #999999;
+}
+
+.auth_to_registration a,
+a.bxmaker-authuserphone-link{
+    color: #F781BF!important;
+}
+
+.bxmaker-authuserphone-input-phone__field,
+.bxmaker-authuserphone-input__field,
+.bxmaker-authuserphone-input-password__field{
+    border: 1px solid #999999!important;
+    border-radius: 10px;
+}
+
+.bxmaker-authuserphone-header.bxmaker-authuserphone-enter-auth__title,
+.bxmaker-authuserphone-enter-auth__toregistration{
+    display: none;
+}
+
+.auth_title-wrap{
+    max-width: 552px;
+    margin: 0 auto;
+}
+
+.auth_title{
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 16px;
+}
+
+.auth_title-desc{
+    color: #999999;
+    font-size: 18px;
+    line-height: 20px;
+    margin-bottom: 24px;
+}
+
+.bxmaker-authuserphone-input-phone input[type=text],
+.bxmaker-authuserphone-input input[type=otp], 
+.bxmaker-authuserphone-input input[type=password], 
+.bxmaker-authuserphone-input input[type=phone], 
+.bxmaker-authuserphone-input input[type=tel], 
+.bxmaker-authuserphone-input input[type=text],
+.bxmaker-authuserphone-input-password input[type=password], 
+.bxmaker-authuserphone-input-password input[type=text]{
+    padding-top: 29px;
+}
+
+.bxmaker-authuserphone-input-phone--flag.bxmaker-authuserphone-input-phone--focus .bxmaker-authuserphone-input-phone__flag, 
+.bxmaker-authuserphone-input-phone--flag.bxmaker-authuserphone-input-phone--hover .bxmaker-authuserphone-input-phone__flag{
+    padding-top: 24px;
+}
+
+.bxmaker-authuserphone-input-phone__title,
+.bxmaker-authuserphone-input-password__title,
+.bxmaker-authuserphone-input__title{
+    top: 16px;
+}
+
+a.bxmaker-authuserphone-link.bxmaker-authuserphone-enter-auth-by-password-form__forget{
+    font-size: 14px;
+}
+
+a.bxmaker-authuserphone-link{
+    font-size: 16px;
+}
+
+.bxmaker-authuserphone-enter-auth-form__bypass,
+.bxmaker-authuserphone-enter-auth-by-password-form__back{
+    text-align: left;
+}
+
+@media (max-width: 1024px) {
+    .auth_title {
+        margin-top: 48px;
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+
+@media (max-width: 700px) {
+    #auth{
+        padding: 0 32px;
+    }
+}
+
+@media (max-width: 450px) {
+    .auth_title-desc br{
+        display: none;
+    }
+}

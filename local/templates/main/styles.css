@@ -4001,68 +4001,45 @@ html body .toggleOpen.no_fav_popup .fav-close:hover {
     display: none;
     position: fixed;
     width: 100%;
+    max-width: 1140px;
+    left: 50%;
+    margin-left: -570px;
     z-index: 210;
-    bottom: 0px;
-    background: #fff;
+    bottom:0px;
 }
 
 .modal_cookie {
-    position: relative;
-    max-width: 1140px;
-    padding: 40px 13% 30px 0;
-    margin: 0 auto;
-}
-
-.modal-cookie_close {
-    position: absolute;
-    right: 28px;
-    top: 8px;
-    height: 14px;
-    width: 14px;
-    cursor: pointer;
-}
-
-.modal-cookie_close:after,
-.modal-cookie_close:before {
-    position: absolute;
-    top: 8px;
-    display: block;
-    content: "";
-    height: 1px;
-    width: 20px;
-    background: #000000;
-}
-
-.modal-cookie_close:after {
-    transform: rotate(45deg);
-}
-
-.modal-cookie_close:before {
-    transform: rotate(315deg);
+    padding: 16px;
+    border-radius: 16px;
+    margin: 0 0 40px auto;
+    max-width: 667px;
+    background: #fff;
+    box-shadow: 0px 16px 32px 0px #80185729;
 }
 
 .modal-cookie_wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #fff;
 }
 
 .modal-cookie_text {
-    font-size: 14px;
-    line-height: 25px;
-    color: #1F1B20;
-    width: 73%;
+    max-width: 502px;
+    width: 100%;
 }
 
-.modal-cookie_button button {
-    border: none;
+.modal-cookie_button {
+    border-radius: 12px;
+    line-height: 38px;
+    background: var(--btn-color);
+    text-decoration: none;
+    font-weight: 400;
     font-size: 14px;
-    line-height: 58px;
-    width: 177px;
-    color: #000000;
-    background: #FFF8F9;
-    border-radius: 30px;
+    padding: 0 20px;
+    color: #ffffff;
+    text-transform: lowercase;
+    cursor: pointer;
+    margin-left: 24px;
 }
 
 .no-bonus-product a {
@@ -4089,6 +4066,14 @@ html body .toggleOpen.no_fav_popup .fav-close:hover {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
+}
+
+@media screen and (max-width: 1140px) {
+    .wrapper_modal_cookie{
+        left: 0;
+        margin-left: 0;
+        padding: 0 16px;
+    }
 }
 
 @media screen and (max-width: 992px) {
@@ -4135,33 +4120,9 @@ html body .toggleOpen.no_fav_popup .fav-close:hover {
 }
 
 @media screen and (max-width: 768px) {
-    .modal_cookie {
-        padding: 60px 23px 37px;
+    .modal_cookie{
+        margin-bottom: 30px;
     }
-
-    .modal-cookie_text {
-        width: 100%;
-    }
-
-    .modal-cookie_button {
-        margin-top: 30px;
-        text-align: center;
-    }
-
-    .modal-cookie_button button {
-        line-height: 33px;
-
-    }
-
-    .modal-cookie_wrap {
-        display: block;
-    }
-
-    .modal-cookie_close {
-        right: 22px;
-        top: 15px;
-    }
-
     .bx_catalog_tile .bx_catalog_tile_title {
         font-size: 9px;
     }
@@ -4181,6 +4142,17 @@ html body .toggleOpen.no_fav_popup .fav-close:hover {
 }
 
 @media screen and (max-width: 500px) {
+    .modal-cookie_wrap{
+        flex-direction: column;
+    }
+
+    .modal-cookie_button{
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+        margin-top: 16px;
+    }
+
     .order-block .order-auth .auth-item-wrapper {
         flex-direction: column;
     }

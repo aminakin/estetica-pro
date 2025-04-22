@@ -171,14 +171,11 @@
 
 <div class="wrapper_modal_cookie">
     <div class="modal_cookie">
-        <div class="modal-cookie_close"></div>
         <div class="modal-cookie_wrap">
             <div class="modal-cookie_text">
             <?= GetMessage('COOKIE_DESCRIPTION');?>
             </div>
-            <div class="modal-cookie_button">
-                <button>Ок</button>  
-            </div>
+            <div class="modal-cookie_button"><?= GetMessage('COOKIE_ACCEPT');?></div>
         </div>
     </div>
 </div>

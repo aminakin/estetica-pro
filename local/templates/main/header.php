@@ -493,13 +493,19 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                         <a href="#" class="close">
                             <?= classBuildSCG::buildSVG('big-cross'); ?>
                         </a>
+                        <div class="auth_title-wrap">
+                            <div class="auth_title major-title-pages"><?= GetMessage('AUTH_TITLE');?></div>
+                            <div class="auth_title-desc"><?= GetMessage('AUTH_DESCRIPTION');?></div>
+                        </div>
                         <? $APPLICATION->IncludeComponent(
                             "bxmaker:authuserphone.enter",
                             "",
                             array(),
                             false
                         ); ?>
-                        <a href="#register" class="linkOpen auth-logo">регистрация</a>
+                        <div class="auth_to_registration">
+                            <?= GetMessage('TO_REGISTRATION');?>
+                        </div>
                     </div>
                     <div class="toggleOpen auth-modal <?= $USER->IsAuthorized() ? 'success' : ''; ?>" id="register">
                         <a href="#" class="close">

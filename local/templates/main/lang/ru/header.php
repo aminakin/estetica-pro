@@ -29,4 +29,6 @@ $MESS["SBB_BASKET_BONUS_INFO"] = 'Информация о бонусной си�
 $MESS['NEED_REGISTRATION'] = 'Еще нет аккаунта? <span>Зарегистрироваться</span>';
 $MESS['NEED_login'] = 'Уже есть аккаунт? <span>Войти</span>';
 $MESS['TO_CATALOG'] = 'Перейти к покупкам';
-?>
+$MESS['TO_REGISTRATION'] = 'Еще не зарегистрировались? <a href="#register" class="linkOpen auth-logo">Перейти к регистрации</a>';
+$MESS['AUTH_TITLE'] = 'ВХОД';
+$MESS['AUTH_DESCRIPTION'] = 'Войти или зарегистрировать личный кабинет, <br>чтобы копить и списывать бонусы.';

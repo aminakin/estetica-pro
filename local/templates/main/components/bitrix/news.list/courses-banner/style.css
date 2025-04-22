@@ -4,17 +4,14 @@
 }
 .courses-banner{
     /*padding: 82px 0;*/
-    padding: 238px 0;
+    padding: 201px 0;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     border-radius: 18px;
 }
 .courses-banner-text-wrap{
-    max-width: 524px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: 13vw;
+
     display: none;
 }
 .courses-banner-title{
@@ -48,7 +45,7 @@
 }
 @media screen and (max-width: 1024px){
     .courses-banner {
-        padding: 200px 0;
+        padding: 141px 0;
     }
     .courses-banner-text-wrap{
         max-width: 440px;
@@ -99,6 +96,6 @@
 
 @media (max-width: 600px) {
     .courses-banner {
-        padding: 75px 0;
+        padding: 66px 0;
     }
 }

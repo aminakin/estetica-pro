@@ -13,7 +13,7 @@
         ),
         "HISTORIC_STATUSES" => array(	// Перенести в историю заказы в статусах
         ),
-        "NAV_TEMPLATE" => "",	// Имя шаблона для постраничной навигации
+        "NAV_TEMPLATE" => "catalog_section_new",	// Имя шаблона для постраничной навигации
         "ORDERS_PER_PAGE" => "20",	// Количество заказов на одной странице
         "ORDER_DEFAULT_SORT" => "STATUS",	// Сортировка заказов
         "PATH_TO_BASKET" => "/personal/cart",	// Страница с корзиной

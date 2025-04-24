@@ -64,6 +64,7 @@ $APPLICATION->SetTitle("Личный кабинет");
 				"STATUS_COLOR_D" => "gray",
 				"DISALLOW_CANCEL" => "N",
 				"REFRESH_PRICES" => "N",
+				"PAGER_TEMPLATE" => "catalog_section_new",
 				"SEF_URL_TEMPLATES" => array(
 					"list" => "",
 					"detail" => "detail/#ID#/",

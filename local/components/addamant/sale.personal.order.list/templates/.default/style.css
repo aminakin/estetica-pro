@@ -527,6 +527,15 @@
     color: #000000;
 }
 
+.bx-pagination .bx-pagination-container ul li.forward,
+.input-page{
+    display: none;
+}
+
+.bx-pagination.ozi{
+    padding: 0;
+}
+
 @media (max-width: 1024px) {
     .order-item + .order-item{
         margin-top: 24px;

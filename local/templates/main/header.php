@@ -280,7 +280,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                     </div>
                                     <div class="header-menu__item coursesmenu">
                                         <div class="catalog-top-menu-catalog">
-                                            <a href="/courses/"><?= GetMessage('LEARNING'); ?></a>
+                                            <a href="/about-courses/"><?= GetMessage('LEARNING'); ?></a>
                                         </div>
                                         <div class="header-menu__item-modal catalog-menu-modal-container-example-coursesmenu">
                                             <div class="catalog-menu-block">

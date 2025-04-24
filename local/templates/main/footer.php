@@ -229,6 +229,7 @@
 </div>
 <div class="delivery-popup-shadow"></div>
 <div class="site-shadow"></div>
+<div class="site-shadow-menu"></div>
 <script type="text/javascript">
     function openMenu(value) {
         let menu = document.querySelectorAll(`.footer-menu-list-${value.dataset.name}`);

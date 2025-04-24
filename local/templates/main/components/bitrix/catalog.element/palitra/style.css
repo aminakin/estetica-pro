@@ -334,6 +334,7 @@ a.btn.btn-link.buyBtn:focus {
 	background-size: cover;
 	background-position: center;
 	text-align: center;
+	justify-content: center;
 	opacity: 0;
 	display: flex;
 	-webkit-transition: opacity 250ms linear;
@@ -349,11 +350,11 @@ a.btn.btn-link.buyBtn:focus {
 }
 
 .product-item-detail-slider-image img {
-	-webkit-transform: translateY(0) translateX(-50%);
+	/*-webkit-transform: translateY(0) translateX(-50%);
 	-moz-transform: translateY(0) translateX(-50%);
 	-ms-transform: translateY(0) translateX(-50%);
 	-o-transform: translateY(0) translateX(-50%);
-	transform: translateY(0) translateX(-50%);
+	transform: translateY(0) translateX(-50%);*/
 
 	-webkit-transition: background-size 450ms ease, width 450ms ease, height 450ms ease, outline 450ms ease;
 	-moz-transition: background-size 450ms ease, width 450ms ease, height 450ms ease, outline 450ms ease;
@@ -362,8 +363,8 @@ a.btn.btn-link.buyBtn:focus {
 	transition: background-size 450ms ease, width 450ms ease, height 450ms ease, outline 450ms ease;
 	background-repeat: no-repeat;
 	background-position: center;
-
-	position: absolute;
+	object-fit: cover;
+	/*position: absolute;*/
 	top: 0;
 	left: 50%;
 	height: auto;
@@ -981,6 +982,7 @@ section.comment {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
+		width: 100%;
 	}
 	.product-detail-item-specification-block{
 		padding-left: 0;
@@ -990,6 +992,7 @@ section.comment {
 	.product-detail-item-slider-block {
 		justify-content: center;
 		flex-wrap: wrap;
+		align-items: center;
 	}
 
 	.detail-item-specification-block-subtitle {
@@ -1000,6 +1003,7 @@ section.comment {
 
 	.product-item-detail-slider-block{
 		height: 364px;
+		width: 364px;
 	}
 
 	.detail-item-specification-block-text,
@@ -1066,6 +1070,7 @@ section.comment {
 
 	.product-item-detail-slider-block{
 		height: 343px;
+		width: 343px;
 	}
 
 	.product-item-detail-pay-block .no-bonus-product span {
@@ -1669,9 +1674,14 @@ section.comment {
 }
 
 .bx-catalog-element .new-design .basket-checkout-container.delivery svg,
-.bx-catalog-element .new-design .basket-checkout-container.bonus svg {
+.bx-catalog-element .new-design .basket-checkout-container.bonus svg,
+.no-bonus-product svg {
 	margin-left: 10px;
 	height: 16px;
+}
+
+.bx-catalog-element .no-bonus-product{
+	margin-top: 5px;
 }
 
 .bx-catalog-element .no-bonus-product a {

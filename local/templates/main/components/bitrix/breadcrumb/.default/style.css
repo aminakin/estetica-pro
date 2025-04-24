@@ -2,6 +2,7 @@
     margin: 16px 0 32px;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .breadcrumbs a span{
@@ -10,7 +11,7 @@
 
 .breadcrumbs span{
     font-size: 14px;
-    line-height: 16px;
+    line-height: 20px;
     color: #999999;
 }
 .breadcrumbs .separet{
@@ -23,5 +24,22 @@
     .breadcrumbs{
         margin: 8px 0 24px;
         flex-wrap: wrap;
+    }
+
+    .breadcrumbs>a,
+    .breadcrumbs .separet,
+    .breadcrumbs>span{
+        display: none;
+    }
+
+    .breadcrumbs>span:last-child{
+        display: block;
+    }
+
+    .breadcrumbs>a:last-of-type,
+    .breadcrumbs>a:last-of-type + span.separet,
+    .breadcrumbs>a:first-child,
+    .breadcrumbs>a:first-child + span.separet{
+        display: block;
     }
 }

@@ -79,7 +79,7 @@ GLOBAL $USER;
 </div>
 <?
 if ($USER->IsAuthorized()){
-	$ID = $arResult["ORDER"]["ACCOUNT_NUMBER"];
+	/*$ID = $arResult["ORDER"]["ACCOUNT_NUMBER"];
 	$APPLICATION->IncludeComponent(
 		"bitrix:sale.personal.order.detail", 
 		"template1", 
@@ -111,7 +111,7 @@ if ($USER->IsAuthorized()){
 			"COMPONENT_TEMPLATE" => "template1"
 		),
 		false
-	);
+	);*/
 }
 if($arResult["ORDER"]['CANCELED'] != 'Y'){
 	if ($arParams["SET_TITLE"] == "Y"){

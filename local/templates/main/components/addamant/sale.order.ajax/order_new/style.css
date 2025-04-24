@@ -1844,10 +1844,10 @@ label[data-bx-user-consent] input {
 }
 
 .confirm_order {
-    font-weight: 600;
+    font-weight: 500;
     font-size: 24px;
     line-height: 33px;
-    color: #A9A9A9;
+    color: #999999;
     margin-bottom: 30px;
     text-align: center;
 }
@@ -1856,7 +1856,7 @@ label[data-bx-user-consent] input {
     font-size: 14px;
     line-height: 18px;
     text-align: center;
-    color: #A9A9A9;
+    color: #999999;
 }
 
 .comfirm_wrap {
@@ -1891,6 +1891,10 @@ div[data-property-id-row="49"] {
 
 .wrapper-payment {
     text-align: center;
+}
+
+.wrapper-payment .alert-info{
+    margin-top: 24px;
 }
 
 body .wrapper-payment .sberbank__wrapper {

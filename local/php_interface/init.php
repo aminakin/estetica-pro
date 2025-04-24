@@ -57,8 +57,8 @@ CModule::AddAutoloadClasses(
 AddEventHandler("iblock", "OnBeforeIBlockElementUpdate", array("AfterElement", "OnBeforeIBlockElementUpdateHandler"));
 AddEventHandler("iblock", "OnAfterIBlockElementUpdate", array("AfterElement", "OnAfterIBlockElementUpdateHandler"));
 
-Main\EventManager::getInstance()->addEventHandler("catalog", "Bitrix\Catalog\Model\Product::OnBeforeUpdate", [\ApiLib\Events\ProductEvents::class, "OnBeforeProductUpdateHandler"]);
-Main\EventManager::getInstance()->addEventHandler("catalog", "Bitrix\Catalog\Model\Product::OnAfterUpdate", [\ApiLib\Events\ProductEvents::class, "OnAfterProductUpdateHandler"]);
+//Main\EventManager::getInstance()->addEventHandler("catalog", "Bitrix\Catalog\Model\Product::OnBeforeUpdate", [\ApiLib\Events\ProductEvents::class, "OnBeforeProductUpdateHandler"]);
+//Main\EventManager::getInstance()->addEventHandler("catalog", "Bitrix\Catalog\Model\Product::OnAfterUpdate", [\ApiLib\Events\ProductEvents::class, "OnAfterProductUpdateHandler"]);
 Main\EventManager::getInstance()->addEventHandler('sale', 'onSaleDeliveryServiceCalculate', [ChangePriceShipment::class, 'calcPriceShipment'], false, 1000);
 
 

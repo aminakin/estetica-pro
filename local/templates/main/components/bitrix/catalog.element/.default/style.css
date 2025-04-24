@@ -344,6 +344,7 @@ a.btn.btn-link.buyBtn:focus {
 	background-size: cover;
 	background-position: center;
 	text-align: center;
+	justify-content: center;
 	opacity: 0;
 	display: flex;
 	-webkit-transition: opacity 250ms linear;
@@ -359,11 +360,11 @@ a.btn.btn-link.buyBtn:focus {
 }
 
 .product-item-detail-slider-image img {
-	-webkit-transform: translateY(0) translateX(-50%);
+	/*-webkit-transform: translateY(0) translateX(-50%);
 	-moz-transform: translateY(0) translateX(-50%);
 	-ms-transform: translateY(0) translateX(-50%);
 	-o-transform: translateY(0) translateX(-50%);
-	transform: translateY(0) translateX(-50%);
+	transform: translateY(0) translateX(-50%);*/
 
 	-webkit-transition: background-size 450ms ease, width 450ms ease, height 450ms ease, outline 450ms ease;
 	-moz-transition: background-size 450ms ease, width 450ms ease, height 450ms ease, outline 450ms ease;
@@ -372,8 +373,8 @@ a.btn.btn-link.buyBtn:focus {
 	transition: background-size 450ms ease, width 450ms ease, height 450ms ease, outline 450ms ease;
 	background-repeat: no-repeat;
 	background-position: center;
-
-	position: absolute;
+	object-fit: cover;
+	/*position: absolute;*/
 	top: 0;
 	left: 50%;
 	height: auto;
@@ -462,8 +463,8 @@ a.btn.btn-link.buyBtn:focus {
 .product-item-detail-slider-container.popup .product-item-detail-slider-close {
 	width: 50px;
 	height: 50px;
-	right: 110px;
-	top: 4px;
+	right: 155px;
+	top: 0px;
 	opacity: .27;
 	background: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpolygon%20fill%3D%22%23000000%22%20fill-rule%3D%22evenodd%22%20points%3D%2216%2015.1%208.944%208%2016%201%2015.006%200%208.05%207%20.994%200%200%201%207.056%208%200%2015.1%20.994%2016%208.05%209%2015.006%2016%22%2F%3E%3C%2Fsvg%3E') no-repeat center;
 	-webkit-transition: all 300ms ease;
@@ -560,6 +561,12 @@ a.btn.btn-link.buyBtn:focus {
 .product-item-detail-slider-container.popup .product-item-detail-slider-controls-image {
 	display: block;
 	margin-bottom: 20px;
+}
+
+.product-item-detail-slider-container.popup .product-item-detail-slider-block{
+	position: static;
+	border: none;
+	height: 100%;
 }
 
 /*Label*/
@@ -1064,6 +1071,7 @@ section.comment {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
+		width: 100%;
 	}
 	.product-detail-item-specification-block{
 		padding-left: 0;
@@ -1073,6 +1081,7 @@ section.comment {
 	.product-detail-item-slider-block {
 		justify-content: center;
 		flex-wrap: wrap;
+		align-items: center;
 	}
 
 	.detail-item-specification-block-subtitle {
@@ -1083,6 +1092,7 @@ section.comment {
 
 	.product-item-detail-slider-block{
 		height: 364px;
+		width: 364px;
 	}
 
 	.detail-item-specification-block-text,
@@ -1149,6 +1159,7 @@ section.comment {
 
 	.product-item-detail-slider-block{
 		height: 343px;
+		width: 343px;
 	}
 
 	.product-item-detail-pay-block .no-bonus-product span {
@@ -1172,14 +1183,6 @@ section.comment {
 
 	.product-detail-item-right-section {
 		max-width: 100%;
-	}
-
-	.product-item-detail-info-container-title {
-		font-weight: 600;
-		font-size: 10px;
-		line-height: 14px;
-		text-transform: uppercase;
-		color: #000;
 	}
 
 	.no-danate {
@@ -1842,9 +1845,14 @@ section.comment {
 }
 
 .bx-catalog-element .new-design .basket-checkout-container.delivery svg,
-.bx-catalog-element .new-design .basket-checkout-container.bonus svg {
+.bx-catalog-element .new-design .basket-checkout-container.bonus svg,
+.no-bonus-product svg {
 	margin-left: 10px;
 	height: 16px;
+}
+
+.bx-catalog-element .no-bonus-product{
+	margin-top: 5px;
 }
 
 .bx-catalog-element .no-bonus-product a {

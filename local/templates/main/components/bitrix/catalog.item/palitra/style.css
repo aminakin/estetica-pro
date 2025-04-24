@@ -67,6 +67,7 @@
 .product-item-container {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .product-item-payment-block {
@@ -550,7 +551,7 @@ a.btn.btn-link.buyBtn svg{
 
     .product-item-info-container.buttons,
     .product-item-info-container.shade{
-        margin: 0 16px 16px 16px;
+        margin: auto 16px 16px 16px;
     }
 
     .product-item-container .product-item-price-container{

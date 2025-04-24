@@ -559,7 +559,8 @@ a[data-filter="delayed"] {
     font-size: 19px;
 }
 
-.site-shadow {
+.site-shadow,
+.site-shadow-menu {
     background: #00000080;
     position: fixed;
     top: 0;

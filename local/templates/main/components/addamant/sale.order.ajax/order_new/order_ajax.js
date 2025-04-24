@@ -4793,9 +4793,6 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					html: labelTextHtml
 				});
 
-				console.log(1231231);
-				
-
 				input = BX.create('INPUT', {
 					props: {
 						id: 'altProperty',
@@ -7725,8 +7722,6 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			inputs = propContainer.querySelectorAll('input[type=text]');
 			for (i = 0; i < inputs.length; i++)
 			{
-				console.log(settings);
-				
 				inputs[i].placeholder = settings.DESCRIPTION;
 				BX.addClass(inputs[i], 'form-control bx-soa-customer-input bx-ios-fix 3');
 			}
@@ -8163,8 +8158,6 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			}
 
 			tooltipInner.innerHTML = text;
-			console.log(tooltipInner);
-			
 
 			if (tooltip.getAttribute('data-state') != 'opened')
 			{

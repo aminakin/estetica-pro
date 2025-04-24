@@ -4239,6 +4239,7 @@ html body .toggleOpen.no_fav_popup .fav-close:hover {
 
 .bonus-page-desc b {
     color: #000000;
+    font-weight: 400;
 }
 
 .bonus-page-desc div {

@@ -857,6 +857,8 @@ class CBitrixPersonalOrderListComponent extends CBitrixComponent
         \CPageOption::SetOptionString("main", "nav_page_in_session", "N");
         $navyParams = \CDBResult::GetNavParams();
 
+        $navyParams['SHOW_ALL'] = true;
+
         if ($navyParams['SHOW_ALL']) {
             $usePageNavigation = false;
         } else {

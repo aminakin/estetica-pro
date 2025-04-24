@@ -87,7 +87,7 @@ $arComponentParameters = Array(
 			"PARENT" => "ADDITIONAL_SETTINGS",
 			"NAME" => GetMessage("SPOL_NAV_TEMPLATE"),
 			"TYPE" => "STRING",
-			"DEFAULT" => "",
+			"DEFAULT" => "catalog_section_new",
 		),	
 
 		"CACHE_TIME"  =>  Array("DEFAULT"=>3600),

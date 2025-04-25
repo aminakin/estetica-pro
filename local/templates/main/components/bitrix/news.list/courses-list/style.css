@@ -1,5 +1,5 @@
 .courses-list{
-	margin-bottom: 74px;
+	margin-bottom: 32px;
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
@@ -54,13 +54,33 @@
 .course-link:hover{
 	background: var(--btn-color-hover);
 }
+.courses-list-more{
+	display: flex;
+	justify-content: space-between;
+}
+.courses-list-more a.link-table{
+	border-radius: 10px;
+    border: 1px solid #F781BF;
+    padding: 11px 36px;
+    line-height: 16px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    text-transform: lowercase;
+	max-width: 232px;
+	width: 100%;
+}
 @media screen and (max-width: 1024px) {
 	.courses-list{
-		margin-bottom: 56px;
+		margin-bottom: 24px;
 	}
 	.course-item{
 		width: 100%;
 		margin-right: 0!important;
+	}
+	.courses-list-more{
+		margin-bottom: 40px;
 	}
 }
 @media screen and (max-width: 850px) {

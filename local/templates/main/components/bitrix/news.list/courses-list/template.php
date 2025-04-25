@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -13,24 +13,27 @@
 $this->setFrameMode(true);
 ?>
 <div class="courses-list-title major-title-pages" id="courses-list">
-    <?= $arResult['NAME'];?>
+	<?= $arResult['NAME']; ?>
 </div>
 <div class="courses-list">
-	<?foreach($arResult["ITEMS"] as $arItem):?>
+	<? foreach ($arResult["ITEMS"] as $arItem): ?>
 		<? $count++;
 		$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
 		$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 		?>
-		<div class="course-item" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
-			<div class="course-img" style="background-image: url('<?= $arItem["PREVIEW_PICTURE"]["SRC"];?>');"></div>
+		<div class="course-item" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+			<div class="course-img" style="background-image: url('<?= $arItem["PREVIEW_PICTURE"]["SRC"]; ?>');"></div>
 			<div class="course-text">
-        <div class="course-name">
-			  	<?= $arItem["NAME"]?>
-			  </div>
-				<a class="course-link" href="<?= $arItem["PROPERTIES"]['LINK']["VALUE"];?>">
-          <?= GetMessage('MORE')?>
-        </a>
+				<div class="course-name">
+					<?= $arItem["NAME"] ?>
+				</div>
+				<a class="course-link" href="<?= $arItem["PROPERTIES"]['LINK']["VALUE"]; ?>">
+					<?= GetMessage('MORE') ?>
+				</a>
 			</div>
 		</div>
-	<?endforeach;?>
+	<? endforeach; ?>
+</div>
+<div class="courses-list-more">
+	<a href="/courses/raspisanie/"><?= GetMessage('MORE_TABLET') ?></a>
 </div>

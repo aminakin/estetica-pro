@@ -75,10 +75,27 @@
 
 .bx-pagination.ozi {
 	padding: 0;
+	margin-top: 0px;
+}
+
+.courses-full-more{
+	display: flex;
+	justify-content: space-between;
+	align-items: end;
 	margin-top: 32px;
 }
 
+.courses-full-more .courses-list-more{
+	margin-bottom: 0;
+	max-width: 232px;
+	width: 100%;
+}
+
 @media (max-width: 1024px) {
+	.courses-full-more{
+		margin-top: 16px;
+	}
+	
 	.courses-full-list {
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: repeat(2, 1fr);
@@ -91,5 +108,18 @@
 	.courses-full-list {
 		grid-template-columns: repeat(1, 1fr);
 		grid-template-rows: repeat(1, 1fr);
+	}
+
+	.courses-full-more{
+		flex-wrap: wrap;
+	}
+
+	.courses-full-more .courses-list-more{
+		margin-top: 16px;
+		max-width: 100%;
+	}
+
+	.courses-full-more .courses-list-more a{
+		width: 100%;
 	}
 }

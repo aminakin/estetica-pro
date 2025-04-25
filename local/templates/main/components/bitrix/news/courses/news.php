@@ -38,3 +38,6 @@ while ($s = $res->GetNext()) {
 		</div>
 	<?endforeach;?>
 </div>
+<div class="courses-list-more">
+	<a href="/courses/raspisanie/"><?= GetMessage('MORE_TABLET') ?></a>
+</div>

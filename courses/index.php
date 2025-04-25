@@ -4,7 +4,7 @@ $APPLICATION->SetPageProperty("description", "Профессиональные �
 $APPLICATION->SetTitle("Обучение");
 $dir = $APPLICATION->GetCurDir();
 ?>
-<div class="courses-page">
+<div class="courses-page list">
 	<? $APPLICATION->IncludeComponent(
 		"bitrix:news",
 		"courses",

@@ -3,7 +3,7 @@
 }
 
 .courses-list {
-	margin-bottom: 74px;
+	margin-bottom: 32px;
 	display: grid;
 	grid-auto-columns: 1fr 1fr 1fr;
 	grid-auto-rows: 1fr 1fr;
@@ -67,30 +67,57 @@
 	background: var(--btn-color-hover);
 }
 
+.courses-list-more {
+	margin-bottom: 80px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.courses-list-more a,
+.courses-page.list .courses-list-more a{
+	border-radius: 10px;
+	border: 1px solid #F781BF;
+	padding: 11px 36px;
+	line-height: 16px;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	text-align: center;
+	text-transform: lowercase;
+}
+
+.courses-page.list .courses-list-more a{
+	padding: 18px 36px;
+}
+
 @media screen and (max-width: 1024px) {
-	.courses-list .courses-list {
+	.courses-list {
+		margin-bottom: 24px;
+	}
+
+	.courses-list-more{
 		margin-bottom: 40px;
 	}
 
-	.courses-list .course-img{
+	.courses-list .course-img {
 		height: 207px;
 	}
 
-	.courses-list{
+	.courses-list {
 		gap: 12px;
 	}
 
-	.courses-list .course-text{
+	.courses-list .course-text {
 		padding: 16px;
 	}
 
-	.courses-list .course-link{
+	.courses-list .course-link {
 		font-size: 14px;
 		line-height: 38px;
 		white-space: nowrap;
 	}
 
-	.courses-list .course-name{
+	.courses-list .course-name {
 		font-size: 18px;
 		line-height: 20px;
 		margin-top: 42px;
@@ -99,7 +126,7 @@
 
 @media screen and (max-width: 700px) {
 	.courses-list {
-		grid-auto-columns:1fr;
-		grid-template-columns:1fr;
+		grid-auto-columns: 1fr;
+		grid-template-columns: 1fr;
 	}
 }

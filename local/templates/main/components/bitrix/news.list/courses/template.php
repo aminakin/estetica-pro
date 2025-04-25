@@ -62,9 +62,11 @@ $this->setFrameMode(true);
         </div>
     <? endforeach; ?>
 </div>
-<div class="courses-timetable">
-    <a href=""></a>
+<div class="courses-full-more">
+    <? if ($arParams["DISPLAY_BOTTOM_PAGER"]): ?>
+        <?= $arResult["NAV_STRING"] ?>
+    <? endif; ?>
+    <div class="courses-list-more">
+        <a class="link-table" href="/courses/raspisanie/"><?= GetMessage('MORE_TABLET') ?></a>
+    </div>
 </div>
-<? if ($arParams["DISPLAY_BOTTOM_PAGER"]): ?>
-    <?= $arResult["NAV_STRING"] ?>
-<? endif; ?>

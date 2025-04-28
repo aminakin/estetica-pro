@@ -25,14 +25,14 @@ use \Bitrix\Main\Localization\Loc;
     <div class="product-item-image-block">
         <? global $USER; ?>
         <? if ($USER->IsAuthorized()): ?>
-            <div class="product-item-favorite-image-block<?= ' '.$arParams['LABEL_TYPE']?>" data-item="<?= $item["ID"]; ?>">
+            <div class="product-item-favorite-image-block<?= ' ' . $arParams['LABEL_TYPE'] ?>" data-item="<?= $item["ID"]; ?>">
                 <?= classBuildSCG::buildSVG('favorite', $templateFolder . '/image'); ?>
             </div>
         <? else: ?>
-            <a class="product-item-favorite-image-block no_auth_fav linkOpen <?= ' '.$arParams['LABEL_TYPE']?>" href="#no_fav_popup" data-item="<?= $item["ID"]; ?>">
+            <a class="product-item-favorite-image-block no_auth_fav linkOpen <?= ' ' . $arParams['LABEL_TYPE'] ?>" href="#no_fav_popup" data-item="<?= $item["ID"]; ?>">
                 <?= classBuildSCG::buildSVG('favorite', $templateFolder . '/image'); ?>
             </a>
-        <? endif;?>
+        <? endif; ?>
         <? if (!empty($item['LABEL_ARRAY_VALUE'])) { ?>
             <div class="product-item-label-text <?= $labelPositionClass ?>" id="<?= $itemIds['STICKER_ID'] ?>">
                 <? foreach ($item['LABEL_ARRAY_VALUE'] as $code => $value) {
@@ -155,7 +155,7 @@ use \Bitrix\Main\Localization\Loc;
                                 <div class="no-bonus-product">
                                     <a class="linkOpen" href="#about_bonus">
                                         <span><?= GetMessage('CT_BCE_QUESTION'); ?></span>
-                                                <?= classBuildSCG::buildSVG('question', $templateFolder . '/image'); ?>
+                                        <?= classBuildSCG::buildSVG('question', $templateFolder . '/image'); ?>
                                     </a>
                                 </div>
                             <? endif; ?>
@@ -312,7 +312,7 @@ use \Bitrix\Main\Localization\Loc;
                                             href="javascript:void(0)" rel="nofollow"
                                             <? if ($actualItem['IBLOCK_SECTION_ID'] == 1190): ?>onclick="ym(51439306,'reachGoal','target')" <? endif; ?>>
                                             <?= getMessage('MESS_BUY'); ?>
-                                            <?= classBuildSCG::buildSVG('cart', $templateFolder."/image"); ?>
+                                            <?= classBuildSCG::buildSVG('cart', $templateFolder . "/image"); ?>
                                         </a>
                                     </div>
                                 <?
@@ -483,12 +483,18 @@ use \Bitrix\Main\Localization\Loc;
                 case 'sku':
                     if ($arParams['PRODUCT_DISPLAY_MODE'] === 'Y' && $haveOffers && !empty($item['OFFERS_PROP'])) {
                         ?>
-                        <div id="<?= $itemIds['PROP_DIV'] ?>">
+                        <div id="<?= $itemIds['PROP_DIV'] ?>" class="sku-btn-wrap">
 
-                            <? if ($item['OFFERS_PROP']['TSVET'] == true) {
+                            <?
+                            
+                            if ($item['OFFERS_PROP']['TSVET'] == true) {
                                 foreach ($arParams['SKU_PROPS'] as $skuProperty) {
-                                    //$count = 0;
-                                    foreach ($skuProperty['VALUES'] as $value) {
+                                    $propertyId = $skuProperty['ID'];
+                                    foreach ($skuProperty['VALUES'] as $key => $value) {
+                                        
+                                        if (!isset($item['SKU_TREE_VALUES'][$propertyId][$value['ID']]))
+                                            continue;
+
                                         $count++;
                                     }
                                 } ?>
@@ -621,7 +627,7 @@ use \Bitrix\Main\Localization\Loc;
                                                             data-id="<?= $item['ID'] ?>" id="<?= $itemIds['BUY_LINK'] ?>"
                                                             href="javascript:void(0)" rel="nofollow">
                                                             <?= getMessage('MESS_BUY'); ?>
-                                                            <?= classBuildSCG::buildSVG('cart', $templateFolder."/image"); ?>
+                                                            <?= classBuildSCG::buildSVG('cart', $templateFolder . "/image"); ?>
                                                         </a>
                                                     </div>
                                                 </div>

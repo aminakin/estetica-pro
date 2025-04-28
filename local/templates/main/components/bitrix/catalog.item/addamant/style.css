@@ -678,6 +678,7 @@ ul.product-item-scu-item-list li::before {
     border-color: #707070 !important;
     line-height: 24px;
     cursor: pointer;
+    padding: 0 3px;
 }
 
 div.product-item-label-text.product-item-label-small span {
@@ -1030,7 +1031,7 @@ a.btn.btn-link.buyBtn:focus {
     text-decoration: none;
     font-weight: 400;
     font-size: 14px;
-    padding: 11px 20px;
+    padding: 11px 5px;
     color: #ffffff;
     text-transform: lowercase;
     width: 100%;
@@ -1039,7 +1040,7 @@ a.btn.btn-link.buyBtn:focus {
     text-align: center;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
 
     .product-item-container .sku-button .desctop {
         display: none;
@@ -1115,6 +1116,11 @@ a.btn.btn-link.buyBtn:focus {
 
     .product-item-image-block{
         border-radius:  8px 8px 0 0 ;
+    }
+
+    .count-color{
+        padding: 0 16px;
+        bottom: 60px;
     }
 }
 
@@ -1268,6 +1274,14 @@ a.btn.btn-link.buyBtn:focus {
 
 a.btn.btn-link.buyBtn svg {
     display: none;
+}
+
+.sku-btn-wrap{
+    margin-top: auto;
+}
+
+.product-item.product-item-container.sku-show .sku-btn-wrap{
+    margin: 0;
 }
 
 @media screen and (max-width: 1024px) {

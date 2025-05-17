@@ -21,7 +21,6 @@
 *.text
 *.log
 *.config
-*.xml
 *.tbk
 *.xlsx
 *.json

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><items iblockUid="reviews:reviewsBtn" exchangeVersion="2"><item><field name="ACTIVE"><value>Y</value></field><field name="ACTIVE_FROM"/><field name="ACTIVE_TO"/><field name="SORT"><value>500</value></field><field name="NAME"><value>ссылка на отзывы</value></field><field name="PREVIEW_PICTURE"/><field name="PREVIEW_TEXT"><value>&amp;lt;p&amp;gt;&#13;
+	 С нами мастера&#13;
+&amp;lt;/p&amp;gt;&#13;
+&amp;lt;p&amp;gt;&#13;
+	 увеличивают доход&#13;
+&amp;lt;/p&amp;gt;&#13;
+&amp;lt;p&amp;gt;&#13;
+ &amp;lt;img width=&amp;quot;20&amp;quot; src=&amp;quot;/upload/iblock/Vector.svg&amp;quot; height=&amp;quot;28&amp;quot;&amp;gt;И это их слова&#13;
+&amp;lt;/p&amp;gt;</value></field><field name="PREVIEW_TEXT_TYPE"><value>html</value></field><field name="DETAIL_PICTURE"/><field name="DETAIL_TEXT"/><field name="DETAIL_TEXT_TYPE"><value>text</value></field><field name="CODE"/><field name="TAGS"/><field name="XML_ID"><value>79153</value></field><field name="IBLOCK_SECTION"/><property name="LINK_PAGE"><value>#reviews-main</value></property></item></items>

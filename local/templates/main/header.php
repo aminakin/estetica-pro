@@ -681,7 +681,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
             </div>
 
             <div id="content-wrap" class="<?= (Page::isPersonal()) ? ' personal' : '' ?>">
-                <? if (!Page::IsMain() /*&& $APPLICATION->GetCurDir() != '/login/auth/' && strpos($APPLICATION->GetCurDir(), 'personal') == false*/) { ?>
+                <? if (!Page::IsMain() && strpos($APPLICATION->GetCurDir(), 'about') == false /*&& $APPLICATION->GetCurDir() != '/login/auth/' && strpos($APPLICATION->GetCurDir(), 'personal') == false*/) { ?>
 
                     <? $APPLICATION->IncludeComponent(
                         "bitrix:breadcrumb",

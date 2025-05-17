@@ -681,6 +681,16 @@ ul.product-item-scu-item-list li::before {
     padding: 0 3px;
 }
 
+div.product-item-label-text.product-item-label-small {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
 div.product-item-label-text.product-item-label-small span {
     font-weight: normal;
     font-size: 18px;
@@ -692,14 +702,11 @@ div.product-item-label-text.product-item-label-small span {
     text-transform: lowercase;
     padding: 0px 12px;
     border-radius: 10px;
-    position: absolute;
-    top: 24px;
-    left: 24px;
-    z-index: 2;
 }
 
 div.product-item-label-text.product-item-label-small span.NEW,
-div.product-item-label-text.product-item-label-small span.AKTSIONNYY {
+div.product-item-label-text.product-item-label-small span.AKTSIONNYY,
+div.product-item-label-text.product-item-label-small span.SALE_RESNITSY {
     background-color: #F781BF;
 }
 

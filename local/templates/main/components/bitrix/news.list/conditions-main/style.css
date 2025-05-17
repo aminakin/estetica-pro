@@ -1,88 +1,107 @@
-.conditions-list{
+.conditions-list {
 	background: #F3F3F3;
 	padding: 48px 64px;
 	border-radius: 0 0 18px 18px;
 	margin-bottom: 48px;
 }
-.conditions-list_wrap{
+
+.conditions-list_wrap {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	margin: 0 auto;
 }
-.conditions-item{
+
+.about-page .conditions-item {
+	align-items: flex-start;
+}
+
+.conditions-item {
 	display: flex;
 	align-items: center;
 	max-width: 32%;
 	margin-right: 2%;
 }
-.conditions-item:last-child{
+
+.conditions-item:last-child {
 	margin-right: 0;
 }
-.conditions-list_icon{
+
+.conditions-list_icon {
 	margin-right: 16px;
 }
+
 @media screen and (max-width: 1024px) {
-	.conditions-item{
+	.conditions-item {
 		margin-bottom: 24px;
 		max-width: 49%;
 	}
-	.conditions-item:nth-child(2){
+
+	.conditions-item:nth-child(2) {
 		margin-right: 0;
 	}
-	.conditions-item:last-child{
+
+	.conditions-item:last-child {
 		margin-bottom: 0;
 	}
-	.conditions-list{
+
+	.conditions-list {
 		padding: 24px 32px;
 		margin-bottom: 24px;
 		margin-left: -16px;
 		margin-right: -16px;
 	}
 
-	.conditions-list_wrap{
+	.conditions-list_wrap {
 		flex-wrap: wrap;
 	}
- 
-	.conditions-list_text br{
+
+	.conditions-list_text br {
 		display: none;
 	}
 
-	.conditions-list_icon{
+	.conditions-list_icon {
 		max-width: 48px;
 		width: 100%;
 		height: 48px;
 	}
 }
+
 @media screen and (max-width: 700px) {
-	.conditions-list_text{
+	.conditions-list_text {
 		font-size: 14px;
 		line-height: 16px;
 	}
-	.conditions-list{
+
+	.conditions-list {
 		padding: 24px;
 		margin-bottom: 24px;
 	}
-	.conditions-list_icon{
+
+	.conditions-list_icon {
 		max-width: 32px;
 		width: 100%;
 		height: 32px;
 		margin-right: 8px;
 	}
-	.conditions-item{
+
+	.conditions-item {
 		max-width: 100%;
 		margin-right: 0;
 		align-items: flex-start;
 		margin-bottom: 16px;
 	}
-	.conditions-list_wrap{
+
+	.conditions-list_wrap {
 		justify-content: flex-start;
 		padding: 0;
 	}
-	.conditions-item:last-child{
+
+	.conditions-item:last-child {
 		margin-bottom: 0;
 	}
-	.conditions-list_text br{
+
+	.conditions-list_text br {
 		display: none;
 	}
 }

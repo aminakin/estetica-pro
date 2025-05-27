@@ -148,7 +148,7 @@
     <div class="footer-copyright-wrapper">
         <div class="footer-copyright-text">
             <span>© <span class="nbr"><? echo date('Y'); ?></span> <? $APPLICATION->IncludeFile('/include/copyright.php'); ?></span>
-            <a href="https://addamant.ru/" class="adm-link">
+            <?/*a href="https://addamant.ru/" class="adm-link">
                 created with 
                 <svg class="ico-red-heart" width="18" height="18" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect width="72" height="72" fill="url(#pattern0)"></rect>
@@ -164,7 +164,7 @@
                     <path d="M5.25 12.9043L12.75 5.4043" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                     <path d="M5.25 5.4043H12.75V12.9043" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
-            </a>
+            </a*/?>
         </div>
     </div>
 </footer>

@@ -305,7 +305,7 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/scrollpage.js');
 		"CACHE_TYPE" => "A",
 		"COMPATIBLE_MODE" => "Y",
 		"CONVERT_CURRENCY" => "N",
-		"CUSTOM_FILTER" => "{\"CLASS_ID\":\"CondGroup\",\"DATA\":{\"All\":\"AND\",\"True\":\"True\"},\"CHILDREN\":[{\"CLASS_ID\":\"CondIBProp:14:390\",\"DATA\":{\"logic\":\"Equal\",\"value\":764}},{\"CLASS_ID\":\"CondIBProp:14:315\",\"DATA\":{\"logic\":\"Great\",\"value\":0}}]}",
+		"CUSTOM_FILTER" => "{\"CLASS_ID\":\"CondGroup\",\"DATA\":{\"All\":\"AND\",\"True\":\"True\"},\"CHILDREN\":[{\"CLASS_ID\":\"CondIBProp:14:353\",\"DATA\":{\"logic\":\"Equal\",\"value\":771}},{\"CLASS_ID\":\"CondIBProp:14:315\",\"DATA\":{\"logic\":\"Great\",\"value\":0}}]}",
 		"DETAIL_URL" => "",
 		"DISABLE_INIT_JS_IN_COMPONENT" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "N",
@@ -323,7 +323,7 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/scrollpage.js');
 		"IBLOCK_TYPE" => "catalog",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"LABEL_PROP" => array(
-			0 => "HIT_SALE",
+			0 => "KHIT_PRODAZH",
 		),
 		"LAZY_LOAD" => "N",
 		"LINE_ELEMENT_COUNT" => "4",
@@ -382,7 +382,7 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/scrollpage.js');
 		"PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false}]",
 		"PRODUCT_SUBSCRIPTION" => "Y",
 		"PROPERTY_CODE" => array(
-			0 => "HIT_SALE",
+			0 => "KHIT_PRODAZH",
 			1 => "",
 		),
 		"PROPERTY_CODE_MOBILE" => array(

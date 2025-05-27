@@ -1,7 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetPageProperty("description", "Профессиональные материалы для маникюра и наращивания ресниц. Известные и востребованные бренды по официальным ценам производителей. Отправляем в любой город РФ. Быстрая онлайн-оплата заказа на сайте.");
-$APPLICATION->SetTitle("Sale");
+$APPLICATION->SetTitle("Hit");
 $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . '/js/scrollpage.js'); ?>
 <div class="page_section_wrapper">
 	<div class="row">
@@ -28,7 +28,7 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . '/js/scrollpage.js'); ?>
 				"CACHE_TYPE" => "A",
 				"COMPATIBLE_MODE" => "Y",
 				"CONVERT_CURRENCY" => "N",
-				"CUSTOM_FILTER" => "{\"CLASS_ID\":\"CondGroup\",\"DATA\":{\"All\":\"AND\",\"True\":\"True\"},\"CHILDREN\":{\"1\":{\"CLASS_ID\":\"CondIBProp:14:135\",\"DATA\":{\"logic\":\"Equal\",\"value\":363}}}}",
+				"CUSTOM_FILTER" => "{\"CLASS_ID\":\"CondGroup\",\"DATA\":{\"All\":\"AND\",\"True\":\"True\"},\"CHILDREN\":{\"1\":{\"CLASS_ID\":\"CondIBProp:14:353\",\"DATA\":{\"logic\":\"Equal\",\"value\":771}}}}",
 				"DETAIL_URL" => "",
 				"DISABLE_INIT_JS_IN_COMPONENT" => "N",
 				"DISPLAY_BOTTOM_PAGER" => "Y",
@@ -46,7 +46,7 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . '/js/scrollpage.js'); ?>
 				"IBLOCK_TYPE" => "catalog",
 				"INCLUDE_SUBSECTIONS" => "Y",
 				"LABEL_PROP" => array(
-					0 => "AKTSIONNYY",
+					0 => "KHIT_PRODAZH",
 				),
 				"LAZY_LOAD" => "Y",
 				"LINE_ELEMENT_COUNT" => "4",

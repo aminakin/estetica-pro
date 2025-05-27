@@ -487,16 +487,16 @@ input[data-disabled="disabled"] {
     fill-rule: nonzero
 }
 
-.product-item-favorite-image-block.HIT_SALE svg path {
+.product-item-favorite-image-block.KHIT_PRODAZH svg path {
     fill: #801857;
 }
 
-.product-item-favorite-image-block.HIT_SALE:hover svg path {
+.product-item-favorite-image-block.KHIT_PRODAZH:hover svg path {
     fill: #801857;
     fill-rule: nonzero
 }
 
-.product-item-favorite-image-block.HIT_SALE.active svg path {
+.product-item-favorite-image-block.KHIT_PRODAZH.active svg path {
     fill: #801857;
     fill-rule: nonzero
 }
@@ -702,7 +702,7 @@ div.product-item-label-text.product-item-label-small span.AKTSIONNYY {
     background-color: #F781BF;
 }
 
-div.product-item-label-text.product-item-label-small span.HIT_SALE {
+div.product-item-label-text.product-item-label-small span.KHIT_PRODAZH {
     background-color: #801857;
 }
 

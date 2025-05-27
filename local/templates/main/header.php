@@ -184,7 +184,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                                     array("HIDE_ICONS" => "Y")
                                                 ); ?>
                                             </div>
-                                            <div class="catalog-menu-flex-element">
+                                            <?/*div class="catalog-menu-flex-element">
                                                 <ul class="catalog-menu-flex-element-block catalog-menu-flex-element-block-brands">
                                                     <?
                                                     $arSelect = array();
@@ -199,7 +199,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                                         </a>
                                                     <? } ?>
                                                 </ul>
-                                            </div>
+                                            </div*/?>
                                         </div>
                                     </div>
                                     <div class="header-menu__item catalogmenu">

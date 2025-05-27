@@ -271,7 +271,7 @@ endif;
 					<a href="https://wa.me/79229776867" target="_blank" class="whatapp">
 						<?= GetMessage('PHONE_WHATAPP'); ?>
 					</a>
-					<a href="https://wa.me/79229776867" target="_blank" class="table">
+					<a href="/courses/raspisanie/" target="_blank" class="table">
 						<?= GetMessage('TABLE'); ?>
 					</a>
 				</div>

@@ -235,7 +235,7 @@ if ($USER->IsAuthorized()) {
 			<div class="personal-favorite-empty">
 				<div class="personal-favorite-empty-product"></div>
 				<div class="personal-favorite-empty-message">Ваш список товаров пуст</div>
-				<div class="personal-favorite-empty-desc">Тут будут отображаться товары добавленные в избранное.</div>
+				<div class="personal-favorite-empty-desc">Тут будут отображаться товары, добавленные в избранное.</div>
 				<a href="#auth" class="enterLink linkOpen personal-favorite-empty-link">войти в личный кабинет</a>
 			</div>
 		</div>
@@ -245,7 +245,7 @@ if ($USER->IsAuthorized()) {
 		<div class="personal-favorite-empty">
 			<div class="personal-favorite-empty-product"></div>
 			<div class="personal-favorite-empty-message">Для отображения списка необходимо войти или зарегистрироваться.</div>
-			<div class="personal-favorite-empty-desc">Тут будут отображаться товары добавленные в избранное.</div>
+			<div class="personal-favorite-empty-desc">Тут будут отображаться товары, добавленные в избранное.</div>
 			<a href="#auth" class="enterLink linkOpen personal-favorite-empty-link">войти в личный кабинет</a>
 		</div>
 	</div>

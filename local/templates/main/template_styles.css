@@ -229,28 +229,35 @@ a[data-filter="delayed"] {
     border-radius: 18px;
 }
 
-.auth-form__button {
-    background: #EBCFD5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 0;
-    color: #fff;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    margin-bottom: 30px;
+.auth-form__button,
+.no_fav_popup .auth-logo {
+    padding: 20px 15px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ffffff;
+    background: #F781BF;
+    border-radius: 10px;
+    width: 100%;
+    border: none;
     text-decoration: none;
+    text-align: center;
 }
 
-.auth-form__button:hover {
-    color: #fff;
-    background: #F0D7DC;
+.no_fav_popup .auth-logo{
+    margin-top: 24px;
+    display: block;
 }
 
-.auth-form__button:active {
-    color: #fff;
-    background: #EBC9D1;
+.auth-form__button:hover,
+.no_fav_popup .auth-logo:hover {
+    color: #ffffff;
+    background: #F781BF;
+}
+
+.auth-form__button:active,
+.no_fav_popup .auth-logo:active {
+    color: #ffffff;
+    background: #F781BF;
 }
 
 .auth-form--authorized .auth-form__menu:not(:last-of-type) {

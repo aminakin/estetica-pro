@@ -719,15 +719,6 @@ $(document).ready(function () {
             return;
         }
 
-
-
-        /*const prevent = ev => ev.preventDefault();
-        document.body.addEventListener('wheel', prevent, { passive: false });
-
-        if (document.body.clientWidth < 1024) {
-            document.querySelector('body').style.overflow = 'hidden'
-        }*/
-
         $('.detail-popup.bonus').hide();
         var that = $(this);
         var href = that.attr('href');
@@ -748,12 +739,12 @@ $(document).ready(function () {
         $(href).toggleClass('opened');
         that.toggleClass('opened');
 
-
         if (href == '#about_bonus') {
             $('.toggleOpen.about_bonus').addClass('opened');
         }
         if (href == '#no_fav_popup') {
             $('.toggleOpen.no_fav_popup').addClass('opened');
+            $('.modal-background').show();
         }
         if (href == '#search')
             $('#title-search-input').focus();

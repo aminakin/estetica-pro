@@ -208,14 +208,14 @@ header .sticky .header-middle .header-phone a {
     padding-left: 0px;
 }
 
-.showPreAuthForm .header-right-menu-text{
+.showPreAuthForm .header-right-menu-text {
     max-width: 120px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.showPreAuthForm svg{
+.showPreAuthForm svg {
     min-width: 20px;
 }
 
@@ -2274,6 +2274,18 @@ header .favorite div {
     top: 50% !important;
 }
 
+#no_fav_popup.no_fav_popup {
+    padding: 96px 64px;
+    background: #ffffff;
+    max-width: 565px;
+    width: 100%;
+    border-radius: 36px;
+}
+
+.no_fav_popup h3,
+.no_fav_popup p {
+    margin-top: 0;
+}
 
 html body .close.basket-close {
     float: right;
@@ -2550,7 +2562,28 @@ font.errortext {
     color: green;
 }
 
+@media (max-width:1024px) {
+    #no_fav_popup.no_fav_popup {
+        padding: 48px 32px;
+    }
+
+    .no_fav_popup .close {
+        width: 32px!important;
+        height: 32px!important;
+        top: 16px!important;
+        right: 16px!important;
+    }
+}
+
+@media (max-width: 768px) {
+    #no_fav_popup.no_fav_popup.opened {
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
 @media (min-width: 768px) {
+
     nav.top .toToggle {
         transition: opacity 0.2s ease-out;
     }
@@ -4045,7 +4078,8 @@ html body .toggleOpen.no_fav_popup .fav-close:hover {
     background-size: cover;
 }
 
-.bonus-page .section-top {
+.bonus-page .section-top,
+.bonus-page .section-center {
     margin-bottom: 32px;
 }
 
@@ -4280,7 +4314,7 @@ html body .toggleOpen.no_fav_popup .fav-close:hover {
     text-align: center;
 }
 
-.about-page .major-title-pages{
+.about-page .major-title-pages {
     margin-bottom: 16px;
 }
 
@@ -4328,7 +4362,7 @@ html body .toggleOpen.no_fav_popup .fav-close:hover {
 }
 
 @media (max-width: 768px) {
-    .about-main__image{
+    .about-main__image {
         max-height: 360px;
     }
 }

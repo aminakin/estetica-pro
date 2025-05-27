@@ -235,7 +235,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 														'BIG_BUTTONS' => 'N',
 														'SCALABLE' => 'N'
 													),
-													'PARAMS' => $generalParams + $itemParameters[$item['ID']],
+													'PARAMS' => $generalParams + $itemParameters[$item['ID']] + ['LABEL_TYPE' => $arResult['ORIGINAL_PARAMETERS']['LABEL_PROP'][0]],
 												),
 												$component,
 												array('HIDE_ICONS' => 'Y')
@@ -274,7 +274,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 															'BIG_BUTTONS' => 'N',
 															'SCALABLE' => 'N'
 														),
-														'PARAMS' => $generalParams + $itemParameters[$item['ID']],
+														'PARAMS' => $generalParams + $itemParameters[$item['ID']] + ['LABEL_TYPE' => $arResult['ORIGINAL_PARAMETERS']['LABEL_PROP'][0]],
 													),
 													$component,
 													array('HIDE_ICONS' => 'Y')
@@ -316,7 +316,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 															'BIG_BUTTONS' => 'Y',
 															'SCALABLE' => 'N'
 														),
-														'PARAMS' => $generalParams + $itemParameters[$item['ID']],
+														'PARAMS' => $generalParams + $itemParameters[$item['ID']] + ['LABEL_TYPE' => $arResult['ORIGINAL_PARAMETERS']['LABEL_PROP'][0]],
 													),
 													$component,
 													array('HIDE_ICONS' => 'Y')
@@ -356,7 +356,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 													'BIG_BUTTONS' => 'N',
 													'SCALABLE' => 'N'
 												),
-												'PARAMS' => $generalParams + $itemParameters[$item['ID']],
+												'PARAMS' => $generalParams + $itemParameters[$item['ID']] + ['LABEL_TYPE' => $arResult['ORIGINAL_PARAMETERS']['LABEL_PROP'][0]],
 											),
 											$component,
 											array('HIDE_ICONS' => 'Y')
@@ -392,7 +392,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 												'BIG_BUTTONS' => 'Y',
 												'SCALABLE' => 'Y'
 											),
-											'PARAMS' => $generalParams + $itemParameters[$item['ID']],
+											'PARAMS' => $generalParams + $itemParameters[$item['ID']] + ['LABEL_TYPE' => $arResult['ORIGINAL_PARAMETERS']['LABEL_PROP'][0]],
 										),
 										$component,
 										array('HIDE_ICONS' => 'Y')
@@ -492,7 +492,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 												'BIG_BUTTONS' => 'Y',
 												'SCALABLE' => 'Y'
 											),
-											'PARAMS' => $generalParams + $itemParameters[$item['ID']],
+											'PARAMS' => $generalParams + $itemParameters[$item['ID']] + ['LABEL_TYPE' => $arResult['ORIGINAL_PARAMETERS']['LABEL_PROP'][0]],
 										),
 										$component,
 										array('HIDE_ICONS' => 'Y')
@@ -528,7 +528,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 													'BIG_BUTTONS' => 'N',
 													'SCALABLE' => 'N'
 												),
-												'PARAMS' => $generalParams + $itemParameters[$item['ID']],
+												'PARAMS' => $generalParams + $itemParameters[$item['ID']] + ['LABEL_TYPE' => $arResult['ORIGINAL_PARAMETERS']['LABEL_PROP'][0]],
 											),
 											$component,
 											array('HIDE_ICONS' => 'Y')
@@ -564,7 +564,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 												'BIG_BUTTONS' => 'Y',
 												'SCALABLE' => 'Y'
 											),
-											'PARAMS' => $generalParams + $itemParameters[$item['ID']],
+											'PARAMS' => $generalParams + $itemParameters[$item['ID']] + ['LABEL_TYPE' => $arResult['ORIGINAL_PARAMETERS']['LABEL_PROP'][0]],
 										),
 										$component,
 										array('HIDE_ICONS' => 'Y')
@@ -664,7 +664,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 												'BIG_BUTTONS' => 'Y',
 												'SCALABLE' => 'Y'
 											),
-											'PARAMS' => $generalParams + $itemParameters[$item['ID']],
+											'PARAMS' => $generalParams + $itemParameters[$item['ID']] + ['LABEL_TYPE' => $arResult['ORIGINAL_PARAMETERS']['LABEL_PROP'][0]],
 										),
 										$component,
 										array('HIDE_ICONS' => 'Y')
@@ -699,7 +699,7 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 													'BIG_DISCOUNT_PERCENT' => 'N',
 													'BIG_BUTTONS' => 'N'
 												),
-												'PARAMS' => $generalParams + $itemParameters[$item['ID']],
+												'PARAMS' => $generalParams + $itemParameters[$item['ID']] + ['LABEL_TYPE' => $arResult['ORIGINAL_PARAMETERS']['LABEL_PROP'][0]],
 											),
 											$component,
 											array('HIDE_ICONS' => 'Y')

@@ -103,7 +103,7 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . '/js/scrollpage.js'); ?>
 				"PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false}]",
 				"PRODUCT_SUBSCRIPTION" => "Y",
 				"PROPERTY_CODE" => array(
-					0 => "AKTSIONNYY",
+					0 => "KHIT_PRODAZH",
 					1 => "",
 				),
 				"PROPERTY_CODE_MOBILE" => array(),
@@ -142,7 +142,7 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . '/js/scrollpage.js'); ?>
 				"USE_PRODUCT_QUANTITY" => "Y",
 				"COMPONENT_TEMPLATE" => "addamant",
 				"LABEL_PROP_MOBILE" => array(
-					0 => "AKTSIONNYY",
+					0 => "KHIT_PRODAZH",
 				),
 				"LABEL_PROP_POSITION" => "top-left",
 				"MESS_BTN_LAZY_LOAD" => "Показать ещё",

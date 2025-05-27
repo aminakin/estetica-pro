@@ -216,7 +216,7 @@ $containerName = 'container-'.$navParams['NavNum'];?>
 		</div>
 	<?}else{?>
 		<div class="product-list-more">
-	        <a href="/sale/"><?= getMessage('CT_BCS_HIT_ALL');?></a>
+	        <a href="/hit/"><?= getMessage('CT_BCS_HIT_ALL');?></a>
 		</div>
 	<?}?>
 

@@ -208,6 +208,17 @@ header .sticky .header-middle .header-phone a {
     padding-left: 0px;
 }
 
+.showPreAuthForm .header-right-menu-text{
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.showPreAuthForm svg{
+    min-width: 20px;
+}
+
 .header-middle .logo {
     text-align: center;
 }

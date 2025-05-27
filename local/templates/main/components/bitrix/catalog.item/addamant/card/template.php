@@ -49,7 +49,7 @@ use \Bitrix\Main\Localization\Loc;
                                 case 'NEW':
                                     echo 'new';
                                     break;
-                                case 'HIT_SALE':
+                                case 'KHIT_PRODAZH':
                                     echo 'hit';
                                     break;
                                 default:

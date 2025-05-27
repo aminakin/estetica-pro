@@ -51,7 +51,7 @@ if (!empty($arResult['ITEMS'])) {
 	}
 	?>
 	<div class="product-list-more">
-	        <a href="/sale/"><?= getMessage('CT_BCS_HIT_ALL');?></a>
+	        <a href="/hit/"><?= getMessage('CT_BCS_HIT_ALL');?></a>
 		</div>
 	<script type='text/javascript'>
 		BX.message({

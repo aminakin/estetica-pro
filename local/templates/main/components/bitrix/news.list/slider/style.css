@@ -8,7 +8,6 @@
 #myCarousel .slick-arrow{
     position: absolute;
     top: 50%;
-    margin-top: -55px;
     width: 48px;
     height: 48px;
     font-size: 0;
@@ -16,11 +15,9 @@
 }
 #myCarousel .slick-prev.slick-arrow{
 	left: 20px;
-	background:url(image/left.svg)no-repeat center center;
 }
 #myCarousel .slick-next.slick-arrow{
 	right: 20px;
-	background:url(image/right.svg)no-repeat center center;
 }
 #myCarousel .slick-track .item a:focus{
     border: none;
@@ -105,10 +102,6 @@
 @media screen and (max-width: 768px){
     .slider .item .desktop-img{
         height: 161px;
-    }
-
-    #myCarousel .slick-arrow{
-        display: none!important;
     }
 
     .carousel-wrapper{

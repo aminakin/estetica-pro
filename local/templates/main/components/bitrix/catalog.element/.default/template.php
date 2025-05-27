@@ -194,7 +194,7 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                                                 case 'NEW':
                                                     echo 'new';
                                                     break;
-                                                case 'HIT_SALE':
+                                                case 'KHIT_PRODAZH':
                                                     echo 'hit';
                                                     break;
                                                 default:

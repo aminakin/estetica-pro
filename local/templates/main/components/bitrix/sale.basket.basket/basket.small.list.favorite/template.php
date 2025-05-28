@@ -73,7 +73,7 @@ $normalCount = count($arResult["ITEMS"]["DelDelCanBuy"]);
 	            <div class="price"><?=format_price($arItem['PRICE'])?>&nbsp;<span class="rub">Р</span></div>
                 <?if ($arItem['CAN_BUY']=='Y')
 				{?>
-					<a href="#" class="blackBtn buyBtn" data-id="<?=$arItem["PRODUCT_ID"]?>">В корзину</a>
+					<a href="#" class="blackBtn buyBtn" data-id="<?=$arItem["PRODUCT_ID"]?>">Купить</a>
 				<?}
 				else
 				{?>

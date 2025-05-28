@@ -41,7 +41,7 @@ use \Bitrix\Main\Localization\Loc;
                     <div class="clear"></div>
                     <?if ($arItem['CAN_BUY']=='Y')
 					{?>
-						<a href="#" class="whiteBtn buyBtn" data-id="<?=$arItem['ID']?>">В корзину</a>
+						<a href="#" class="whiteBtn buyBtn" data-id="<?=$arItem['ID']?>">Купить</a>
 						<a href="#" class="inFavorite favoriteBtn" data-favorite-id="<?=$arItem['ID']?>"></a>
 					<?}
 					else

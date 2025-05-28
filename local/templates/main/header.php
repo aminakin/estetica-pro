@@ -286,12 +286,10 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                             <div class="catalog-menu-block">
                                                 <ul class="bx_sitemap_ul_oneline">
                                                     <li class="first">
-                                                        <a href="/courses/kursy-manikyura/">Маникюр</a>
-                                                        <?= classBuildSCG::buildSVG('arrow'); ?>
+                                                        <a href="/courses/">Список курсов</a>
                                                     </li>
                                                     <li class="first">
                                                         <a href="/courses/raspisanie/" class="">Расписание курсов</a>
-                                                        <?= classBuildSCG::buildSVG('arrow'); ?>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -524,7 +522,6 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                     2 => "SECOND_NAME",
                                     3 => "PERSONAL_PHONE",
                                     4 => "PERSONAL_BIRTHDAY",
-                                    5 => "UF_SUBSCRIBES"
                                 ),
                                 "REQUIRED_FIELDS" => array(
                                     0 => "NAME",

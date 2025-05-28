@@ -453,7 +453,7 @@ input[type="checkbox"] {
 }
 
 .bx-soa-coupon-block:after {
-    content: "примернить";
+    content: "применить";
     display: block;
 
 }
@@ -1768,6 +1768,7 @@ label[data-bx-user-consent] input {
     justify-content: flex-start;
     align-items: center;
     margin: 0;
+    position: relative;
 }
 
 #bx-soa-manager-call .bx-soa-custom-label {
@@ -1785,7 +1786,10 @@ label[data-bx-user-consent] input {
 }
 
 #bx-soa-manager-call input[type="checkbox"] {
-    display: none;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #bx-soa-manager-call input[type="checkbox"]:checked+label,
@@ -1865,7 +1869,6 @@ label[data-bx-user-consent] input {
 }
 
 .comfirm_wrap .off_vpn {
-    font-weight: bold;
     font-size: 16px;
     line-height: 19px;
     text-align: center;

@@ -42,7 +42,7 @@ if ($normalCount > 0):
             <div class="price"><?=$arItem['PRICE']?>&nbsp;<span class="rub">Р</span></div>
             <input type="number" autocomplete="off" min="1" value="<?=$arItem['QUANTITY']?>" id="QUANTITY_INPUT_<?=$arItem["ID"]?>" name="QUANTITY_INPUT_<?=$arItem["ID"]?>" onchange="updateQuantity('QUANTITY_INPUT_<?=$arItem['ID']?>', '<?=$arItem['ID']?>', 1, false)" />
         </div>
-        <a href="#" class="blackBtn buyBtn  inB" data-id="<?=$arItem["ID"]?>">В корзину</a>
+        <a href="#" class="blackBtn buyBtn  inB" data-id="<?=$arItem["ID"]?>">Купить</a>
         <div class="clear"></div>
     </div>
     <?endif;

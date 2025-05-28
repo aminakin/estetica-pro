@@ -227,7 +227,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"LOAD_ON_SCROLL" => "N",
 		"MESSAGES_PER_PAGE" => "10",
 		"MESSAGE_404" => "",
-		"MESS_BTN_ADD_TO_BASKET" => "В корзину",
+		"MESS_BTN_ADD_TO_BASKET" => "Купить",
 		"MESS_BTN_BUY" => "Купить",
 		"MESS_BTN_COMPARE" => "Сравнение",
 		"MESS_BTN_DETAIL" => "Подробнее",

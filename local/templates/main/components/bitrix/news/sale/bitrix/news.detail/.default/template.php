@@ -209,7 +209,7 @@ $this->setFrameMode(true);
                     "LINE_ELEMENT_COUNT" => "3",
                     "LOAD_ON_SCROLL" => "N",
                     "MESSAGE_404" => "",
-                    "MESS_BTN_ADD_TO_BASKET" => "В корзину",
+                    "MESS_BTN_ADD_TO_BASKET" => "Купить",
                     "MESS_BTN_BUY" => "Купить",
                     "MESS_BTN_DETAIL" => "Подробнее",
                     "MESS_BTN_SUBSCRIBE" => "Подписаться",

@@ -257,12 +257,12 @@ if ($arResult["SHOW_SMS_FIELD"] == true) {
                                         <input type="hidden" class="<?= $FIELD ?>" maxlength="50" value="<?= $arResult["VALUES"][$FIELD] ?>" />
                                     </div>
                                 <? break;
-                                case "UF_SUBSCRIBES": ?>
+                                /*case "UF_SUBSCRIBES": ?>
                                     <div class="profile-field__subscribe">
                                         <input class="<?= $FIELD ?>" type="checkbox" id="REGISTER[<?= $FIELD ?>]" checked="checked" onclick="changeSubcribe(this)" name="REGISTER[<?= $FIELD ?>]" value="N" />
                                         <label for="REGISTER[<?= $FIELD ?>]" class="text-line"><?= GetMessage('uf_subscribe'); ?></label>
                                     </div>
-                                <? break;?> 
+                                <? break;*/?> 
                             <? } ?>
                         </div>
                     <? endif ?>

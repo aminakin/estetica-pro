@@ -2156,7 +2156,7 @@
                             $('.buyBtn', $('#' + this.visual.ID)).html('В корзине').addClass('inB');
                             break;
                         } else {
-                            $('.buyBtn', $('#' + this.visual.ID)).html('В корзину').removeClass('inB');
+                            $('.buyBtn', $('#' + this.visual.ID)).html('Купить').removeClass('inB');
                         }
                     }
                     for (var item in addFav.fav) {

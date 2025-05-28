@@ -194,11 +194,10 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				if((this.result.DELIVERY[prop].ID == '46' || this.result.DELIVERY[prop].ID == '31' || this.result.DELIVERY[prop].ID == '32') && this.result.DELIVERY[prop].CHECKED == 'Y'){
 					if($('#soa-property-49').val() == ''){
 						orderRightSide.addClass('disabled');
-						$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').append('<div class="postamat">Выберите пункт выдачи</div>');
+						/*$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').append('<div class="postamat">Выберите пункт выдачи</div>');*/
 					}else{
-						
 						orderRightSide.removeClass('disabled');
-						$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').remove('.postamat');
+						/*$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').remove('.postamat');*/
 					}
 				}
 			}
@@ -496,10 +495,10 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					if((this.result.DELIVERY[prop].ID == '46' || this.result.DELIVERY[prop].ID == '31' || this.result.DELIVERY[prop].ID == '32') && this.result.DELIVERY[prop].CHECKED == 'Y'){
 						if($('#soa-property-49').val() == ''){
 							orderRightSide.classList.add('disabled');
-							$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').prepend('<div class="postamat">Выберите пункт выдачи</div>');
+							/*$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').prepend('<div class="postamat">Выберите пункт выдачи</div>');*/
 						}else{
 							orderRightSide.classList.remove('disabled');
-							$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').remove('.postamat');
+							/*$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').remove('.postamat');*/
 						}
 					}
 				}
@@ -4799,7 +4798,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 						type: 'text',
 						placeholder: altProperty.DESCRIPTION,
 						autocomplete: 'city',
-						className: 'form-control bx-soa-customer-input bx-ios-fix 1',
+						className: 'form-control bx-soa-customer-input bx-ios-fix',
 						name: 'ORDER_PROP_' + altProperty.ID,
 						value: altProperty.VALUE
 					}

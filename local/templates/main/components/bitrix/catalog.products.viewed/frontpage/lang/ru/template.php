@@ -1,7 +1,7 @@
 <?
 $MESS["CT_CPV_TPL_ELEMENT_DELETE_CONFIRM"] = "Будет удалена вся информация, связанная с этой записью. Продолжить?";
 $MESS["CT_CPV_TPL_MESS_BTN_BUY"] = "Купить";
-$MESS["CT_CPV_TPL_MESS_BTN_ADD_TO_BASKET"] = "В корзину";
+$MESS["CT_CPV_TPL_MESS_BTN_ADD_TO_BASKET"] = "Купить";
 $MESS["CT_CPV_TPL_MESS_PRODUCT_NOT_AVAILABLE"] = "Нет в наличии";
 $MESS["CT_CPV_TPL_MESS_BTN_DETAIL"] = "Подробнее";
 $MESS["CT_CPV_TPL_MESS_BTN_SUBSCRIBE"] = "Подписаться";

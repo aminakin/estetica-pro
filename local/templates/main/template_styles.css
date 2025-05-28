@@ -587,11 +587,21 @@ a[data-filter="delayed"] {
     display: block;
 }
 
+.bxmaker-authuserphone-header{
+    font-family: 'TenorSans';
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    font-weight: 400;
+}
+
 .bxmaker-authuserphone-button__inner{
     background: #F781BF!important;
     color: #FFFFFF;
     border-radius: 10px;
     padding: 0;
+    min-height: 64px;
 }
 
 .bxmaker-authuserphone-button__title{

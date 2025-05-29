@@ -1,13 +1,13 @@
 <?
 $aMenuLinks = Array(
     Array(
-        "Все",
+        "Все заказы",
         "/personal/orders/",
         Array(),
         Array(),
         ""
     ),
-    Array(
+    /*Array(
         "Новые",
         "/personal/orders/?filter_status=N",
         Array(),
@@ -20,7 +20,7 @@ $aMenuLinks = Array(
         Array(),
         Array(),
         ""
-    ),
+    ),*/
     Array(
         "Отмененные",
         "/personal/orders/?filter_canceled=Y",

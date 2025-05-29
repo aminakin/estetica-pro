@@ -24,18 +24,18 @@ $icons = [
     'b' => classBuildSCG::buildSVG('bonus', $templateFolder . "/images")
 ];
 
-$currentBonus = declOfNum(intval($arParams['USER_BONUS']), [
+$currentBonus = declOfNumLevel(intval($arParams['USER_BONUS']), [
     Loc::getMessage('BONUS_F_FORM'),
     Loc::getMessage('BONUS_S_FORM'),
     Loc::getMessage('BONUS_T_FORM'),
 ]);
-$currentSum = declOfNum(intval($arParams['USER_SUM']), [
+$currentSum = declOfNumLevel(intval($arParams['USER_SUM']), [
     Loc::getMessage('RUBLE_F_FORM'),
     Loc::getMessage('RUBLE_S_FORM'),
     Loc::getMessage('RUBLE_T_FORM'),
 ]);
 $currentPercent = intval($arParams['USER_PERCENT']) . '%';
-$currentLeftSum = declOfNum(intval($arParams['USER_LEFT_SUM']), [
+$currentLeftSum = declOfNumLevel(intval($arParams['USER_LEFT_SUM']), [
     Loc::getMessage('RUBLE_F_FORM'),
     Loc::getMessage('RUBLE_S_FORM'),
     Loc::getMessage('RUBLE_T_FORM'),

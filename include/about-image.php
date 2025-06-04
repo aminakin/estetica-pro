@@ -1,1 +1,1 @@
-<img src="/images/about-main.jpg" alt="no">
+<img src="/upload/about.png" alt="no">

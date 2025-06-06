@@ -180,7 +180,7 @@
 			}
 
 			productCount.innerHTML = count
-			productTitle.innerHTML = num_word(count, ['Товар к покупке', 'Товара к покупке', 'Товаров к покупке'], false)
+			productTitle.innerHTML = 'Товаров к покупке'
 		},
 
 		initSwitcherAll: function() {

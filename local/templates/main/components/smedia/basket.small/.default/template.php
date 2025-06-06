@@ -13,5 +13,5 @@ else
 		<?= $arResult['FAVORITE_QUANTITY']?>
 	</span>
     <?= classBuildSCG::buildSVG('cart', $templateFolder."/images" );?>
-	<div><?= GetMessage('TITLE_CART')?></div>
+	<div class="header-right-menu-text"><?= GetMessage('TITLE_CART')?></div>
 </a>

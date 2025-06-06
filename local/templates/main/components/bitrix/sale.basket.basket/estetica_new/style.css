@@ -636,6 +636,7 @@
 .basket-item-amount-btn-minus,
 .basket-item-amount-btn-plus {
 	height: 24px;
+	cursor: pointer;
 }
 
 .basket-item-amount-field-description {

@@ -3479,7 +3479,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 						children: [
 							BX.create('DIV', {
 								props: {className: 'bx-soa-item-title-td'},
-								html: declOfNum(totalQuantityReduce, ['Товар к покупке', 'Товара к покупке', 'Товаров к покупке']) + '<span>' + totalQuantityReduce + '</span>'
+								html: 'Товаров к покупке' + '<span>' + totalQuantityReduce + '</span>'
 							})
 						]
 					})

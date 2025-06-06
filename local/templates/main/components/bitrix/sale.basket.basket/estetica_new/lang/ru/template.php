@@ -27,6 +27,7 @@ $MESS["SBB_COUPON_ENTER"] = "Введите код купона для скид�
 $MESS["SBB_NOT_AVAILABLE_ORDER"] = "Заказ недоступен";
 $MESS["SBB_COUPON"] = "купон";
 $MESS["SBB_TOTAL"] = "Итого:";
+$MESS["SBB_BASKET_TITLE"] = "Товаров к покупке";
 $MESS["SBB_WEIGHT"] = "Общий вес";
 $MESS["SBB_VAT"] = "Сумма НДС";
 $MESS["SBB_ORDER"] = "оформить заказ";

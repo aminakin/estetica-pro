@@ -216,7 +216,7 @@ if (empty($arResult['ERROR_MESSAGE'])) {
 										<div class="basket-toggle-switch__circle"></div>
 									</div>
 									<div class="basket-items-list-table-inner-block__product-count">
-									<span class="basket-items-list-table-inner-block__product-title"><?= num_word(0, ['Товар к покупке', 'Товара к покупке', 'Товаров к покупке'], false) ?></span>
+									<span class="basket-items-list-table-inner-block__product-title"><?= Loc::getMessage('SBB_BASKET_TITLE');?></span>
 										<span class="basket-items-list-table-inner-block__product-value">0</span>
 										<div class="clear-basket-block">
 											<span class="clear-basket"><?= GetMessage('SBB_BASKET_CLEAR')?></span>

@@ -135,6 +135,8 @@ header .sticky .header-middle .usket a {
     padding-left: 16px;
 }
 
+
+
 header .sticky .header-middle .usket>a:first-child {
     padding-left: 0px;
 }
@@ -202,6 +204,10 @@ header .sticky .header-middle .header-phone a {
     flex-wrap: nowrap;
     text-transform: 0.3s;
     padding-left: 16px;
+}
+
+.small-basket-quantity{
+    display: none;
 }
 
 .header-middle .usket>a:first-child {

@@ -513,9 +513,9 @@ $(document).ready(function () {
         $('#smallFavoriteHeader span').html(data);
     });
 
-    $(document).on('click', '.header-desktop .header-menu__item .catalog-top-menu-catalog', function (e) {
+    $(document).on('click', '.header-desktop .header-menu__item.drop .catalog-top-menu-catalog', function (e) {
+
         e.preventDefault();
-        
         let parentMenu = $(this).parent('.header-menu__item');
         $('.header-menu__item').removeClass('active');
         parentMenu.addClass('active');

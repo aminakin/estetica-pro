@@ -157,7 +157,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                         <div class="header-bottom">
                             <div class="header-row">
                                 <div class="header-menu">
-                                    <div class="header-menu__item brendmenu">
+                                    <div class="header-menu__item drop brendmenu">
                                         <div class="catalog-top-menu-catalog">
                                             <a href="/catalog/"><?= GetMessage('BRAND'); ?></a>
                                         </div>
@@ -202,7 +202,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                             </div*/?>
                                         </div>
                                     </div>
-                                    <div class="header-menu__item catalogmenu">
+                                    <div class="header-menu__item drop catalogmenu">
                                         <div class="catalog-top-menu-catalog">
                                             <a href="/new-catalog/"><?= GetMessage('CATALOG'); ?></a>
                                         </div>
@@ -253,7 +253,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                         <div class="catalog-top-menu-catalog">
                                             <a href="/palitra/"><?= GetMessage('PALITRA'); ?></a>
                                         </div>
-                                        <div class="header-menu__item-modal catalog-menu-modal-container-example-palette">
+                                        <?/*div class="header-menu__item-modal catalog-menu-modal-container-example-palette">
                                             <div class="catalog-menu-block">
                                                 <? $APPLICATION->IncludeComponent(
                                                     "bitrix:catalog.section.list",
@@ -276,9 +276,9 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                                     array("HIDE_ICONS" => "Y")
                                                 ); ?>
                                             </div>
-                                        </div>
+                                        </div*/?>
                                     </div>
-                                    <div class="header-menu__item coursesmenu">
+                                    <div class="header-menu__item drop coursesmenu">
                                         <div class="catalog-top-menu-catalog">
                                             <a href="/about-courses/"><?= GetMessage('LEARNING'); ?></a>
                                         </div>

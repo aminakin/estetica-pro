@@ -14,7 +14,7 @@ $this->setFrameMode(true);
 ?>
 
 <div class="slider">
-    <div class="carousel-wrapper">
+    <div class="carousel-wrapper palitra">
     <div id="myCarousel" class="carousel slide">
         <? foreach ($arResult["ITEMS"] as $arItem): ?>
             <? if (!empty($arItem["PROPERTIES"]["MOBILE_PIC"]["VALUE"])): ?>

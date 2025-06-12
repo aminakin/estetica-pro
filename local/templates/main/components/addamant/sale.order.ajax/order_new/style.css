@@ -1717,6 +1717,7 @@ label[data-bx-user-consent] input {
     font-family: 'Commissioner';
     font-weight: 400;
     margin-top: 16px !important;
+    z-index: 5;
 }
 
 /*#bx-soa-region .bx-ui-sls-clear,*/
@@ -1790,6 +1791,8 @@ label[data-bx-user-consent] input {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 2;
+    cursor: pointer;
 }
 
 #bx-soa-manager-call input[type="checkbox"]:checked+label,
@@ -1799,6 +1802,7 @@ label[data-bx-user-consent] input {
     padding-left: 32px;
     line-height: 24px;
     cursor: pointer;
+    z-index: 1;
 }
 
 #bx-soa-manager-call input[type="checkbox"]:checked+label:before,

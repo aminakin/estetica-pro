@@ -157,14 +157,14 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				this.initUserConsent();
 			}
 
-			let inputCall = document.querySelector('div[data-property-id-row="42"]');
-			inputCall.addEventListener('click', function (e) {
-				if (inputCall.querySelector('input[type="checkbox"]').checked){
-					inputCall.querySelector('input[type="checkbox"]').checked = false; 
-				}else{
-					inputCall.querySelector('input[type="checkbox"]').checked = true;
-				}
-			});
+			//let inputCall = document.querySelector('div[data-property-id-row="42"]');
+			//inputCall.addEventListener('click', function (e) {
+			//	if (inputCall.querySelector('input[type="checkbox"]').checked){
+			//		inputCall.querySelector('input[type="checkbox"]').checked = false; 
+			//	}else{
+			//		inputCall.querySelector('input[type="checkbox"]').checked = true;
+			//	}
+			//});
 
 			var orderRightSide = $('#bx-soa-total .bx-soa-cart-total-button-container');
 
@@ -6265,17 +6265,17 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 						
 						if(this.params.SHOW_REGION_BLOCK_WHEN_USE_DELIVERY.includes(currentDelivery.ID) ||
 							rusPostType !== null && rusPostType.value == 'Отделение'){
-							if ($('[name="ORDER_PROP_6"]').val() == '-')
-								$('[name="ORDER_PROP_6"]').val('')
-							if ($('[name="ORDER_PROP_7"]').val() == '-')
-								$('[name="ORDER_PROP_7"]').val('')
+							//if ($('[name="ORDER_PROP_6"]').val() == '-')
+							//	$('[name="ORDER_PROP_6"]').val('')
+							//if ($('[name="ORDER_PROP_7"]').val() == '-')
+							//	$('[name="ORDER_PROP_7"]').val('')
 
 							$('#bx-soa-region').removeClass('no');
 						}else{
-							if ($('[name="ORDER_PROP_6"]').val() == '')
-								$('[name="ORDER_PROP_6"]').val('-')
-							if ($('[name="ORDER_PROP_7"]').val() == '')
-								$('[name="ORDER_PROP_7"]').val('-')
+							//if ($('[name="ORDER_PROP_6"]').val() == '')
+							//	$('[name="ORDER_PROP_6"]').val('-')
+							//if ($('[name="ORDER_PROP_7"]').val() == '')
+							//	$('[name="ORDER_PROP_7"]').val('-')
 
 							$('#bx-soa-region').addClass('no');
 						}
@@ -6285,21 +6285,21 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 						}
 						
 						if (currentDelivery.ID == '32' || currentDelivery.ID == '31' || currentDelivery.ID == '60') {
-							$('[data-property-id-row="6"]').css({'display' : 'none'});
-							$('[data-property-id-row="7"]').css({'display' : 'none'});
-							$('[data-property-id-row="9"]').css({'display' : 'none'});
+							//$('[data-property-id-row="6"]').css({'display' : 'none'});
+							//$('[data-property-id-row="7"]').css({'display' : 'none'});
+							//$('[data-property-id-row="9"]').css({'display' : 'none'});
 
-							$('[data-property-id-row="6"] input').val('-');
-							$('[data-property-id-row="7"] input').val('-');
-							$('[data-property-id-row="9"] input').val('-');
+							//$('[data-property-id-row="6"] input').val('-');
+							//$('[data-property-id-row="7"] input').val('-');
+							//$('[data-property-id-row="9"] input').val('-');
 						} else {
-							$('[data-property-id-row="6"]').css({'display' : 'flex'});
-							$('[data-property-id-row="7"]').css({'display' : 'flex'});
-							$('[data-property-id-row="9"]').css({'display' : 'flex'});
+							//$('[data-property-id-row="6"]').css({'display' : 'flex'});
+							//$('[data-property-id-row="7"]').css({'display' : 'flex'});
+							//$('[data-property-id-row="9"]').css({'display' : 'flex'});
 
-							$('[data-property-id-row="6"] input').val('');
-							$('[data-property-id-row="7"] input').val('');
-							$('[data-property-id-row="9"] input').val('');
+							//$('[data-property-id-row="6"] input').val('');
+							//$('[data-property-id-row="7"] input').val('');
+							//$('[data-property-id-row="9"] input').val('');
 						}
 
 						if (currentDelivery.ID == '2') {
@@ -6312,13 +6312,13 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 						if (currentDelivery.ID == '46') {
 							$('#bx-soa-region').removeClass('no');
 							
-							$('[data-property-id-row="6"]').css({'display' : 'none'});
-							$('[data-property-id-row="7"]').css({'display' : 'none'});
-							$('[data-property-id-row="9"]').css({'display' : 'none'});
+							//$('[data-property-id-row="6"]').css({'display' : 'none'});
+							//$('[data-property-id-row="7"]').css({'display' : 'none'});
+							//$('[data-property-id-row="9"]').css({'display' : 'none'});
 
-							$('[data-property-id-row="6"] input').val('-');
-							$('[data-property-id-row="7"] input').val('-');
-							$('[data-property-id-row="9"] input').val('-');
+							//$('[data-property-id-row="6"] input').val('-');
+							//$('[data-property-id-row="7"] input').val('-');
+							//$('[data-property-id-row="9"] input').val('-');
 						}
 
 						break;
@@ -7258,7 +7258,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					textHtml += ' <small>' + BX.util.htmlspecialchars(propertyDesc) + '</small>';
 
 				label = BX.create('LABEL', {
-					attrs: {'for': 'soa-property-' + property.getId()},
+					//attrs: {'for': 'soa-property-' + property.getId()},
 					props: {className: 'bx-soa-custom-label'},
 					children: [
 						BX.create('span', {

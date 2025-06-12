@@ -135,8 +135,6 @@ if (isset($_POST['event']) && $_POST['event'] !== '') {
 
             if ($currentPassword !== '' && $newPassword !== '' && $confirmPassword !== '') {
 
-
-
                 if (strlen($currentPassword) < 6) {
                     $error['CURRENT_PASSWORD'] = 'ERROR_PASS_LENGTH';
                 } else {

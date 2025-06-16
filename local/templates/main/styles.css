@@ -2585,6 +2585,7 @@ font.errortext {
     #no_fav_popup.no_fav_popup.opened {
         left: 50%;
         transform: translate(-50%, -50%);
+        border-radius: 20px;
     }
 }
 

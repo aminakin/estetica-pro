@@ -33,9 +33,14 @@ $arSectionDeleteParams = array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_C
 	<ul class="<? echo $arCurView['LIST']; ?>">
 		<li class="back-menu"><?= classBuildSCG::buildSVG('arrow'); ?><span>Каталог</span></li>
 		<?
+
 		$intCurrentDepth = 1;
 		$boolFirst = true;
 		foreach ($arResult['SECTIONS'] as &$arSection) {
+			$no_children = true;
+			if (($arSection['RIGHT_MARGIN'] - $arSection['LEFT_MARGIN']) > 1) {
+				$no_children = false;
+			}
 			$this->AddEditAction($arSection['ID'], $arSection['EDIT_LINK'], $strSectionEdit);
 			$this->AddDeleteAction($arSection['ID'], $arSection['DELETE_LINK'], $strSectionDelete, $arSectionDeleteParams);
 
@@ -56,14 +61,15 @@ $arSectionDeleteParams = array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_C
 			echo (!$boolFirst ? "\n" : ''), str_repeat("\t", $arSection['RELATIVE_DEPTH_LEVEL']);
 		?>
 
-			<li class="<?= ($arSection['RELATIVE_DEPTH_LEVEL'] == 2) ? 'second' : 'first' ?>" id="<?= $this->GetEditAreaId($arSection['ID']); ?>">
+			<li class="<?= ($arSection['RELATIVE_DEPTH_LEVEL'] == 2) ? 'second' : 'first' ?><? if ($no_children): ?> no_children<? endif; ?>" id="<?= $this->GetEditAreaId($arSection['ID']); ?>">
 				<a href="<? echo $arSection["SECTION_PAGE_URL"]; ?>" class="<?php if ($APPLICATION->GetCurPage(false) == $arSection['SECTION_PAGE_URL']) echo "active"; ?>">
 					<? if ($arSection['IBLOCK_ID'] == 25): ?>
-						
-						<span class="section-img"><img src="<?= ($arSection["PICTURE"] == false)? $templateFolder.'/images/noimage.png': $arSection["PICTURE"]['SRC'] ?>"></span>
+
+						<span class="section-img"><img src="<?= ($arSection["PICTURE"] == false) ? $templateFolder . '/images/noimage.png' : $arSection["PICTURE"]['SRC'] ?>"></span>
 						<span><?= $arSection["NAME"]; ?></span>
 					<? else: ?>
 						<? echo $arSection["NAME"]; ?>
+
 						<?= classBuildSCG::buildSVG('arrow'); ?>
 					<? endif; ?>
 				</a>

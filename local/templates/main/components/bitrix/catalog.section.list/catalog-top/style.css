@@ -460,13 +460,13 @@
     padding: 0 16px;
   }
 
-  .bx_catalog_tile_ul .slick-next.slick-arrow {
+ .bx_catalog_tile  .bx_catalog_tile_ul .slick-next.slick-arrow {
     right: 0px !important;
     margin-top: -18px;
   }
 
-  .bx_catalog_tile_ul .slick-prev.slick-arrow {
-    left: 0px !important;
+  .bx_catalog_tile .bx_catalog_tile_ul .slick-prev.slick-arrow {
+    left: -16px !important;
     margin-top: -18px;
   }
 
@@ -476,6 +476,7 @@
 
   .bx_catalog_tile .bx_catalog_tile_ul .slick-list {
     margin-right: -16px;
+    margin-left: -16px;
   }
 }
 

@@ -313,7 +313,7 @@ a.btn.btn-link.buyBtn:focus {
 }
 
 .product-item-detail-slider-block .product-item-detail-slider-image img {
-	border-radius: 10px;
+	border-radius: 8px;
 	overflow: hidden;
 }
 
@@ -1159,7 +1159,11 @@ section.comment {
 
 	.product-item-detail-slider-block{
 		height: 343px;
-		width: 343px;
+		width: 100%;
+	}
+
+	.product-item-detail-slider-block .product-item-detail-slider-image img{
+		width: 100%;
 	}
 
 	.product-item-detail-pay-block .no-bonus-product span {
@@ -1273,6 +1277,7 @@ section.comment {
 		position: absolute;
         top: 0px;
         right: 0;
+		z-index: 4;
 	}
 
 	.product-item-detail-pay-block{

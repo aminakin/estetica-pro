@@ -4,6 +4,8 @@
 
 .header-mobile-menu div.header-phone a {
     color: #221F20;
+    margin-top: 24px;
+    display: block;
 }
 
 .header-mobile-menu {
@@ -27,6 +29,10 @@
 
 .menu-block {
     position: relative;
+}
+
+.top-mobile-menu__catalog-list li.no_children svg {
+  display: none;
 }
 
 @media screen and (max-width: 1024px) {

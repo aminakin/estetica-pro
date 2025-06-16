@@ -30,5 +30,5 @@ $MESS['NEED_REGISTRATION'] = 'Еще нет аккаунта? <span>Зареги
 $MESS['NEED_login'] = 'Уже есть аккаунт? <span>Войти</span>';
 $MESS['TO_CATALOG'] = 'Перейти к покупкам';
 $MESS['TO_REGISTRATION'] = 'Еще не зарегистрировались? <a href="#register" class="linkOpen auth-logo">Перейти к регистрации</a>';
-$MESS['AUTH_TITLE'] = 'ВХОД';
+$MESS['AUTH_TITLE_HEADER'] = 'Авторизация';
 $MESS['AUTH_DESCRIPTION'] = 'Войти или зарегистрировать личный кабинет, <br>чтобы копить и списывать бонусы.';

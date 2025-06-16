@@ -607,7 +607,7 @@ a[data-filter="delayed"] {
 .bxmaker-authuserphone-button__title{
     font-size: 22px;
     font-weight: 400;
-    line-height: 64px;
+    line-height: 64px; 
     text-transform: lowercase;
 }
 
@@ -625,10 +625,29 @@ a.bxmaker-authuserphone-link{
 
 .bxmaker-authuserphone-input-phone__field,
 .bxmaker-authuserphone-input__field,
-.bxmaker-authuserphone-input-password__field{
+.bxmaker-authuserphone-input-password__field,
+.bxmaker-authuserphone-input-code__field{
     border: 1px solid #999999!important;
     border-radius: 10px;
+    font-family: 'Commissioner';
 }
+
+.bxmaker-authuserphone-input-phone__input input{
+    font-family: 'Commissioner';
+}
+
+.bxmaker-authuserphone-input-code input[type=otp], 
+.bxmaker-authuserphone-input-code input[type=password], 
+.bxmaker-authuserphone-input-code input[type=phone], 
+.bxmaker-authuserphone-input-code input[type=text]{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 54px;
+    border-radius: 10px;
+    padding:  0 12px;
+}
+
+
 
 .bxmaker-authuserphone-header.bxmaker-authuserphone-enter-auth__title,
 .bxmaker-authuserphone-enter-auth__toregistration{

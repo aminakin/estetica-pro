@@ -492,13 +492,16 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                             <?= classBuildSCG::buildSVG('big-cross'); ?>
                         </a>
                         <div class="auth_title-wrap">
-                            <div class="auth_title major-title-pages"><?= GetMessage('AUTH_TITLE');?></div>
+                            <div class="auth_title major-title-pages"><?= GetMessage('AUTH_TITLE_HEADER');?></div>
                             <div class="auth_title-desc"><?= GetMessage('AUTH_DESCRIPTION');?></div>
                         </div>
                         <? $APPLICATION->IncludeComponent(
                             "bxmaker:authuserphone.enter",
                             "",
-                            array(),
+                            [
+                                "IS_ENABLED_CONFIRM_BY_SMS_CODE" => "Y",
+                                "IS_ENABLED_CONFIRM_BY_BOT_CALL" => "Y"
+                            ],
                             false
                         ); ?>
                         <div class="auth_to_registration">

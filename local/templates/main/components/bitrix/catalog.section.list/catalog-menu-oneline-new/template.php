@@ -54,7 +54,7 @@ $arSectionDeleteParams = array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_C
                         $no_children = false;
                     }
                 ?>
-                <li class="first <?if($no_children):?>no_children<?endif;?>" id="<?=$this->GetEditAreaId($arSection['ID']);?>" data-parents="<?=$arSection['ID']?>">
+                <li class="first<?if($no_children):?> no_children<?endif;?>" id="<?=$this->GetEditAreaId($arSection['ID']);?>" data-parents="<?=$arSection['ID']?>">
                     <span>
                         <a href="<? echo $arSection["SECTION_PAGE_URL"]; ?>" class="<?php if($APPLICATION->GetCurPage(false) == $arSection['SECTION_PAGE_URL']) echo "active";?>">
                             <? echo $arSection["NAME"];?>
@@ -75,7 +75,7 @@ $arSectionDeleteParams = array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_C
                         $no_children = false;
                     }
                 ?>
-                <li class="second <?if($no_children):?>no_children<?endif;?>" id="<?=$this->GetEditAreaId($arSection['ID']);?>" data-parents="<?=$arSection['ID']?>" data-children="<?=$arSection['IBLOCK_SECTION_ID']?>">
+                <li class="second<?if($no_children):?> no_children<?endif;?>" id="<?=$this->GetEditAreaId($arSection['ID']);?>" data-parents="<?=$arSection['ID']?>" data-children="<?=$arSection['IBLOCK_SECTION_ID']?>">
                     <span>
                         <a href="<? echo $arSection["SECTION_PAGE_URL"]; ?>" class="<?php if($APPLICATION->GetCurPage(false) == $arSection['SECTION_PAGE_URL']) echo "active";?>">
                             <? echo $arSection["NAME"];?>

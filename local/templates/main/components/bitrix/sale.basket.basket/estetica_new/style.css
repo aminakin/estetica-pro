@@ -1475,6 +1475,7 @@
 
 #basket-item-table .product-item-favorite-image-block{
 	cursor: pointer;
+	display: none;
 }
 #basket-item-table .product-item-favorite-image-block:hover svg path,
 #basket-item-table .product-item-favorite-image-block.active svg path{

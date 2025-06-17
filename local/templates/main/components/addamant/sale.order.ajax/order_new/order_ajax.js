@@ -191,13 +191,13 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				orderRightSide.removeClass('disabled');	
 			}
 			for (var prop in this.result.DELIVERY) {
-				if((this.result.DELIVERY[prop].ID == '46' || this.result.DELIVERY[prop].ID == '31' || this.result.DELIVERY[prop].ID == '32') && this.result.DELIVERY[prop].CHECKED == 'Y'){
-					if($('#soa-property-49').val() == ''){
+				if((this.result.DELIVERY[prop].ID == '46' || this.result.DELIVERY[prop].ID == '31') && this.result.DELIVERY[prop].CHECKED == 'Y'){
+					if($('#soa-property-60').val() == ''){
 						orderRightSide.addClass('disabled');
-						/*$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').append('<div class="postamat">Выберите пункт выдачи</div>');*/
+						//$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').append('<div class="postamat">Выберите пункт выдачи</div>');
 					}else{
 						orderRightSide.removeClass('disabled');
-						/*$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').remove('.postamat');*/
+						//$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').remove('.postamat');
 					}
 				}
 			}
@@ -492,13 +492,22 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			}*/ else {
 				orderRightSide.classList.remove('disabled');
 				for (var prop in this.result.DELIVERY) {
-					if((this.result.DELIVERY[prop].ID == '46' || this.result.DELIVERY[prop].ID == '31' || this.result.DELIVERY[prop].ID == '32') && this.result.DELIVERY[prop].CHECKED == 'Y'){
+					if((this.result.DELIVERY[prop].ID == '46' || this.result.DELIVERY[prop].ID == '31') && this.result.DELIVERY[prop].CHECKED == 'Y'){
+						if(this.result.LOGICTIM_BONUS.PAY_BONUS == 0 && this.result.TOTAL.ORDER_PRICE < 7000){
+							let lesPrice = Math.round(7000 - this.result.TOTAL.ORDER_PRICE);
+							$('#bx-soa-total .bx-soa-cart-total-button-container').prepend('<span class="delivery-free">Выберите товары еще на '+lesPrice+' ₽, чтобы доставка была бесплатная</span>');
+						}else{
+							$('#bx-soa-total .bx-soa-cart-total-button-container').remove('.delivery-free');
+						}
+						console.log(Math.round(7000 - this.result.TOTAL.ORDER_PRICE));
+						
+						//$('#bx-soa-total .bx-soa-cart-total-button-container').prepend('<div class="postamat">Выберите пункт выдачи</div>');
 						if($('#soa-property-49').val() == ''){
 							orderRightSide.classList.add('disabled');
-							/*$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').prepend('<div class="postamat">Выберите пункт выдачи</div>');*/
+							//$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').prepend('<div class="postamat">Выберите пункт выдачи</div>');
 						}else{
 							orderRightSide.classList.remove('disabled');
-							/*$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').remove('.postamat');*/
+							//$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').remove('.postamat');
 						}
 					}
 				}
@@ -5764,22 +5773,20 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				]
 			});
 
-			
-
 			if (currentDelivery.PRICE >= 0)
 			{
 				var additionalDeliveryMessage = '';
 				if(currentDelivery.ID == 46){
 					let summ = 10000 - this.result.TOTAL.ORDER_PRICE;
 					if(summ > 0){ 
-						additionalDeliveryMessage = 'Чтобы получить бесплатную доставку Почтой России<br> стоимость товаров должна составлять 10 000'+/*+ summ +*/' ₽'
+						additionalDeliveryMessage = 'Чтобы получить бесплатную доставку Почтой России<br> стоимость товаров должна составлять 7 000'+/*+ summ +*/' ₽'
 					}
 				}
 
-				if(currentDelivery.ID == 32 || currentDelivery.ID == 31){
+				if(currentDelivery.ID == 31){
 					let summ = 10000 - this.result.TOTAL.ORDER_PRICE;
 					if(summ > 0){ 
-						additionalDeliveryMessage = 'Чтобы получить бесплатную доставку СДЭК<br> стоимость товаров должна составлять 10 000'+/*+ summ +*/' ₽'
+						additionalDeliveryMessage = 'Чтобы получить бесплатную доставку СДЭК<br> стоимость товаров должна составлять 7 000'+/*+ summ +*/' ₽'
 					}
 				}
 

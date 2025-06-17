@@ -798,7 +798,11 @@ input[type="checkbox"] {
 }
 
 .bx-soa-price-free {
-    color: #D8ABB7;
+    color: #F781BF;
+}
+
+.delivery-free{
+    margin-bottom: 24px;
 }
 
 /* SCU */
@@ -1944,10 +1948,9 @@ body .wrapper-payment .sberbank__description {
     background: #F3F3F3;
     cursor: not-allowed;
     color: #999999;
-    margin-top: 24px;
 }
 
-.bx-soa-cart-total-button-container.disabled span {
+.bx-soa-cart-total-button-container span {
     width: 100%;
     color: #000000;
     padding-left: 28px;
@@ -2024,8 +2027,8 @@ body .wrapper-payment .sberbank__description {
 }
 
 .postamat {
-    color: #D8ABB7;
-    margin-top: 20px;
+    color: #F781BF;
+    margin-bottom: 16px;
 }
 
 .bx-soa-pp-item-container .bx-soa-pp-company .bx-soa-pp-company-desc,

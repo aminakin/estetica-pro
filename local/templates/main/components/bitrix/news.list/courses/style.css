@@ -45,8 +45,8 @@
 }
 
 .course-price span {
-	font-size: 32px;
-	line-height: 40px;
+	font-size: 20px;
+	line-height: 24px;
 	color: var(--btn-color);
 }
 
@@ -56,11 +56,12 @@
 	background: var(--btn-color);
 	font-size: 18px;
 	padding: 0 20px;
-	color: #ffffff;
+	color: #ffffff!important;
 	text-transform: lowercase;
 	width: 100%;
 	cursor: pointer;
 	text-decoration: none;
+	margin-top: auto;
 }
 
 .course-link:hover {

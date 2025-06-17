@@ -88,7 +88,7 @@ $navNum = $arResult["NAV_RESULT"]->NavNum;?>
         </div>
     <?endforeach;?>
     
-    <div class="phone_courses col-xs-12 col-sm-12 clearfix">Записаться на курс:<a class="couses-phone" href="tel:+78332776867"><i class="fa fa-phone" aria-hidden="true"></i> +7 8332 77 68 67</a></div>
+    <div class="phone_courses col-xs-12 col-sm-12 clearfix">Записаться на курс:<a class="couses-phone" href="https://wa.me/79229776867" target="_blank"><i class="fa fa-phone" aria-hidden="true"></i> +7 8332 77 68 67</a></div>
 </section>
 
 <? if ($arParams["DISPLAY_BOTTOM_PAGER"]){

@@ -81,4 +81,6 @@ $MESS["SALE_NO_ITEMS"] = "В вашей корзине ещё нет товар�
 $MESS["SALE_REFRESH"] = "Пересчитать";
 $MESS["SALE_COUPON_APPLY"] = "Ок";
 $MESS["SALE_COUPON_APPLY_TITLE"] = "Нажмите для применения нового купона";
+$MESS["SBB_EMPTY_BASKET_TITLE"] = "В корзине нет товаров";
+$MESS["SBB_EMPTY_BASKET_CONTINE"] = "Перейти к покупкам";
 ?>

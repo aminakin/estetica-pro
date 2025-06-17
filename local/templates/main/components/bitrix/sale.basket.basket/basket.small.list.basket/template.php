@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -12,121 +12,124 @@
 /** @var CBitrixBasketComponent $component */
 
 use Bitrix\Main\Loader;
+
 Loader::includeModule('catalog');
 Loader::includeModule('iblock');
 global $hrefDoc;
 
-$curPage = $hrefDoc.'?'.$arParams["ACTION_VARIABLE"].'=';
+$curPage = $hrefDoc . '?' . $arParams["ACTION_VARIABLE"] . '=';
 $arUrls = array(
-	"delete" => $curPage."delete&id=#ID#",
-	"delay" => $curPage."delay&id=#ID#",
-	"add" => $curPage."add&id=#ID#",
+	"delete" => $curPage . "delete&id=#ID#",
+	"delay" => $curPage . "delay&id=#ID#",
+	"add" => $curPage . "add&id=#ID#",
 );
 unset($curPage);
-$normalCount = count($arResult["ITEMS"]["AnDelCanBuy"]);?>
+$normalCount = count($arResult["ITEMS"]["AnDelCanBuy"]); ?>
 
 <form class="basket" name="basket_form" id="basket_form_small" method="POST" action="#">
-    <?if(count($arResult["GRID"]["ROWS"]) > 0):?>
-		<a href='?clear' class="clear_basket"> <?= GetMessage('SALE_DELETE');?></a>
-        <div class="basket-head">
-            <div class="basket-head__col">
-                <?= GetMessage('SALE_YOUR_CART');?>
-                <span>
-                	<? $couter = count($arResult["GRID"]["ROWS"]);
-                	if($couter > 0){ echo $couter; } ?>	
-                </span>
-				<span><?= GetMessage('SALE_MEASURE');?></span>
-            </div>
-            <div class="basket-head__col">
-                <?= GetMessage('SALE_QUANTITY');?>
-            </div>
-            <div class="basket-head__col">
-                <?= GetMessage('SALE_PRICE');?>
-            </div>
-        </div>
-    <?endif;?>
+	<? if (count($arResult["GRID"]["ROWS"]) > 0): ?>
+		<a href='?clear' class="clear_basket"> <?= GetMessage('SALE_DELETE'); ?></a>
+		<div class="basket-head">
+			<div class="basket-head__col">
+				<?= GetMessage('SALE_YOUR_CART'); ?>
+				<span>
+					<? $couter = count($arResult["GRID"]["ROWS"]);
+					if ($couter > 0) {
+						echo $couter;
+					} ?>
+				</span>
+				<span><?= GetMessage('SALE_MEASURE'); ?></span>
+			</div>
+			<div class="basket-head__col">
+				<?= GetMessage('SALE_QUANTITY'); ?>
+			</div>
+			<div class="basket-head__col">
+				<?= GetMessage('SALE_PRICE'); ?>
+			</div>
+		</div>
+	<? endif; ?>
 
-    <div class="basket-items">
-        <?
+	<div class="basket-items">
+		<?
 
-        $kol = 0;
-        foreach ($arResult["GRID"]["ROWS"] as $k => $arItem){?>
-            <?if ($arItem["DELAY"] == "N" && $arItem["CAN_BUY"] == "Y"):?>
-                <?$kol = $kol + 1;?>
-                
-                <div class="basket-items__item basket-item" id="<?=$arItem['ID']?>" data-item-name="<?=$arItem['NAME']?>" data-item-brand="" data-item-price="<?=$arItem['PRICE']?>" data-item-currency="RUB">
-                    <a href="#" class="basket-item__delete delete_fav" data-id="<?=$arItem['ID']?>" data-type="bask" data-product="<?=$arItem['PRODUCT_ID']?>">
-                        <span class="basket-item__delete-text"><?= GetMessage('SALE_DELETE');?></span>
-                        <span class="basket-item__delete-img"><?= classBuildSCG::buildSVG('cart', $templateFolder."/images" );?></span>
-                    </a>
-                    <div class="basket-item__row">
-                        <div class="basket-item__col">
-                            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="basket-item__image" style="background-image: url(<?=CFile::GetPath($arItem["DETAIL_PICTURE"])?>)"></a>
-                            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="basket-item__name"><?=$arItem['NAME']?></a>
-                        </div>
-                        <div class="basket-item__col">
-						<? 	$ar_res  = CCatalogProduct::GetByID($arItem['PRODUCT_ID']);?>
-								<input type="number" class="cart-element" autocomplete="off" max="<?= $ar_res['QUANTITY'];?>" min="1" value="<?=$arItem['QUANTITY']?>"
-                                   id="<?=$arItem['ID']?>" name="QUANTITY_INPUT_<?=$arItem["ID"]?>" />
-						</div>  
-                        <div class="basket-item__col">
-                            <div class="basket-item__price"> 
-                                <span>
-                                    <?= CurrencyFormat($arItem['PRICE'], "RUB");?> 
-                                </span>
-                            </div>
-                        </div>
-                        <div style="display: none;" class="price"> <span style="font-family: 'Myriad Pro', sans-serif;vertical-align: sub; margin: 0 3px "> * </span> <span class="price-value"><?=format_price($arItem['PRICE'])?></span> Р</div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            <?endif;?>
-        <?}?>
-    </div>
+		$kol = 0;
+		foreach ($arResult["GRID"]["ROWS"] as $k => $arItem) { ?>
+			<? if ($arItem["DELAY"] == "N" && $arItem["CAN_BUY"] == "Y"): ?>
+				<? $kol = $kol + 1; ?>
+
+				<div class="basket-items__item basket-item" id="<?= $arItem['ID'] ?>" data-item-name="<?= $arItem['NAME'] ?>" data-item-brand="" data-item-price="<?= $arItem['PRICE'] ?>" data-item-currency="RUB">
+					<a href="#" class="basket-item__delete delete_fav" data-id="<?= $arItem['ID'] ?>" data-type="bask" data-product="<?= $arItem['PRODUCT_ID'] ?>">
+						<span class="basket-item__delete-text"><?= GetMessage('SALE_DELETE'); ?></span>
+						<span class="basket-item__delete-img"><?= classBuildSCG::buildSVG('cart', $templateFolder . "/images"); ?></span>
+					</a>
+					<div class="basket-item__row">
+						<div class="basket-item__col">
+							<a href="<?= $arItem["DETAIL_PAGE_URL"] ?>" class="basket-item__image" style="background-image: url(<?= CFile::GetPath($arItem["DETAIL_PICTURE"]) ?>)"></a>
+							<a href="<?= $arItem["DETAIL_PAGE_URL"] ?>" class="basket-item__name"><?= $arItem['NAME'] ?></a>
+						</div>
+						<div class="basket-item__col">
+							<? $ar_res  = CCatalogProduct::GetByID($arItem['PRODUCT_ID']); ?>
+							<input type="number" class="cart-element" autocomplete="off" max="<?= $ar_res['QUANTITY']; ?>" min="1" value="<?= $arItem['QUANTITY'] ?>"
+								id="<?= $arItem['ID'] ?>" name="QUANTITY_INPUT_<?= $arItem["ID"] ?>" />
+						</div>
+						<div class="basket-item__col">
+							<div class="basket-item__price">
+								<span>
+									<?= CurrencyFormat($arItem['PRICE'], "RUB"); ?>
+								</span>
+							</div>
+						</div>
+						<div style="display: none;" class="price"> <span style="font-family: 'Myriad Pro', sans-serif;vertical-align: sub; margin: 0 3px "> * </span> <span class="price-value"><?= format_price($arItem['PRICE']) ?></span> Р</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			<? endif; ?>
+		<? } ?>
+	</div>
 </form>
-    <?if ($kol>0){?>
-        <div class="bottom">
-            <div class="inner">
-                <div class="total">
-                    <div class="total-text">
-                    	<?= GetMessage('SALE_ORDER_PRICES');?>
-                    </div>
-                    <div class="price" id="allSum_FORMATED">
-                        <?= CurrencyFormat($arResult["allSum"], 'RUB');?>
-                    </div>
-                </div>
-                <div class="bottom-buttons">
-                    <?if($normalCount):?>
-                        <?
-                        $buttons_style = '';
-                        $minsum_style = 'display:none';
-                        if($arResult["allSum"] < 2000 && false) {
-                            $buttons_style = 'display:none';
-                            $minsum_style = '';
-                        }
-                        ?>
-                        <a style="<?=$buttons_style?>" href="/cart/" class="button button_transparent"><?= GetMessage('SALE_TO_CART');?></a>
-                        <?/*a style="<?=$buttons_style?>" href="/cart/order/" class="button button_filled"><?= GetMessage('SALE_ORDER');?></?a*/?>
-                        <div style="<?=$minsum_style?>" class="minsum">
-                            <span class="minsum__text">
-                                <?= GetMessage('SALE_MIN_ORDER');?>
-                            </span>
-                            <span class="minsum__text">
-                                <?= GetMessage('SALE_YOU_NEED');?> <span class="minsum__value"><?= (2000 - $arResult["allSum"])?></span> ₽
-                            </span>
-                        </div>
+<? if ($kol > 0) { ?>
+	<div class="bottom">
+		<div class="inner">
+			<div class="total">
+				<div class="total-text">
+					<?= GetMessage('SALE_ORDER_PRICES'); ?>
+				</div>
+				<div class="price" id="allSum_FORMATED">
+					<?= CurrencyFormat($arResult["allSum"], 'RUB'); ?>
+				</div>
+			</div>
+			<div class="bottom-buttons">
+				<? if ($normalCount): ?>
+					<?
+					$buttons_style = '';
+					$minsum_style = 'display:none';
+					if ($arResult["allSum"] < 2000 && false) {
+						$buttons_style = 'display:none';
+						$minsum_style = '';
+					}
+					?>
+					<a style="<?= $buttons_style ?>" href="/cart/" class="button button_transparent"><?= GetMessage('SALE_TO_CART'); ?></a>
+					<?/*a style="<?=$buttons_style?>" href="/cart/order/" class="button button_filled"><?= GetMessage('SALE_ORDER');?></?a*/ ?>
+					<div style="<?= $minsum_style ?>" class="minsum">
+						<span class="minsum__text">
+							<?= GetMessage('SALE_MIN_ORDER'); ?>
+						</span>
+						<span class="minsum__text">
+							<?= GetMessage('SALE_YOU_NEED'); ?> <span class="minsum__value"><?= (2000 - $arResult["allSum"]) ?></span> ₽
+						</span>
+					</div>
 
-                    <?endif;?>
-                </div>
-            </div>
-        </div>
+				<? endif; ?>
+			</div>
+		</div>
+	</div>
 
-<?}else{?>
-        <div class="empty_basket">
-            <h1><?= GetMessage('SALE_CART_EMTPY');?></h1>
-            <div class="empty-message"><?= GetMessage('SALE_CART_EMTPY_MESSAGE');?></div>
-            <div class="our-new-wrap">
-                <?/*<div class="our-new">
+<? } else { ?>
+	<div class="empty_basket">
+		<?= classBuildSCG::buildSVG('empty-cart', $templateFolder . "/images"); ?>
+		<p><?= GetMessage('SBB_EMPTY_BASKET_TITLE'); ?></p>
+		<a href="/catalog/"><?= GetMessage('SBB_EMPTY_BASKET_CONTINE'); ?></a>
+		<?/*<div class="our-new">
                 <?= GetMessage('SBB_BASKET_OUR_NEW');?>
             </div>
 			
@@ -277,7 +280,7 @@ $normalCount = count($arResult["ITEMS"]["AnDelCanBuy"]);?>
 					"USE_PRODUCT_QUANTITY" => "Y"
 				),
 				false
-			);*/?>
-            </div>
-        </div>
-    <?}?>
+			);*/ ?>
+	</div>
+	</div>
+<? } ?>

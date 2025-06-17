@@ -8,7 +8,7 @@
 	grid-auto-rows: 1fr 1fr;
 	grid-template-columns: repeat(2, 1fr);
 	grid-template-rows: repeat(2, 1fr);
-	gap: 30px;
+	gap: 24px;
 	margin-bottom: 96px;
 }
 
@@ -33,7 +33,7 @@
 	font-size: 18px;
 	text-align: center;
 	text-transform: lowercase;
-	margin-top: 10px
+	margin-top: auto;
 }
 
 .advantages-item_name {
@@ -48,6 +48,18 @@
 .advantages-item_text {
 	font-size: 24px;
 	line-height: 28px;
+}
+
+.about-page .advantages-item_text {
+	font-size: 18px;
+	line-height: 22px;
+	margin-bottom: 10px;
+}
+
+.about-page .advantages-item{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 }
 
 @media (max-width:1024px) {

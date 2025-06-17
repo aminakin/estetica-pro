@@ -1279,9 +1279,10 @@ form.basket {
 	margin-right: 5px;
 	display: none;
 }
+
 .basket-head,
 .basket-item__row,
-.basket-item__deleted{
+.basket-item__deleted {
 	display: flex;
 	align-items: center;
 }
@@ -1290,7 +1291,7 @@ form.basket {
 	border-bottom: 1px solid #F3F3F3;
 }
 
-.basket-item__row{
+.basket-item__row {
 	border-top: 1px solid #F3F3F3;
 }
 
@@ -1501,12 +1502,12 @@ form.basket {
 
 .jq-number.cart-element .jq-number__field .cart-element {
 	max-width: 30px;
-    border: 2px solid #F781BF;
-    border-radius: 30px;
-    line-height: 24px;
-    text-align: center;
-    font-size: 18px;
-    background-color: transparent;
+	border: 2px solid #F781BF;
+	border-radius: 30px;
+	line-height: 24px;
+	text-align: center;
+	font-size: 18px;
+	background-color: transparent;
 	font-weight: 400;
 }
 
@@ -1646,68 +1647,62 @@ form.basket {
 
 
 #basket {
-    z-index: 10;
-    right: -700px;
-    left: unset;
-    height: 100%;
+	z-index: 10;
+	right: -700px;
+	left: unset;
+	height: 100%;
 	width: 100%;
-    max-width: 663px;
-    box-shadow: 0 3px 7px rgba(155, 154, 154, 0.15);
-    border: none;
-    padding: 118px 97px 180px 95px;
-    top: 0px;
-    transition: top .2s ease;
-    position: fixed;
-    background-color: #FFF;
+	max-width: 663px;
+	box-shadow: 0 3px 7px rgba(155, 154, 154, 0.15);
+	border: none;
+	padding: 118px 97px 180px 95px;
+	top: 0px;
+	transition: top .2s ease;
+	position: fixed;
+	background-color: #FFF;
 }
 
 #basket form {
-    width: 100%;
+	width: 100%;
 }
 
 #basket .empty_basket {
-    color: #000000;
-    font-size: 14px;
-    height: 100%;
-    padding-bottom: 50px;
-    margin: 0;
-    text-align: left;
+	text-align: center;
 }
 
-#basket .empty_basket .our-new {
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 25px;
-    color: #000000;
-    margin: 60px 0 30px;
+#basket .empty_basket p {
+	font-size: 32px;
+	line-height: 40px;
+	margin: 48px 0 24px;
 }
 
-#basket .empty_basket h1 {
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 49px;
-    text-align: left;
-    max-width: 260px;
-    margin-bottom: 60px;
-    text-transform: none;
-}
-
-#basket .empty_basket .empty-message {
-    font-size: 14px;
-    line-height: 22px;
-}
-
-#basket .empty_basket .empty-message a {
-    color: #F781BF;
-    text-decoration: none;
-}
-
-#basket .empty_basket .empty-message a:hover {
-    text-decoration: underline;
+#basket .empty_basket a {
+	padding: 18px 36px;
+	border-radius: 10px;
+	border-width: 1px;
+	border: 1px solid #F781BF;
+	background-color: #ffffff;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 20px;
+	text-decoration: none;
+	display: flex;
+	width: fit-content;
+	margin: 0 auto;
 }
 
 @media (max-width:1024px) {
-	#basket{
+	#basket {
 		padding: 80px 32px 80px 32px;
+	}
+
+	#basket .empty_basket p {
+		margin: 24px 0;
+		font-size: 24px;
+		line-height: 28px;
+	}
+
+	#basket .empty_basket svg {
+		width: 120px;
 	}
 }

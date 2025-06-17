@@ -1764,7 +1764,8 @@ label[data-bx-user-consent] input {
     color: #999999;
 }
 
-.bx-soa-comment.bx-soa-section {
+.bx-soa-comment.bx-soa-section,
+.min-summ {
     margin-bottom: 24px;
 }
 
@@ -1797,6 +1798,8 @@ label[data-bx-user-consent] input {
     left: 0;
     z-index: 2;
     cursor: pointer;
+    width: 320px;
+    height: 40px;
 }
 
 #bx-soa-manager-call input[type="checkbox"]:checked+label,

@@ -1626,7 +1626,6 @@ function changeTotalPrice(el) {
         $(el).closest('.basket-item').find('.price').css({ 'opacity': '1', 'cursor': 'text' });
     }
     let priceItem = prodQuantity * prodPrice;
-    $(el).closest('.basket-item').find('.basket-item__price').children('span').text(BX.Currency.currencyFormat(priceItem, 'RUB', true));
 }
 
 

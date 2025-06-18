@@ -57,7 +57,7 @@ body {
     padding: 0;
     width: 100%;
     height: 100%;
-    color: #000000;
+    color: #333333;
     font-family: 'Commissioner';
     font-size: 14px;
     line-height: 16px;
@@ -960,6 +960,16 @@ div.header-phone {
 ::-moz-selection {
     background: #1a1a1a;
     color: #fff;
+}
+
+input::selection {
+    background: #fff;
+    color: #1a1a1a;
+}
+
+input::-moz-selection {
+    background: #fff;
+    color: #1a1a1a;
 }
 
 :focus::-webkit-input-placeholder {

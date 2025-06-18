@@ -1,0 +1,176 @@
+.subscribe-popup__form {
+    padding: 96px 64px;
+    border-radius: 36px;
+    position: relative;
+    display: none;
+    max-width: 1094px;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    position: fixed;
+    z-index: 8;
+}
+
+.subscribe-popup__form-wrap {
+    display: flex;
+}
+
+.subscribe-popup__form .close {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    cursor: pointer;
+}
+
+.subscribe-popup__image {
+    max-width: 489px;
+    min-width: 489px;
+    width: 100%;
+    margin-right: 40px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: url(images/sibscribe-image.jpg) no-repeat center center;
+    background-size: cover;
+    height: 444px;
+}
+
+.subscribe-popup__form-wrap h3,
+.subscribe-popup__form-wrap p,
+.subscribe-popup__btn p {
+    margin: 0;
+}
+
+.subscribe-popup__form-wrap h3 {
+    font-size: 32px;
+    line-height: 40px;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #999999;
+}
+
+.subscribe-popup__form-wrap form>p {
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 24px;
+}
+
+.subscribe-popup__form-wrap input[type="text"] {
+    border: 1px solid #999999;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 0 16px;
+    line-height: 56px;
+    height: 56px;
+    font-size: 18px;
+    width: 100%;
+    margin-bottom: 24px;
+    user-select: none;
+}
+
+.subscribe-popup__form-wrap input[type="text"]::selection {
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.subscribe-popup__btn input[type="submit"] {
+    padding: 16px 0px;
+    border-radius: 10px;
+    background-color: #F781BF;
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    outline: none !important;
+    box-shadow: none !important;
+    margin-bottom: 16px;
+}
+
+.subscribe-popup__btn p {
+    font-size: 14px;
+    line-height: 16px;
+    color: #999999;
+}
+
+.subscribe-popup__btn p a {
+    color: #F781BF;
+    text-decoration: none;
+}
+
+.subscribe-popup__success p {
+    font-family: 'TenorSans';
+    font-size: 18px;
+}
+
+@media (max-width: 1024px) {
+    .subscribe-popup__form {
+        padding: 48px 32px;
+        height: 100%;
+        max-width: 480px;
+        right: 0;
+        top: 0;
+        left: auto;
+        transform: none;
+        overflow-x: auto;
+        border-radius: 16px 0 0 16px;
+    }
+
+    .subscribe-popup__form-wrap {
+        flex-direction: column;
+    }
+
+    .subscribe-popup__image {
+        margin-bottom: 40px;
+        height: 374px;
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+    .subscribe-popup__form-wrap h3 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .subscribe-popup__form .close {
+        width: 32px;
+        height: 32px;
+        top: 16px;
+        right: 16px;
+    }
+
+    .subscribe-popup__form .close svg {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .subscribe-popup__form {
+        border-radius: 16px 16px 0 0;
+        max-width: 100%;
+    }
+
+    .subscribe-popup__image {
+        height: 298px;
+        margin-bottom: 20px;
+    }
+
+    .subscribe-popup__form-wrap h3 {
+        padding-bottom: 16px;
+    }
+
+    .subscribe-popup__form-wrap h3,
+    .subscribe-popup__form-wrap form>p,
+    .subscribe-popup__form-wrap input[type="text"] {
+        margin-bottom: 16px;
+    }
+}

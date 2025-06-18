@@ -4,7 +4,7 @@ class classBuildSCG
   public static function buildSVG(string $svg_name, string $base = 'local/templates/main/images/svg/')
   {
     return file_get_contents($_SERVER["DOCUMENT_ROOT"] . '/' . $base . '/' . $svg_name . '.svg');
-  } 
+  }
 }
 
 function file_get_contents_alt($url)
@@ -57,8 +57,6 @@ CModule::AddAutoloadClasses(
 AddEventHandler("iblock", "OnBeforeIBlockElementUpdate", array("AfterElement", "OnBeforeIBlockElementUpdateHandler"));
 AddEventHandler("iblock", "OnAfterIBlockElementUpdate", array("AfterElement", "OnAfterIBlockElementUpdateHandler"));
 
-//Main\EventManager::getInstance()->addEventHandler("catalog", "Bitrix\Catalog\Model\Product::OnBeforeUpdate", [\ApiLib\Events\ProductEvents::class, "OnBeforeProductUpdateHandler"]);
-//Main\EventManager::getInstance()->addEventHandler("catalog", "Bitrix\Catalog\Model\Product::OnAfterUpdate", [\ApiLib\Events\ProductEvents::class, "OnAfterProductUpdateHandler"]);
 Main\EventManager::getInstance()->addEventHandler('sale', 'onSaleDeliveryServiceCalculate', [ChangePriceShipment::class, 'calcPriceShipment'], false, 1000);
 
 
@@ -523,6 +521,7 @@ AddEventHandler("iblock", "OnAfterIBlockElementUpdate", "DoIBlockAfterSave");
 AddEventHandler("iblock", "OnAfterIBlockElementAdd", "DoIBlockAfterSave");
 AddEventHandler("catalog", "OnPriceAdd", "DoIBlockAfterSave");
 AddEventHandler("catalog", "OnPriceUpdate", "DoIBlockAfterSave");
+
 function DoIBlockAfterSave($arg1, $arg2 = false)
 {
   $ELEMENT_ID = false;
@@ -661,14 +660,7 @@ function DoIBlockAfterSave($arg1, $arg2 = false)
   }
 }
 
-//AddEventHandler("iblock", "OnBeforeIBlockElementUpdate", array("loadElementFrom1C", "UpdateProps"));
-//AddEventHandler("iblock", "OnBeforeIBlockElementAdd", array("loadElementFrom1C", "UpdateProps"));
-//AddEventHandler("iblock", "OnBeforeIBlockElementUpdate", array("loadElementFrom1C", "UpdateProps"));
-
-//AddEventHandler("iblock", "OnBeforeIBlockElementAdd", "UpdatePropsNew");
 AddEventHandler("iblock", "OnAfterIBlockElementUpdate", array("elementLoadFrom1C", "UpdatePropsNew"));
-
-//AddEventHandler("iblock", "OnIBlockElementUpdate", "UpdatePropsNew");
 class elementLoadFrom1C
 {
   static public $elementsId = [];
@@ -750,13 +742,6 @@ class loadElementFrom1C
   }
 }
 
-
-/*Main\EventManager::getInstance()->addEventHandler(
-    'sale',
-    'OnSaleComponentOrderCreated',
-    array('recalcBasket', 'recalcDelivery')
-);*/
-
 Main\EventManager::getInstance()->addEventHandler(
   "logictim.balls",
   "AfterCalculateOrderBonus",
@@ -770,61 +755,6 @@ class recalcBasket
   public static $usedBonuses = false;
   public static $IBLOCK_ID = 14;
   public static $IBLOCK_OFFERS_ID = 15;
-
-  /*public static function recalcDelivery($order)
-  {
-      if ($order->getId())
-          return;
-      if (self::$flagAddProcess)
-          return;
-      self::$flagAddProcess = true;
-
-      CModule::IncludeModule("iblock");
-      CModule::IncludeModule("sale");
-      CModule::IncludeModule("catalog");
-
-      $basket = Basket::loadItemsForFUser(Bitrix\Sale\Fuser::getId(), Bitrix\Main\Context::getCurrent()->getSite());
-
-      $basketItems = $basket->getBasketItems();
-
-      // Если есть акционные товары, то доставка не бесплатна
-      foreach ($basketItems as $basketItem) {
-          $prodId = $basketItem->getProductId();
-          $mxResult = CCatalogSku::GetProductInfo($basketItem->getProductId());
-          if (is_array($mxResult)) {
-              $prodId = $mxResult['ID'];
-          }
-          $prodProps = CIBlockElement::GetProperty(self::$IBLOCK_ID, $prodId, array("sort" => "asc"), array("CODE" => "AKTSIONNYY"));
-          if ($res = $prodProps->GetNext()) {
-              if (strtolower($res['VALUE_ENUM']) == 'да') {
-                  self::$freeDelivery = false;
-              }
-          }
-      }
-
-      $couponsManager = new DiscountCouponsManager;
-
-      // Если применены купоны, то доставка не бесплатна
-      if (count($couponsManager->get()) > 0) {
-          self::$freeDelivery = false;
-      }
-
-
-      // Сумма заказа меньше 4000, значит доставка не бесплатна
-      if ($basket->getPrice() < 4000) {
-          self::$freeDelivery = false;
-      }
-
-      // Если применены баллы, то доставка не бесплатна
-      if (self::$usedBonuses) {
-          self::$freeDelivery = false;
-      }
-
-      if (self::$freeDelivery) {
-          self::freeDelivery($order);
-      }
-
-  }*/
 
   public static function BonusesRecalc(Main\Event $event)
   {
@@ -869,16 +799,6 @@ class recalcBasket
   }
 }
 
-/*function agentAddamantCoupons()
-{
-    CModule::IncludeModule("sale");
-    include $_SERVER['DOCUMENT_ROOT'] . "/local/php_interface/include/coupons/include.php";
-    $xmlCoupons = new couponsImport();
-    $xmlCoupons->start();
-    return 'agentAddamantCoupons();';
-}*/
-
-
 /* поиск только по заголовкам */
 AddEventHandler("search", "BeforeIndex", array("SearchHandlers", "BeforeIndexHandler"));
 
@@ -905,8 +825,7 @@ class SearchHandlers
 }
 
 /* при сохранении удалять спец символы *
-
-/**
+/** 
  * У свойства есть только 2 переменные Значение - описание.
  * Потому если нам нужно добавить 3,4,5 то лучше это сделать через сериализацию массива описани
  * В вывод добавляем еще input, например:
@@ -918,7 +837,6 @@ class SearchHandlers
  */
 
 AddEventHandler('iblock', 'OnIBlockPropertyBuildList', array('CustomTableProp', 'GetUserTypeDescription')); //построение списка свойств инфоблока
-
 AddEventHandler('iblock', 'OnIBlockPropertyBuildList', array('CustomTableProp', 'DateRange')); //построение списка свойств инфоблока
 
 class CustomTableProp
@@ -951,7 +869,6 @@ class CustomTableProp
   }
 
   //формируем пару полей для создаваемого свойства
-
   public static function GetPropertyFieldHtml($arProperty, $arValue, $strHTMLControlName)
   {
 
@@ -992,7 +909,6 @@ class CustomTableProp
 
   public static function GetPropertyFieldDateHtml($arProperty, $arValue, $strHTMLControlName)
   {
-
     // Описание превращаем обратно в массив ( в шаблоне также )
     $arValue["DESCRIPTION"] = unserialize($arValue["DESCRIPTION"]);
     if (intval($arValue["VALUE"]) > 0) {
@@ -1006,15 +922,6 @@ class CustomTableProp
     }
     // Что будет выведено:
     // jsUtils.OpenWindow... - открывает окно с выбором элемента инфоблока
-    /* echo '<pre>';
-     var_export($strHTMLControlName);
-     echo '<br>';
-     var_export($arValue);
-     echo '<br>';
-     var_export('PROP[' . $arProperty['ID'] . '][n0][DESCRIPTION][0]');
-     echo '<br>';
-     echo '<br>';
-     echo '</pre>';*/
     return '
               <table border="0" cellspacing="0" cellpadding="0" class="internal">
                 <tbody>
@@ -1126,17 +1033,7 @@ class Courses
   }
 }
 
-/* логирование изменения товаров (поле картинка)*/
-/*class BeforeElement{
-    // создаем обработчик события "OnBeforeIBlockElementUpdate"
-    function OnBeforeIBlockElementUpdateHandler(&$arFields)
-    {
-        AddMessage2Log(var_export($arFields, true));
-    }
-}*/
-
 /*Если было удаление картинки */
-
 class AfterElement
 {
   static function AddMessage2LogAdd($sText, $sModule = "", $traceDepth = 6, $bShowArgs = false)
@@ -1217,7 +1114,7 @@ class AfterElement
         $VALUES[] = $img->arResult;
       }
 
-     // self::AddMessage2LogAdd(" ID " . var_export($arFields['ID'], true) . "\n BEFORE " . "\n Изображение детальное удалено - " . var_export($arFields['DETAIL_PICTURE'], true) . "\n ID изменившего данный товар " . var_export($arFields['MODIFIED_BY'], true) . " \n " . var_export($VALUES, true));
+      // self::AddMessage2LogAdd(" ID " . var_export($arFields['ID'], true) . "\n BEFORE " . "\n Изображение детальное удалено - " . var_export($arFields['DETAIL_PICTURE'], true) . "\n ID изменившего данный товар " . var_export($arFields['MODIFIED_BY'], true) . " \n " . var_export($VALUES, true));
     }
     if (!empty($arFields['PREVIEW_PICTURE'])) {
       if (!CModule::IncludeModule("iblock"))
@@ -1240,7 +1137,7 @@ class AfterElement
       //self::AddMessage2LogAdd(" ID " . var_export($arFields['ID'], true) . "\n AFTER " . "\n Изображение свойства картинки удалено - " . var_export($arFields['PROPERTY_VALUES']['113'], true) . "\n ID изменившего данный товар " . var_export($arFields['MODIFIED_BY'], true));
     }
     if (!empty($arFields['DETAIL_PICTURE'])) {
-     // self::AddMessage2LogAdd(" ID " . var_export($arFields['ID'], true) . "\n AFTER " . "\n Изображение детальное удалено - " . var_export($arFields['DETAIL_PICTURE'], true) . "\n ID изменившего данный товар " . var_export($arFields['MODIFIED_BY'], true));
+      // self::AddMessage2LogAdd(" ID " . var_export($arFields['ID'], true) . "\n AFTER " . "\n Изображение детальное удалено - " . var_export($arFields['DETAIL_PICTURE'], true) . "\n ID изменившего данный товар " . var_export($arFields['MODIFIED_BY'], true));
     }
     if (!empty($arFields['PREVIEW_PICTURE'])) {
       //self::AddMessage2LogAdd(" ID " . var_export($arFields['ID'], true) . "\n AFTER " . "\n Изображение анонс удалено - " . var_export($arFields['PREVIEW_PICTURE'], true) . "\n ID изменившего данный товар " . var_export($arFields['MODIFIED_BY'], true));
@@ -1273,7 +1170,7 @@ function declOfNum($num, $titles)
 function declOfNumLevel($num, $titles)
 {
   $cases = array(2, 0, 1, 1, 1, 2);
-  return $num.' '.$titles[($num % 100 > 4 && $num % 100 < 20) ? 2 : $cases[min($num % 10, 5)]];
+  return $num . ' ' . $titles[($num % 100 > 4 && $num % 100 < 20) ? 2 : $cases[min($num % 10, 5)]];
 }
 
 function declOfNumCountCatalog($number, $titles)
@@ -1352,7 +1249,6 @@ AddEventHandler("main", "OnBeforeUserRegister", ["AddamantUser", "beforeRegister
 AddEventHandler("main", "OnAfterUserRegister", ["AddamantUser", "afterRegister"]);
 AddEventHandler("bxmaker.authuserphone", "BXmakerAuthUserPhoneEnterComponentAjax", ["AddamantUser", "ajaxRegister"]);
 
-
 class AddamantUser
 {
   public static function beforeAuthPhoneRegister(&$arFields)
@@ -1393,7 +1289,6 @@ class AddamantUser
         'ERROR_CONFIRM_PASSWORD'
       );
     }
-
 
     if (is_array($arExpandData) && isset($arExpandData['day']) && isset($arExpandData['month']) && isset($arExpandData['year'])) {
       $day = trim(htmlentities($arExpandData['day'], ENT_QUOTES));
@@ -1590,7 +1485,6 @@ class AddamantUser
       $errors['passwordConfirm'][] = 'Пароль и подтвеждение пароля должны быть одинаковыми';
     }
 
-
     if (is_array($arExpandData) && isset($arExpandData['day']) && isset($arExpandData['month']) && isset($arExpandData['year'])) {
       $day = trim(htmlentities($arExpandData['day'], ENT_QUOTES));
       $month = trim(htmlentities($arExpandData['month'], ENT_QUOTES));
@@ -1630,31 +1524,6 @@ class AddamantUser
     }
   }
 }
-
-// Бесплатная доставка от 4000 тыс, кроме Кирова, до 20.02.2022. Задача №78505
-/*Bitrix\Main\EventManager::getInstance()->addEventHandler('sale', 'OnSaleDeliveryServiceCalculate', 'setFreeDelivery');
-
-function setFreeDelivery(Bitrix\Main\Event $event){
-  $params = $event->getParameters(); 
-  if ($params['SHIPMENT']):
-    $baseResult = $event->getParameter('RESULT');
-    $shipment = $event->getParameter('SHIPMENT');
-    $orderPrice = $shipment->getShipmentItemCollection()->getShipment()->getCollection()->getOrder()->getPrice();
-    $order = $shipment->getCollection()->getOrder();
-    $property = $order->getPropertyCollection()->getItemByOrderPropertyId(5);
-    if ($property !== null) {
-      $propertyValue = CSaleLocation::GetByID($property->getvalue());
-      if($orderPrice >= 4000 && $propertyValue['REGION_NAME'] != 'Кировская область') {
-        $baseResult->setDeliveryPrice(0);
-        $event->addResult(
-          new Main\EventResult(
-              Main\EventResult::SUCCESS, array('RESULT' => $baseResult)
-          )
-        );
-      }
-    }
-  endif;
-}*/
 
 AddEventHandler('main', 'OnBeforeEventAdd', array('OnBeforeEventAdd', 'OnProductNotify'));
 

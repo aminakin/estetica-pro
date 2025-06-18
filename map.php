@@ -2,7 +2,7 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Карта сайта");
 ?><br>
-<?$APPLICATION->IncludeComponent(
+<?/*$APPLICATION->IncludeComponent(
 	"bitrix:main.map",
 	"",
 	Array(
@@ -13,4 +13,4 @@ $APPLICATION->SetTitle("Карта сайта");
 		"SET_TITLE" => "Y",
 		"SHOW_DESCRIPTION" => "N"
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);*/?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

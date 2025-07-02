@@ -18,10 +18,7 @@ $this->setFrameMode(false);
 use Bitrix\Main\Localization\Loc;
 
 Loc::loadMessages(__FILE__);
-
-/*echo '<pre>';
-var_export($arResult);
-echo '</pre>'; */?>
+?>
 
 <div class="subscribe-popup__form">
 	<div class="close subscribe">

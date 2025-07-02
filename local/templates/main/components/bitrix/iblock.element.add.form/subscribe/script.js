@@ -1,14 +1,16 @@
 $(document).ready(function () {
 
     $('.subscribe-popup__form input[type="text"]').mask("+7 (999) 999-99-99");
-    console.log(localStorage.getItem('modalLastShownMonthly'));
     function shouldShowModal() {
-        const lastShown = localStorage.getItem('modalLastShownMonthly');
-        if (!lastShown) return true;
+        const lastShownMonthly = localStorage.getItem('modalLastShownMonthly');
+        const lastShownYear = localStorage.getItem('modalLastShownYear');
+        
+        if (lastShownYear) return false;
+        if (!lastShownMonthly) return true;
 
-        const lastDate = new Date(lastShown);
+        const lastDate = new Date(lastShownMonthly);
         const currentDate = new Date();
-        return currentDate.getMonth() !== lastDate.getMonth()
+        return currentDate.getMonth() !== lastDate.getMonth();
     }
 
     function showModal() {
@@ -39,5 +41,9 @@ $(document).ready(function () {
 
     if ($('.subscribe-popup__success').length > 0 || $('.subscribe-popup__error').length > 0) {
         setTimeout(showModal, 1000);
+    }
+
+    if($('.subscribe-popup__success').length > 0){
+        localStorage.setItem('modalLastShownYear', new Date().toString());
     }
 });

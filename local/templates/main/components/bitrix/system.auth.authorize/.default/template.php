@@ -6,7 +6,7 @@ ShowMessage($arParams["~AUTH_RESULT"]);
 ShowMessage($arResult['ERROR_MESSAGE']);
 ?>
 
-<? $APPLICATION->IncludeComponent(
+<?/* $APPLICATION->IncludeComponent(
                                     "bitrix:system.auth.form",
                                     "auth_header",
                                     array(
@@ -17,5 +17,5 @@ ShowMessage($arResult['ERROR_MESSAGE']);
                                         "COMPONENT_TEMPLATE" => "auth_header"
                                     ),
                                     false
-                                );
+                                );*/
                                 ?>

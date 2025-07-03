@@ -3079,15 +3079,18 @@ input[type="submit"].linkBlack:hover {
     }
 }
 
-.basket-items::-webkit-scrollbar-track {
+.basket-items::-webkit-scrollbar-track,
+#basket::-webkit-scrollbar-track {
     border: 1px solid transparent;
 }
 
-.basket-items::-webkit-scrollbar {
+.basket-items::-webkit-scrollbar,
+#basket::-webkit-scrollbar {
     width: 3px;
 }
 
-.basket-items::-webkit-scrollbar-thumb {
+.basket-items::-webkit-scrollbar-thumb,
+#basket::-webkit-scrollbar-thumb {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;

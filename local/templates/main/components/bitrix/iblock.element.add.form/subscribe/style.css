@@ -155,13 +155,19 @@
 
 @media (max-width: 767px) {
     .subscribe-popup__form {
-        border-radius: 16px 16px 0 0;
+        border-radius: 16px;
         max-width: 100%;
+        height: auto;
     }
 
     .subscribe-popup__image {
         height: 298px;
         margin-bottom: 20px;
+        display: none;
+    }
+
+    .subscribe-popup__btn p br{
+        display: none;
     }
 
     .subscribe-popup__form-wrap h3 {

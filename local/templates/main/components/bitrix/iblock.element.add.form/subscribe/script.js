@@ -17,14 +17,13 @@ $(document).ready(function () {
         $('.subscribe-popup__form').fadeIn();
         $('.site-shadow').fadeIn();
         $('.site-shadow').css('zIndex', '7');
-        $('#currentDate').text(new Date().toLocaleDateString());
-        localStorage.setItem('modalLastShownMonthly', new Date().toString());
     }
 
     $('.subscribe-popup__form .close, .site-shadow').click(function () {
         $('.subscribe-popup__form').fadeOut();
         $('.site-shadow').fadeOut();
         $('.site-shadow').css('zIndex', '6');
+        localStorage.setItem('modalLastShownMonthly', new Date().toString());
     });
 
     $(document).keyup(function (e) {

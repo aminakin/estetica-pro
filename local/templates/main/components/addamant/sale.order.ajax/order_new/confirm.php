@@ -24,9 +24,6 @@ GLOBAL $USER;
 			<? $arResult["ORDER"]["ACCOUNT_NUMBER"] = '';?>
 				<div class="confirm_order"><?=Loc::getMessage("SOA_ORDER_SUC_NO_AUTH")?></div>
 				<div class="comfirm_text"><?=Loc::getMessage('SOA_MANAGER')?></div>
-			<?/*b><?=Loc::getMessage("SOA_ERROR_ORDER")?></?b><br>
-				<?=Loc::getMessage("SOA_ERROR_ORDER_LOST", ["#ORDER_ID#" => htmlspecialcharsbx($arResult["ACCOUNT_NUMBER"])])?><br>
-				<?=Loc::getMessage("SOA_ERROR_ORDER_LOST1")*/?>
 		<? endif;
 	}else{?>
 		<div class="confirm_order"><?=Loc::getMessage("SOA_ORDER_SUC_CANCEL", array("#ORDER_ID#" => $arResult["ORDER"]["ACCOUNT_NUMBER"] ))?></div>
@@ -34,7 +31,7 @@ GLOBAL $USER;
 		<div class="order-cancel"><a href="/cart/order/?ID=<?=$arResult["ORDER"]["ACCOUNT_NUMBER"];?>&CANCEL=Y"><?=Loc::getMessage("SOA_TO_CATALOG")?></a></div>
 	<?}?>
 	<div class="off_vpn">
-		<?=Loc::getMessage("SOA_OFF_VPN")?></div>
+		<?=Loc::getMessage("SOA_OFF_VPN")?>
 	</div>
 </div>
 <div class="wrapper-payment">

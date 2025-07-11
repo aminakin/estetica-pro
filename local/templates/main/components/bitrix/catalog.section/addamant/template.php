@@ -731,14 +731,15 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 	}
 	else
 	{
+		echo GetMessage('CT_BCS_CATALOG_MESS_NO_PRODUCTS');
 		// load css for bigData/deferred load
-		$APPLICATION->IncludeComponent(
+		/*$APPLICATION->IncludeComponent(
 			'bitrix:catalog.item',
 			'addamant',
 			array(),
 			$component,
 			array('HIDE_ICONS' => 'Y')
-		);
+		);*/
 	}
 	?>
 </div>

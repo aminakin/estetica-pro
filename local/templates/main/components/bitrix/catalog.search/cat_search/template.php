@@ -46,6 +46,20 @@ global $notAvailable;
         $component,
         array('HIDE_ICONS' => 'Y')
     );
+
+    $allPrices = [];
+    foreach($arElements as $arItem){
+        $ar_res = CPrice::GetBasePrice($arItem, false, false);  
+        $allPrices[] = $ar_res["PRICE"];
+    }
+
+    $maxPriceSearch = max($allPrices);
+    $minPriceSearch = min($allPrices);
+
+    global $searchFilter;
+        $searchFilter = array(
+            "=ID" => $arElements,
+        );
     ?>
     <?
     if ($arElements != false) {
@@ -79,8 +93,8 @@ global $notAvailable;
             array(
                 "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
                 "IBLOCK_ID" => $arParams["IBLOCK_ID"],
-                "SECTION_ID" => $arCurSection['ID'],
-                "FILTER_NAME" => $arParams["FILTER_NAME"],
+                "SECTION_ID" => 0,
+                "FILTER_NAME" => "searchFilter",
                 "PRICE_CODE" => $arParams["PRICE_CODE"],
                 "CACHE_TYPE" => $arParams["CACHE_TYPE"],
                 "CACHE_TIME" => $arParams["CACHE_TIME"],
@@ -99,6 +113,8 @@ global $notAvailable;
                 "SMART_FILTER_PATH" => $arResult["VARIABLES"]["SMART_FILTER_PATH"],
                 "PAGER_PARAMS_NAME" => $arParams["PAGER_PARAMS_NAME"],
                 "INSTANT_RELOAD" => $arParams["INSTANT_RELOAD"],
+                "SEARCH_MAX_PRICE" => $maxPriceSearch,
+                "SEARCH_MIN_PRICE" => $minPriceSearch,
             ),
             $component,
             array('HIDE_ICONS' => 'Y')
@@ -107,13 +123,8 @@ global $notAvailable;
     </div>
 </div>
 <div class="search-section row">
-
     <?
-    if (!empty($arElements) && is_array($arElements) && count($arElements) >= 1) {
-        global $searchFilter;
-        $searchFilter = array(
-            "=ID" => $arElements,
-        );
+    if (!empty($arElements) && is_array($arElements) && count($arElements) >= 1) {  
         $APPLICATION->IncludeComponent(
             "bitrix:catalog.section",
             "addamant",

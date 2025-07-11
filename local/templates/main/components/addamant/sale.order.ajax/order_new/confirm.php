@@ -17,6 +17,7 @@ GLOBAL $USER;
 <div class="comfirm_wrap">
 	<? if($arResult["ORDER"]['CANCELED'] != 'Y'){?>
 		<? if (!empty($arResult["ORDER"])): ?>
+				<div class="confirm_thanks"><?= Loc::getMessage('SOA_THANKS')?></div>
 				<div class="confirm_order"><?=Loc::getMessage("SOA_ORDER_SUC", array("#ORDER_ID#" => $arResult["ORDER"]["ACCOUNT_NUMBER"] ))?></div>
 				<div class="comfirm_text"><?=Loc::getMessage('SOA_MANAGER')?></div>
 		<? else: ?>

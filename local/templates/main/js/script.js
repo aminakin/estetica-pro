@@ -1564,7 +1564,7 @@ $(document).on('click', '.delete_fav', function (e) {
 
                 if (count == -1) {
                     $('#basket_form_small .bottom').remove();
-                    $('#basket').append('<center class="empty_basket">Ваша корзина пуста</center><div class="continue-purchase-wrapper"><a href="/catalog/" class="continue-purchase">Продолжить покупки</a></div>');
+                    $('#basket').append('<center class="empty_basket">Ваша корзина пуста</center><div class="continue-purchase-wrapper"><a href="/" class="continue-purchase">Продолжить покупки</a></div>');
                 } else {
                     last.addClass('last');
                 }

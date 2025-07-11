@@ -24,8 +24,6 @@ if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMO
   $basketAction = isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '';
 }
 ?>
-
-
     <div class="col-12 <? //= ($isSidebar ? "col-md-9 col-sm-8" : "col-md-9") ?>">
         <div class="row">
           <? if ($isFilter): ?>

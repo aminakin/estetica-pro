@@ -225,8 +225,15 @@ global $notAvailable;
               $min_price = 0;
             }
             $max_price = $arItem["VALUES"]["MAX"]["HTML_VALUE"];
+
             if ($max_price == '') {
               $max_price = $arItem["VALUES"]["MAX"]['VALUE'];
+            }
+            if($arParams['SEARCH_MAX_PRICE']){
+              $max_price = $arParams['SEARCH_MAX_PRICE'];
+            }
+            if($_GET['searchFilter_P1_MAX']){
+              $max_price = $_GET['searchFilter_P1_MAX'];
             }
             ?>
             <input
@@ -248,7 +255,7 @@ global $notAvailable;
               id="<? echo $arItem["VALUES"]["MAX"]["CONTROL_ID"] ?>"
               value=""
               size="5"
-              placeholder="<? echo number_format($max_price, 0, '.', '') . ' ₽' ?>"
+              placeholder="<?= number_format($max_price, 0, '.', '') . ' ₽'?>"
               onkeyup="smartFilter.keyup(this)" />
           </div>
           <div class="button-wrap">

@@ -1,5 +1,5 @@
-.search-page,
-.search-filter .filter__price {
+.search-page/*,
+.search-filter .filter__price*/ {
 	display: none;
 }
 
@@ -8,10 +8,6 @@
 	line-height: 20px;
 	color: #999999;
 	margin-bottom: 24px;
-}
-
-.search-filter {
-
 }
 
 @media (max-width: 1100px) {

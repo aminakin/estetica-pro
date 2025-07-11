@@ -26,3 +26,4 @@ $MESS["CT_BCS_CATALOG_SHOW_MAX_QUANTITY"] = "Наличие";
 $MESS["CT_BCS_CATALOG_RELATIVE_QUANTITY_MANY"] = "много";
 $MESS["CT_BCS_CATALOG_RELATIVE_QUANTITY_FEW"] = "мало";
 $MESS["CT_BCS_CATALOG_MESS_BTN_LAZY_LOAD"] = "Показать ещё";
+$MESS["CT_BCS_CATALOG_MESS_NO_PRODUCTS"] = "Нет товаров соответствующих фильтру цены";

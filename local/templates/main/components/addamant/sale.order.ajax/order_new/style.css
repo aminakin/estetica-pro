@@ -801,7 +801,7 @@ input[type="checkbox"] {
     color: #F781BF;
 }
 
-.delivery-free{
+.delivery-free {
     margin-bottom: 24px;
 }
 
@@ -1858,36 +1858,57 @@ label[data-bx-user-consent] input {
     line-height: 14px;
 }
 
-.confirm_order {
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 33px;
-    color: #999999;
-    margin-bottom: 30px;
+.comfirm_wrap {
+    margin: 0px 0 30px;
+    padding: 25px 0 34px;
+    background: linear-gradient(0deg, #FEB7D2 0%, #FEB3CF 35%, #FEA9C9 63%, #FE99BD 88%, #FF8FB7 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+}
+
+.comfirm_wrap>div {
+    max-width: 276px;
+    font-weight: 500;
+    line-height: 15px;
+}
+
+.comfirm_wrap div.confirm_thanks {
+    font-weight: 600;
+    font-size: 28px;
+    margin-bottom: 14px;
+    line-height: 29px;
+    height: 63px;
+}
+
+.confirm_order{
+    font-size: 14px;
+    margin-bottom: 14px;
 }
 
 .comfirm_text {
+    font-size: 12px;
+}
+
+.comfirm_wrap .off_vpn{
+    margin-top: 14px;
     font-size: 14px;
-    line-height: 18px;
-    text-align: center;
-    color: #999999;
 }
 
-.comfirm_wrap {
-    max-width: 395px;
-    margin: 60px auto;
-}
-
-.comfirm_wrap .off_vpn {
-    font-size: 16px;
-    line-height: 19px;
-    text-align: center;
-    margin-top: 30px;
+.widget-payment-checkout-info{
+    margin-bottom: 14px; 
 }
 
 .comfirm_wrap .order-cancel {
     margin-top: 30px;
+}
+
+@media (max-width: 1170px) {
+    .comfirm_wrap{
+        margin-left: -16px;
+        margin-right: -16px;
+    }
 }
 
 .isAdmin .bx-soa-pp .bx-soa-pp-desc-container {
@@ -1907,7 +1928,7 @@ div[data-property-id-row="49"] {
     text-align: center;
 }
 
-.wrapper-payment .alert-info{
+.wrapper-payment .alert-info {
     margin-top: 24px;
 }
 
@@ -1988,7 +2009,7 @@ body .wrapper-payment .sberbank__description {
     max-width: 418px;
     width: 100%;
     text-transform: lowercase;
-    outline: none!important;
+    outline: none !important;
     margin-bottom: 32px;
     box-shadow: none;
     white-space: normal;
@@ -2004,25 +2025,25 @@ body .wrapper-payment .sberbank__description {
     align-items: center;
 }
 
-.bx-soa-pp-company.delivery{
+.bx-soa-pp-company.delivery {
     border: 1px solid #999999;
     border-radius: 20px;
     padding: 30px;
     position: relative;
 }
 
-.bx-soa-pp-company.delivery:before{
+.bx-soa-pp-company.delivery:before {
     content: "";
     position: absolute;
     top: 50%;
     margin-top: -80px;
-    right: 61px ;
+    right: 61px;
     width: 161px;
     height: 161px;
     background: url(images/delivery_bg.svg) no-repeat center center;
 }
 
-.bx-soa-pp-company-subTitle{
+.bx-soa-pp-company-subTitle {
     font-size: 24px;
     line-height: 28px;
     margin-bottom: 32px;
@@ -2041,7 +2062,7 @@ body .wrapper-payment .sberbank__description {
     display: none;
 }
 
-.bx-soa-pp-company.delivery .bx-soa-pp-company-desc{
+.bx-soa-pp-company.delivery .bx-soa-pp-company-desc {
     font-size: 0;
     line-height: 0;
 }
@@ -2139,7 +2160,7 @@ div[data-property-id-row='59'] {
 }
 
 @media (max-width: 1100px) {
-    .bx-soa-pp-company.delivery:before{
+    .bx-soa-pp-company.delivery:before {
         right: 30px;
     }
 }
@@ -2152,7 +2173,7 @@ div[data-property-id-row='59'] {
         grid-auto-rows: 1fr;
     }
 
-    .bx-soa-pp-company.delivery:before{
+    .bx-soa-pp-company.delivery:before {
         width: 56px;
         height: 56px;
         background-size: contain;
@@ -2161,18 +2182,18 @@ div[data-property-id-row='59'] {
         right: 40px;
     }
 
-    .bx-soa-pp-company-subTitle{
+    .bx-soa-pp-company-subTitle {
         max-width: 293px;
     }
 
-    .bx-soa-pp-company.delivery{
+    .bx-soa-pp-company.delivery {
         padding: 24px;
     }
 
     .bx-soa-pp-company-subTitle,
-    #russianpost_btn_openmap, 
+    #russianpost_btn_openmap,
     .sdek_pvzLair .btn-default,
-     #IPOL_OZON_injectHere a{
+    #IPOL_OZON_injectHere a {
         margin-bottom: 16px;
     }
 
@@ -2249,7 +2270,7 @@ div[data-property-id-row='59'] {
 }
 
 @media (max-width: 780px) {
-    .bx-soa-pp-company.delivery:before{
+    .bx-soa-pp-company.delivery:before {
         right: 24px;
     }
 }
@@ -2259,7 +2280,7 @@ div[data-property-id-row='59'] {
         margin-left: 0;
     }
 
-    .bx-soa-pp-company-subTitle{
+    .bx-soa-pp-company-subTitle {
         max-width: 215px;
     }
 
@@ -2307,7 +2328,7 @@ div[data-property-id-row='59'] {
 }
 
 @media (max-width: 500px) {
-    .additionalDeliveryMessage br{
+    .additionalDeliveryMessage br {
         display: none;
     }
 }

@@ -35,6 +35,6 @@ $this->setFrameMode(true);
 		<?php endforeach;?>
 	</div>
 	<div class="experiense-link">
-		<a href="/"><?= GetMessage('CT_READ_MORE')?></a>
+		<a href="https://www.instagram.com/estetica_pro.ru?igsh=MW1yMHVsNWM2dmtsZQ==&utm_source=qr"><?= GetMessage('CT_READ_MORE')?></a>
 	</div>
 </div>

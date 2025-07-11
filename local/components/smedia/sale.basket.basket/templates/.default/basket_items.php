@@ -559,7 +559,7 @@ else:
 			<tr>
 				<td style="text-align:center">
 					<div class=""><?=GetMessage("SALE_NO_ITEMS");?></div>
-					<p>Вы можете приобрести товар из <a href="/catalog/" >каталога</a></p>
+					<p>Вы можете приобрести товар из <a href="/" >каталога</a></p>
 				</td>
 			</tr>
 		</tbody>

@@ -128,7 +128,7 @@ $normalCount = count($arResult["ITEMS"]["AnDelCanBuy"]); ?>
 	<div class="empty_basket">
 		<?= classBuildSCG::buildSVG('empty-cart', $templateFolder . "/images"); ?>
 		<p><?= GetMessage('SBB_EMPTY_BASKET_TITLE'); ?></p>
-		<a href="/catalog/"><?= GetMessage('SBB_EMPTY_BASKET_CONTINE'); ?></a>
+		<a href="/"><?= GetMessage('SBB_EMPTY_BASKET_CONTINE'); ?></a>
 		<?/*<div class="our-new">
                 <?= GetMessage('SBB_BASKET_OUR_NEW');?>
             </div>

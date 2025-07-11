@@ -202,7 +202,7 @@ else
 ?>	
 	<div class="div-left">
 		<p><?=$arResult["ERROR_MESSAGE"];?></p>
-		<p>Вы можете приобрести товар из <a href="/catalog/" >каталога</a></p>
+		<p>Вы можете приобрести товар из <a href="/" >каталога</a></p>
 	</div>
 <?	
 }

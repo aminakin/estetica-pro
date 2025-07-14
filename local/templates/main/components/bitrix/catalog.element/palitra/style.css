@@ -1773,3 +1773,25 @@ section.comment {
 		border-radius: 16px 16px 0 0;
 	}
 }
+
+.take-consult a{
+	margin-bottom: 12px;
+	border-radius: 12px;
+    line-height: 36px;
+    background: var(--btn-color);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 0 20px;
+	display: flex;
+	align-items: center;
+	width: fit-content;
+	text-decoration: none;
+	color: white!important;
+	text-transform: lowercase;
+}
+
+.take-consult img{
+	margin-right: 8px;
+    width: 25px;
+}

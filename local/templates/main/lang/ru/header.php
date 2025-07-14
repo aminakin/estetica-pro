@@ -26,6 +26,7 @@ $MESS['COURSELASHES'] = 'Курсы наращива-ния ресниц';
 $MESS['WATCHING_TIMETABLE'] = 'Расписание курсов';
 $MESS["SBB_BASKET_DEVILERY_INFO"] = 'Сроки и стоимость доставки';
 $MESS["SBB_BASKET_BONUS_INFO"] = 'Информация о бонусной системе';
+$MESS["SBB_CONSULT"] = "Написать вопрос инструктору";
 $MESS['NEED_REGISTRATION'] = 'Еще нет аккаунта? <span>Зарегистрироваться</span>';
 $MESS['NEED_login'] = 'Уже есть аккаунт? <span>Войти</span>';
 $MESS['TO_CATALOG'] = 'Перейти к покупкам';

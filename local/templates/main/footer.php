@@ -139,9 +139,9 @@
         <div class="footer-container-menu">
             <div class="footer-title">Часы работы</div>
             <nav class="footer-menu-list-time-work">
-                <div class="footer-menu-item">пн-пт с 9-30 до 19-00</div>
-                <div class="footer-menu-item">сб с 9-30 до 18-00</div>
-                <div class="footer-menu-item">вс с 9-30 до 17-00</div>
+                <div class="footer-menu-item">пн.-пт. с 9-30 до 19-00</div>
+                <div class="footer-menu-item">сб. с 9-30 до 18-00</div>
+                <div class="footer-menu-item">вс. с 9-30 до 17-00</div>
             </nav>
         </div>
     </div>
@@ -313,7 +313,7 @@
 		"ELEMENT_ASSOC" => "CREATED_BY",
 		"GROUPS" => array(
 		),
-		"IBLOCK_ID" => "68",
+		"IBLOCK_ID" => "70",
 		"IBLOCK_TYPE" => "data",
 		"LEVEL_LAST" => "Y",
 		"LIST_URL" => "",
@@ -322,11 +322,11 @@
 		"MAX_USER_ENTRIES" => "100000",
 		"PREVIEW_TEXT_USE_HTML_EDITOR" => "N",
 		"PROPERTY_CODES" => array(
-			0 => "356",
+			0 => "354",
 			1 => "NAME",
 		),
 		"PROPERTY_CODES_REQUIRED" => array(
-			0 => "356",
+			0 => "354",
 			1 => "NAME",
 		),
 		"RESIZE_IMAGES" => "N",

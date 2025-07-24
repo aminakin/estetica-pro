@@ -1020,6 +1020,11 @@ section.comment {
 	margin-left: 5px;
 }
 
+.bx-catalog-element .product-item-amount .product-item-amount-field-container .product-item-amount-field-btn-disabled{
+	opacity: 0.5;
+    cursor: default;
+}
+
 .bx-catalog-element .product-item-amount .product-item-amount-field-container {
 	display: flex;
 	align-items: center;

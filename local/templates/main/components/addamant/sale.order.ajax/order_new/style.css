@@ -1882,7 +1882,7 @@ label[data-bx-user-consent] input {
     height: 63px;
 }
 
-.confirm_order{
+.confirm_order {
     font-size: 14px;
     margin-bottom: 14px;
 }
@@ -1891,13 +1891,13 @@ label[data-bx-user-consent] input {
     font-size: 12px;
 }
 
-.comfirm_wrap .off_vpn{
+.comfirm_wrap .off_vpn {
     margin-top: 14px;
     font-size: 14px;
 }
 
-.widget-payment-checkout-info{
-    margin-bottom: 14px; 
+.widget-payment-checkout-info {
+    margin-bottom: 14px;
 }
 
 .comfirm_wrap .order-cancel {
@@ -1905,7 +1905,7 @@ label[data-bx-user-consent] input {
 }
 
 @media (max-width: 1170px) {
-    .comfirm_wrap{
+    .comfirm_wrap {
         margin-left: -16px;
         margin-right: -16px;
     }
@@ -2333,20 +2333,23 @@ div[data-property-id-row='59'] {
     }
 }
 
-#bx-soa-basket{
+#bx-soa-basket {
     margin-bottom: 48px;
 }
 
-#bx-soa-order{
+#bx-soa-order {
     position: relative;
 }
 
-#bx-soa-total {
-    /*top: 145px;/*
-    position: sticky;*/
+@media (min-width: 768px) {
+    .d-none {
+        display: none;
+    }
 }
 
-.d-none{
-    height: 0;
-    overflow: hidden;
+@media (max-width: 767px) {
+    #bx-soa-total {
+        top: 0 !important;
+        position: relative !important;
+    }
 }

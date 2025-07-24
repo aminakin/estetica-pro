@@ -482,7 +482,7 @@ if (strlen($request->get('ORDER_ID')) > 0) {
 
 			<!--	SIDEBAR BLOCK	-->
 			<div id="bx-soa-total" class="bx-soa-sidebar">
-				<div class="bx-soa-cart-total-ghost"></div>
+				
 				<div class="bx-soa-cart-total-wrap">
 					<div class="bx-soa-cart-total">
 
@@ -511,7 +511,6 @@ if (strlen($request->get('ORDER_ID')) > 0) {
 						<? } //-------LOGICTIM BONUS FEILD-------//
 						?>
 						<div class="bx-soa-cart-sidebar-coupon"></div>
-						</div>
 						<div class="checkout-container delivery" data-entity="basket-checkout-aligner">
 							<a href="/delivery/">
 								<?= Loc::getMessage('SBB_BASKET_DEVILERY_INFO') ?>
@@ -525,6 +524,7 @@ if (strlen($request->get('ORDER_ID')) > 0) {
 							</a>
 						</div>
 				</div>
+				<div class="bx-soa-cart-total-ghost"></div>
 			</div>
 	</form>
 	<div id="bx-soa-saved-files" style="display:none"></div>

@@ -86,7 +86,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 
 <body class="mainPage">
     <? $APPLICATION->ShowPanel(); ?>
-    <div id="layer" <? if ($APPLICATION->GetCurDir() != '/cart/') { ?>style="overflow:hidden" <? } ?>>
+    <div id="layer" <? if (strpos($APPLICATION->GetCurDir(), 'cart') == false) { ?>style="overflow:hidden" <? } ?>>
         <div class="layer_body<?= CSite::inDir('/cart/') ? ' hide_mobile_header' : '' ?>">
             <header>
                 <div class="header-wrap">

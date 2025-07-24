@@ -8857,13 +8857,37 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			var scrollTop = BX.GetWindowScrollPos().scrollTop,
 				ghostTop = BX.pos(this.totalGhostBlockNode).top,
 				ghostBottom = BX.pos(this.orderBlockNode).bottom,
-				width;
+				coupon = document.querySelector('.bx-soa-cart-sidebar-coupon'),
+				checkoutCont = document.querySelectorAll('.checkout-container'),
+				bonus = document.querySelector('#bonus_payment_block')
 
-			if (ghostBottom - this.totalBlockNode.offsetHeight < scrollTop + 20)
-				BX.addClass(this.totalInfoBlockNode, 'bx-soa-cart-total-bottom');
-			else
-				BX.removeClass(this.totalInfoBlockNode, 'bx-soa-cart-total-bottom');
+			console.log(BX.pos(document.querySelector('#bx-soa-paysystem')).bottom);
+			console.log(window.scrollY + window.innerHeight);
 
+			if (BX.pos(document.querySelector('#bx-soa-basket')).top < (window.scrollY + window.innerHeight)){
+				//BX.addClass(this.totalInfoBlockNode, 'bx-soa-cart-total-bottom');
+				BX.addClass(coupon, 'd-none');
+				BX.addClass(bonus, 'd-none');
+				document.querySelector('#bx-soa-total').style.position = 'sticky';
+				document.querySelector('#bx-soa-total').style.top = '145px';
+				checkoutCont.forEach((el)=>{
+					BX.addClass(el, 'd-none');
+				});
+			}else{
+				//BX.removeClass(this.totalInfoBlockNode, 'bx-soa-cart-total-bottom');	
+				BX.removeClass(coupon, 'd-none');
+				BX.removeClass(bonus, 'd-none');
+				document.querySelector('#bx-soa-total').style.position = 'relative';
+				document.querySelector('#bx-soa-total').style.top = '0px';
+				checkoutCont.forEach((el)=>{
+					BX.removeClass(el, 'd-none');
+				});	
+			}
+			if (ghostBottom - this.totalBlockNode.offsetHeight < scrollTop + 20){
+				//BX.addClass(this.totalInfoBlockNode, 'bx-soa-cart-total-bottom');
+			}else{
+				//BX.removeClass(this.totalInfoBlockNode, 'bx-soa-cart-total-bottom');			
+			}
 			/*if (scrollTop > ghostTop && !BX.hasClass(this.totalInfoBlockNode, 'bx-soa-cart-total-fixed'))
 			{
 				width = this.totalInfoBlockNode.offsetWidth;

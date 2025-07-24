@@ -957,17 +957,29 @@ function createToast() {
 }
 
 $(document).on('click', '.close-prod', function () {
-    removeFlyProd()
+    removeFlyProd();
+    removeQuatWrap();
 });
 
 $(document).on('click', '.product-item-amount-field-btn-disabled', function () {
-    $('.product-item-detail-slider-image').clone().insertAfter('.image-close-buy');
+    if($('.product-item-detail-slider-image')){
+        $('.product-item-detail-slider-image').clone().insertAfter('.image-close-buy');
+    }
+
+    if($(this).closest('.product-item').find('.product-item-image-original')){
+        $(this).closest('.product-item').find('.product-item-image-original').clone().insertAfter('.image-close-buy');
+    }
+    
     var text = $('.image-close-buy').html();
     $('.image-close-buy').html(text);
-    //setTimeout(removeProdAvail, 5000);
+    setTimeout(removeProdAvail, 3000);
 });
 function removeProdAvail() {
-    $('.quantity-wrappper').fadeOut().remove();
+    $('.quantity-wrappper').fadeOut();
+    setTimeout(function(){
+        $('.quantity-wrappper').remove();
+    }, 2000);  
+
 }
 function createFlyProd(strJSON) {
     let productIdQty = strJSON.qtyprod;
@@ -982,7 +994,6 @@ function createFlyProd(strJSON) {
             </div>`);
     $('.fly-toast-prod').html(prodElems);
     $('.product-detail-item-by-button span').text('Добавлено');
-    $('.product-detail-item-by-button').css("background-color", "#D8ABB7");
     $('.images-wrap').css("background-image", "url(" + strJSON.img + ")");
     prodElems.fadeIn();
 }
@@ -990,7 +1001,6 @@ function createFlyProd(strJSON) {
 function removeFlyProd() {
     $('.fly-prod').fadeOut().remove();
     $('.product-detail-item-by-button span').text('Добавить ещё');
-    $('.product-detail-item-by-button').css("background-color", "#EBCFD5");
 }
 
 // catalog actions
@@ -1113,6 +1123,7 @@ $(document)
                         $("#basket.custom_popup_block").animate({
                             right: "-700px",
                         }, 300);
+                        $('.modal-background').hide();
                     });
 
                     if (htmlCanceled != 'undefined' && typeof htmlCanceled != undefined) {
@@ -1801,8 +1812,8 @@ function scrollAfterLink() {
 function prodquant(countprod) {
     removeQuatWrap();
     removeFlyProd();
-    var countprodwin = $("<div id='content-wrap' class='quantity-wrappper'><div class='quantity-wrappper-inner'><div class='close' onclick='removeQuatWrap();'><div class='line'></div><div class='line'></div></div><div class='image-close-buy'>Доступное для заказа <br>количество товара <br><span>" + num_word(countprod, ['штука', 'штуки', 'штук']) + "</span></div></div></div>");
-    countprodwin.appendTo($("body"));
+    var countprodwin = $("<div class='quantity-wrappper'><div class='close' onclick='remove()'><div class='line'></div><div class='line'></div></div><div class='image-close-buy'>Доступное для заказа<br> " + countprod + " шт.</div><div class='close-prod'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'><path fill-rule='evenodd' clip-rule='evenodd' d='M18.7071 6.70711C19.0976 6.31658 19.0976 5.68342 18.7071 5.29289C18.3166 4.90237 17.6834 4.90237 17.2929 5.29289L12 10.5858L6.70711 5.29289C6.31658 4.90237 5.68342 4.90237 5.29289 5.29289C4.90237 5.68342 4.90237 6.31658 5.29289 6.70711L10.5858 12L5.29289 17.2929C4.90237 17.6834 4.90237 18.3166 5.29289 18.7071C5.68342 19.0976 6.31658 19.0976 6.70711 18.7071L12 13.4142L17.2929 18.7071C17.6834 19.0976 18.3166 19.0976 18.7071 18.7071C19.0976 18.3166 19.0976 17.6834 18.7071 17.2929L13.4142 12L18.7071 6.70711Z' fill='black'/></svg></div></div>");
+    countprodwin.appendTo($("body .fly-prod-wrap"));
     countprodwin.show();
 }
 
@@ -1812,7 +1823,6 @@ function removeQuatWrap() {
 
 function reportWindowSize() {
     if (document.documentElement.clientWidth < 992) {
-
         var widthslide = $('.slick-slide').width();
         $('.slick-slide').height(widthslide + 'px');
     }

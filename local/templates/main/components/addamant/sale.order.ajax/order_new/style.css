@@ -2332,3 +2332,21 @@ div[data-property-id-row='59'] {
         display: none;
     }
 }
+
+#bx-soa-basket{
+    margin-bottom: 48px;
+}
+
+#bx-soa-order{
+    position: relative;
+}
+
+#bx-soa-total {
+    /*top: 145px;/*
+    position: sticky;*/
+}
+
+.d-none{
+    height: 0;
+    overflow: hidden;
+}

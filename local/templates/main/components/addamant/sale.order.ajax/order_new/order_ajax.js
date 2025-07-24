@@ -8861,9 +8861,6 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				checkoutCont = document.querySelectorAll('.checkout-container'),
 				bonus = document.querySelector('#bonus_payment_block')
 
-			console.log(BX.pos(document.querySelector('#bx-soa-paysystem')).bottom);
-			console.log(window.scrollY + window.innerHeight);
-
 			if (BX.pos(document.querySelector('#bx-soa-basket')).top < (window.scrollY + window.innerHeight)){
 				//BX.addClass(this.totalInfoBlockNode, 'bx-soa-cart-total-bottom');
 				BX.addClass(coupon, 'd-none');

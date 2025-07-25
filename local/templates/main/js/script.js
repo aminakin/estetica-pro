@@ -507,7 +507,12 @@ $(document).ready(function () {
     var hrSearch = window.location.search;
 
     $.get('/local/ajax/getBasketCount.php', function (data) {
-        //$('.small-basket-quantity').html(data);
+        $('.small-basket-quantity').html(data);
+        if(data > 0){
+            $('.small-basket-quantity').css({ 'display': 'block' });
+            $('.baskLink').addClass('incart')
+        }
+        
     });
     $.get('/local/ajax/getFavoriteCount.php', function (data) {
         $('#smallFavoriteHeader span').html(data);
@@ -1024,7 +1029,7 @@ $(document)
 
         let _this = $(this);
 
-        //$('.small-basket-quantity').css({ 'display': 'block' });
+        
         $.post('/local/ajax/add2basket.php', { id: id, quantity: qty }, function (response) {
             if (response.trim() != '0') {
 
@@ -1069,7 +1074,9 @@ $(document)
                 $("a.inFavorite[data-favorite-id = " + id + "]").css("background-image", "url('/local/templates/main/images/icons/heart.svg')");
 
                 $.get('/local/ajax/getBasketCount.php', { urlPage: docHref }, function (dataBasket) {
-                    //$('.small-basket-quantity').html(dataBasket)
+                    $('.small-basket-quantity').html(dataBasket)
+                    $('.small-basket-quantity').css({ 'display': 'block' });
+                    $('.baskLink').addClass('incart');
                 });
 
                 $.get('/local/ajax/getAllSum.php', { urlPage: docHref }, function (dataBasket) {
@@ -1562,7 +1569,7 @@ $(document).on('click', '.delete_fav', function (e) {
                 $("a.inFavorite[data-favorite-id = " + prod + "]").css("background-image", "");
                 $("a.inFavorite[data-favorite-id = " + prod + "]").removeClass("inFv");
             } else if (fav == 'bask') {
-                //$('.small-basket-quantity').html(parseInt($('.small-basket-quantity').html()) - 1);
+                $('.small-basket-quantity').html(parseInt($('.small-basket-quantity').html()) - 1);
                 $('#smallBasketHeader span').html(parseInt($('#smallBasketHeader span').html()) - 1);
 
                 $(".buyBtn[data-id = " + prod + "]").removeClass("inB");
@@ -1601,6 +1608,7 @@ $(document).on('click', '.delete_fav', function (e) {
 
             if (parseInt($('.small-basket-quantity').text()) <= 0) {
                 $('.small-basket-quantity').css({ 'display': 'none' });
+                $('.baskLink').removeClass('incart')
             }
         }
 
@@ -1697,6 +1705,7 @@ $(document).ready(function () {
     });
     if (parseInt($('.small-basket-quantity').text()) <= 0) {
         $('.small-basket-quantity').css({ 'display': 'none' });
+        $('.baskLink').removeClass('incart');
     }
     $('.jq-number__field input').each(function (event) {
         changeTotalPrice(this);

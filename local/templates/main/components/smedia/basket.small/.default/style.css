@@ -19,12 +19,23 @@
     z-index: 0;
 }
 
-.baskLink span {
-    display: none;
-}
-
 .baskLink div{
     margin-left: 8px;
+}
+
+.incart svg path{
+    fill: var(--btn-color);
+}
+
+.small-basket-quantity{
+    font-size: 12px;
+    position: absolute;
+    top: -10px;
+    left: 36px;
+}
+
+.header-mobile-btn .small-basket-quantity{
+    left: 20px;
 }
 
 @media (max-width: 1024px) {

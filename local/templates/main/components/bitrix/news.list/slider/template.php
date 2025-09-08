@@ -27,8 +27,9 @@ $this->setFrameMode(true);
                 </div>
             <? else: ?>
                 <div data-id="<?= $arItem['ID'] ?>" class="item <? if ($count++ == 0) { ?> active<? } ?>">
+                    <? $file = CFile::ResizeImageGet($arItem["PREVIEW_PICTURE"]["ID"], array('width' => 1140, 'height' => 470), BX_RESIZE_IMAGE_PROPORTIONAL, true);?>
                     <a class="desktop-img preload" href="<?= $arItem["PROPERTIES"]["LINK"]["VALUE"] ?>"
-                       target="_blank" style="background-image: url('<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>')"
+                       target="_blank" style="background-image: url('<?= $file["src"] ?>')"
                         <? /*data-src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>"*/ ?>>
                         <?/*<img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>"
                              alt="<?= $arItem["PREVIEW_PICTURE"]["ALT"] ?>"

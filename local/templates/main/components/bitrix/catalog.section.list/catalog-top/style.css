@@ -476,16 +476,20 @@
 
   .bx_catalog_tile .bx_catalog_tile_ul .slick-list {
     margin-right: -16px;
-    margin-left: -16px;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .bx_catalog_tile .bx_catalog_tile_ul .slick-list{
     padding-left: 0!important;
   }
   .bx_catalog_tile {
     padding: 0 0 0 16px;
+  }
+
+  .bx_catalog_tile .bx_catalog_tile_ul .slick-list li{
+    max-width: 154px;
+    width: 100%;
   }
 
   .bx_catalog_tile_ul .slick-next.slick-arrow {

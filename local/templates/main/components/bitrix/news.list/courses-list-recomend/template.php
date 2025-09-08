@@ -24,10 +24,12 @@ $this->setFrameMode(true); ?>
       $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 
       if ($arItem['PROPERTIES']['RECOMEND']['VALUE'] == 'да' && is_array($arItem['PROPERTIES']['IMAGES']['VALUE'])) {
-        $arItem['ONE_IMAGE'] = CFile::GetPath(array_shift($arItem['PROPERTIES']['IMAGES']['VALUE'])); ?>
+        $arItem['ONE_IMAGE'] = CFile::GetPath(array_shift($arItem['PROPERTIES']['IMAGES']['VALUE'])); 
+
+        $file = CFile::ResizeImageGet(array_shift($arItem['PROPERTIES']['IMAGES']['VALUE']), array('width' => 400, 'height' => 400), BX_RESIZE_IMAGE_PROPORTIONAL, true); ?>
         <a class="cources-list-element <?= $course_section; ?>" href="<?= $arItem['DETAIL_PAGE_URL'] ?>" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
-          <div class="cource-element-top">
-            <div class="cource-element-image" style="background-image: url('<?= $arItem['ONE_IMAGE'] ?>')">
+          <div class="cource-element-top"> 
+            <div class="cource-element-image" style="background-image: url('<?= $file['src'] ?>')">
               <? if ($arItem['PROPERTIES']['TYPE_COURSE']['VALUE']) { ?>
                 <div class="cource-element-type" <?= ($arItem['PROPERTIES']['LEABLE_COLOR']['VALUE'])? 'style="background: #0B7467;"':''?>>
                   <?= $arItem['PROPERTIES']['TYPE_COURSE']['VALUE'] ?>

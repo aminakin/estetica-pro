@@ -7,7 +7,7 @@ global $USER;
 $APPLICATION->IncludeComponent(
 	"addamant:sale.order.ajax", 
 	"order_new", 
-	array(
+	[
 		"ACTION_VARIABLE" => "soa-action",
 		"ADDITIONAL_PICT_PROP_14" => "-",
 		"ADDITIONAL_PICT_PROP_15" => "-",
@@ -38,13 +38,13 @@ $APPLICATION->IncludeComponent(
 		"PAY_SYSTEMS_PER_PAGE" => "9",
 		"PICKUPS_PER_PAGE" => "5",
 		"PICKUP_MAP_TYPE" => "yandex",
-		"PRODUCT_COLUMNS_HIDDEN" => array(
-		),
-		"PRODUCT_COLUMNS_VISIBLE" => array(
+		"PRODUCT_COLUMNS_HIDDEN" => [
+		],
+		"PRODUCT_COLUMNS_VISIBLE" => [
 			0 => "PREVIEW_PICTURE",
-		),
-		"PROPS_FADE_LIST_1" => array(
-		),
+		],
+		"PROPS_FADE_LIST_1" => [
+		],
 		"SEND_NEW_USER_NOTIFY" => "Y",
 		"SERVICES_IMAGES_SCALING" => "standard",
 		"SET_TITLE" => "Y",
@@ -81,13 +81,19 @@ $APPLICATION->IncludeComponent(
 		"USE_PRELOAD" => "Y",
 		"USE_PREPAYMENT" => "N",
 		"USE_YM_GOALS" => "N",
-		"COMPONENT_TEMPLATE" => ".default",
-		"SHOW_REGION_BLOCK_WHEN_USE_DELIVERY" => array(
+		"COMPONENT_TEMPLATE" => "order_new",
+		"SHOW_REGION_BLOCK_WHEN_USE_DELIVERY" => [
 			0 => "3",
 			1 => "30",
-			2 => "47",
-		),
-		"SHOW_COUPONS" => "Y"
-	),
+			2 => "31",
+			3 => "32",
+			4 => "46",
+			5 => "47",
+			6 => "129",
+		],
+		"SHOW_COUPONS" => "Y",
+		"ADDITIONAL_PICT_PROP_72" => "-",
+		"ADDITIONAL_PICT_PROP_73" => "-"
+	],
 	false
 );?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

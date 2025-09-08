@@ -21,7 +21,8 @@ global $notAvailable;
 
 <div class="search-head-block">
     <? $arElements = $APPLICATION->IncludeComponent(
-        "arturgolubev:search.page",
+        //"arturgolubev:search.page",
+        "bitrix:search.page",
         "",
         array(
             "RESTART" => $arParams["RESTART"],
@@ -52,9 +53,10 @@ global $notAvailable;
         $ar_res = CPrice::GetBasePrice($arItem, false, false);  
         $allPrices[] = $ar_res["PRICE"];
     }
-
-    $maxPriceSearch = max($allPrices);
-    $minPriceSearch = min($allPrices);
+    if(!empty($allPrices)){
+        $maxPriceSearch = max($allPrices);
+        $minPriceSearch = min($allPrices);
+    }
 
     global $searchFilter;
         $searchFilter = array(

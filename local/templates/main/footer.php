@@ -99,7 +99,7 @@
                 array(
                     "COMPONENT_TEMPLATE" => "bottom_menu_new",
                     "ROOT_MENU_TYPE" => "bottom",
-                    "MENU_CACHE_TYPE" => "N",
+                    "MENU_CACHE_TYPE" => "A",
                     "MENU_CACHE_TIME" => "3600",
                     "MENU_CACHE_USE_GROUPS" => "Y",
                     "MENU_CACHE_GET_VARS" => array(),
@@ -122,7 +122,7 @@
                 array(
                     "COMPONENT_TEMPLATE" => "payment",
                     "ROOT_MENU_TYPE" => "payment",
-                    "MENU_CACHE_TYPE" => "N",
+                    "MENU_CACHE_TYPE" => "A",
                     "MENU_CACHE_TIME" => "3600",
                     "MENU_CACHE_USE_GROUPS" => "Y",
                     "MENU_CACHE_GET_VARS" => array(),
@@ -295,7 +295,7 @@
     </div>
 </div>
 <div class="custom_popup_bg"></div>
-    <? $APPLICATION->IncludeComponent(
+    <?/* $APPLICATION->IncludeComponent(
 	"bitrix:iblock.element.add.form", 
 	"subscribe", 
 	array(
@@ -339,7 +339,7 @@
 		"COMPONENT_TEMPLATE" => "subscribe"
 	),
 	false
-); ?>
+); */?>
 
 <script type="text/javascript">
     (function(m, e, t, r, i, k, a) {

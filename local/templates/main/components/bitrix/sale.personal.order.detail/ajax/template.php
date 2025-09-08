@@ -9,7 +9,7 @@ CJSCore::Init(array('clipboard', 'fx'));
 
 $APPLICATION->SetTitle("");
 
-if (!empty($arResult['ERRORS']['FATAL'])) {
+if (!empty($arResult['ERRORS']['FATAL'])) { 
     foreach ($arResult['ERRORS']['FATAL'] as $error) {
         ShowError($error);
     }
@@ -108,7 +108,9 @@ if (!empty($arResult['ERRORS']['FATAL'])) {
                 <div class="order-detail-products__header">
                     <div class="order-detail-products__line">
                         <div class="order-detail-products__part">
+                            <? if(is_array($arResult['BASKET'])):?>
                             <?= declOfNum(count($arResult['BASKET']), ['Товар заказан:', 'Товара заказано:', 'Товаров заказано:']) ?>
+                            <? endif;?>
                         </div>
                         <div class="order-detail-products__part">
                             <div class="order-detail-products__count"><?= Loc::getMessage('COUNT') ?></div>

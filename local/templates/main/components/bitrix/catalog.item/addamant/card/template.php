@@ -89,7 +89,7 @@ use \Bitrix\Main\Localization\Loc;
                     <? }
                     } ?>
                 </span>
-                <? $file = CFile::ResizeImageGet($item['PREVIEW_PICTURE']['ID'], array('width' => 600, 'height' => 600), BX_RESIZE_IMAGE_PROPORTIONAL, true); ?>
+                <? $file = CFile::ResizeImageGet($item['PREVIEW_PICTURE']['ID'], array('width' => 400, 'height' => 400), BX_RESIZE_IMAGE_PROPORTIONAL, true); ?>
                 <?
                 if ($file == false):
                     $file['src'] = '/local/templates/main/components/bitrix/catalog.section/addamant/images/no_photo.png';

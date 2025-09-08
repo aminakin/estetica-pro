@@ -29,20 +29,24 @@ $this->setFrameMode(true);
             <? endif; ?>
             <div class="course-date">
                 <?
-                $count = 0;
+                //$count = 0;
+                foreach ($arItem['PROPERTIES']['PERIOD_DATE']['DESCRIPTION'] as $key => $item) {
+                    if (preg_match('/(\d{2}\.\d{2}\.\d{4})/', $item, $matches)) {
+                        $date[] = ' - ' . $matches[1];
+                    }
+                }
+
                 foreach ($arItem['PROPERTIES']['PERIOD_DATE']['VALUE'] as $key => $value) {
                     $currentDate = strtotime($value);
                     $now = time();
-
-                    $nextDate = isset($arItem['PROPERTIES']['PERIOD_DATE']['VALUE'][$key + 1]) ? strtotime($arItem['PROPERTIES']['PERIOD_DATE']['VALUE'][$key + 1]) : null;
-
+                    //$nextDate = isset($arItem['PROPERTIES']['PERIOD_DATE']['VALUE'][$key + 1]) ? strtotime($arItem['PROPERTIES']['PERIOD_DATE']['VALUE'][$key + 1]) : null;
                     if ($currentDate <= $now) {
                         continue;
                     } else {
-                        $count++;
-                        if ($count == 1) {
-                            echo date('d.m.Y', $currentDate) . "\n";
-                        }
+                        //$count++;
+                        //if ($count == 1) {
+                        echo date('d.m.Y', $currentDate) . $date[$key] . "\n <br>";
+                        //}
                     }
                 }
                 ?>

@@ -33,6 +33,11 @@ if ($arResult["SHOW_SMS_FIELD"] == true) {
 
         <div class="h2 registration-success"><?= GetMessage('registration_success'); ?></div>
         <div class="registration-description"><?= GetMessage('registration_description'); ?></div>
+        <script>
+            $('#register .close').on('click',function(){
+                location.reload(true);
+            });
+        </script>
 
     <? else: ?>
         <div class="registration-title major-title-pages">
@@ -254,7 +259,7 @@ if ($arResult["SHOW_SMS_FIELD"] == true) {
                                                 </select>
                                             </div>
                                         </div>
-                                        <input type="hidden" class="<?= $FIELD ?>" maxlength="50" value="<?= $arResult["VALUES"][$FIELD] ?>" />
+                                        <input type="hidden" name="<?= $FIELD ?>" maxlength="50" value="<?= $arResult["VALUES"][$FIELD] ?>" />
                                     </div>
                                 <? break;
                                 /*case "UF_SUBSCRIBES": ?>

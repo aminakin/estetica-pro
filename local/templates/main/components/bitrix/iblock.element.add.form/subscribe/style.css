@@ -1,9 +1,9 @@
 .subscribe-popup__form {
-    padding: 96px 64px;
+    padding: 48px 32px;
     border-radius: 36px;
     position: relative;
     display: none;
-    max-width: 1094px;
+    max-width: 547px;
     width: 100%;
     top: 50%;
     left: 50%;
@@ -18,24 +18,29 @@
 }
 
 .subscribe-popup__form .close {
-    width: 48px;
-    height: 48px;
+    width: 32px;
+    height: 32px;
     position: absolute;
-    top: 24px;
-    right: 24px;
+    top: 16px;
+    right: 16px;
     cursor: pointer;
 }
 
+.subscribe-popup__form .close svg {
+        width: 100%;
+        height: 100%;
+    }
+
 .subscribe-popup__image {
-    max-width: 489px;
-    min-width: 489px;
+    max-width: 244px;
+    min-width: 244px;
     width: 100%;
-    margin-right: 40px;
+    margin-right: 20px;
     border-radius: 18px;
     overflow: hidden;
     background: url(images/sibscribe-image.jpg) no-repeat center center;
     background-size: cover;
-    height: 444px;
+    height: 377px;
 }
 
 .subscribe-popup__form-wrap h3,
@@ -45,17 +50,17 @@
 }
 
 .subscribe-popup__form-wrap h3 {
-    font-size: 32px;
-    line-height: 40px;
+    font-size: 18px;
+    line-height: 24px;
     padding-bottom: 24px;
     margin-bottom: 24px;
     border-bottom: 1px solid #999999;
 }
 
 .subscribe-popup__form-wrap form>p {
-    font-size: 24px;
-    line-height: 28px;
-    margin-bottom: 24px;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 16px;
 }
 
 .subscribe-popup__form-wrap input[type="text"] {
@@ -138,18 +143,6 @@
     .subscribe-popup__form-wrap h3 {
         font-size: 20px;
         line-height: 28px;
-    }
-
-    .subscribe-popup__form .close {
-        width: 32px;
-        height: 32px;
-        top: 16px;
-        right: 16px;
-    }
-
-    .subscribe-popup__form .close svg {
-        width: 100%;
-        height: 100%;
     }
 }
 

@@ -45,6 +45,14 @@ $(function () {
     });
 });
 
+const eventHandler = BX.Vue.event.$on(
+  "BXmakerAuthuserphoneEnterAjaxResponse", 
+  (payload) => {
+    //document.cookie = `PHPSESSID=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=estetica-pro.ru; Secure; SameSite=Lax`;
+    //document.cookie = `PHPSESSID=${payload.result.error.more.sessid}; path=/; domain=.estetica-pro.ru; Secure; SameSite=Lax`;
+    setTimeout(function() { window.location.reload(); } , 2000);
+  }
+);
 
 
 $(function () {
@@ -983,8 +991,7 @@ function removeProdAvail() {
     $('.quantity-wrappper').fadeOut();
     setTimeout(function(){
         $('.quantity-wrappper').remove();
-    }, 2000);  
-
+    }, 2000); 
 }
 function createFlyProd(strJSON) {
     let productIdQty = strJSON.qtyprod;

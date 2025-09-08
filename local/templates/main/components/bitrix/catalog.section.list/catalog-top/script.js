@@ -47,9 +47,10 @@ $(document).ready(function () {
                     swipeToSlide: true,
                     TouchMove: true,
                     swipe: true,
-                    centerMode: true,
+                    centerMode: false,
                     infinite: true,
                     centerPadding: '32px',
+                    variableWidth: true
                 }
             }
         ]

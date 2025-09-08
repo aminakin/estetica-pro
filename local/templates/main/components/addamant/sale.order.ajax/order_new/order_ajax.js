@@ -157,15 +157,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				this.initUserConsent();
 			}
 
-			//let inputCall = document.querySelector('div[data-property-id-row="42"]');
-			//inputCall.addEventListener('click', function (e) {
-			//	if (inputCall.querySelector('input[type="checkbox"]').checked){
-			//		inputCall.querySelector('input[type="checkbox"]').checked = false; 
-			//	}else{
-			//		inputCall.querySelector('input[type="checkbox"]').checked = true;
-			//	}
-			//});
-
+			var curDelivery = this.getSelectedDelivery();
 			var orderRightSide = $('#bx-soa-total .bx-soa-cart-total-button-container');
 
 			var ruspost = false;
@@ -178,12 +170,12 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				var rusPostType=document.querySelector('#soa-property-60');
 				rusPostType.value = ''
 			}
-			this.getSelectedDelivery()
+			
 
 			if(this.result.TOTAL.ORDER_PRICE < 2000) {
 				orderRightSide.addClass('disabled');
 				for (var prop in this.result.DELIVERY) {
-					if((this.result.DELIVERY[prop].ID == '2') && this.result.DELIVERY[prop].CHECKED == 'Y'){
+					if(curDelivery.ID == '2'){
 						orderRightSide.removeClass('disabled');
 					}
 				}
@@ -191,7 +183,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				orderRightSide.removeClass('disabled');	
 			}
 			for (var prop in this.result.DELIVERY) {
-				if((this.result.DELIVERY[prop].ID == '46' || this.result.DELIVERY[prop].ID == '31') && this.result.DELIVERY[prop].CHECKED == 'Y'){
+				if((this.result.DELIVERY[prop].ID == '46' || this.result.DELIVERY[prop].ID == '31' || this.result.DELIVERY[prop].ID == '32') && this.result.DELIVERY[prop].CHECKED == 'Y'){
 					if($('#soa-property-60').val() == ''){
 						orderRightSide.addClass('disabled');
 						//$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').append('<div class="postamat">Выберите пункт выдачи</div>');
@@ -429,7 +421,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				BX.saleOrderAjax && BX.saleOrderAjax.initDeferredControl();
 			}
 			
-			this.getSelectedDelivery();
+			//this.getSelectedDelivery();
 			this.minSummOrder();	
 			
 			return true;
@@ -492,14 +484,13 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			}*/ else {
 				orderRightSide.classList.remove('disabled');
 				for (var prop in this.result.DELIVERY) {
-					if((this.result.DELIVERY[prop].ID == '46' || this.result.DELIVERY[prop].ID == '31') && this.result.DELIVERY[prop].CHECKED == 'Y'){
+					if((this.result.DELIVERY[prop].ID == '46' || this.result.DELIVERY[prop].ID == '31'|| this.result.DELIVERY[prop].ID == '32') && this.result.DELIVERY[prop].CHECKED == 'Y'){
 						if(this.result.LOGICTIM_BONUS.PAY_BONUS == 0 && this.result.TOTAL.ORDER_PRICE < 7000){
 							let lesPrice = Math.round(7000 - this.result.TOTAL.ORDER_PRICE);
 							$('#bx-soa-total .bx-soa-cart-total-button-container').prepend('<span class="delivery-free">Выберите товары еще на '+lesPrice+' ₽, чтобы доставка была бесплатная</span>');
 						}else{
 							$('#bx-soa-total .bx-soa-cart-total-button-container').remove('.delivery-free');
 						}
-						console.log(Math.round(7000 - this.result.TOTAL.ORDER_PRICE));
 						
 						//$('#bx-soa-total .bx-soa-cart-total-button-container').prepend('<div class="postamat">Выберите пункт выдачи</div>');
 						if($('#soa-property-49').val() == ''){
@@ -1061,7 +1052,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 		},
 
 		showWarnings: function()
-		{
+		{ 
 			var sections = this.orderBlockNode.querySelectorAll('div.bx-soa-section.bx-active'),
 				currentDelivery = this.getSelectedDelivery(),
 				k,  warningString;
@@ -1888,7 +1879,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				var rusPostType=document.querySelector('#soa-property-60');
 				rusPostType.value = ''
 			}
-			this.getSelectedDelivery()
+			//this.getSelectedDelivery()
 
 
 			/*if(city == 'Киров' && this.result.TOTAL.ORDER_PRICE < 2000) {
@@ -5686,7 +5677,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 		},
 
 		editDeliveryInfo: function(deliveryNode)
-		{
+		{	
 			var deliveryInfoContainer = BX.create('DIV', {props: {className: 'bx-soa-pp-desc-container'}}),
 				currentDelivery, logotype, name, logoNode,
 				subTitle, label, title, price, period, titleBlock,
@@ -5694,8 +5685,9 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
 			BX.cleanNode(deliveryInfoContainer);
 			currentDelivery = this.getSelectedDelivery();
-			
-			if(currentDelivery.ID != 46){
+
+			//** скрываем описание для доставок не из пвз */ 
+			if(currentDelivery.ID != 46 && currentDelivery.ID != 32 && currentDelivery.ID != 31 && currentDelivery.ID != 129){
 				return;
 			}
 
@@ -5777,18 +5769,25 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			{
 				var additionalDeliveryMessage = '';
 				if(currentDelivery.ID == 46){
-					let summ = 10000 - this.result.TOTAL.ORDER_PRICE;
+					let summ = 7000 - this.result.TOTAL.ORDER_PRICE;
 					if(summ > 0){ 
 						additionalDeliveryMessage = 'Чтобы получить бесплатную доставку Почтой России<br> стоимость товаров должна составлять 7 000'+/*+ summ +*/' ₽'
 					}
 				}
 
-				if(currentDelivery.ID == 31){
-					let summ = 10000 - this.result.TOTAL.ORDER_PRICE;
+				if(currentDelivery.ID == 31 || currentDelivery.ID == 32){
+					let summ = 7000 - this.result.TOTAL.ORDER_PRICE;
 					if(summ > 0){ 
 						additionalDeliveryMessage = 'Чтобы получить бесплатную доставку СДЭК<br> стоимость товаров должна составлять 7 000'+/*+ summ +*/' ₽'
 					}
 				}
+
+				/*if(currentDelivery.ID == 129){
+					let summ = 7000 - this.result.TOTAL.ORDER_PRICE;
+					if(summ > 0){ 
+						additionalDeliveryMessage = 'Чтобы получить бесплатную доставку 5post<br> стоимость товаров должна составлять 7 000'+' ₽'
+					}
+				}*/
 
 				price = BX.create('LI', {
 					children: [
@@ -6067,20 +6066,6 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				});
 			}
 
-			var widthScreen = window.innerWidth;
-			if(item.ID == 31 && widthScreen < 1024){
-				descNode = BX.create('DIV', {
-					props: {className: 'bx-soa-pp-company-desc'},
-					html: item.DESCRIPTION
-				});
-			}else if (widthScreen < 1024){
-				descNode = BX.create('DIV', {
-					props: {className: 'bx-soa-pp-company-description'},
-					html: item.DESCRIPTION
-				});
-			}
-
-
 			var bHasPeriod = 'PERIOD_TEXT' in item && item.PERIOD_TEXT.length;
 			if(bHasPeriod){
 				periodNode = BX.create('DIV', {
@@ -6247,7 +6232,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 		},
 
 		getSelectedDelivery: function()
-		{
+		{	
 			var deliveryCheckbox = this.deliveryBlockNode.querySelector('input[type=checkbox][name=DELIVERY_ID]:checked'),
 				currentDelivery = false,
 				deliveryId, i;
@@ -6267,71 +6252,11 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					if (this.result.DELIVERY[i].ID == deliveryId)
 					{
 						currentDelivery = this.result.DELIVERY[i];
-
-						var rusPostType=document.querySelector('#soa-property-60');
-						
-						if(this.params.SHOW_REGION_BLOCK_WHEN_USE_DELIVERY.includes(currentDelivery.ID) ||
-							rusPostType !== null && rusPostType.value == 'Отделение'){
-							//if ($('[name="ORDER_PROP_6"]').val() == '-')
-							//	$('[name="ORDER_PROP_6"]').val('')
-							//if ($('[name="ORDER_PROP_7"]').val() == '-')
-							//	$('[name="ORDER_PROP_7"]').val('')
-
-							$('#bx-soa-region').removeClass('no');
-						}else{
-							//if ($('[name="ORDER_PROP_6"]').val() == '')
-							//	$('[name="ORDER_PROP_6"]').val('-')
-							//if ($('[name="ORDER_PROP_7"]').val() == '')
-							//	$('[name="ORDER_PROP_7"]').val('-')
-
-							$('#bx-soa-region').addClass('no');
-						}
-
-						if (currentDelivery.ID == '32') {
-							$('#bx-soa-region').removeClass('no');
-						}
-						
-						if (currentDelivery.ID == '32' || currentDelivery.ID == '31' || currentDelivery.ID == '60') {
-							//$('[data-property-id-row="6"]').css({'display' : 'none'});
-							//$('[data-property-id-row="7"]').css({'display' : 'none'});
-							//$('[data-property-id-row="9"]').css({'display' : 'none'});
-
-							//$('[data-property-id-row="6"] input').val('-');
-							//$('[data-property-id-row="7"] input').val('-');
-							//$('[data-property-id-row="9"] input').val('-');
-						} else {
-							//$('[data-property-id-row="6"]').css({'display' : 'flex'});
-							//$('[data-property-id-row="7"]').css({'display' : 'flex'});
-							//$('[data-property-id-row="9"]').css({'display' : 'flex'});
-
-							//$('[data-property-id-row="6"] input').val('');
-							//$('[data-property-id-row="7"] input').val('');
-							//$('[data-property-id-row="9"] input').val('');
-						}
-
-						if (currentDelivery.ID == '2') {
-							$('[data-property-id-row="6"] input').val('-');
-							$('[data-property-id-row="7"] input').val('-');
-							$('[data-property-id-row="9"] input').val('-');
-							$('[data-property-id-row="5"] input[name="ORDER_PROP_5"]').val('0000583577');
-						}
-
-						if (currentDelivery.ID == '46') {
-							$('#bx-soa-region').removeClass('no');
-							
-							//$('[data-property-id-row="6"]').css({'display' : 'none'});
-							//$('[data-property-id-row="7"]').css({'display' : 'none'});
-							//$('[data-property-id-row="9"]').css({'display' : 'none'});
-
-							//$('[data-property-id-row="6"] input').val('-');
-							//$('[data-property-id-row="7"] input').val('-');
-							//$('[data-property-id-row="9"] input').val('-');
-						}
-
 						break;
 					}
 				}
 			}
+
 			return currentDelivery;
 		},
 
@@ -7222,6 +7147,16 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			if (!propsItemsContainer)
 				propsItemsContainer = this.propsBlockNode.querySelector('.col-sm-12.bx-soa-customer');
 			
+			let requeredFieldAddress = false;
+			for (var prop in this.result.DELIVERY) {
+				if((this.result.DELIVERY[prop].ID == '32' 
+					|| this.result.DELIVERY[prop].ID == '31' 
+					|| this.result.DELIVERY[prop].ID == '46') 
+					&& this.result.DELIVERY[prop].CHECKED == 'Y'){
+					requeredFieldAddress = true
+				}
+			}
+			
 			while (group = groupIterator())
 			{
 				propsIterator =  group.getIterator();
@@ -7234,21 +7169,37 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					)
 						continue;
 
-					this.getPropertyRowNode(property, propsItemsContainer, false);
+					this.getPropertyRowNode(property, propsItemsContainer, false, requeredFieldAddress);
 				}
 			}
 
 			propsNode.appendChild(propsItemsContainer);
 		},
 
-		getPropertyRowNode: function(property, propsItemsContainer, disabled)
+		getPropertyRowNode: function(property, propsItemsContainer, disabled, requeredFieldAddress)
 		{
 			var propsItemNode = BX.create('DIV'),
 				textHtml = '',
 				propertyType = property.getType() || '',
 				propertyDesc = property.getDescription() || '',
 				label;
-
+			
+			/*if(requeredFieldAddress){
+				if(property.getSettings().CODE == 'DELIVERY'){
+					property.getSettings().REQUIRED = 'Y'
+				}
+				if(property.getSettings().CODE == 'STREET' || property.getSettings().CODE == 'HOUSE'){
+					property.getSettings().REQUIRED = 'N'
+				}
+			}else{
+				if(property.getSettings().CODE == 'DELIVERY'){
+					property.getSettings().REQUIRED = 'N'
+				}
+				if(property.getSettings().CODE == 'STREET' || property.getSettings().CODE == 'HOUSE'){
+					property.getSettings().REQUIRED = 'Y'
+				}
+			}*/
+				
 			if (disabled)
 			{
 				propsItemNode.innerHTML = '<strong>' + BX.util.htmlspecialchars(property.getName()) + ':</strong> ';
@@ -7317,7 +7268,6 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				rusPostTypeWrapper.style='display:none;';
 			}
 
-			this.getSelectedDelivery()
 			if(
 				property.getSettings().CODE != 'LOGICTIM_ADD_BONUS' && property.getSettings().CODE != 'LOGICTIM_PAYMENT_BONUS'
 			){
@@ -7326,7 +7276,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					(property.getSettings().CODE == 'STREET' && property.getSettings().CODE == 'STREET') ||
 					(property.getSettings().CODE == 'HOUSE' && property.getSettings().CODE == 'HOUSE') ||
 					(property.getSettings().CODE == 'CORPUSE' && property.getSettings().CODE == 'CORPUSE') ||
-					(property.getSettings().CODE == 'APARTMENT' && property.getSettings().CODE == 'APARTMENT')
+					(property.getSettings().CODE == 'APARTMENT' && property.getSettings().CODE == 'APARTMENT') ||
+					(property.getSettings().CODE == 'DELIVERY' && property.getSettings().CODE == 'DELIVERY')
 				){
 					if(this.BXFormPosting != true){
 						this.regionBlockNode.appendChild(propsItemNode);
@@ -7339,9 +7290,46 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					//дефолтный контейнер свойств
 					propsItemsContainer.appendChild(propsItemNode);
 				}
-
 			}
 
+			var rusPostType=document.querySelector('#soa-property-60');
+			var currentDelivery = this.getSelectedDelivery();			
+			if(this.params.SHOW_REGION_BLOCK_WHEN_USE_DELIVERY.includes(currentDelivery.ID) ||
+				rusPostType !== null && rusPostType.value == 'Отделение'){
+				$('#bx-soa-region').removeClass('no');
+			}else{
+				$('#bx-soa-region').addClass('no');
+			}
+			
+			// 129684
+			if (currentDelivery.ID == '32' || currentDelivery.ID == '31' || currentDelivery.ID == '46' || currentDelivery.ID == '129') {
+				$('[data-property-id-row="6"]').css({'display' : 'none'});
+				$('[data-property-id-row="7"]').css({'display' : 'none'});
+				$('[data-property-id-row="9"]').css({'display' : 'none'});
+
+				$('[data-property-id-row="6"] input').val('-');
+				$('[data-property-id-row="7"] input').val('-');
+				$('[data-property-id-row="9"] input').val('-');
+
+				$('[data-property-id-row="49"]').css({'display' : 'flex'});
+			} else {
+				$('[data-property-id-row="6"]').css({'display' : 'flex'});
+				$('[data-property-id-row="7"]').css({'display' : 'flex'});
+				$('[data-property-id-row="9"]').css({'display' : 'flex'});
+
+				$('[data-property-id-row="6"] input').val('');
+				$('[data-property-id-row="7"] input').val('');
+				$('[data-property-id-row="9"] input').val('');
+
+				$('[data-property-id-row="49"]').css({'display' : 'none'});
+			}
+
+			if (currentDelivery.ID == '2') {
+				$('[data-property-id-row="6"] input').val('-');
+				$('[data-property-id-row="7"] input').val('-');
+				$('[data-property-id-row="9"] input').val('-');
+				$('[data-property-id-row="5"] input[name="ORDER_PROP_5"]').val('0000583577');
+			}
 		},
 
 		insertLocationProperty: function(property, propsItemNode, disabled)
@@ -8588,7 +8576,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				}else if(curDelivery.ID == 3){
 					this.totalInfoBlockNode.appendChild(this.createTotalUnit(BX.message('SOA_SUM_DELIVERY'), deliveryValue, params));
 					this.totalInfoBlockNode.appendChild(this.createTotalUnit(BX.message('SALE_SADC_TRANSIT'), '1 день', 'date'));
-				}else if(curDelivery.ID == 46 || curDelivery.ID == 47){
+				}else if(curDelivery.ID == 46 || curDelivery.ID == 47 || curDelivery.ID == 31 || curDelivery.ID == 32 || curDelivery.ID == 129){
 					this.totalInfoBlockNode.appendChild(this.createTotalUnit(BX.message('SOA_SUM_DELIVERY'), deliveryValue, params));
 					this.totalInfoBlockNode.appendChild(this.createTotalUnit(BX.message('SALE_SADC_TRANSIT'), curDelivery.PERIOD_TEXT, 'date'));
 					this.totalInfoBlockNode.appendChild(this.createTotalUnit(BX.message('SOA_MORE_WEIGHT'), deliveryValue, 'weight'));
@@ -8664,7 +8652,6 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				}else{
 					this.totalInfoBlockNode.appendChild(this.createTotalUnit(BX.message('SOA_SUM_IT'), total.ORDER_TOTAL_PRICE_FORMATED, {total: true}));
 				}
-				/*total.ORDER_TOTAL_PRICE_FORMATED = '1 550 Р';*/
 
 			}
 			if (parseFloat(total.PAY_SYSTEM_PRICE) >= 0 && this.result.DELIVERY.length)

@@ -28,7 +28,7 @@
     <h1 style="text-align: center;">Уважаемые клиенты!</h1>
     <!-- <div style="text-align: center;">С <b>6.07</b> по <b>8.07</b> сайт находится на техническом обслуживании.<br>
     Оформить заказ, получить информацию Вы можете по телефону <a href="tel:+79229776867" style="color: #D8ABB7;font-weight: bold;">8-922-977-68-67</a> или написать в <a href="https://wa.me/89229776867" style="color: #D8ABB7;font-weight: bold;">WhatsApp!</a></div> -->
-    <div style="text-align: center;">На сайте ведутся технические работы. Сайт возобновит работу в <b>10-00 26 ноября 2022</b>.</div>
+    <div style="text-align: center;">На сайте ведутся технические работы. Сайт возобновит работу в <b>9-00 29 июля 2025</b>.</div>
 </div>
 </body>
 </html>

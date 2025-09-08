@@ -327,6 +327,15 @@ function bxModifySaleMails($orderID, &$eventName, &$arFields)
   }
   $arFields['DELIV'] = $curDelivery;
 
+  $dbResPay = \Bitrix\Sale\PaymentCollection::getList([
+    'select' => ['PAY_SYSTEM_NAME'],
+    'filter' => ['=ORDER_ID' => $orderID]
+  ]);
+  if ($itemPay = $dbResPay->fetch()) {
+    $curPayment = $itemPay['PAY_SYSTEM_NAME'];
+  }
+  $arFields['PAYMENTNAME'] = $curPayment;
+
   while ($arProps = $order_props->Fetch()) {
     if ($arProps['CODE'] == 'FIO') {
       $arFields['FIO'] = $arProps['VALUE'];
@@ -1181,7 +1190,7 @@ function declOfNumCountCatalog($number, $titles)
 }
 
 /// Подписка при регистрации
-AddEventHandler("main", "OnAfterUserRegister", array("ClassAfterRegister", "OnAfterUserRegisterHandler"));
+//AddEventHandler("main", "OnAfterUserRegister", array("ClassAfterRegister", "OnAfterUserRegisterHandler"));
 
 class ClassAfterRegister
 {
@@ -1214,7 +1223,7 @@ class ClassAfterRegister
   }
 }
 
-AddEventHandler("main", "OnBeforeUserAdd", array("beforeUserAdd", "OnBeforeUserAddHandler"));
+//AddEventHandler("main", "OnBeforeUserAdd", array("beforeUserAdd", "OnBeforeUserAddHandler"));
 
 class beforeUserAdd
 {
@@ -1227,9 +1236,9 @@ class beforeUserAdd
 }
 
 //отправка смс после регистрации
-AddEventHandler("main", "OnAfterUserAdd", array("afterRegistration", "OnAfterUserAddHandler"));
+//AddEventHandler("main", "OnAfterUserAdd", array("afterRegistration", "OnAfterUserAddHandler"));
 
-class SendsmsAfterRegistration
+/*class SendsmsAfterRegistration
 {
   public static function OnAfterUserAddHandler(&$arFields)
   {
@@ -1241,17 +1250,17 @@ class SendsmsAfterRegistration
       'PHONE' => preg_replace('/[^0-9]/', '', $arFields['PERSONAL_PHONE']),
     ));
   }
-}
+}*/
 
 AddEventHandler("main", "OnBeforeUserUpdate", ["AddamantUser", "beforeUpdate"]);
 AddEventHandler("main", "OnBeforeUserAdd", ["AddamantUser", "beforeAdd"]);
-AddEventHandler("main", "OnBeforeUserRegister", ["AddamantUser", "beforeRegister"]);
-AddEventHandler("main", "OnAfterUserRegister", ["AddamantUser", "afterRegister"]);
-AddEventHandler("bxmaker.authuserphone", "BXmakerAuthUserPhoneEnterComponentAjax", ["AddamantUser", "ajaxRegister"]);
+//AddEventHandler("main", "OnBeforeUserRegister", ["AddamantUser", "beforeRegister"]);
+//AddEventHandler("main", "OnAfterUserRegister", ["AddamantUser", "afterRegister"]);
+//AddEventHandler("bxmaker.authuserphone", "BXmakerAuthUserPhoneEnterComponentAjax", ["AddamantUser", "ajaxRegister"]);
 
 class AddamantUser
 {
-  public static function beforeAuthPhoneRegister(&$arFields)
+  /*public static function beforeAuthPhoneRegister(&$arFields)
   {
     $req = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
     $arExpandData = $req->getPost('expandData');
@@ -1300,7 +1309,7 @@ class AddamantUser
     if (is_array($arExpandData) && isset($arExpandData['subscribeNewsConsent'])) {
       $arFields['UF_SUBSCRIBES'] = $arExpandData['subscribeNewsConsent'];
     }
-  }
+  }*/
   public static function beforeUpdate(&$arFields)
   {
     if (strlen($arFields['PERSONAL_PHONE']) > 0) {
@@ -1315,10 +1324,10 @@ class AddamantUser
     $arFields['PHONE_NUMBER'] = '+' . $arFields['PERSONAL_PHONE'];
   }
 
-  public static function afterRegister($arFields)
+  /*public static function afterRegister($arFields)
   {
     self::beforeUpdate($arFields);
-  }
+  }*/
 
   public static function ajaxRegister($event)
   {
@@ -1458,7 +1467,7 @@ class AddamantUser
     }
   }
   public static function beforeRegister(&$arFields)
-  {
+  {/*
     $errors = [];
     $req = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
     $arExpandData = $req->getPost('expandData');
@@ -1507,7 +1516,7 @@ class AddamantUser
         'ERROR_USER_TYPE',
         ['error_fields' => array_keys($errors)]
       );
-    }
+    }*/
 
     self::unifyPhone($arFields['PERSONAL_PHONE']);
     $arFields['PHONE_NUMBER'] = '+' . $arFields['PERSONAL_PHONE'];

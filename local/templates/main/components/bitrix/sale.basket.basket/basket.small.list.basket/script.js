@@ -1,7 +1,6 @@
 let basketJSParams = '';
 
-BasketPoolQuantity = function()
-{
+BasketPoolQuantity = function () {
 	this.processing = false;
 	this.poolQuantity = {};
 	this.updateTimer = null;
@@ -12,95 +11,80 @@ BasketPoolQuantity = function()
 };
 
 
-BasketPoolQuantity.prototype.updateQuantity = function()
-{
+BasketPoolQuantity.prototype.updateQuantity = function () {
+	if (BX('basket_items') !== null) {
+		var items = BX('basket_items');
 
-	var items = BX('basket_items');
-
-	if (basketJSParams['USE_ENHANCED_ECOMMERCE'] === 'Y')
-	{
-		checkAnalytics(this.lastStableQuantities, items);
-	}
-
-	if (!!items && items.rows.length > 0)
-	{
-		for (var i = 1; items.rows.length > i; i++)
-		{
-			var itemId = items.rows[i].id;
-			this.currentQuantity[itemId] = BX('QUANTITY_' + itemId).value;
+		if (basketJSParams['USE_ENHANCED_ECOMMERCE'] === 'Y') {
+			checkAnalytics(this.lastStableQuantities, items);
 		}
-	}
 
-	this.lastStableQuantities = BX.clone(this.currentQuantity, true);
+		if (!!items && items.rows.length > 0) {
+			for (var i = 1; items.rows.length > i; i++) {
+				var itemId = items.rows[i].id;
+				this.currentQuantity[itemId] = BX('QUANTITY_' + itemId).value;
+			}
+		}
+
+		this.lastStableQuantities = BX.clone(this.currentQuantity, true);
+	}
 };
 
 
-BasketPoolQuantity.prototype.changeQuantity = function(itemId)
-{
+BasketPoolQuantity.prototype.changeQuantity = function (itemId) {
 
 	var quantity = BX('QUANTITY_' + itemId).value;
 	var isPoolEmpty = this.isPoolEmpty();
 
-	if (this.currentQuantity[itemId] && this.currentQuantity[itemId] != quantity)
-	{
+	if (this.currentQuantity[itemId] && this.currentQuantity[itemId] != quantity) {
 		this.poolQuantity[itemId] = this.currentQuantity[itemId] = quantity;
 	}
 
-	if (!isPoolEmpty)
-	{
+	if (!isPoolEmpty) {
 		this.enableTimer(true);
 	}
-	else
-	{
+	else {
 		this.trySendPool();
 	}
 };
 
 
-BasketPoolQuantity.prototype.trySendPool = function()
-{
-	if (!this.isPoolEmpty() && !this.isProcessing())
-	{
+BasketPoolQuantity.prototype.trySendPool = function () {
+	if (!this.isPoolEmpty() && !this.isProcessing()) {
 		this.enableTimer(false);
 		recalcBasketAjax({});
 	}
 };
 
-BasketPoolQuantity.prototype.isPoolEmpty = function()
-{
-	return ( Object.keys(this.poolQuantity).length == 0 );
+BasketPoolQuantity.prototype.isPoolEmpty = function () {
+	return (Object.keys(this.poolQuantity).length == 0);
 };
 
-BasketPoolQuantity.prototype.clearPool = function()
-{
+BasketPoolQuantity.prototype.clearPool = function () {
 	this.poolQuantity = {};
 };
 
-BasketPoolQuantity.prototype.isProcessing = function()
-{
+BasketPoolQuantity.prototype.isProcessing = function () {
 	return (this.processing === true);
 };
 
-BasketPoolQuantity.prototype.setProcessing = function(value)
-{
+BasketPoolQuantity.prototype.setProcessing = function (value) {
 	this.processing = (value === true);
 };
 
-BasketPoolQuantity.prototype.enableTimer = function(value)
-{
+BasketPoolQuantity.prototype.enableTimer = function (value) {
 	clearTimeout(this.updateTimer);
 	if (value === false)
 		return;
 
-	this.updateTimer = setTimeout(function(){ basketPoolQuantity.trySendPool(); }, 1500);
+	this.updateTimer = setTimeout(function () { basketPoolQuantity.trySendPool(); }, 1500);
 };
 
 /**
  * @param basketItemId
  * @param {{BASKET_ID : string, BASKET_DATA : { GRID : { ROWS : {} }}, COLUMNS: {}, PARAMS: {}, DELETE_ORIGINAL : string }} res
  */
-function updateBasketTable(basketItemId, res)
-{
+function updateBasketTable(basketItemId, res) {
 	var table = BX("basket_items"),
 		rows,
 		newBasketItemId,
@@ -153,8 +137,7 @@ function updateBasketTable(basketItemId, res)
 		marginLeft,
 		createNewItem;
 
-	if (!table || typeof res !== 'object')
-	{
+	if (!table || typeof res !== 'object') {
 		return;
 	}
 
@@ -163,14 +146,12 @@ function updateBasketTable(basketItemId, res)
 	bUseFloatQuantity = (res.PARAMS.QUANTITY_FLOAT === 'Y');
 
 	// insert new row instead of original basket item row
-	if (basketItemId !== null && !!res.BASKET_DATA)
-	{
+	if (basketItemId !== null && !!res.BASKET_DATA) {
 		origBasketItem = BX(basketItemId);
 
 		newBasketItemId = res.BASKET_ID;
 		createNewItem = BX.type.isPlainObject(res.BASKET_DATA.GRID.ROWS[newBasketItemId]);
-		if (createNewItem)
-		{
+		if (createNewItem) {
 			arItem = res.BASKET_DATA.GRID.ROWS[newBasketItemId];
 			newRow = document.createElement('tr');
 
@@ -183,43 +164,34 @@ function updateBasketTable(basketItemId, res)
 			lastRow.parentNode.insertBefore(newRow, origBasketItem.nextSibling);
 		}
 
-		if (res.DELETE_ORIGINAL === 'Y')
-		{
+		if (res.DELETE_ORIGINAL === 'Y') {
 			origBasketItem.parentNode.removeChild(origBasketItem);
 		}
 
-		if (createNewItem)
-		{
+		if (createNewItem) {
 			// fill row with fields' values
 			oCellMargin = newRow.insertCell(-1);
 			oCellMargin.setAttribute('class', 'margin');
 
 			arColumns = res.COLUMNS.split(',');
 
-			for (i = 0; i < arColumns.length; i++)
-			{
-				if (arColumns[i] === 'DELETE')
-				{
+			for (i = 0; i < arColumns.length; i++) {
+				if (arColumns[i] === 'DELETE') {
 					bShowDeleteColumn = true;
 				}
-				else if (arColumns[i] === 'DELAY')
-				{
+				else if (arColumns[i] === 'DELAY') {
 					bShowDelayColumn = true;
 				}
-				else if (arColumns[i] === 'PROPS')
-				{
+				else if (arColumns[i] === 'PROPS') {
 					bShowPropsColumn = true;
 				}
-				else if (arColumns[i] === 'TYPE')
-				{
+				else if (arColumns[i] === 'TYPE') {
 					bShowPriceType = true;
 				}
 			}
 
-			for (i = 0; i < arColumns.length; i++)
-			{
-				switch (arColumns[i])
-				{
+			for (i = 0; i < arColumns.length; i++) {
+				switch (arColumns[i]) {
 					case 'PROPS':
 					case 'DELAY':
 					case 'DELETE':
@@ -233,36 +205,30 @@ function updateBasketTable(basketItemId, res)
 
 						oCellName.setAttribute('class', 'itemphoto');
 
-						if (arItem.PREVIEW_PICTURE_SRC.length > 0)
-						{
+						if (arItem.PREVIEW_PICTURE_SRC.length > 0) {
 							imageURL = arItem.PREVIEW_PICTURE_SRC;
 						}
-						else if (arItem.DETAIL_PICTURE_SRC.length > 0)
-						{
+						else if (arItem.DETAIL_PICTURE_SRC.length > 0) {
 							imageURL = arItem.DETAIL_PICTURE_SRC;
 						}
-						else
-						{
+						else {
 							imageURL = basketJSParams.TEMPLATE_FOLDER + '/images/no_photo.png';
 						}
 
-						if (arItem.DETAIL_PAGE_URL.length > 0)
-						{
+						if (arItem.DETAIL_PAGE_URL.length > 0) {
 							cellNameHTML = '<div class="bx_ordercart_photo_container">\
 							<a href="' + arItem.DETAIL_PAGE_URL + '">\
 								<div class="bx_ordercart_photo" style="background-image:url(\'' + imageURL + '\')"></div>\
 							</a>\
 						</div>';
 						}
-						else
-						{
+						else {
 							cellNameHTML = '<div class="bx_ordercart_photo_container">\
 							<div class="bx_ordercart_photo" style="background-image:url(\'' + imageURL + '\')"></div>\
 						</div>';
 						}
 
-						if (arItem.BRAND && arItem.BRAND.length > 0)
-						{
+						if (arItem.BRAND && arItem.BRAND.length > 0) {
 							cellNameHTML += '<div class="bx_ordercart_brand">\
 							<img alt="" src="' + arItem.BRAND + '"/>\
 						</div>';
@@ -282,23 +248,17 @@ function updateBasketTable(basketItemId, res)
 
 						cellItemHTML += '<div class="bx_ordercart_itemart">';
 
-						if (bShowPropsColumn)
-						{
-							for (j = 0; j < arItem['PROPS'].length; j++)
-							{
+						if (bShowPropsColumn) {
+							for (j = 0; j < arItem['PROPS'].length; j++) {
 								val = arItem['PROPS'][j];
 
-								if (arItem.SKU_DATA)
-								{
+								if (arItem.SKU_DATA) {
 									bSkip = false;
-									for (propId in arItem.SKU_DATA)
-									{
-										if (arItem.SKU_DATA.hasOwnProperty(propId))
-										{
+									for (propId in arItem.SKU_DATA) {
+										if (arItem.SKU_DATA.hasOwnProperty(propId)) {
 											arProp = arItem.SKU_DATA[propId];
 
-											if (arProp['CODE'] === val['CODE'])
-											{
+											if (arProp['CODE'] === val['CODE']) {
 												bSkip = true;
 												break;
 											}
@@ -313,35 +273,28 @@ function updateBasketTable(basketItemId, res)
 						}
 						cellItemHTML += '</div>';
 
-						if (arItem.SKU_DATA)
-						{
+						if (arItem.SKU_DATA) {
 							propsMap = {};
-							for (k = 0; k < arItem['PROPS'].length; k++)
-							{
+							for (k = 0; k < arItem['PROPS'].length; k++) {
 								arItemProp = arItem['PROPS'][k];
 								propsMap[arItemProp['CODE']] = (BX.type.isNotEmptyString(arItemProp['~VALUE']) ? arItemProp['~VALUE'] : arItemProp['VALUE']);
 							}
-							for (propId in arItem.SKU_DATA)
-							{
-								if (arItem.SKU_DATA.hasOwnProperty(propId))
-								{
+							for (propId in arItem.SKU_DATA) {
+								if (arItem.SKU_DATA.hasOwnProperty(propId)) {
 									selectedIndex = 0;
 									arProp = arItem.SKU_DATA[propId];
 									bIsImageProperty = false;
 									full = (BX.util.array_keys(arProp['VALUES']).length > 5) ? 'full' : '';
 
 									counter = 0;
-									for (valId in arProp['VALUES'])
-									{
+									for (valId in arProp['VALUES']) {
 										counter++;
 										arVal = arProp['VALUES'][valId];
-										if (BX.type.isNotEmptyString(propsMap[arProp['CODE']]))
-										{
+										if (BX.type.isNotEmptyString(propsMap[arProp['CODE']])) {
 											if (propsMap[arProp['CODE']] == arVal['NAME'] || propsMap[arProp['CODE']] == arVal['XML_ID'])
 												selectedIndex = counter;
 										}
-										if (!!arVal && typeof arVal === 'object' && !!arVal['PICT'])
-										{
+										if (!!arVal && typeof arVal === 'object' && !!arVal['PICT']) {
 											bIsImageProperty = true;
 										}
 									}
@@ -350,8 +303,7 @@ function updateBasketTable(basketItemId, res)
 									if (full != '' && selectedIndex > 5)
 										marginLeft = ((5 - selectedIndex) * 20) + '%';
 									// sku property can contain list of images or values
-									if (bIsImageProperty)
-									{
+									if (bIsImageProperty) {
 										cellItemHTML += '<div class="bx_item_detail_scu_small_noadaptive ' + full + '">';
 										cellItemHTML += '<span class="bx_item_section_name_gray">' + BX.util.htmlspecialchars(arProp['NAME']) + '</span>';
 										cellItemHTML += '<div class="bx_scu_scroller_container">';
@@ -360,8 +312,7 @@ function updateBasketTable(basketItemId, res)
 										cellItemHTML += '<ul id="prop_' + arProp['CODE'] + '_' + arItem['ID'] + '" style="width: 200%; margin-left: ' + marginLeft + ';" class="sku_prop_list">';
 
 										counter = 0;
-										for (valueId in arProp['VALUES'])
-										{
+										for (valueId in arProp['VALUES']) {
 											counter++;
 											arSkuValue = arProp['VALUES'][valueId];
 											selected = (selectedIndex == counter ? ' bx_active' : '');
@@ -397,8 +348,7 @@ function updateBasketTable(basketItemId, res)
 										cellItemHTML += '<ul id="prop_' + arProp['CODE'] + '_' + arItem['ID'] + '" style="width: 200%; margin-left: ' + marginLeft + ';" class="sku_prop_list">';
 
 										counter = 0;
-										for (valueId in arProp['VALUES'])
-										{
+										for (valueId in arProp['VALUES']) {
 											counter++;
 											arSkuValue = arProp['VALUES'][valueId];
 											selected = (selectedIndex == counter ? ' bx_active' : '');
@@ -437,13 +387,11 @@ function updateBasketTable(basketItemId, res)
 
 						isUpdateQuantity = false;
 
-						if (ratio != 0 && ratio != '')
-						{
+						if (ratio != 0 && ratio != '') {
 							oldQuantity = arItem['QUANTITY'];
 							arItem['QUANTITY'] = getCorrectRatioQuantity(arItem['QUANTITY'], ratio, bUseFloatQuantity);
 
-							if (oldQuantity != arItem['QUANTITY'])
-							{
+							if (oldQuantity != arItem['QUANTITY']) {
 								isUpdateQuantity = true;
 							}
 						}
@@ -488,8 +436,7 @@ function updateBasketTable(basketItemId, res)
 
 						oCellQuantity.innerHTML = oCellQuantityHTML;
 
-						if (isUpdateQuantity)
-						{
+						if (isUpdateQuantity) {
 							updateQuantity('QUANTITY_INPUT_' + arItem['ID'], arItem['ID'], ratio, bUseFloatQuantity);
 						}
 						break;
@@ -501,8 +448,7 @@ function updateBasketTable(basketItemId, res)
 						oCellPrice.innerHTML = '<div class="current_price" id="current_price_' + arItem['ID'] + '">' + arItem['PRICE_FORMATED'] + '</div>' +
 							'<div class="old_price" id="old_price_' + arItem['ID'] + '">' + fullPrice + '</div>';
 
-						if (bShowPriceType && arItem['NOTES'].length > 0)
-						{
+						if (bShowPriceType && arItem['NOTES'].length > 0) {
 							oCellPrice.innerHTML += '<div class="type_price">' + basketJSParams['SALE_TYPE'] + '</div>';
 							oCellPrice.innerHTML += '<div class="type_price_value">' + arItem['NOTES'] + '</div>';
 						}
@@ -529,8 +475,7 @@ function updateBasketTable(basketItemId, res)
 						if (arColumns[i] == 'SUM')
 							customColumnVal += '<div id="sum_' + arItem['ID'] + '">';
 
-						if (typeof(arItem[arColumns[i]]) != 'undefined')
-						{
+						if (typeof (arItem[arColumns[i]]) != 'undefined') {
 							customColumnVal += arItem[arColumns[i]];
 						}
 
@@ -542,8 +487,7 @@ function updateBasketTable(basketItemId, res)
 				}
 			}
 
-			if (bShowDeleteColumn || bShowDelayColumn)
-			{
+			if (bShowDeleteColumn || bShowDelayColumn) {
 				var oCellControl = newRow.insertCell(-1);
 				oCellControl.setAttribute('class', 'control');
 
@@ -560,12 +504,9 @@ function updateBasketTable(basketItemId, res)
 	}
 
 	// update product params after recalculation
-	if (!!res.BASKET_DATA)
-	{
-		for (id in res.BASKET_DATA.GRID.ROWS)
-		{
-			if (res.BASKET_DATA.GRID.ROWS.hasOwnProperty(id))
-			{
+	if (!!res.BASKET_DATA) {
+		for (id in res.BASKET_DATA.GRID.ROWS) {
+			if (res.BASKET_DATA.GRID.ROWS.hasOwnProperty(id)) {
 				var item = res.BASKET_DATA.GRID.ROWS[id];
 
 				if (BX('discount_value_' + id))
@@ -581,8 +522,7 @@ function updateBasketTable(basketItemId, res)
 					BX('sum_' + id).innerHTML = item.SUM;
 
 				// if the quantity was set by user to 0 or was too much, we need to show corrected quantity value from ajax response
-				if (BX('QUANTITY_' + id))
-				{
+				if (BX('QUANTITY_' + id)) {
 					BX('QUANTITY_INPUT_' + id).value = item.QUANTITY;
 					BX('QUANTITY_INPUT_' + id).defaultValue = item.QUANTITY;
 
@@ -597,8 +537,7 @@ function updateBasketTable(basketItemId, res)
 		couponListUpdate(res.BASKET_DATA);
 
 	// update warnings if any
-	if (res.hasOwnProperty('WARNING_MESSAGE'))
-	{
+	if (res.hasOwnProperty('WARNING_MESSAGE')) {
 		var warningText = '';
 
 		for (i = res['WARNING_MESSAGE'].length - 1; i >= 0; i--)
@@ -608,8 +547,7 @@ function updateBasketTable(basketItemId, res)
 	}
 
 	// update total basket values
-	if (!!res.BASKET_DATA)
-	{
+	if (!!res.BASKET_DATA) {
 		if (BX('allWeight_FORMATED'))
 			BX('allWeight_FORMATED').innerHTML = res['BASKET_DATA']['allWeight_FORMATED'].replace(/\s/g, '&nbsp;');
 
@@ -622,8 +560,7 @@ function updateBasketTable(basketItemId, res)
 		if (BX('allSum_FORMATED'))
 			BX('allSum_FORMATED').innerHTML = res['BASKET_DATA']['allSum_FORMATED'].replace(/\s/g, '&nbsp;');
 
-		if (BX('PRICE_WITHOUT_DISCOUNT'))
-		{
+		if (BX('PRICE_WITHOUT_DISCOUNT')) {
 			var showPriceWithoutDiscount = (res['BASKET_DATA']['PRICE_WITHOUT_DISCOUNT'] != res['BASKET_DATA']['allSum_FORMATED']);
 			BX('PRICE_WITHOUT_DISCOUNT').innerHTML = showPriceWithoutDiscount ? res['BASKET_DATA']['PRICE_WITHOUT_DISCOUNT'].replace(/\s/g, '&nbsp;') : '';
 			BX.style(BX('PRICE_WITHOUT_DISCOUNT').parentNode, 'display', (showPriceWithoutDiscount ? 'table-row' : 'none'));
@@ -637,8 +574,7 @@ function updateBasketTable(basketItemId, res)
  * @param couponBlock
  * @param {COUPON: string, JS_STATUS: string} oneCoupon - new coupon.
  */
-function couponCreate(couponBlock, oneCoupon)
-{
+function couponCreate(couponBlock, oneCoupon) {
 	var couponClass = 'disabled';
 
 	if (!BX.type.isElementNode(couponBlock))
@@ -698,8 +634,7 @@ function couponCreate(couponBlock, oneCoupon)
 /**
  * @param {COUPON_LIST : []} res
  */
-function couponListUpdate(res)
-{
+function couponListUpdate(res) {
 	var couponBlock,
 		couponClass,
 		fieldCoupon,
@@ -709,77 +644,61 @@ function couponListUpdate(res)
 		j,
 		key;
 
-	if (!!res && typeof res !== 'object')
-	{
+	if (!!res && typeof res !== 'object') {
 		return;
 	}
 
 	couponBlock = BX('coupons_block');
-	if (!!couponBlock)
-	{
-		if (!!res.COUPON_LIST && BX.type.isArray(res.COUPON_LIST))
-		{
+	if (!!couponBlock) {
+		if (!!res.COUPON_LIST && BX.type.isArray(res.COUPON_LIST)) {
 			fieldCoupon = BX('coupon');
-			if (!!fieldCoupon)
-			{
+			if (!!fieldCoupon) {
 				fieldCoupon.value = '';
 			}
 			couponsCollection = BX.findChildren(couponBlock, { tagName: 'input', property: { name: 'OLD_COUPON[]' } }, true);
 
-			if (!!couponsCollection)
-			{
-				if (BX.type.isElementNode(couponsCollection))
-				{
+			if (!!couponsCollection) {
+				if (BX.type.isElementNode(couponsCollection)) {
 					couponsCollection = [couponsCollection];
 				}
-				for (i = 0; i < res.COUPON_LIST.length; i++)
-				{
+				for (i = 0; i < res.COUPON_LIST.length; i++) {
 					couponFound = false;
 					key = -1;
-					for (j = 0; j < couponsCollection.length; j++)
-					{
-						if (couponsCollection[j].value === res.COUPON_LIST[i].COUPON)
-						{
+					for (j = 0; j < couponsCollection.length; j++) {
+						if (couponsCollection[j].value === res.COUPON_LIST[i].COUPON) {
 							couponFound = true;
 							key = j;
 							couponsCollection[j].couponUpdate = true;
 							break;
 						}
 					}
-					if (couponFound)
-					{
+					if (couponFound) {
 						couponClass = 'disabled';
 						if (res.COUPON_LIST[i].JS_STATUS === 'BAD')
 							couponClass = 'bad';
 						else if (res.COUPON_LIST[i].JS_STATUS === 'APPLYED')
 							couponClass = 'good';
 
-						BX.adjust(couponsCollection[key], {props: {className: couponClass}});
-						BX.adjust(couponsCollection[key].nextSibling, {props: {className: couponClass}});
-						BX.adjust(couponsCollection[key].nextSibling.nextSibling, {html: res.COUPON_LIST[i].JS_CHECK_CODE});
+						BX.adjust(couponsCollection[key], { props: { className: couponClass } });
+						BX.adjust(couponsCollection[key].nextSibling, { props: { className: couponClass } });
+						BX.adjust(couponsCollection[key].nextSibling.nextSibling, { html: res.COUPON_LIST[i].JS_CHECK_CODE });
 					}
-					else
-					{
+					else {
 						couponCreate(couponBlock, res.COUPON_LIST[i]);
 					}
 				}
-				for (j = 0; j < couponsCollection.length; j++)
-				{
-					if (typeof (couponsCollection[j].couponUpdate) === 'undefined' || !couponsCollection[j].couponUpdate)
-					{
+				for (j = 0; j < couponsCollection.length; j++) {
+					if (typeof (couponsCollection[j].couponUpdate) === 'undefined' || !couponsCollection[j].couponUpdate) {
 						BX.remove(couponsCollection[j].parentNode);
 						couponsCollection[j] = null;
 					}
-					else
-					{
+					else {
 						couponsCollection[j].couponUpdate = null;
 					}
 				}
 			}
-			else
-			{
-				for (i = 0; i < res.COUPON_LIST.length; i++)
-				{
+			else {
+				for (i = 0; i < res.COUPON_LIST.length; i++) {
 					couponCreate(couponBlock, res.COUPON_LIST[i]);
 				}
 			}
@@ -788,8 +707,7 @@ function couponListUpdate(res)
 	couponBlock = null;
 }
 
-function skuPropClickHandler()
-{
+function skuPropClickHandler() {
 	var target = this,
 		basketItemId,
 		property,
@@ -801,8 +719,7 @@ function skuPropClickHandler()
 		sku_prop_value,
 		m;
 
-	if (!!target && target.hasAttribute('data-value-id'))
-	{
+	if (!!target && target.hasAttribute('data-value-id')) {
 		BX.showWait();
 
 		basketItemId = target.getAttribute('data-element');
@@ -812,27 +729,20 @@ function skuPropClickHandler()
 		property_values[property] = BX.util.htmlspecialcharsback(target.getAttribute('data-value-id'));
 
 		// if already selected element is clicked
-		if (BX.hasClass(target, 'bx_active'))
-		{
+		if (BX.hasClass(target, 'bx_active')) {
 			BX.closeWait();
 			return;
 		}
 
 		// get other basket item props to get full unique set of props of the new product
-		all_sku_props = BX.findChildren(BX(basketItemId), {tagName: 'ul', className: 'sku_prop_list'}, true);
-		if (!!all_sku_props && all_sku_props.length > 0)
-		{
-			for (i = 0; all_sku_props.length > i; i++)
-			{
-				if (all_sku_props[i].id !== 'prop_' + property + '_' + basketItemId)
-				{
-					sku_prop_value = BX.findChildren(BX(all_sku_props[i].id), {tagName: 'li', className: 'bx_active'}, true);
-					if (!!sku_prop_value && sku_prop_value.length > 0)
-					{
-						for (m = 0; sku_prop_value.length > m; m++)
-						{
-							if (sku_prop_value[m].hasAttribute('data-value-id'))
-							{
+		all_sku_props = BX.findChildren(BX(basketItemId), { tagName: 'ul', className: 'sku_prop_list' }, true);
+		if (!!all_sku_props && all_sku_props.length > 0) {
+			for (i = 0; all_sku_props.length > i; i++) {
+				if (all_sku_props[i].id !== 'prop_' + property + '_' + basketItemId) {
+					sku_prop_value = BX.findChildren(BX(all_sku_props[i].id), { tagName: 'li', className: 'bx_active' }, true);
+					if (!!sku_prop_value && sku_prop_value.length > 0) {
+						for (m = 0; sku_prop_value.length > m; m++) {
+							if (sku_prop_value[m].hasAttribute('data-value-id')) {
 								property_values[sku_prop_value[m].getAttribute('data-property')] = BX.util.htmlspecialcharsback(sku_prop_value[m].getAttribute('data-value-id'));
 							}
 						}
@@ -862,8 +772,7 @@ function skuPropClickHandler()
 			method: 'POST',
 			data: postData,
 			dataType: 'json',
-			onsuccess: function(result)
-			{
+			onsuccess: function (result) {
 				BX.closeWait();
 				updateBasketTable(basketItemId, result);
 			}
@@ -871,103 +780,87 @@ function skuPropClickHandler()
 	}
 }
 
-function getColumnName(result, columnCode)
-{
-	if (BX('col_' + columnCode))
-	{
+function getColumnName(result, columnCode) {
+	if (BX('col_' + columnCode)) {
 		return BX.util.trim(BX('col_' + columnCode).innerHTML);
 	}
-	else
-	{
+	else {
 		return '';
 	}
 }
 
-function leftScroll(prop, id, count)
-{
+function leftScroll(prop, id, count) {
 	count = parseInt(count, 10);
 	var el = BX('prop_' + prop + '_' + id);
 
-	if (el)
-	{
+	if (el) {
 		var curVal = parseInt(el.style.marginLeft, 10);
 		if (curVal <= -20)
 			el.style.marginLeft = curVal + 20 + '%';
 	}
 }
 
-function rightScroll(prop, id, count)
-{
+function rightScroll(prop, id, count) {
 	count = parseInt(count, 10);
 	var el = BX('prop_' + prop + '_' + id);
 
-	if (el)
-	{
+	if (el) {
 		var curVal = parseInt(el.style.marginLeft, 10);
-		if (curVal > (5 - count)*20)
+		if (curVal > (5 - count) * 20)
 			el.style.marginLeft = curVal - 20 + '%';
 	}
 }
 
-function checkOut()
-{
+function checkOut() {
 	if (!!BX('coupon'))
 		BX('coupon').disabled = true;
 	BX("basket_form").submit();
 	return true;
 }
 
-function updateBasket()
-{
+function updateBasket() {
 	recalcBasketAjax({});
 }
 
-function enterCoupon()
-{
+function enterCoupon() {
 	var newCoupon = BX('coupon');
 	if (!!newCoupon && !!newCoupon.value)
-		recalcBasketAjax({'coupon' : newCoupon.value});
+		recalcBasketAjax({ 'coupon': newCoupon.value });
 }
 
 // check if quantity is valid
 // and update values of both controls (text input field for PC and mobile quantity select) simultaneously
-function updateQuantity(controlId, basketId, ratio, bUseFloatQuantity)
-{
+function updateQuantity(controlId, basketId, ratio, bUseFloatQuantity) {
 	var oldVal = BX(controlId).defaultValue,
 		newVal = parseFloat(BX(controlId).value) || 0,
 		bIsCorrectQuantityForRatio = false,
 		autoCalculate = ((BX("auto_calculation") && BX("auto_calculation").value == "Y") || !BX("auto_calculation"));
 
-	if (ratio === 0 || ratio == 1)
-	{
+	if (ratio === 0 || ratio == 1) {
 		bIsCorrectQuantityForRatio = true;
 	}
-	else
-	{
+	else {
 
 		var newValInt = newVal * 10000,
 			ratioInt = ratio * 10000,
 			reminder = newValInt % ratioInt,
 			newValRound = parseInt(newVal);
 
-		if (reminder === 0)
-		{
+		if (reminder === 0) {
 			bIsCorrectQuantityForRatio = true;
 		}
 	}
 
 	var bIsQuantityFloat = false;
 
-	if (parseInt(newVal) != parseFloat(newVal))
-	{
+	if (parseInt(newVal) != parseFloat(newVal)) {
 		bIsQuantityFloat = true;
 	}
 
 	newVal = (bUseFloatQuantity === false && bIsQuantityFloat === false) ? parseInt(newVal) : parseFloat(newVal).toFixed(4);
 	newVal = correctQuantity(newVal);
 
-	if (bIsCorrectQuantityForRatio)
-	{
+	if (bIsCorrectQuantityForRatio) {
 		BX(controlId).defaultValue = newVal;
 
 		BX("QUANTITY_INPUT_" + basketId).value = newVal;
@@ -975,35 +868,29 @@ function updateQuantity(controlId, basketId, ratio, bUseFloatQuantity)
 		// set hidden real quantity value (will be used in actual calculation)
 		BX("QUANTITY_" + basketId).value = newVal;
 
-		if (autoCalculate)
-		{
+		if (autoCalculate) {
 			basketPoolQuantity.changeQuantity(basketId);
 		}
 	}
-	else
-	{
+	else {
 		newVal = getCorrectRatioQuantity(newVal, ratio, bUseFloatQuantity);
 		newVal = correctQuantity(newVal);
 
-		if (newVal != oldVal)
-		{
+		if (newVal != oldVal) {
 			BX("QUANTITY_INPUT_" + basketId).value = newVal;
 			BX("QUANTITY_" + basketId).value = newVal;
 
-			if (autoCalculate)
-			{
+			if (autoCalculate) {
 				basketPoolQuantity.changeQuantity(basketId);
 			}
-		}else
-		{
+		} else {
 			BX(controlId).value = oldVal;
 		}
 	}
 }
 
 // used when quantity is changed by clicking on arrows
-function setQuantity(basketId, ratio, sign, bUseFloatQuantity)
-{
+function setQuantity(basketId, ratio, sign, bUseFloatQuantity) {
 	debugger;
 	var curVal = parseFloat(BX("QUANTITY_INPUT_" + basketId).value),
 		newVal;
@@ -1012,18 +899,15 @@ function setQuantity(basketId, ratio, sign, bUseFloatQuantity)
 
 	if (newVal < 0)
 		newVal = 0;
-	if (bUseFloatQuantity)
-	{
+	if (bUseFloatQuantity) {
 		newVal = parseFloat(newVal).toFixed(4);
 	}
 	newVal = correctQuantity(newVal);
-	if (ratio > 0 && newVal < ratio)
-	{
+	if (ratio > 0 && newVal < ratio) {
 		newVal = ratio;
 	}
 
-	if (!bUseFloatQuantity && newVal != newVal.toFixed(4))
-	{
+	if (!bUseFloatQuantity && newVal != newVal.toFixed(4)) {
 		newVal = parseFloat(newVal).toFixed(4);
 	}
 
@@ -1036,8 +920,7 @@ function setQuantity(basketId, ratio, sign, bUseFloatQuantity)
 	updateQuantity('QUANTITY_INPUT_' + basketId, basketId, ratio, bUseFloatQuantity);
 }
 
-function getCorrectRatioQuantity(quantity, ratio, bUseFloatQuantity)
-{
+function getCorrectRatioQuantity(quantity, ratio, bUseFloatQuantity) {
 	var newValInt = quantity * 10000,
 		ratioInt = ratio * 10000,
 		reminder = (quantity / ratio - ((quantity / ratio).toFixed(0))).toFixed(6),
@@ -1046,25 +929,20 @@ function getCorrectRatioQuantity(quantity, ratio, bUseFloatQuantity)
 		i;
 	ratio = parseFloat(ratio);
 
-	if (reminder == 0)
-	{
+	if (reminder == 0) {
 		return result;
 	}
 
-	if (ratio !== 0 && ratio != 1)
-	{
-		for (i = ratio, max = parseFloat(quantity) + parseFloat(ratio); i <= max; i = parseFloat(parseFloat(i) + parseFloat(ratio)).toFixed(4))
-		{
+	if (ratio !== 0 && ratio != 1) {
+		for (i = ratio, max = parseFloat(quantity) + parseFloat(ratio); i <= max; i = parseFloat(parseFloat(i) + parseFloat(ratio)).toFixed(4)) {
 			result = i;
 		}
 
-	}else if (ratio === 1)
-	{
+	} else if (ratio === 1) {
 		result = quantity | 0;
 	}
 
-	if (parseInt(result, 10) != parseFloat(result))
-	{
+	if (parseInt(result, 10) != parseFloat(result)) {
 		bIsQuantityFloat = true;
 	}
 
@@ -1073,8 +951,7 @@ function getCorrectRatioQuantity(quantity, ratio, bUseFloatQuantity)
 	return result;
 }
 
-function correctQuantity(quantity)
-{
+function correctQuantity(quantity) {
 	return parseFloat((quantity * 1).toString());
 }
 
@@ -1083,11 +960,9 @@ function correctQuantity(quantity)
  *
  * @param {} params
  */
-function recalcBasketAjax(params)
-{
+function recalcBasketAjax(params) {
 
-	if (basketPoolQuantity.isProcessing())
-	{
+	if (basketPoolQuantity.isProcessing()) {
 		return false;
 	}
 
@@ -1113,23 +988,19 @@ function recalcBasketAjax(params)
 		'use_prepayment': BX('use_prepayment').value
 	};
 	postData[action_var] = 'recalculate';
-	if (!!params && typeof params === 'object')
-	{
-		for (i in params)
-		{
+	if (!!params && typeof params === 'object') {
+		for (i in params) {
 			if (params.hasOwnProperty(i))
 				postData[i] = params[i];
 		}
 	}
 
-	if (!!items && items.rows.length > 0)
-	{
+	if (!!items && items.rows.length > 0) {
 		for (i = 1; items.rows.length > i; i++)
 			postData['QUANTITY_' + items.rows[i].id] = BX('QUANTITY_' + items.rows[i].id).value;
 	}
 
-	if (!!delayedItems && delayedItems.rows.length > 0)
-	{
+	if (!!delayedItems && delayedItems.rows.length > 0) {
 		for (i = 1; delayedItems.rows.length > i; i++)
 			postData['DELAY_' + delayedItems.rows[i].id] = 'Y';
 	}
@@ -1142,36 +1013,30 @@ function recalcBasketAjax(params)
 		method: 'POST',
 		data: postData,
 		dataType: 'json',
-		onsuccess: function(result)
-		{
+		onsuccess: function (result) {
 			console.log(result)
 			BX.closeWait();
 			basketPoolQuantity.setProcessing(false);
 
-			if(params.coupon)
-			{
+			if (params.coupon) {
 				//hello, gifts!
-				if(!!result && !!result.BASKET_DATA && !!result.BASKET_DATA.NEED_TO_RELOAD_FOR_GETTING_GIFTS)
-				{
+				if (!!result && !!result.BASKET_DATA && !!result.BASKET_DATA.NEED_TO_RELOAD_FOR_GETTING_GIFTS) {
 					BX.reload();
 				}
 			}
 
-			if (basketPoolQuantity.isPoolEmpty())
-			{
+			if (basketPoolQuantity.isPoolEmpty()) {
 				updateBasketTable(null, result);
 				basketPoolQuantity.updateQuantity();
 			}
-			else
-			{
+			else {
 				basketPoolQuantity.enableTimer(true);
 			}
 		}
 	});
 }
 
-function showBasketItemsList(val)
-{
+function showBasketItemsList(val) {
 	BX.removeClass(BX("basket_toolbar_button"), "current");
 	BX.removeClass(BX("basket_toolbar_button_delayed"), "current");
 	BX.removeClass(BX("basket_toolbar_button_subscribed"), "current");
@@ -1182,12 +1047,10 @@ function showBasketItemsList(val)
 	BX("subscribe_count").style.display = 'inline-block';
 	BX("not_available_count").style.display = 'inline-block';
 
-	if (val == 2)
-	{
+	if (val == 2) {
 		if (BX("basket_items_list"))
 			BX("basket_items_list").style.display = 'none';
-		if (BX("basket_items_delayed"))
-		{
+		if (BX("basket_items_delayed")) {
 			BX("basket_items_delayed").style.display = 'block';
 			BX.addClass(BX("basket_toolbar_button_delayed"), "current");
 			BX("delay_count").style.display = 'none';
@@ -1197,14 +1060,12 @@ function showBasketItemsList(val)
 		if (BX("basket_items_not_available"))
 			BX("basket_items_not_available").style.display = 'none';
 	}
-	else if(val == 3)
-	{
+	else if (val == 3) {
 		if (BX("basket_items_list"))
 			BX("basket_items_list").style.display = 'none';
 		if (BX("basket_items_delayed"))
 			BX("basket_items_delayed").style.display = 'none';
-		if (BX("basket_items_subscribed"))
-		{
+		if (BX("basket_items_subscribed")) {
 			BX("basket_items_subscribed").style.display = 'block';
 			BX.addClass(BX("basket_toolbar_button_subscribed"), "current");
 			BX("subscribe_count").style.display = 'none';
@@ -1212,25 +1073,21 @@ function showBasketItemsList(val)
 		if (BX("basket_items_not_available"))
 			BX("basket_items_not_available").style.display = 'none';
 	}
-	else if (val == 4)
-	{
+	else if (val == 4) {
 		if (BX("basket_items_list"))
 			BX("basket_items_list").style.display = 'none';
 		if (BX("basket_items_delayed"))
 			BX("basket_items_delayed").style.display = 'none';
 		if (BX("basket_items_subscribed"))
 			BX("basket_items_subscribed").style.display = 'none';
-		if (BX("basket_items_not_available"))
-		{
+		if (BX("basket_items_not_available")) {
 			BX("basket_items_not_available").style.display = 'block';
 			BX.addClass(BX("basket_toolbar_button_not_available"), "current");
 			BX("not_available_count").style.display = 'none';
 		}
 	}
-	else
-	{
-		if (BX("basket_items_list"))
-		{
+	else {
+		if (BX("basket_items_list")) {
 			BX("basket_items_list").style.display = 'block';
 			BX.addClass(BX("basket_toolbar_button"), "current");
 			BX("normal_count").style.display = 'none';
@@ -1244,32 +1101,26 @@ function showBasketItemsList(val)
 	}
 }
 
-function deleteCoupon()
-{
+function deleteCoupon() {
 	var target = this,
 		value;
 
-	if (!!target && target.hasAttribute('data-coupon'))
-	{
+	if (!!target && target.hasAttribute('data-coupon')) {
 		value = target.getAttribute('data-coupon');
-		if (!!value && value.length > 0)
-		{
-			recalcBasketAjax({'delete_coupon' : value});
+		if (!!value && value.length > 0) {
+			recalcBasketAjax({ 'delete_coupon': value });
 		}
 	}
 }
 
-function deleteProductRow(target)
-{
-	var targetRow = BX.findParent(target, {tagName: 'TR'}),
+function deleteProductRow(target) {
+	var targetRow = BX.findParent(target, { tagName: 'TR' }),
 		quantityNode,
 		delItem;
 
-	if (targetRow)
-	{
+	if (targetRow) {
 		quantityNode = BX('QUANTITY_' + targetRow.id);
-		if (quantityNode)
-		{
+		if (quantityNode) {
 			delItem = getCurrentItemAnalyticsInfo(targetRow, quantityNode.value);
 		}
 	}
@@ -1281,8 +1132,7 @@ function deleteProductRow(target)
 	return false;
 }
 
-function checkAnalytics(currentQuantity, newItems)
-{
+function checkAnalytics(currentQuantity, newItems) {
 	if (!currentQuantity || !newItems || BX.util.array_values(currentQuantity).length === 0)
 		return;
 
@@ -1290,37 +1140,30 @@ function checkAnalytics(currentQuantity, newItems)
 		current = {}, addItems = [], delItems = [],
 		i;
 
-	if (!!newItems && newItems.rows.length)
-	{
-		for (i = 1; newItems.rows.length > i; i++)
-		{
+	if (!!newItems && newItems.rows.length) {
+		for (i = 1; newItems.rows.length > i; i++) {
 			itemId = newItems.rows[i].id;
 			diff = BX('QUANTITY_' + itemId).value - currentQuantity[itemId];
 
-			if (diff != 0)
-			{
+			if (diff != 0) {
 				current = getCurrentItemAnalyticsInfo(newItems.rows[i], diff);
 
-				if (diff > 0)
-				{
+				if (diff > 0) {
 					addItems.push(current);
 				}
-				else
-				{
+				else {
 					delItems.push(current);
 				}
 			}
 		}
 	}
 
-	if (addItems.length || delItems.length)
-	{
+	if (addItems.length || delItems.length) {
 		setAnalyticsDataLayer(addItems, delItems);
 	}
 }
 
-function getCurrentItemAnalyticsInfo(row, diff)
-{
+function getCurrentItemAnalyticsInfo(row, diff) {
 	if (!row)
 		return;
 
@@ -1336,8 +1179,7 @@ function getCurrentItemAnalyticsInfo(row, diff)
 	};
 
 	temp = row.querySelectorAll('.bx_active[data-sku-name]');
-	for (k = 0; k < temp.length; k++)
-	{
+	for (k = 0; k < temp.length; k++) {
 		variants.push(temp[k].getAttribute('data-sku-name'));
 	}
 
@@ -1346,12 +1188,10 @@ function getCurrentItemAnalyticsInfo(row, diff)
 	return current;
 }
 
-function setAnalyticsDataLayer(addItems, delItems)
-{
+function setAnalyticsDataLayer(addItems, delItems) {
 	window[basketJSParams['DATA_LAYER_NAME']] = window[basketJSParams['DATA_LAYER_NAME']] || [];
 
-	if (addItems && addItems.length)
-	{
+	if (addItems && addItems.length) {
 		window[basketJSParams['DATA_LAYER_NAME']].push({
 			'event': 'addToCart',
 			'ecommerce': {
@@ -1363,8 +1203,7 @@ function setAnalyticsDataLayer(addItems, delItems)
 		});
 	}
 
-	if (delItems && delItems.length)
-	{
+	if (delItems && delItems.length) {
 		window[basketJSParams['DATA_LAYER_NAME']].push({
 			'event': 'removeFromCart',
 			'ecommerce': {
@@ -1377,14 +1216,12 @@ function setAnalyticsDataLayer(addItems, delItems)
 	}
 }
 
-function getCurrencyCode()
-{
+function getCurrencyCode() {
 	var root = BX('basket_items'),
 		node,
 		currency = '';
 
-	if (root)
-	{
+	if (root) {
 		node = root.querySelector('[data-item-currency');
 		node && (currency = node.getAttribute('data-item-currency'));
 	}
@@ -1394,8 +1231,8 @@ function getCurrencyCode()
 
 }
 
-BX.ready(function() {
-	
+BX.ready(function () {
+
 	basketPoolQuantity = new BasketPoolQuantity();
 	var couponBlock = BX('coupons_block'),
 		basketItems = BX('basket_items');
@@ -1404,7 +1241,7 @@ BX.ready(function() {
 		BX.bindDelegate(couponBlock, 'click', { 'attribute': 'data-coupon' }, deleteCoupon);
 
 	if (BX.type.isElementNode(basketItems))
-		BX.bindDelegate(basketItems, 'click', {tagName: 'li', 'attr': { 'data-sku-selector': 'Y' }}, skuPropClickHandler);
+		BX.bindDelegate(basketItems, 'click', { tagName: 'li', 'attr': { 'data-sku-selector': 'Y' } }, skuPropClickHandler);
 
 	if (BX.type.isNotEmptyString(basketJSParams['EVENT_ONCHANGE_ON_START']) && basketJSParams['EVENT_ONCHANGE_ON_START'] == "Y")
 		BX.onCustomEvent('OnBasketChange');

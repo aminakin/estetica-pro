@@ -368,8 +368,8 @@ input[data-disabled="disabled"] {
     overflow: hidden !important;
     text-overflow: ellipsis;
     margin-right: 16px;
-    max-height: 32px;
-    min-height: 32px;
+    max-height: 50px;
+    min-height: 50px;
     width: 100%;
     display: block;
 }
@@ -1289,6 +1289,10 @@ a.btn.btn-link.buyBtn svg {
 
 .product-item.product-item-container.sku-show .sku-btn-wrap{
     margin: 0;
+}
+
+.no-bonus-product a{
+    margin-top: 2px;
 }
 
 @media screen and (max-width: 1024px) {

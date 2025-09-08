@@ -323,7 +323,7 @@ a[data-filter="delayed"] {
 
 @media (max-width: 1024px) {
     .auth-form--authorized .auth-form__inner {
-        top: 117px !important;
+        top: 207px !important;
         right: 0 !important;
     }
 }
@@ -725,4 +725,55 @@ a.bxmaker-authuserphone-link{
     .auth_title-desc br{
         display: none;
     }
+}
+
+.notification{
+    padding: 15px 16px;
+    color: white;
+    background-color: #F781BF;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.notification .social{
+    margin-top: 0;
+}
+
+.notification .social a{
+    background: white;
+    border-radius: 33px;
+    display: none;
+    margin-left: 20px;
+}
+
+.notification .social a[href*='wa.me']{
+    display: block;
+}
+
+.notification a{
+    text-decoration: none;
+}
+
+.notification>a{
+    margin-left: 10px;
+}
+
+.notification a:hover,
+.notification a:focus,
+.notification a:active{
+    color: white;
+}
+@media (max-width:1024px) {
+    .notification{
+        font-size: 14px;
+        text-align: center;
+    }
+}
+
+.catalog-top-menu-catalog a[href="/catalog/"],
+.top-mobile-menu__catalog_opener.root-item-brand span{
+    color: #F781BF;
 }

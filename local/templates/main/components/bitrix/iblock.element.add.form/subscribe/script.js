@@ -35,7 +35,7 @@ $(document).ready(function () {
     });
 
     if (shouldShowModal()) {
-        setTimeout(showModal, 1000);
+        setTimeout(showModal, 120000);
     }
 
     if ($('.subscribe-popup__success').length > 0 || $('.subscribe-popup__error').length > 0) {

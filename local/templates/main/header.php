@@ -67,7 +67,6 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
         SITE_TEMPLATE_PATH . '/js/scroll/jquery.mCustomScrollbar.concat.min.js',
         SITE_TEMPLATE_PATH . '/js/script.js'
     ];
-
     foreach ($scripts as $script) {
         $assetManager->addJs($script);
     }
@@ -86,6 +85,75 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 
 <body class="mainPage">
     <? $APPLICATION->ShowPanel(); ?>
+    <div class="notification">
+        Сайт работает в тестовом режиме, в случае возникновения вопросов свяжитесь с нами <a href="tel:+79229776867">+7-922-977-68-67</a>
+        <? $APPLICATION->IncludeComponent(
+            "bitrix:news.list",
+            "soc_net_footer",
+            array(
+                "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                "ADD_SECTIONS_CHAIN" => "N",
+                "AJAX_MODE" => "N",
+                "AJAX_OPTION_ADDITIONAL" => "",
+                "AJAX_OPTION_HISTORY" => "N",
+                "AJAX_OPTION_JUMP" => "N",
+                "AJAX_OPTION_STYLE" => "Y",
+                "CACHE_FILTER" => "N",
+                "CACHE_GROUPS" => "Y",
+                "CACHE_TIME" => "36000000", 
+                "CACHE_TYPE" => "A",
+                "CHECK_DATES" => "Y",
+                "DETAIL_URL" => "",
+                "DISPLAY_BOTTOM_PAGER" => "N",
+                "DISPLAY_DATE" => "N",
+                "DISPLAY_NAME" => "Y",
+                "DISPLAY_PICTURE" => "N",
+                "DISPLAY_PREVIEW_TEXT" => "Y",
+                "DISPLAY_TOP_PAGER" => "N",
+                "FIELD_CODE" => array(
+                    0 => "",
+                    1 => "",
+                ),
+                "FILTER_NAME" => "",
+                "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                "IBLOCK_ID" => IblockHelper::getIdByCode('soc'),
+                "IBLOCK_TYPE" => "data",
+                "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+                "INCLUDE_SUBSECTIONS" => "N",
+                "MESSAGE_404" => "",
+                "NEWS_COUNT" => "2",
+                "PAGER_BASE_LINK_ENABLE" => "N",
+                "PAGER_DESC_NUMBERING" => "N",
+                "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                "PAGER_SHOW_ALL" => "N",
+                "PAGER_SHOW_ALWAYS" => "N",
+                "PAGER_TEMPLATE" => ".default",
+                "PAGER_TITLE" => "Новости",
+                "PARENT_SECTION" => "",
+                "PARENT_SECTION_CODE" => "",
+                "PREVIEW_TRUNCATE_LEN" => "",
+                "PROPERTY_CODE" => array(
+                    0 => "SUBSCRIBERS",
+                    1 => "NET",
+                    2 => "",
+                ),
+                "SET_BROWSER_TITLE" => "N",
+                "SET_META_KEYWORDS" => "N",
+                "SET_STATUS_404" => "N",
+                "SET_LAST_MODIFIED" => "N",
+                "SET_META_DESCRIPTION" => "N",
+                "SET_TITLE" => "N",
+                "SHOW_404" => "N",
+                "SORT_BY1" => "SORT",
+                "SORT_BY2" => "NAME",
+                "SORT_ORDER1" => "ASC",
+                "SORT_ORDER2" => "DESC",
+                "STRICT_SECTION_CHECK" => "N",
+                "COMPONENT_TEMPLATE" => "soc_net_footer"
+            ),
+            false
+        ); ?>
+    </div>
     <div id="layer" <? if (strpos($APPLICATION->GetCurDir(), 'cart') == false) { ?>style="overflow:hidden" <? } ?>>
         <div class="layer_body<?= CSite::inDir('/cart/') ? ' hide_mobile_header' : '' ?>">
             <header>
@@ -150,7 +218,6 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                         <? $APPLICATION->IncludeComponent("smedia:basket.small", ".default", array(), false);
                                         clearCart(); ?>
                                     </div>
-                                    <div class="fly-prod-wrap"></div>
                                 </div>
                             </div>
                         </div>
@@ -169,10 +236,10 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                                     array(
                                                         "IBLOCK_TYPE" => 'catalog',
                                                         "IBLOCK_ID" => '14',
-                                                        "CACHE_TYPE" => 'A',
+                                                        "CACHE_TYPE" => 'Y',
                                                         "CACHE_TIME" => '36000000',
                                                         "CACHE_GROUPS" => 'Y',
-                                                        "COUNT_ELEMENTS" => 'Y',
+                                                        "COUNT_ELEMENTS" => 'N',
                                                         "TOP_DEPTH" => '3',
                                                         "SECTION_URL" => '/catalog/#SECTION_CODE#/',
                                                         "VIEW_MODE" => 'LIST',
@@ -199,7 +266,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                                         </a>
                                                     <? } ?>
                                                 </ul>
-                                            </div*/?>
+                                            </div*/ ?>
                                         </div>
                                     </div>
                                     <div class="header-menu__item drop catalogmenu">
@@ -213,11 +280,11 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                                     "catalog-menu-oneline-new",
                                                     array(
                                                         "IBLOCK_TYPE" => 'catalog',
-                                                        "IBLOCK_ID" => '26',
-                                                        "CACHE_TYPE" => 'A',
+                                                        "IBLOCK_ID" => '73',
+                                                        "CACHE_TYPE" => 'Y',
                                                         "CACHE_TIME" => '36000000',
                                                         "CACHE_GROUPS" => 'Y',
-                                                        "COUNT_ELEMENTS" => 'Y',
+                                                        "COUNT_ELEMENTS" => 'N',
                                                         "TOP_DEPTH" => '3',
                                                         "SECTION_URL" => '/new-catalog/#SECTION_CODE_PATH#/',
                                                         "VIEW_MODE" => 'LIST',
@@ -242,7 +309,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                             "MAX_LEVEL" => "1",
                                             "MENU_CACHE_GET_VARS" => "",
                                             "MENU_CACHE_TIME" => "3600",
-                                            "MENU_CACHE_TYPE" => "N",
+                                            "MENU_CACHE_TYPE" => "A",
                                             "MENU_CACHE_USE_GROUPS" => "Y",
                                             "ROOT_MENU_TYPE" => "top",
                                             "USE_EXT" => "N",
@@ -276,13 +343,13 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                                     array("HIDE_ICONS" => "Y")
                                                 ); ?>
                                             </div>
-                                        </div*/?>
+                                        </div*/ ?>
                                     </div>
-                                    <div class="header-menu__item drop coursesmenu">
+                                    <div class="header-menu__item coursesmenu">
                                         <div class="catalog-top-menu-catalog">
                                             <a href="/about-courses/"><?= GetMessage('LEARNING'); ?></a>
                                         </div>
-                                        <div class="header-menu__item-modal catalog-menu-modal-container-example-coursesmenu">
+                                        <?/*div class="header-menu__item-modal catalog-menu-modal-container-example-coursesmenu">
                                             <div class="catalog-menu-block">
                                                 <ul class="bx_sitemap_ul_oneline">
                                                     <li class="first">
@@ -293,7 +360,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </div>
+                                        </div*/?>
                                     </div>
                                 </div>
                                 <div class="header-search-line">
@@ -412,8 +479,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                             </div>
                         </div>
                     </div>
-
-
+                    <div class="fly-prod-wrap"></div>
                     <? if ($_GET['registration_success'] == true): ?>
                         <script>
                             jQuery(document).ready(function($) {
@@ -422,8 +488,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                             });
                         </script>
                     <? endif; ?>
-                    <? if (Page::isCourse()) {
-                    ?>
+                    <? if (Page::isCourse()) {?>
                         <div class="toggleOpen" id="req">
                             <a href="#" class="close"><span></span><span></span></a>
                             <div class="h2">Оставить заявку</div>
@@ -492,20 +557,17 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                             <?= classBuildSCG::buildSVG('big-cross'); ?>
                         </a>
                         <div class="auth_title-wrap">
-                            <div class="auth_title major-title-pages"><?= GetMessage('AUTH_TITLE_HEADER');?></div>
-                            <div class="auth_title-desc"><?= GetMessage('AUTH_DESCRIPTION');?></div>
+                            <div class="auth_title major-title-pages"><?= GetMessage('AUTH_TITLE_HEADER'); ?></div>
+                            <div class="auth_title-desc"><?= GetMessage('AUTH_DESCRIPTION'); ?></div>
                         </div>
                         <? $APPLICATION->IncludeComponent(
                             "bxmaker:authuserphone.enter",
                             "",
-                            [
-                                "IS_ENABLED_CONFIRM_BY_SMS_CODE" => "Y",
-                                "IS_ENABLED_CONFIRM_BY_BOT_CALL" => "Y"
-                            ],
+                            [],
                             false
                         ); ?>
                         <div class="auth_to_registration">
-                            <?= GetMessage('TO_REGISTRATION');?>
+                            <?= GetMessage('TO_REGISTRATION'); ?>
                         </div>
                     </div>
                     <div class="toggleOpen auth-modal <?= $USER->IsAuthorized() ? 'success' : ''; ?>" id="register">
@@ -570,7 +632,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                     "CACHE_FILTER" => "N",
                                     "CACHE_GROUPS" => "Y",
                                     "CACHE_TIME" => "36000000",
-                                    "CACHE_TYPE" => "A",
+                                    "CACHE_TYPE" => "Y",
                                     "COMPONENT_TEMPLATE" => "catalog-menu-top",
                                     "COUNT_ELEMENTS" => "N",
                                     "COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",
@@ -581,7 +643,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                     "SECTION_CODE" => "",
                                     "SECTION_FIELDS" => array(0 => "", 1 => "",),
                                     "SECTION_ID" => $_REQUEST["SECTION_ID"],
-                                    "SECTION_URL" => "",
+                                    "SECTION_URL" => "/catalog/#SECTION_CODE#/",
                                     "SECTION_USER_FIELDS" => array(0 => "", 1 => "",),
                                     "SHOW_PARENT_NAME" => "Y",
                                     "TOP_DEPTH" => "3",
@@ -600,7 +662,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                     "CACHE_FILTER" => "N",
                                     "CACHE_GROUPS" => "Y",
                                     "CACHE_TIME" => "36000000",
-                                    "CACHE_TYPE" => "A",
+                                    "CACHE_TYPE" => "Y",
                                     "COMPONENT_TEMPLATE" => "catalog-menu-top",
                                     "COUNT_ELEMENTS" => "N",
                                     "COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",
@@ -611,11 +673,11 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                     "SECTION_CODE" => "",
                                     "SECTION_FIELDS" => array(0 => "", 1 => "",),
                                     "SECTION_ID" => $_REQUEST["SECTION_ID"],
-                                    "SECTION_URL" => "",
+                                    "SECTION_URL" => "/new-catalog/#SECTION_CODE_PATH#/",
                                     "SECTION_USER_FIELDS" => array(0 => "", 1 => "",),
                                     "SHOW_PARENT_NAME" => "Y",
-                                    "TOP_DEPTH" => "2",
-                                    "VIEW_MODE" => "LIST"
+                                    "TOP_DEPTH" => "3",
+                                    "VIEW_MODE" => "LIST" 
                                 )
                             ); ?>
                         </li>
@@ -630,7 +692,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                 "MAX_LEVEL" => "2",    // Уровень вложенности меню
                                 "MENU_CACHE_GET_VARS" => "",    // Значимые переменные запроса
                                 "MENU_CACHE_TIME" => "3600",    // Время кеширования (сек.)
-                                "MENU_CACHE_TYPE" => "N",    // Тип кеширования
+                                "MENU_CACHE_TYPE" => "A",    // Тип кеширования
                                 "MENU_CACHE_USE_GROUPS" => "Y",    // Учитывать права доступа
                                 "ROOT_MENU_TYPE" => "top",    // Тип меню для первого уровня
                                 "USE_EXT" => "Y",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
@@ -648,7 +710,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                     "CACHE_FILTER" => "N",
                                     "CACHE_GROUPS" => "Y",
                                     "CACHE_TIME" => "36000000",
-                                    "CACHE_TYPE" => "A",
+                                    "CACHE_TYPE" => "Y",
                                     "COMPONENT_TEMPLATE" => "catalog-menu-top",
                                     "COUNT_ELEMENTS" => "N",
                                     "COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",
@@ -659,7 +721,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                                     "SECTION_CODE" => "",
                                     "SECTION_FIELDS" => array(0 => "", 1 => "",),
                                     "SECTION_ID" => $_REQUEST["SECTION_ID"],
-                                    "SECTION_URL" => "",
+                                    "SECTION_URL" => "/palitra/#SECTION_CODE#/",
                                     "SECTION_USER_FIELDS" => array(0 => "", 1 => "",),
                                     "SHOW_PARENT_NAME" => "Y",
                                     "TOP_DEPTH" => "2",

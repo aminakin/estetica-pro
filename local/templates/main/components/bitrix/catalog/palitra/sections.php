@@ -255,7 +255,7 @@ $this->addExternalCss("/bitrix/css/main/bootstrap.css");
 		"FILTER_NAME" => "arrFilter",
 		"HIDE_NOT_AVAILABLE" => "N",
 		"HIDE_NOT_AVAILABLE_OFFERS" => "N",
-		"IBLOCK_ID" => "25",
+		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
 		"IBLOCK_TYPE" => "catalog",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"LABEL_PROP" => array(

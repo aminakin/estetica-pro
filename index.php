@@ -1,7 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 
-$APPLICATION->SetPageProperty("description", "Профессиональные материалы для маникюра и наращивания ресниц. Известные и востребованные бренды по официальным ценам производителей. Отправляем в любой город РФ. Быстрая онлайн-оплата заказа на сайте.");
+$APPLICATION->SetPageProperty("description", "Профессиональные материалы для маникюра и косметика, отобранные экспертами. Качество и сервис, которым доверяют перфекционисты.");
 $APPLICATION->SetTitle("Эстетика-PRO");
 $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/scrollpage.js');
 ?>
@@ -34,7 +34,7 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/scrollpage.js');
         "FIELD_CODE" => array(0=>"",1=>"",),
         "FILTER_NAME" => "",
         "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-        "IBLOCK_ID" => IblockHelper::getIdByCode('slider'),
+        "IBLOCK_ID" => IblockHelper::getIdByCode('sliderMain'),
         "IBLOCK_TYPE" => "banners",
         "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
         "INCLUDE_SUBSECTIONS" => "Y",
@@ -590,7 +590,7 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/scrollpage.js');
 		),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => IblockHelper::getIdByCode('reviews'),
+		"IBLOCK_ID" => IblockHelper::getIdByCode('reviewsMain'),
 		"IBLOCK_TYPE" => "reviews",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "N",
@@ -617,9 +617,9 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/scrollpage.js');
 		"SET_STATUS_404" => "N",
 		"SET_TITLE" => "N",
 		"SHOW_404" => "N",
-		"SORT_BY1" => "RAND",
+		"SORT_BY1" => "SORT",
 		"SORT_BY2" => "RAND",
-		"SORT_ORDER1" => "RAND",
+		"SORT_ORDER1" => "ASC",
 		"SORT_ORDER2" => "RAND",
 		"STRICT_SECTION_CHECK" => "N"
 	),

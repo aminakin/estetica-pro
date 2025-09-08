@@ -1444,15 +1444,17 @@ hr.bxe-light {
 }
 
 .alert-warning {
-    color: #8A6D3B;
-    background-color: #FCF8E3;
-    border-color: #FAEBCC;
+    color: #999999;
+    background-color: #F3F3F3;
+    border-color: #F3F3F3;
+    border-radius: 10px;
 }
 
 .alert-danger {
-    color: #A94442;
-    background-color: #F2DEDE;
-    border-color: #EBCCD1;
+    color: #FFFFFF;
+    background-color: #F781BF;
+    border-color: #F781BF;
+    border-radius: 10px;
 }
 
 /* PAGINATION */
@@ -1621,7 +1623,8 @@ label[data-bx-user-consent] input {
 
 #bx-soa-region .bx-soa-section-title-container,
 #bx-soa-region .bx-soa-section-content,
-#bx-soa-region .bx-soa-customer-field:nth-child(3) {
+#bx-soa-region .bx-soa-customer-field:nth-child(3),
+#bx-soa-region .bx-soa-customer-field:nth-child(6) {
     grid-column-start: 1;
     grid-column-end: 3;
 }
@@ -1734,7 +1737,7 @@ label[data-bx-user-consent] input {
 }
 
 #bx-soa-region .bx-ui-sls-clear {
-    z-index: 10;
+    z-index: 5;
     background: url(images/cross.svg) no-repeat center center;
     height: 54px;
     margin-top: 0;
@@ -1919,8 +1922,7 @@ label[data-bx-user-consent] input {
     padding-bottom: 0;
 }
 
-div[data-property-id-row="43"],
-div[data-property-id-row="49"] {
+div[data-property-id-row="43"] {
     display: none !important;
 }
 
@@ -1951,6 +1953,11 @@ body .wrapper-payment .sberbank__description {
 .bx-soa-cart-t span+span {
     margin-top: 8px;
     white-space: nowrap;
+}
+
+.bx-soa-cart-t span.pickup{
+    max-width: 200px;
+    white-space: wrap!important;
 }
 
 .bx-soa-cart-total-button-container.disabled {
@@ -1993,7 +2000,8 @@ body .wrapper-payment .sberbank__description {
 
 #russianpost_btn_openmap,
 .sdek_pvzLair .btn-default,
-#IPOL_OZON_injectHere a {
+#IPOL_OZON_injectHere a,
+#IPOL_FIVEPOST_injectHere a {
     padding: 16px !important;
     border-radius: 10px;
     background-color: #F781BF !important;
@@ -2010,10 +2018,14 @@ body .wrapper-payment .sberbank__description {
     width: 100%;
     text-transform: lowercase;
     outline: none !important;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     box-shadow: none;
     white-space: normal;
+}
 
+.sdek_pvzLair br,
+.sdek_pvzAddr{
+    display: none;
 }
 
 .min-summ+.min-summ {
@@ -2193,7 +2205,8 @@ div[data-property-id-row='59'] {
     .bx-soa-pp-company-subTitle,
     #russianpost_btn_openmap,
     .sdek_pvzLair .btn-default,
-    #IPOL_OZON_injectHere a {
+    #IPOL_OZON_injectHere a,
+    #IPOL_FIVEPOST_injectHere a {
         margin-bottom: 16px;
     }
 

@@ -10,15 +10,21 @@
 
 @font-face {
     font-family: Manrope;
-    src: url("Manrope/Manrope-VariableFont_wght.ttf");
+    src: url('Manrope/Manrope-VariableFont_wght.woff2') format('woff2'),
+         url('Manrope/Manrope-VariableFont_wght.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: Commissioner;
-    src: url("Commissioner/Commissioner-VariableFont.ttf");
+    src: url('Commissioner/Commissioner-VariableFont.woff2') format('woff2'),
+         url('Commissioner/Commissioner-VariableFont.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: TenorSans;
-    src: url("TenorSans/TenorSans-Regular.ttf");
+    src: url('TenorSans/TenorSans-Regular.woff2') format('woff2'),
+         url('TenorSans/TenorSans-Regular.ttf') format('truetype');
+    font-display: swap;
 }

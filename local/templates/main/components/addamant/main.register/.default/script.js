@@ -15,25 +15,28 @@ function inputsRequiredFields(z) {
           input.type !== 'email' &&
           className != '')
       {
-        input.onkeyup = function() {
+        input.onkeyup = function(elem) {
           let message = document.querySelectorAll(`.div${className}`);
+          
           if (input.value.length <= 1) {
+            input.nextElementSibling.style.display = 'block';
             message[0].style.display = 'block';
           }
           if (input.value.length > 1) {
+            input.nextElementSibling.style.display = 'none';
             message[0].style.display = 'none';
           }
         }
       }
 
-      input.oninput = function (event) {
+      /*input.oninput = function (event) {
         let sibling = startElem.nextElementSibling;
         while (sibling) {
             if (sibling.classList.contains(className)) {
                 return sibling;
             }
         }
-      }
+      }*/
 
       /*if (input.name === 'REGISTER[PASSWORD]') {
         input.oninput = function (event) {
@@ -51,27 +54,27 @@ function inputsRequiredFields(z) {
       if (input.name === 'REGISTER[CONFIRM_PASSWORD]') {
         input.oninput = function (event) {
           let message = document.querySelectorAll('.bx-auth-confirm-input ~ div')
-
+          pass = event.target.value;
           if (pass !== event.target.value) {
-            messageConfirmIcon.forEach(value => {
+            /*messageConfirmIcon.forEach(value => {
               value.style.display = 'none';
             })
 
             messageErrorIcon.forEach(value => {
               value.style.display = 'flex';
-            })
+            })*/
 
             message[0].style.display = 'block';
           } else {
             message[0].style.display = 'none';
 
-            messageConfirmIcon.forEach(value => {
+           /*messageConfirmIcon.forEach(value => {
               value.style.display = 'flex';
             })
 
             messageErrorIcon.forEach(value => {
               value.style.display = 'none';
-            })
+            })*/
           }
 
           if (pass.length === 0 && event.target.value.length === 0) {
@@ -170,7 +173,7 @@ function changeBithday(node) {
     let currentBithday = bithdayField.val();
     let fieldType = node.dataset.type;
     let currentBithdayArray = ['', '', ''];
-
+  
     if (currentBithday != '') {
         currentBithdayArray = currentBithday.split('.');
     }

@@ -86,7 +86,7 @@ $APPLICATION->SetTitle("Гель-лаки");?><?$APPLICATION->IncludeComponent(
 		"GIFTS_SHOW_OLD_PRICE" => "Y",
 		"HIDE_NOT_AVAILABLE" => "N",
 		"HIDE_NOT_AVAILABLE_OFFERS" => "Y",
-		"IBLOCK_ID" => IblockHelper::getIdByCode('palitracatalog'),
+		"IBLOCK_ID" => IblockHelper::getIdByCode('catalogPalitraNew'),
 		"IBLOCK_TYPE" => "catalog",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"INSTANT_RELOAD" => "N",

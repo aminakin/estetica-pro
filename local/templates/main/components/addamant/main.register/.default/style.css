@@ -251,10 +251,10 @@ form#regform {
     display: none;
     position: absolute;
     cursor: pointer;
-    top: 20px;
+    top: 46px;
     right: 16px;
     height: 16px;
-}
+} 
 
 .bx-auth-reg .row input[type="checkbox"] {
     display: none;
@@ -283,6 +283,10 @@ form#regform {
 
 .bx-auth-reg .row input[type="checkbox"]:checked+label:before {
     background: url(images/checkbox.png)
+}
+
+bx-auth-reg{
+
 }
 
 .profile-field__personal-agree,
@@ -345,8 +349,9 @@ form#regform {
     font-size: 18px;
     line-height: 25px;
     color: #000;
-    margin: 60px 0 15px;
+    margin: 0px 0 15px;
     white-space: nowrap;
+    text-align: center;
 }
 
 #register .registration-description {
@@ -355,6 +360,7 @@ form#regform {
     text-align: left;
     color: #808189;
     margin-bottom: 30px;
+    text-align: center;
 }
 
 #register .to-catalog {

@@ -135,7 +135,7 @@ if (!empty($arResult['ERRORS']['FATAL'])) {
                             <? } ?>
                             <a class="order-item__link"
                                href="javascript:void(0);"
-                               onclick="BX.Sale.PersonalOrderComponent.PersonalOrderList.showDetailOrder(<?= htmlspecialcharsbx($order['ORDER']['ACCOUNT_NUMBER']) ?>, <?= $javascriptParams ?>)">
+                               onclick="BX.Sale.PersonalOrderComponent.PersonalOrderList.showDetailOrder('<?= htmlspecialcharsbx($order['ORDER']['ACCOUNT_NUMBER']) ?>', <?= $javascriptParams ?>)">
                                 <?= Loc::getMessage('SPOL_TPL_MORE_ON_ORDER') ?>
                             </a>
                             <? if ($order['ORDER']['CANCELED'] != 'Y' && $order['ORDER']['CAN_CANCEL'] == 'Y' && $order['ORDER']['STATUS_ID'] != 'F') { ?>
@@ -160,4 +160,32 @@ if (!empty($arResult['ERRORS']['FATAL'])) {
         }
     }
 }
-?>
+
+global $USER;
+if ($USER->IsAdmin()){
+    $APPLICATION->IncludeComponent(
+        "bitrix:sale.personal.order.detail",
+        "ajax",
+        array(
+            "ACTIVE_DATE_FORMAT" => "d.m.Y",
+            "CACHE_GROUPS" => "N",
+            "CACHE_TIME" => "3600",
+            "CACHE_TYPE" => "A",
+            "CUSTOM_SELECT_PROPS" => array(""),
+            "DISALLOW_CANCEL" => "N",
+            "ID" => 20681,
+            "PATH_TO_CANCEL" => "",
+            "PATH_TO_COPY" => "",
+            "PATH_TO_LIST" => "",
+            "PATH_TO_PAYMENT" => "payment.php",
+            "PICTURE_HEIGHT" => "110",
+            "PICTURE_RESAMPLE_TYPE" => "1",
+            "PICTURE_WIDTH" => "110",
+            "PROP_1" => array(""),
+            "PROP_2" => array(""),
+            "REFRESH_PRICES" => "N",
+            "RESTRICT_CHANGE_PAYSYSTEM" => array("0"),
+            "SET_TITLE" => "N"
+        ) 
+    );
+}

@@ -179,9 +179,6 @@ use Bitrix\Main\Localization\Loc;
 			<? if (!$USER->IsAuthorized()) { ?>
 				<div class="basket-checkout-section-payment">
 					<img src="/local/templates/main/components/bitrix/sale.basket.basket/estetica_new/images/apple.png">
-					<img src="/local/templates/main/components/bitrix/sale.basket.basket/estetica_new/images/google.png">
-					<img src="/local/templates/main/components/bitrix/sale.basket.basket/estetica_new/images/visa.png">
-					<img src="/local/templates/main/components/bitrix/sale.basket.basket/estetica_new/images/master.png">
 					<img src="/local/templates/main/components/bitrix/sale.basket.basket/estetica_new/images/mir.png">
 				</div>
 			<? } ?>

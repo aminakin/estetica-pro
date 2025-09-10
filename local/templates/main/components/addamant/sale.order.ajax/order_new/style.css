@@ -1955,9 +1955,9 @@ body .wrapper-payment .sberbank__description {
     white-space: nowrap;
 }
 
-.bx-soa-cart-t span.pickup{
+.bx-soa-cart-t span.pickup {
     max-width: 200px;
-    white-space: wrap!important;
+    white-space: wrap !important;
 }
 
 .bx-soa-cart-total-button-container.disabled {
@@ -2018,13 +2018,12 @@ body .wrapper-payment .sberbank__description {
     width: 100%;
     text-transform: lowercase;
     outline: none !important;
-    margin-bottom: 24px;
     box-shadow: none;
     white-space: normal;
 }
 
 .sdek_pvzLair br,
-.sdek_pvzAddr{
+.sdek_pvzAddr {
     display: none;
 }
 
@@ -2053,6 +2052,10 @@ body .wrapper-payment .sberbank__description {
     width: 161px;
     height: 161px;
     background: url(images/delivery_bg.svg) no-repeat center center;
+}
+
+.bx-soa-pp-company.delivery .bx-soa-pp-list {
+    margin-top: 24px;
 }
 
 .bx-soa-pp-company-subTitle {
@@ -2207,7 +2210,11 @@ div[data-property-id-row='59'] {
     .sdek_pvzLair .btn-default,
     #IPOL_OZON_injectHere a,
     #IPOL_FIVEPOST_injectHere a {
-        margin-bottom: 16px;
+        /*margin-bottom: 16px;*/
+    }
+
+    .bx-soa-pp-company.delivery .bx-soa-pp-list {
+        margin-top: 16px;
     }
 
     #bx-soa-properties .auth-block {

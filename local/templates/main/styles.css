@@ -350,6 +350,7 @@ header .sticky .header-middle .header-phone a {
     font-size: 18px;
     line-height: 20px;
     font-weight: 300;
+    white-space: nowrap;
 }
 
 .footer-copyright-text {

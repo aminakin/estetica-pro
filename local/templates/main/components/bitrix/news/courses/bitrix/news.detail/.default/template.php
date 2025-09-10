@@ -260,8 +260,9 @@ endif;
 					<div class="price"><?= GetMessage('PRICES') ?> <?= GetMessage('FREE_CLASS') ?></div>
 				<?php else: ?>
 					<div class="price"><?= GetMessage('PRICES') ?> <?= CurrencyFormat($arResult['PROPERTIES']['PRICE']['VALUE'], "RUB"); ?></div>
-					<div class="payment"><?= GetMessage('PREPAYMENT') ?></div>
-					<div class="data-payment"><?= GetMessage('DATA_PAYMENT') ?></div>
+					<?php if ($arResult['PROPERTIES']['INFO_BRONER']['VALUE']): ?>
+						<?= $arResult['PROPERTIES']['INFO_BRONER']['~VALUE']['TEXT']?>
+					<?php endif; ?>
 				<?php endif; ?>
 			</div>
 			<div class="write-course" id="write-course">

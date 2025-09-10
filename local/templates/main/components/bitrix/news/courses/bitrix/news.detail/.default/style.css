@@ -251,17 +251,14 @@
 	margin-bottom: 24px;
 }
 
-.prices-course .payment {
-	margin-bottom: 24px;
-}
-.prices-course .payment b{
-	font-weight: 400;
-}
-
-.prices-course .payment,
-.prices-course .data-payment {
+.prices-course p {
 	font-size: 18px;
 	line-height: 20px;
+	margin: 0;
+}
+
+.prices-course p + p{
+	margin-top: 24px;
 }
 
 .write-course {

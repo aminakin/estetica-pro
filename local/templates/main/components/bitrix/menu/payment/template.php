@@ -13,5 +13,8 @@
 
         <?endforeach?>
     </nav>
-    <img src="<?= SITE_TEMPLATE_PATH ?>/images/svg/payment.png">
+    <div class="footer-menu-payment-img">
+        <img src="<?= $templateFolder ?>/images/apple.png">
+        <img src="<?= $templateFolder ?>/images/mir.png">
+    </div>
 <?endif?>

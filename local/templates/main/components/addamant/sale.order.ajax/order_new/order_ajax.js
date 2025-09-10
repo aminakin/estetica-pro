@@ -6252,10 +6252,50 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					if (this.result.DELIVERY[i].ID == deliveryId)
 					{
 						currentDelivery = this.result.DELIVERY[i];
-						break;
-					}
-				}
-			}
+
+						var rusPostType=document.querySelector('#soa-property-60');
+								
+						if(this.params.SHOW_REGION_BLOCK_WHEN_USE_DELIVERY.includes(currentDelivery.ID) ||
+							rusPostType !== null && rusPostType.value == 'Отделение'){
+							$('#bx-soa-region').removeClass('no');
+						}else{
+							$('#bx-soa-region').addClass('no');
+						}
+
+						// 129684
+						if (currentDelivery.ID == '32' || currentDelivery.ID == '31' || currentDelivery.ID == '46' || currentDelivery.ID == '129') {
+							$('[data-property-id-row="6"]').css({'display' : 'none'});
+							$('[data-property-id-row="7"]').css({'display' : 'none'});
+							$('[data-property-id-row="9"]').css({'display' : 'none'});
+						
+							$('[data-property-id-row="6"] input').val('-');
+							$('[data-property-id-row="7"] input').val('-');
+							$('[data-property-id-row="9"] input').val('-');
+						
+							$('[data-property-id-row="49"]').css({'display' : 'flex'});
+						} else {
+							$('[data-property-id-row="6"]').css({'display' : 'flex'});
+							$('[data-property-id-row="7"]').css({'display' : 'flex'});
+							$('[data-property-id-row="9"]').css({'display' : 'flex'});
+						
+							$('[data-property-id-row="6"] input').val('');
+							$('[data-property-id-row="7"] input').val('');
+							$('[data-property-id-row="9"] input').val('');
+						
+							$('[data-property-id-row="49"]').css({'display' : 'none'});
+						}
+					
+						if (currentDelivery.ID == '2') {
+							$('[data-property-id-row="6"] input').val('-');
+							$('[data-property-id-row="7"] input').val('-');
+							$('[data-property-id-row="9"] input').val('-');
+							$('[data-property-id-row="5"] input[name="ORDER_PROP_5"]').val('0000583577');
+						}
+									break;
+								}
+							}
+						
+						}
 
 			return currentDelivery;
 		},
@@ -7290,45 +7330,6 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					//дефолтный контейнер свойств
 					propsItemsContainer.appendChild(propsItemNode);
 				}
-			}
-
-			var rusPostType=document.querySelector('#soa-property-60');
-			var currentDelivery = this.getSelectedDelivery();			
-			if(this.params.SHOW_REGION_BLOCK_WHEN_USE_DELIVERY.includes(currentDelivery.ID) ||
-				rusPostType !== null && rusPostType.value == 'Отделение'){
-				$('#bx-soa-region').removeClass('no');
-			}else{
-				$('#bx-soa-region').addClass('no');
-			}
-			
-			// 129684
-			if (currentDelivery.ID == '32' || currentDelivery.ID == '31' || currentDelivery.ID == '46' || currentDelivery.ID == '129') {
-				$('[data-property-id-row="6"]').css({'display' : 'none'});
-				$('[data-property-id-row="7"]').css({'display' : 'none'});
-				$('[data-property-id-row="9"]').css({'display' : 'none'});
-
-				$('[data-property-id-row="6"] input').val('-');
-				$('[data-property-id-row="7"] input').val('-');
-				$('[data-property-id-row="9"] input').val('-');
-
-				$('[data-property-id-row="49"]').css({'display' : 'flex'});
-			} else {
-				$('[data-property-id-row="6"]').css({'display' : 'flex'});
-				$('[data-property-id-row="7"]').css({'display' : 'flex'});
-				$('[data-property-id-row="9"]').css({'display' : 'flex'});
-
-				$('[data-property-id-row="6"] input').val('');
-				$('[data-property-id-row="7"] input').val('');
-				$('[data-property-id-row="9"] input').val('');
-
-				$('[data-property-id-row="49"]').css({'display' : 'none'});
-			}
-
-			if (currentDelivery.ID == '2') {
-				$('[data-property-id-row="6"] input').val('-');
-				$('[data-property-id-row="7"] input').val('-');
-				$('[data-property-id-row="9"] input').val('-');
-				$('[data-property-id-row="5"] input[name="ORDER_PROP_5"]').val('0000583577');
 			}
 		},
 

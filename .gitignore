@@ -27,6 +27,7 @@
 
 .htaccess
 
+/xhprof_html/
 
 # dirs & files
 /.htaccess

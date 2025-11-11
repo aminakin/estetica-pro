@@ -28,6 +28,7 @@
 .htaccess
 
 /xhprof_html/
+/vendor/
 
 # dirs & files
 /.htaccess

@@ -101,12 +101,10 @@ global $notAvailable;
         $notAvailable = 'N';
       }
 
-      if (stripos($APPLICATION->GetCurDir(), '/catalog/') !== false) {
-        $sortCatalog = 'PROPERTYSORT_NEW';
-        $orderCatalog = 'desc';
-        $sortCatalog2 = 'NAME';
-        $orderCatalog2 = 'asc';
-      }
+      $sortCatalog = 'PROPERTYSORT_NEW';
+      $orderCatalog = 'desc';
+      $sortCatalog2 = 'NAME';
+      $orderCatalog2 = 'asc';
 
       switch ($_REQUEST['order']) {
         case 'asc':

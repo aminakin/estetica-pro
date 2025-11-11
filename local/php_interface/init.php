@@ -1,4 +1,63 @@
 <? //demo
+
+/*
+// Логин для анализа длительности выполнения запросов
+define('BITRIX_PERF_START', microtime(true));
+define('BITRIX_PERF_MEMORY_START', memory_get_usage(true));
+
+register_shutdown_function(function() {
+    if (php_sapi_name() === 'cli') return;
+    
+    $end_time = microtime(true);
+    $execution_time = $end_time - BITRIX_PERF_START;
+    $memory_peak = memory_get_peak_usage(true);
+    $memory_start = BITRIX_PERF_MEMORY_START;
+    
+    $log_data = [
+        'time' => date('c'),
+        'uri' => $_SERVER['REQUEST_URI'] ?? '',
+        'method' => $_SERVER['REQUEST_METHOD'] ?? 'GET',
+        'execution_time' => round($execution_time, 4),
+        'memory_peak_mb' => round($memory_peak / 1024 / 1024, 2),
+        'memory_usage_mb' => round(($memory_peak - $memory_start) / 1024 / 1024, 2),
+        'ip' => $_SERVER['REMOTE_ADDR'] ?? '',
+        'user_agent' => substr($_SERVER['HTTP_USER_AGENT'] ?? '', 0, 200),
+        'http_code' => http_response_code(),
+        'query_count' => defined('BITRIX_SQL_COUNT') ? BITRIX_SQL_COUNT : 'unknown',
+        'include_files' => count(get_included_files()),
+        'bitrix_sessid' => bitrix_sessid_get() ?: 'none'
+    ];
+    
+    // Логируем в разные файлы в зависимости от времени выполнения
+    if ($execution_time > 5.0) {
+        $log_file = '/local/logs/critical_slow_pages.log';
+    } elseif ($execution_time > 2.0) {
+        $log_file = '/local/logs/slow_pages.log';
+    } elseif ($execution_time > 1.0) {
+        $log_file = '/local/logs/medium_pages.log';
+    } else {
+        $log_file = '/local/logs/fast_pages.log';
+    }
+    
+    file_put_contents(
+        $_SERVER['DOCUMENT_ROOT'] . $log_file,
+        json_encode($log_data) . PHP_EOL,
+        FILE_APPEND | LOCK_EX
+    );
+    
+    // Дополнительно: логируем в системный лог Bitrix для очень медленных запросов
+    if ($execution_time > 10.0) {
+        CEventLog::Add([
+            "SEVERITY" => "ERROR",
+            "AUDIT_TYPE" => "SLOW_PAGE_GENERATION",
+            "MODULE_ID" => "main",
+            "ITEM_ID" => $_SERVER['REQUEST_URI'] ?? '',
+            "DESCRIPTION" => "Page generation time: " . round($execution_time, 2) . "s, Memory: " . 
+                           round($memory_peak / 1024 / 1024, 2) . "MB, URI: " . ($_SERVER['REQUEST_URI'] ?? ''),
+        ]);
+    }
+}); */
+
 class classBuildSCG
 {
   public static function buildSVG(string $svg_name, string $base = 'local/templates/main/images/svg/')
@@ -443,9 +502,17 @@ function SaleComponentOrderCompleteHandler($ID, $arFields, $arOrder, $isNew)
 
 
     $City = $arLocs['COUNTRY_NAME_ORIG'] . ' ' . $arLocs['REGION_NAME_ORIG'] . ' ' . $arLocs['SUBREGION'] . ' ' . $arLocs['CITY_NAME_ORIG'];
-    $Street = $resStreet->getValue();
-    $House = $resHouse->getValue();
-    $Apartment = $resApartment->getValue();
+    
+    if($resStreet){
+      $Street = $resStreet->getValue();
+    }
+    if($resHouse){
+      $House = $resHouse->getValue();
+    }
+    if($resApartment){
+      $Apartment = $resApartment->getValue();
+    }
+    
     $IfAuth = $resIfAuth->getValue();
 
     global $USER;

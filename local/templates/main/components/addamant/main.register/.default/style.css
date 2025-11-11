@@ -120,7 +120,6 @@ form#regform {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    margin-bottom: 0 !important;
 }
 
 .registration-svg-block {
@@ -171,6 +170,11 @@ form#regform {
 
 .row.UF_PERSONAL_AGREE {
     order: 12;
+}
+
+#regform .row.CAPTCHA {
+    order: 13;
+    margin-bottom: 0!important;
 }
 
 .row.SUBMIT {

@@ -293,34 +293,18 @@ if ($arResult["SHOW_SMS_FIELD"] == true) {
                         <? endforeach; ?>
                     <? } ?>
                 <? endif; ?>
-                <? // ******************** /User properties ***************************************************
-                ?>
-                <?
-                if ($arResult["USE_CAPTCHA"] == "Y") {
-                ?>
-                    <tr>
-                        <td colspan="2"><b></b></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <input type="hidden" name="captcha_sid" value="<?= $arResult["CAPTCHA_CODE"] ?>" />
-                            <img src="/bitrix/tools/captcha.php?captcha_sid=<?= $arResult["CAPTCHA_CODE"] ?>" width="180"
-                                height="40" alt="CAPTCHA" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><input type="text" name="captcha_word" maxlength="50" value="" /></td>
-                    </tr>
-                <?
-                }
-                ?>
-
+                <? // ******************** /User properties ***************************************************?>
+                <?if ($arResult["USE_CAPTCHA"] == "Y") {?>
+                    <div class="row CAPTCHA">
+                        <input type="hidden" name="captcha_sid" value="<?= $arResult["CAPTCHA_CODE"] ?>" />
+                        <img src="/bitrix/tools/captcha.php?captcha_sid=<?= $arResult["CAPTCHA_CODE"] ?>" width="180" height="40" alt="CAPTCHA" />
+                        <input type="text" name="captcha_word" maxlength="50" value="" />
+                    </div>
+                <?}?>
                 <div class="row UF_PERSONAL_AGREE">
-                <div class="profile-field__personal-agree">
-                    <input id="personal-agree" name="UF_PERSONAL_AGREE" checked="checked" type="checkbox" />
-                    <label for="personal-agree" class="terms-line"><?= GetMessage("REGISTER_PERSONAL_AGREE") ?></label>
+                    <div class="profile-field__personal-agree">
+                        <input id="personal-agree" name="UF_PERSONAL_AGREE" checked="checked" type="checkbox" />
+                        <label for="personal-agree" class="terms-line"><?= GetMessage("REGISTER_PERSONAL_AGREE") ?></label>
                     </div>
                 </div>
                 <div class="row SUBMIT" style="display: -webkit-flex;display: -moz-flex;display: -ms-flex;display: -o-flex;display: flex;justify-content: center;">

@@ -54,7 +54,7 @@ $APPLICATION->SetTitle("Каталог товаров");?>
 		"LIST_PROPERTY_CODE" => array(
 			0 => "",
 			1 => "PRODUCT",
-			2 => "",
+			2 => "BEZNACHISLENIYABONUSA",
 		),
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",

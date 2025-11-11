@@ -450,6 +450,7 @@ input[type="checkbox"] {
 
 .bx-soa-coupon-item {
     display: block;
+    margin-top: 8px;
 }
 
 .bx-soa-coupon-block:after {
@@ -539,7 +540,7 @@ input[type="checkbox"] {
     display: inline-block;
     height: 20px;
     width: 20px;
-    margin-left: 10px;
+    margin-left: 4px;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAANhJREFUeNpEkM0KwjAQhGdr/Dv6Nj6EXkRvehTfRhS868lWWigU9OFEHGeTqIF0dydftrMJp0s1McMdwJ5AY0iLKaxVbwGbBxgeJKaCS4NjbJxQvlE4a/ektUFX9w5JCNolEzQmGCHlT8VjEFQjdvrBN0EOF4oOrXS5Cxmqs7NKVSEroPHlkLLOLRX4r5HOjenf3tE7DDyjxCLNx032ZFovSe80BK7Sl9IQmJ4gT4foSfowe+47jGx+xzidQxY9Zd/+/cLbIC8ztW9VHBL0fXDWGdeDc/ERYABB6E45iF95UQAAAABJRU5ErkJggg==) no-repeat center;
     cursor: pointer;
     vertical-align: middle;

@@ -270,9 +270,9 @@ $APPLICATION->SetTitle("О нас");
 				<? $APPLICATION->IncludeFile('/include/about-text.php'); ?>
 			</div>
 		</div>
-		<div class="about-main__anketa">
+		<?/*div class="about-main__anketa">
 			<? $APPLICATION->IncludeFile('/include/about-anketa.php'); ?>
-		</div>
+		</div*/?>
 	</div>
 </div>
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

@@ -1,0 +1,1 @@
+a:3:{s:16:"main()==>phpinfo";a:5:{s:2:"ct";i:1;s:2:"wt";i:50838;s:3:"cpu";i:51933;s:2:"mu";i:103352;s:3:"pmu";i:217360;}s:23:"main()==>xhprof_disable";a:5:{s:2:"ct";i:1;s:2:"wt";i:1;s:3:"cpu";i:0;s:2:"mu";i:520;s:3:"pmu";i:0;}s:6:"main()";a:5:{s:2:"ct";i:1;s:2:"wt";i:50872;s:3:"cpu";i:51933;s:2:"mu";i:104504;s:3:"pmu";i:217360;}}

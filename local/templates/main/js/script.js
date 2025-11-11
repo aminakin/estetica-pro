@@ -622,7 +622,7 @@ $(document).ready(function () {
 
     $('.top-mobile-menu__catalog_opener').on('click', function (e) {
         let menuWrap = $(this).siblings('.top-mobile-menu__catalog-list');
-        e.preventDefault();
+        //e.preventDefault();
         $(this).addClass('top-mobile-menu__catalog_active');
 
         if ($(this).hasClass('root-item-catalog') || $(this).hasClass('root-item-brand') || $(this).hasClass('root-item-palitra')) {
@@ -1788,30 +1788,6 @@ $(document).ready(function () {
             $('.search-line').val($('#search-page-value').val());
         });
     }
-    $('.product-item-scu-item-selected').text($('.product-item-scu-item-text-container.selected .product-item-scu-item-text').text());
-
-    $('.product-item-scu-list.single_props').on('click', '.product-item-scu-item-selected', function () {
-        if ($(this).hasClass('open')) {
-            $(this).removeClass('open');
-            $('.product-item-scu-item-list.single_props').fadeOut();
-        } else {
-            $('.product-item-scu-item-selected').removeClass('open');
-            $('.product-item-scu-item-list.single_props').fadeOut();
-            $(this).addClass('open');
-            $('.product-item-scu-item-list.single_props').fadeIn();
-        }
-    });
-    $('.product-item-scu-list.single_props').on('click', '.product-item-scu-item-text-container.selected .product-item-scu-item-text', function () {
-        $('.product-item-scu-item-selected').removeClass('open');
-        $('.product-item-scu-item-list.single_props').fadeOut();
-        $('.product-item-scu-item-selected').text($(this).text());
-    });
-    $('.product-item-scu-list.single_props').on('click', '.product-item-scu-item-text-container.notallowed.selected .product-item-scu-item-text', function () {
-        $('.product-item-scu-item-selected').removeClass('open');
-        $('.product-item-scu-item-list.single_props').fadeOut();
-        $('.product-item-scu-item-selected').text($(this).text());
-    });
-
 });
 
 function scrollAfterLink() {

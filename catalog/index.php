@@ -1,4 +1,5 @@
 <?
+xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("title", "Каталог товаров");
 $APPLICATION->SetPageProperty("description", "Профессиональные материалы для маникюра и наращивания ресниц. Известные и востребованные бренды по официальным ценам производителей. Отправляем в любой город РФ. Быстрая онлайн-оплата заказа на сайте.");
@@ -371,4 +372,14 @@ $APPLICATION->SetTitle("Каталог товаров");
 		)
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");
+
+$xhprof_data = xhprof_disable();
+include_once "/var/www/esteticapro/data/www/estetica-pro.ru/xhprof_html/xhprof_lib/utils/xhprof_lib.php";
+include_once "/var/www/esteticapro/data/www/estetica-pro.ru/xhprof_html/xhprof_lib/utils/xhprof_runs.php";
+
+$xhprof_runs = new XHProfRuns_Default('/var/www/esteticapro/data/www/estetica-pro.ru/local/tmp/xhprof');
+$run_id = $xhprof_runs->save_run($xhprof_data, "xhprof_test");
+
+
+?>

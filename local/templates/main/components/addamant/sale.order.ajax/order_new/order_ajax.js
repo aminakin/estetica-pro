@@ -123,8 +123,6 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
 			this.sidebarCouponBlock = document.querySelector(parameters.sidebarCouponBlock)
 
-			this.initSidebarCoupon();
-
 			this.options.deliveriesPerPage = parseInt(parameters.params.DELIVERIES_PER_PAGE);
 			this.options.paySystemsPerPage = parseInt(parameters.params.PAY_SYSTEMS_PER_PAGE);
 			this.options.pickUpsPerPage = parseInt(parameters.params.PICKUPS_PER_PAGE);
@@ -262,7 +260,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
 		initSidebarCoupon: function()
 		{
-			this.editCoupons(this.sidebarCouponBlock, false);
+			this.editCoupons(this.sidebarCouponBlock);
 		},
 
 		/**
@@ -482,9 +480,15 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					}
 				}
 			}*/ else {
+				console.log(this.result.DELIVERY[prop].ID);
+				
 				orderRightSide.classList.remove('disabled');
 				for (var prop in this.result.DELIVERY) {
-					if((this.result.DELIVERY[prop].ID == '46' || this.result.DELIVERY[prop].ID == '31'|| this.result.DELIVERY[prop].ID == '32') && this.result.DELIVERY[prop].CHECKED == 'Y'){
+					if((this.result.DELIVERY[prop].ID == '46' || 
+						this.result.DELIVERY[prop].ID == '31'|| 
+						this.result.DELIVERY[prop].ID == '32' || 
+						this.result.DELIVERY[prop].ID == '129') && 
+						this.result.DELIVERY[prop].CHECKED == 'Y'){
 						if(this.result.LOGICTIM_BONUS.PAY_BONUS == 0 && this.result.TOTAL.ORDER_PRICE < 7000){
 							let lesPrice = Math.round(7000 - this.result.TOTAL.ORDER_PRICE);
 							$('#bx-soa-total .bx-soa-cart-total-button-container').prepend('<span class="delivery-free">Выберите товары еще на '+lesPrice+' ₽, чтобы доставка была бесплатная</span>');
@@ -3330,6 +3334,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			BX.remove(BX.lastChild(this.basketHiddenBlockNode));
 
 			this.editActiveBasketBlock(active);
+			this.initSidebarCoupon();
 			this.editFadeBasketBlock(active);
 
 			this.initialized.basket = true;
@@ -4317,6 +4322,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					appliedCouponInput.val(appliedCoupon);
 				}
 			});
+			
 			var couponsLabel = this.getCouponsLabel(true),
 				couponsBlock = BX.create('DIV', {
 					props: {className: 'bx-soa-coupon-block'},
@@ -4346,6 +4352,10 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 						BX.create('SPAN', {props: {className: 'bx-soa-coupon-item'}, children: couponsList})
 					]
 				});
+
+			if(document.querySelector('.bx-soa-cart-sidebar-coupon .bx-soa-coupon')){
+				document.querySelector('.bx-soa-cart-sidebar-coupon .bx-soa-coupon').remove();
+			}
 
 			basketItemsNode.appendChild(
 				BX.create('DIV', {
@@ -4474,8 +4484,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
 		addCoupon: function(coupon)
 		{
-			var couponListNodes = this.orderBlockNode.querySelectorAll('.bx-soa-coupon:not(.bx-soa-coupon-item-fixed) .bx-soa-coupon-item');
-
+			//var couponListNodes = this.orderBlockNode.querySelectorAll('.bx-soa-coupon:not(.bx-soa-coupon-item-fixed) .bx-soa-coupon-item');
+			var	couponListNodes = document.querySelectorAll('.bx-soa-coupon-item');
 			for (var i = 0; i < couponListNodes.length; i++)
 			{
 				if (couponListNodes[i].querySelector('[data-coupon="' + BX.util.htmlspecialchars(coupon) + '"]'))
@@ -4487,8 +4497,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
 		removeCoupon: function(coupon)
 		{
-			var couponNodes = this.orderBlockNode.querySelectorAll('[data-coupon="' + BX.util.htmlspecialchars(coupon) + '"]'), i;
-
+			//var couponNodes = this.orderBlockNode.querySelectorAll('[data-coupon="' + BX.util.htmlspecialchars(coupon) + '"]'), i;
+			var	couponNodes = document.querySelectorAll('.bx-soa-coupon-item [data-coupon="' + BX.util.htmlspecialchars(coupon) + '"]'), i;
 			for (i in couponNodes)
 			{
 				if (couponNodes.hasOwnProperty(i))
@@ -5782,12 +5792,12 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					}
 				}
 
-				/*if(currentDelivery.ID == 129){
+				if(currentDelivery.ID == 129){
 					let summ = 7000 - this.result.TOTAL.ORDER_PRICE;
 					if(summ > 0){ 
 						additionalDeliveryMessage = 'Чтобы получить бесплатную доставку 5post<br> стоимость товаров должна составлять 7 000'+' ₽'
 					}
-				}*/
+				}
 
 				price = BX.create('LI', {
 					children: [
@@ -6263,7 +6273,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 						}
 
 						// 129684
-						if (currentDelivery.ID == '32' || currentDelivery.ID == '31' || currentDelivery.ID == '46' || currentDelivery.ID == '129') {
+						/*if (currentDelivery.ID == '32' || currentDelivery.ID == '31' || currentDelivery.ID == '46' || currentDelivery.ID == '129') {
 							$('[data-property-id-row="6"]').css({'display' : 'none'});
 							$('[data-property-id-row="7"]').css({'display' : 'none'});
 							$('[data-property-id-row="9"]').css({'display' : 'none'});
@@ -6283,12 +6293,12 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 							$('[data-property-id-row="9"] input').val('');
 						
 							$('[data-property-id-row="49"]').css({'display' : 'none'});
-						}
+						}*/
 					
 						if (currentDelivery.ID == '2') {
-							$('[data-property-id-row="6"] input').val('-');
-							$('[data-property-id-row="7"] input').val('-');
-							$('[data-property-id-row="9"] input').val('-');
+							//$('[data-property-id-row="6"] input').val('-');
+							//$('[data-property-id-row="7"] input').val('-');
+							//$('[data-property-id-row="9"] input').val('-');
 							$('[data-property-id-row="5"] input[name="ORDER_PROP_5"]').val('0000583577');
 						}
 									break;
@@ -7196,6 +7206,10 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					requeredFieldAddress = true
 				}
 			}
+
+			this.regionBlockNode.querySelectorAll('div.form-group[data-property-id-row]').forEach(function(element) {
+			  element.remove();
+			});
 			
 			while (group = groupIterator())
 			{
@@ -7311,7 +7325,6 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			if(
 				property.getSettings().CODE != 'LOGICTIM_ADD_BONUS' && property.getSettings().CODE != 'LOGICTIM_PAYMENT_BONUS'
 			){
-
 				if (
 					(property.getSettings().CODE == 'STREET' && property.getSettings().CODE == 'STREET') ||
 					(property.getSettings().CODE == 'HOUSE' && property.getSettings().CODE == 'HOUSE') ||
@@ -7319,9 +7332,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					(property.getSettings().CODE == 'APARTMENT' && property.getSettings().CODE == 'APARTMENT') ||
 					(property.getSettings().CODE == 'DELIVERY' && property.getSettings().CODE == 'DELIVERY')
 				){
-					if(this.BXFormPosting != true){
-						this.regionBlockNode.appendChild(propsItemNode);
-					}
+					this.regionBlockNode.appendChild(propsItemNode);
 
 				}else if(property.getSettings().CODE == 'MANAGER_CALL' && property.getSettings().CODE == 'MANAGER_CALL'){
 					BX('bx-soa-manager-call').innerHTML = '';

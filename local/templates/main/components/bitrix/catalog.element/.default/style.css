@@ -1164,7 +1164,7 @@ section.comment {
 
 	.product-item-detail-slider-block{
 		height: 343px;
-		width: 100%;
+		width: 343px;
 	}
 
 	.product-item-detail-slider-block .product-item-detail-slider-image img{
@@ -1282,6 +1282,10 @@ section.comment {
 		position: absolute;
         top: 0px;
         right: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		justify-content: flex-end!important;
+		padding-left: 15px;
 		z-index: 4;
 	}
 

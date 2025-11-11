@@ -2975,11 +2975,36 @@ $(document).ready(function () {
             addFavoriteDetail(favorID, doAction);
 
     });
+    
     $('.detail-item-specification-block-click').on('click', function (event) {
         if ($(this).hasClass('active')) {
             $(this).removeClass('active');
         } else {
             $(this).addClass('active');
         }
-    })
+    });
+
+    $('.product-item-scu-item-selected').text($('.product-item-scu-item-text-container.selected .product-item-scu-item-text').text());
+
+    $('.product-item-scu-list.single_props').on('click', '.product-item-scu-item-selected', function () {
+        if ($(this).hasClass('open')) {
+            $(this).removeClass('open');
+            $('.product-item-scu-item-list.single_props').fadeOut();
+        } else {
+            $('.product-item-scu-item-selected').removeClass('open');
+            $('.product-item-scu-item-list.single_props').fadeOut();
+            $(this).addClass('open');
+            $('.product-item-scu-item-list.single_props').fadeIn();
+        }
+    });
+    $('.product-item-scu-list.single_props').on('click', '.product-item-scu-item-text-container.selected .product-item-scu-item-text', function () {
+        $('.product-item-scu-item-selected').removeClass('open');
+        $('.product-item-scu-item-list.single_props').fadeOut();
+        $('.product-item-scu-item-selected').text($(this).text());
+    });
+    $('.product-item-scu-list.single_props').on('click', '.product-item-scu-item-text-container.notallowed.selected .product-item-scu-item-text', function () {
+        $('.product-item-scu-item-selected').removeClass('open');
+        $('.product-item-scu-item-list.single_props').fadeOut();
+        $('.product-item-scu-item-selected').text($(this).text());
+    });
 })

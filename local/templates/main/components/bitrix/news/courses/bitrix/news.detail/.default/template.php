@@ -29,22 +29,29 @@ endif;
 				<div class="type-course">
 					<div><?php echo $arResult['PROPERTIES']['TYPE_COURSE']['VALUE'] . " "; ?></div>
 					<?
-					$count = 0;
+
+					//var_export($arResult['PROPERTIES']['PERIOD_DATE']['DESCRIPTION']);
+					foreach ($arResult['PROPERTIES']['PERIOD_DATE']['DESCRIPTION'] as $key => $item) {
+						if (preg_match('/(\d{2}\.\d{2}\.\d{4})/', $item, $matches)) {
+							$date[] = ' - ' . $matches[1];
+						}
+					}
+
 					foreach ($arResult['PROPERTIES']['PERIOD_DATE']['VALUE'] as $key => $value) {
 						$currentDate = strtotime($value);
 						$now = time();
-
-						$nextDate = isset($arResult['PROPERTIES']['PERIOD_DATE']['VALUE'][$key + 1]) ? strtotime($arResult['PROPERTIES']['PERIOD_DATE']['VALUE'][$key + 1]) : null;
-
+						//$nextDate = isset($arItem['PROPERTIES']['PERIOD_DATE']['VALUE'][$key + 1]) ? strtotime($arItem['PROPERTIES']['PERIOD_DATE']['VALUE'][$key + 1]) : null;
 						if ($currentDate <= $now) {
 							continue;
 						} else {
-							$count++;
-							if ($count == 1) {
-								echo date('d.m.Y', $currentDate) . "\n";
-							}
+							//$count++;
+							//if ($count == 1) {
+							echo date('d.m.Y', $currentDate) . $date[$key] . "\n <br>";
+							//}
 						}
 					}
+
+					unset($date);
 					?>
 					<span> <?= $arResult['PROPERTIES']['FORM_STYLE']['VALUE']; ?></span>
 				</div>
@@ -261,7 +268,7 @@ endif;
 				<?php else: ?>
 					<div class="price"><?= GetMessage('PRICES') ?> <?= CurrencyFormat($arResult['PROPERTIES']['PRICE']['VALUE'], "RUB"); ?></div>
 					<?php if ($arResult['PROPERTIES']['INFO_BRONER']['VALUE']): ?>
-						<?= $arResult['PROPERTIES']['INFO_BRONER']['~VALUE']['TEXT']?>
+						<?= $arResult['PROPERTIES']['INFO_BRONER']['~VALUE']['TEXT'] ?>
 					<?php endif; ?>
 				<?php endif; ?>
 			</div>

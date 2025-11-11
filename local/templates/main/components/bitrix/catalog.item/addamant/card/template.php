@@ -306,7 +306,7 @@ use \Bitrix\Main\Localization\Loc;
                                 <? if ($actualItem['CAN_BUY']) {
                                 ?>
                                     <div class="product-item-button-container" id="<?= $itemIds['BASKET_ACTIONS'] ?>">
-                                        <a class="product-item-button-link whiteBtn btn-link buyBtn btn <?= $buttonSizeClass ?>"
+                                        <a class="product-item-button-link 12 whiteBtn btn-link buyBtn btn <?= $buttonSizeClass ?>"
                                             data-id="<?= $item['ID'] ?>"
                                             id="<?= $itemIds['BUY_LINK'] ?>"
                                             href="javascript:void(0)" rel="nofollow"
@@ -623,7 +623,7 @@ use \Bitrix\Main\Localization\Loc;
                                                     <div id="<?= $itemIds['BASKET_ACTIONS'] ?>"
                                                         style="<?= ($actualItem['CAN_BUY'] ? '' : 'display: none') ?>;"
                                                         class="buy-button">
-                                                        <a class="product-item-button-link whiteBtn btn-link buyBtn btn btn-sm <?= $buttonSizeClass ?>"
+                                                        <a class="product-item-button-link 23 whiteBtn btn-link buyBtn btn btn-sm <?= $buttonSizeClass ?>"
                                                             data-id="<?= $item['ID'] ?>" id="<?= $itemIds['BUY_LINK'] ?>"
                                                             href="javascript:void(0)" rel="nofollow">
                                                             <?= getMessage('MESS_BUY'); ?>

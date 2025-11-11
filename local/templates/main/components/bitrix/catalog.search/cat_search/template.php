@@ -242,11 +242,13 @@ global $notAvailable;
                 "SHOW_OLD_PRICE" => "Y",
                 "LABEL_PROP" => array(
                     0 => "SALE_RESNITSY",
-                    1 => "AKTSIONNYY"
+                    1 => "AKTSIONNYY",
+                    2 => "NEW"
                 ),
                 "LABEL_PROP_MOBILE" => array(
                     0 => "SALE_RESNITSY",
-                    1 => "AKTSIONNYY"
+                    1 => "AKTSIONNYY",
+                    2 => "NEW"
                 ),
                 "MESS_BTN_LAZY_LOAD" => "показать ещё"
             ),
@@ -274,7 +276,7 @@ global $notAvailable;
                 "COMPATIBLE_MODE" => "Y",
                 "COMPONENT_TEMPLATE" => "search",
                 "CONVERT_CURRENCY" => "N",
-                "CUSTOM_FILTER" => "{\"CLASS_ID\":\"CondGroup\",\"DATA\":{\"All\":\"AND\",\"True\":\"True\"},\"CHILDREN\":[{\"CLASS_ID\":\"CondIBProp:14:390\",\"DATA\":{\"logic\":\"Equal\",\"value\":764}},{\"CLASS_ID\":\"CondIBProp:14:315\",\"DATA\":{\"logic\":\"Great\",\"value\":0}}]}",
+                "CUSTOM_FILTER" => "{\"CLASS_ID\":\"CondGroup\",\"DATA\":{\"All\":\"AND\",\"True\":\"True\"},\"CHILDREN\":[{\"CLASS_ID\":\"CondIBProp:14:353\",\"DATA\":{\"logic\":\"Equal\",\"value\":771}},{\"CLASS_ID\":\"CondIBProp:14:315\",\"DATA\":{\"logic\":\"Great\",\"value\":0}}]}",
                 "DETAIL_URL" => "",
                 "DISCOUNT_PERCENT_POSITION" => "bottom-right",
                 "DISPLAY_COMPARE" => "N",
@@ -291,11 +293,13 @@ global $notAvailable;
                 "IBLOCK_TYPE" => "catalog",
                 "LABEL_PROP" => array(
                     0 => "SALE_RESNITSY",
-                    1 => "AKTSIONNYY"
+                    1 => "AKTSIONNYY",
+                    2 => "NEW"
                 ),
                 "LABEL_PROP_MOBILE" => array(
                     0 => "SALE_RESNITSY",
-                    1 => "AKTSIONNYY"
+                    1 => "AKTSIONNYY",
+                    2 => "NEW"
                 ),
                 "LABEL_PROP_POSITION" => "top-left",
                 "LINE_ELEMENT_COUNT" => "4",

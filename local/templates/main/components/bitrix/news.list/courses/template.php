@@ -49,6 +49,8 @@ $this->setFrameMode(true);
                         //}
                     }
                 }
+                
+                unset($date);
                 ?>
             </div>
             <? if ($arItem['PROPERTIES']['PRICE']['VALUE']): ?>

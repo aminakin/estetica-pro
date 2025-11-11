@@ -1555,8 +1555,8 @@
                 this.setCompared(this.offers[index].COMPARED);
                 //debugger;
                 this.offerNum = index;
-                /*$('.add.inFavorite.favoriteBtn', $('#' + this.visual.ID)).attr('data-favorite-id', this.offers[this.offerNum].ID);
-                $('#' + this.visual.BUY_ID).attr('data-id', this.offers[this.offerNum].ID);*/
+                $('.add.inFavorite.favoriteBtn', $('#' + this.visual.ID)).attr('data-favorite-id', this.offers[this.offerNum].ID);
+                $('#' + this.visual.BUY_ID).attr('data-id', this.offers[this.offerNum].ID);
                 //        debugger;
                 /*for (var item in addFav.bas) {
                     if (addFav.fav[item] == this.offers[this.offerNum].ID) {
@@ -2161,8 +2161,6 @@
         }
     };
 })(window);
-
-
 
 $(document).ready(function() {
     $('.product-item-favorite-image-block').on('click', function(e) {

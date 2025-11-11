@@ -52,6 +52,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
     }
 
     $scripts = [
+        // SITE_TEMPLATE_PATH . '/js/data-src.js',
         SITE_TEMPLATE_PATH . '/js/jquery-3.6.0.min.js',
         SITE_TEMPLATE_PATH . '/js/formstyler/jquery.formstyler.js',
         SITE_TEMPLATE_PATH . '/js/jquery.lazy.min.js',
@@ -700,34 +701,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
                             false
                         ); ?>
                         <li class="header-menu__item">
-                            <a class="top-mobile-menu__catalog_opener root-item-palitra"><span><?= GetMessage('PALITRA'); ?></span></a>
-                            <? $APPLICATION->IncludeComponent(
-                                "bitrix:catalog.section.list",
-                                "catalog-menu-top",
-                                array(
-                                    "ADDITIONAL_COUNT_ELEMENTS_FILTER" => "additionalCountFilter",
-                                    "ADD_SECTIONS_CHAIN" => "N",
-                                    "CACHE_FILTER" => "N",
-                                    "CACHE_GROUPS" => "Y",
-                                    "CACHE_TIME" => "36000000",
-                                    "CACHE_TYPE" => "Y",
-                                    "COMPONENT_TEMPLATE" => "catalog-menu-top",
-                                    "COUNT_ELEMENTS" => "N",
-                                    "COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",
-                                    "FILTER_NAME" => "sectionsFilter",
-                                    "HIDE_SECTIONS_WITH_ZERO_COUNT_ELEMENTS" => "N",
-                                    "IBLOCK_ID" => IblockHelper::getIdByCode('palitracatalog'),
-                                    "IBLOCK_TYPE" => "catalog",
-                                    "SECTION_CODE" => "",
-                                    "SECTION_FIELDS" => array(0 => "", 1 => "",),
-                                    "SECTION_ID" => $_REQUEST["SECTION_ID"],
-                                    "SECTION_URL" => "/palitra/#SECTION_CODE#/",
-                                    "SECTION_USER_FIELDS" => array(0 => "", 1 => "",),
-                                    "SHOW_PARENT_NAME" => "Y",
-                                    "TOP_DEPTH" => "2",
-                                    "VIEW_MODE" => "LIST"
-                                )
-                            ); ?>
+                            <a href="/palitra/" class="top-mobile-menu__catalog_opener root-item-palitra"><span><?= GetMessage('PALITRA'); ?></span></a>
                         </li>
                         <li class="header-menu__item">
                             <span><? $APPLICATION->IncludeFile('/include/menu-courses.php'); ?></span>

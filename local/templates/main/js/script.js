@@ -50,9 +50,10 @@ const eventHandler = BX.Vue.event.$on(
   (payload) => {
     //document.cookie = `PHPSESSID=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=estetica-pro.ru; Secure; SameSite=Lax`;
     //document.cookie = `PHPSESSID=${payload.result.error.more.sessid}; path=/; domain=.estetica-pro.ru; Secure; SameSite=Lax`;
-    setTimeout(function() { window.location.reload(); } , 2000);
+    //setTimeout(function() { window.location.reload(); } , 2000);
   }
 );
+
 
 
 $(function () {
@@ -153,6 +154,7 @@ function addFavoriteDetail(id, action) {
 /* Избранное */
 
 $(document).ready(function () {
+    $('.bxmaker-authuserphone-input-phone__input input').attr('maxlength', 16);
     $('.reviews-link_link').on('click', function (e) {
         e.preventDefault();
         var anchor = $(this).attr('href');

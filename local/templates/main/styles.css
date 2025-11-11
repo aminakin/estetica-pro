@@ -4449,3 +4449,15 @@ html body .toggleOpen.no_fav_popup .fav-close:hover {
         left: 16px;
     }
 }
+
+.bxmaker-authuserphone-input-phone__flag{
+    display: none!important;
+}
+
+.bxmaker-authuserphone-input-phone input[type=text]{
+    padding-left: 12px!important;
+}
+
+.bxmaker-authuserphone-input-phone__title{
+    left: 10px;
+}

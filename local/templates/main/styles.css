@@ -1396,37 +1396,6 @@ html body .toggleOpen .close:hover span {
     background: #EBCFD5;
 }
 
-input[type="submit"].btnForpasswd,
-.bxmaker-authuserphone-call__block .bxmaker-authuserphone-btn--button,
-.bx-changepass-table input[type="submit"] {
-    min-width: 150px !important;
-    padding: 17px 25px;
-    letter-spacing: 0.2px;
-    border: 1px solid #EBCFD5;
-    font-size: 14px;
-    font-weight: 600;
-    background: #EBCFD5;
-    color: #ffffff;
-    width: 100%;
-    border-radius: 0px;
-}
-
-.bxmaker-authuserphone-call__block .bxmaker-authuserphone-btn--button:hover,
-input[type="submit"].btnForpasswd:hover,
-.bx-changepass-table input[type="submit"]:hover {
-    color: #ffffff;
-    background: #F0D7DC;
-    border: 1px solid #F0D7DC;
-}
-
-.bxmaker-authuserphone-call__block .bxmaker-authuserphone-btn--button:active,
-input[type="submit"].btnForpasswd:active,
-.bx-changepass-table input[type="submit"]:active {
-    color: #ffffff;
-    background: #D8ABB7;
-    border: 1px solid #D8ABB7;
-}
-
 #reg-icon {
     width: 25px;
     height: 25px;
@@ -4460,4 +4429,169 @@ html body .toggleOpen.no_fav_popup .fav-close:hover {
 
 .bxmaker-authuserphone-input-phone__title{
     left: 10px;
+}
+
+
+input[type="submit"].btnForpasswd,
+.bxmaker-authuserphone-call__block .bxmaker-authuserphone-btn--button,
+.bx-changepass-table input[type="submit"] {
+    min-width: 150px !important;
+    padding: 17px 25px;
+    letter-spacing: 0.2px;
+    border: 1px solid #EBCFD5;
+    font-size: 14px;
+    font-weight: 600;
+    background: #EBCFD5;
+    color: #ffffff;
+    width: 100%;
+    border-radius: 0px;
+}
+
+.bxmaker-authuserphone-call__block .bxmaker-authuserphone-btn--button:hover,
+input[type="submit"].btnForpasswd:hover,
+.bx-changepass-table input[type="submit"]:hover {
+    color: #ffffff;
+    background: #F0D7DC;
+    border: 1px solid #F0D7DC;
+}
+
+.bxmaker-authuserphone-call__block .bxmaker-authuserphone-btn--button:active,
+input[type="submit"].btnForpasswd:active,
+.bx-changepass-table input[type="submit"]:active {
+    color: #ffffff;
+    background: #D8ABB7;
+    border: 1px solid #D8ABB7;
+}
+
+.bxmaker-authuserphone-input-phone input[type=text],
+.bxmaker-authuserphone-input input[type=otp], 
+.bxmaker-authuserphone-input input[type=password], 
+.bxmaker-authuserphone-input input[type=phone], 
+.bxmaker-authuserphone-input input[type=tel], 
+.bxmaker-authuserphone-input input[type=text],
+.bxmaker-authuserphone-input-password input[type=password], 
+.bxmaker-authuserphone-input-password input[type=text]{
+    padding-top: 29px;
+}
+
+.bxmaker-authuserphone-input-phone--flag.bxmaker-authuserphone-input-phone--focus .bxmaker-authuserphone-input-phone__flag, 
+.bxmaker-authuserphone-input-phone--flag.bxmaker-authuserphone-input-phone--hover .bxmaker-authuserphone-input-phone__flag{
+    padding-top: 24px;
+}
+
+.bxmaker-authuserphone-input-phone__title,
+.bxmaker-authuserphone-input-password__title,
+.bxmaker-authuserphone-input__title{
+    top: 16px;
+}
+
+a.bxmaker-authuserphone-link.bxmaker-authuserphone-enter-auth-by-password-form__forget{
+    font-size: 14px;
+}
+
+a.bxmaker-authuserphone-link{
+    font-size: 16px;
+}
+
+.bxmaker-authuserphone-enter-auth-form__bypass,
+.bxmaker-authuserphone-enter-auth-by-password-form__back{
+    text-align: left;
+}
+
+
+#auth.toggleOpen.opened.auth-successfull-page-modal .bxmaker-authuserphone-enter {
+    font-size: 19px;
+}
+
+
+.bxmaker-authuserphone-enter{
+    max-width: 552px;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: none;
+    padding: 0;
+    display: block;
+}
+
+.bxmaker-authuserphone-header{
+    font-family: 'TenorSans';
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    font-weight: 400;
+}
+
+.bxmaker-authuserphone-button__inner{
+    background: #F781BF!important;
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 0;
+    min-height: 64px;
+}
+
+.bxmaker-authuserphone-button__title{
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 64px; 
+    text-transform: lowercase;
+}
+
+.auth_to_registration{
+    max-width: 552px;
+    margin: 24px auto 0;
+    width: 100%;
+    color: #999999;
+}
+
+.auth_to_registration a,
+a.bxmaker-authuserphone-link{
+    color: #F781BF!important;
+}
+
+.bxmaker-authuserphone-input-phone__field,
+.bxmaker-authuserphone-input__field,
+.bxmaker-authuserphone-input-password__field,
+.bxmaker-authuserphone-input-code__field{
+    border: 1px solid #999999!important;
+    border-radius: 10px;
+    font-family: 'Commissioner';
+}
+
+.bxmaker-authuserphone-input-phone__input input{
+    font-family: 'Commissioner';
+}
+
+.bxmaker-authuserphone-input-code input[type=otp], 
+.bxmaker-authuserphone-input-code input[type=password], 
+.bxmaker-authuserphone-input-code input[type=phone], 
+.bxmaker-authuserphone-input-code input[type=text]{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 54px;
+    border-radius: 10px;
+    padding:  0 12px;
+}
+
+.bxmaker-authuserphone-header.bxmaker-authuserphone-enter-auth__title{
+    display: none;
+}
+
+.bxmaker-authuserphone-enter-forget {
+    position: relative;
+}
+
+.bxmaker-authuserphone-enter-forget .bxmaker-authuserphone-button{
+    margin-top: 42px;
+}
+
+.bxmaker-authuserphone-enter-auth__toregistration{
+    text-align: left;
+    position: absolute;
+    bottom: 83px;
+    margin-top: 0;
+}
+
+.bxmaker-authuserphone-enter-auth__toregistration .bxmaker-authuserphone-link{
+    font-size: 14px;
 }

@@ -159,20 +159,17 @@ $(document).ready(function () {
             $('.bxmaker-authuserphone-message.bxmaker-authuserphone-message--error').remove();
             $('.bxmaker-authuserphone-enter-auth').show();
             $('.bxmaker-authuserphone-enter-forget').hide();
+            $('.bxmaker-authuserphone-enter-forget .bxmaker-authuserphone-enter-auth__title').hide();
+            $('.auth_title-wrap').show();
         });
         
         $('.bxmaker-authuserphone-enter-auth-by-password-form__forget').on('click', function(){
             $('.bxmaker-authuserphone-message.bxmaker-authuserphone-message--error').remove();
             $('.bxmaker-authuserphone-enter-auth').hide();
             $('.bxmaker-authuserphone-enter-forget').show();
+            $('.bxmaker-authuserphone-enter-forget .bxmaker-authuserphone-enter-auth__title').show();
         });
-    
-        $('.bxmaker-authuserphone-enter-auth__toregistration').on('click', function(){
-            $('.bxmaker-authuserphone-message.bxmaker-authuserphone-message--error').remove();
-            $('.bxmaker-authuserphone-enter-auth').show();
-            $('.bxmaker-authuserphone-enter-forget').hide();
-        });
-    }, 500);
+    }, 1000);
 
     $('.bxmaker-authuserphone-input-phone__input input').attr('maxlength', 16);
     $('.reviews-link_link').on('click', function (e) {

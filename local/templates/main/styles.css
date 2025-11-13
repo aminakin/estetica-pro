@@ -4575,6 +4575,7 @@ a.bxmaker-authuserphone-link{
 
 .bxmaker-authuserphone-header.bxmaker-authuserphone-enter-auth__title{
     display: none;
+    text-align: left;
 }
 
 .bxmaker-authuserphone-enter-forget {
@@ -4594,4 +4595,8 @@ a.bxmaker-authuserphone-link{
 
 .bxmaker-authuserphone-enter-auth__toregistration .bxmaker-authuserphone-link{
     font-size: 14px;
+}
+
+.bxmaker-authuserphone-enter-forget .bxmaker-authuserphone-enter-auth__title{
+    margin-bottom: 12px;
 }

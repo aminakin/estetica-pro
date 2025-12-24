@@ -484,27 +484,39 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				
 				orderRightSide.classList.remove('disabled');
 				for (var prop in this.result.DELIVERY) {
-					if((this.result.DELIVERY[prop].ID == '46' || 
-						this.result.DELIVERY[prop].ID == '31'|| 
-						this.result.DELIVERY[prop].ID == '32' || 
-						this.result.DELIVERY[prop].ID == '129') && 
+					if( (this.result.DELIVERY[prop].ID == '129' || 
+						this.result.DELIVERY[prop].ID == '132'|| 
+						this.result.DELIVERY[prop].ID == '134' )  && 
 						this.result.DELIVERY[prop].CHECKED == 'Y'){
-						if(this.result.LOGICTIM_BONUS.PAY_BONUS == 0 && this.result.TOTAL.ORDER_PRICE < 7000){
-							let lesPrice = Math.round(7000 - this.result.TOTAL.ORDER_PRICE);
+						if((this.result.LOGICTIM_BONUS.PAY_BONUS == 0 || this.result.LOGICTIM_BONUS.PAY_BONUS == null) && this.result.TOTAL.ORDER_PRICE < 5000){
+							let lesPrice = Math.round(5000 - this.result.TOTAL.ORDER_PRICE);
+							
 							$('#bx-soa-total .bx-soa-cart-total-button-container').prepend('<span class="delivery-free">Выберите товары еще на '+lesPrice+' ₽, чтобы доставка была бесплатная</span>');
+							$('#bx-soa-total .bx-soa-cart-total-button-container').prepend('<span class="delivery-free">Бесплатная доставка от 5000 ₽.</span>');
 						}else{
 							$('#bx-soa-total .bx-soa-cart-total-button-container').remove('.delivery-free');
 						}
-						
-						//$('#bx-soa-total .bx-soa-cart-total-button-container').prepend('<div class="postamat">Выберите пункт выдачи</div>');
-						if($('#soa-property-49').val() == ''){
-							orderRightSide.classList.add('disabled');
-							//$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').prepend('<div class="postamat">Выберите пункт выдачи</div>');
-						}else{
-							orderRightSide.classList.remove('disabled');
-							//$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').remove('.postamat');
-						}
 					}
+					
+					if( (this.result.DELIVERY[prop].ID == '30' || 
+						this.result.DELIVERY[prop].ID == '31'|| 
+						this.result.DELIVERY[prop].ID == '32' || 
+						this.result.DELIVERY[prop].ID == '46'|| 
+						this.result.DELIVERY[prop].ID == '47')  && 
+						this.result.DELIVERY[prop].CHECKED == 'Y'){
+							$('#bx-soa-total .bx-soa-cart-total-button-container').remove('.delivery-free');
+							$('#bx-soa-total .bx-soa-cart-total-button-container').prepend('<span class="delivery-free">Бесплатная доставка по России заказов свыше 5000 ₽ при выборе способов доставки 5Post, Yandex</span>');
+							if($('#soa-property-49').val() == ''){
+								orderRightSide.classList.add('disabled');
+								//$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').prepend('<div class="postamat">Выберите пункт выдачи</div>');
+							}else{
+								orderRightSide.classList.remove('disabled');
+								//$('#bx-soa-total .bx-soa-cart-total-button-container.disabled').remove('.postamat');
+							}
+
+					}
+					
+					
 				}
 			}
 		},
@@ -4309,14 +4321,14 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			$(document).ready(function() {
 				var inputCoupon = $('.bx-soa-coupon-input input');
 				if (couponsList.length == 0) {
-					inputCoupon.prop('disabled', false);
-					inputCoupon.removeClass('disabled-input-coupon');
+					//inputCoupon.prop('disabled', true);
+					//inputCoupon.removeClass('disabled-input-coupon');
 					var appliedCoupon = $('.bx-soa-coupon-item-success').attr('data-coupon');
 					var appliedCouponInput = $('#soa-property-59');
 					appliedCouponInput.val(appliedCoupon);
 				} else {
-					inputCoupon.prop('disabled', true);
-					inputCoupon.addClass('disabled-input-coupon');
+					//inputCoupon.prop('disabled', true);
+					//inputCoupon.addClass('disabled-input-coupon');
 					var appliedCoupon = $('.bx-soa-coupon-item-success').attr('data-coupon');
 					var appliedCouponInput = $('#soa-property-59');
 					appliedCouponInput.val(appliedCoupon);
@@ -5697,7 +5709,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			currentDelivery = this.getSelectedDelivery();
 
 			//** скрываем описание для доставок не из пвз */ 
-			if(currentDelivery.ID != 46 && currentDelivery.ID != 32 && currentDelivery.ID != 31 && currentDelivery.ID != 129){
+			if(currentDelivery.ID != 46 && currentDelivery.ID != 32 && currentDelivery.ID != 31 && currentDelivery.ID != 129 && currentDelivery.ID != 132 && currentDelivery.ID != 134){
 				return;
 			}
 
@@ -5778,24 +5790,31 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			if (currentDelivery.PRICE >= 0)
 			{
 				var additionalDeliveryMessage = '';
-				if(currentDelivery.ID == 46){
+				/*if(currentDelivery.ID == 46){
 					let summ = 7000 - this.result.TOTAL.ORDER_PRICE;
 					if(summ > 0){ 
-						additionalDeliveryMessage = 'Чтобы получить бесплатную доставку Почтой России<br> стоимость товаров должна составлять 7 000'+/*+ summ +*/' ₽'
+						additionalDeliveryMessage = 'Чтобы получить бесплатную доставку Почтой России<br> стоимость товаров должна составлять 7 000'+/*+ summ +*//*' ₽'
 					}
-				}
+				}*/
 
-				if(currentDelivery.ID == 31 || currentDelivery.ID == 32){
+				/*if(currentDelivery.ID == 31 || currentDelivery.ID == 32){
 					let summ = 7000 - this.result.TOTAL.ORDER_PRICE;
 					if(summ > 0){ 
-						additionalDeliveryMessage = 'Чтобы получить бесплатную доставку СДЭК<br> стоимость товаров должна составлять 7 000'+/*+ summ +*/' ₽'
+						additionalDeliveryMessage = 'Чтобы получить бесплатную доставку СДЭК<br> стоимость товаров должна составлять 7 000'+/*+ summ +*//*' ₽'
 					}
-				}
+				}*/
 
 				if(currentDelivery.ID == 129){
-					let summ = 7000 - this.result.TOTAL.ORDER_PRICE;
+					let summ = 5000 - this.result.TOTAL.ORDER_PRICE;
 					if(summ > 0){ 
-						additionalDeliveryMessage = 'Чтобы получить бесплатную доставку 5post<br> стоимость товаров должна составлять 7 000'+' ₽'
+						additionalDeliveryMessage = 'Чтобы получить бесплатную доставку 5post<br> стоимость товаров должна составлять 5 000'+' ₽'
+					}
+				}
+
+				if(currentDelivery.ID == 132 || currentDelivery.ID == 134){
+					let summ = 5000 - this.result.TOTAL.ORDER_PRICE;
+					if(summ > 0){ 
+						additionalDeliveryMessage = 'Чтобы получить бесплатную доставку Yandex<br> стоимость товаров должна составлять 5 000'+' ₽'
 					}
 				}
 
@@ -8588,10 +8607,10 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				}else if(curDelivery.ID == 3){
 					this.totalInfoBlockNode.appendChild(this.createTotalUnit(BX.message('SOA_SUM_DELIVERY'), deliveryValue, params));
 					this.totalInfoBlockNode.appendChild(this.createTotalUnit(BX.message('SALE_SADC_TRANSIT'), '1 день', 'date'));
-				}else if(curDelivery.ID == 46 || curDelivery.ID == 47 || curDelivery.ID == 31 || curDelivery.ID == 32 || curDelivery.ID == 129){
+				}else if(curDelivery.ID == 46 || curDelivery.ID == 47 || curDelivery.ID == 31 || curDelivery.ID == 32 || curDelivery.ID == 129 || curDelivery.ID == 132 || curDelivery.ID == 134){
 					this.totalInfoBlockNode.appendChild(this.createTotalUnit(BX.message('SOA_SUM_DELIVERY'), deliveryValue, params));
 					this.totalInfoBlockNode.appendChild(this.createTotalUnit(BX.message('SALE_SADC_TRANSIT'), curDelivery.PERIOD_TEXT, 'date'));
-					this.totalInfoBlockNode.appendChild(this.createTotalUnit(BX.message('SOA_MORE_WEIGHT'), deliveryValue, 'weight'));
+					//this.totalInfoBlockNode.appendChild(this.createTotalUnit(BX.message('SOA_MORE_WEIGHT'), deliveryValue, 'weight'));
 				}else{
 					this.totalInfoBlockNode.appendChild(this.createTotalUnit(BX.message('SOA_SUM_DELIVERY'), deliveryValue, params));
 				}

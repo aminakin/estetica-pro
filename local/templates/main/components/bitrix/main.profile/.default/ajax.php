@@ -128,14 +128,14 @@ if (isset($_POST['event']) && $_POST['event'] !== '') {
                 $result['success'] = true;
             }
             /*break;
-                case 'UPDATE_PASSWORD':*/
-            $currentPassword = $_POST['CURRENT_PASSWORD'];
+            case 'UPDATE_PASSWORD':*/
+            //$currentPassword = $_POST['CURRENT_PASSWORD'];
             $newPassword = $_POST['NEW_PASSWORD'];
             $confirmPassword = $_POST['NEW_PASSWORD_CONFIRM'];
 
-            if ($currentPassword !== '' && $newPassword !== '' && $confirmPassword !== '') {
+            if (/*$currentPassword !== '' && */$newPassword !== '' && $confirmPassword !== '') {
 
-                if (strlen($currentPassword) < 6) {
+                /*if (strlen($currentPassword) < 6) {
                     $error['CURRENT_PASSWORD'] = 'ERROR_PASS_LENGTH';
                 } else {
                     $rsUser = CUser::GetByID($userID);
@@ -161,7 +161,7 @@ if (isset($_POST['event']) && $_POST['event'] !== '') {
                     } else {
                         $error['CURRENT_PASSWORD'] = 'ERROR_USER_NOT_FOUND';
                     }
-                }
+                }*/
 
                 $passInvalid = false;
 

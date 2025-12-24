@@ -210,7 +210,7 @@ $arrFilter = $arResult['arrFilter']; ?>
 					"OFFERS_SORT_FIELD2" => "id",
 					"OFFERS_SORT_ORDER2" => "desc",
 					"LIST_PROPERTY_CODE" => array(
-						0 => "",
+						0 => "BEZNACHISLENIYABONUSA",
 						1 => "ICON",
 						2 => "",
 					),
@@ -264,7 +264,7 @@ $arrFilter = $arResult['arrFilter']; ?>
 						7 => "AROMAT",
 					),
 					"PROPERTY_CODE" => array(
-						0 => "",
+						0 => "BEZNACHISLENIYABONUSA",
 						1 => "",
 					),
 					"PRODUCT_BLOCKS_ORDER" => "price,quantity,props,sku,buttons,quantityLimit,compare",

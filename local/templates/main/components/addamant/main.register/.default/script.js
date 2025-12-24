@@ -1,11 +1,15 @@
 function inputsRequiredFields(z) {
 
+  
+  
   let inputs = document.querySelectorAll('.form-regform');
 
   let notHiddenInputs = [];
   if(inputs.length != 0) {
     [...inputs[0].elements].forEach(input => {
       let className = `${input.className}`;
+      let passInput = document.querySelector('input[name="REGISTER[PASSWORD]"]')
+      let passConfInput = document.querySelector('input[name="REGISTER[CONFIRM_PASSWORD]"]')
 
       if (input.type !== 'submit' &&
           input.type !== 'hidden' &&
@@ -20,13 +24,20 @@ function inputsRequiredFields(z) {
           
           if (input.value.length <= 1) {
             input.nextElementSibling.style.display = 'block';
-            message[0].style.display = 'block';
+            input.classList.add('error');
+            //message[0].style.display = 'block';
           }
           if (input.value.length > 1) {
             input.nextElementSibling.style.display = 'none';
-            message[0].style.display = 'none';
+            input.classList.remove('error');
+            //message[0].style.display = 'none';
           }
         }
+      }
+
+      if(passInput.value !== passConfInput.value){
+        passConfInput.nextElementSibling.style.display = 'block';
+        passConfInput.classList.add('error');
       }
 
       /*input.oninput = function (event) {
@@ -38,7 +49,7 @@ function inputsRequiredFields(z) {
         }
       }*/
 
-      /*if (input.name === 'REGISTER[PASSWORD]') {
+      if (input.name === 'REGISTER[PASSWORD]') {
         input.oninput = function (event) {
           let message = document.querySelectorAll('.bx-auth-input ~ div')
 
@@ -47,34 +58,25 @@ function inputsRequiredFields(z) {
           } else {
             pass = event.target.value;
             message[0].style.display = 'none';
+            input.classList.remove('error');
           }
         }
-      }*/
+      }
 
       if (input.name === 'REGISTER[CONFIRM_PASSWORD]') {
         input.oninput = function (event) {
           let message = document.querySelectorAll('.bx-auth-confirm-input ~ div')
+          
           pass = event.target.value;
-          if (pass !== event.target.value) {
-            /*messageConfirmIcon.forEach(value => {
-              value.style.display = 'none';
-            })
-
-            messageErrorIcon.forEach(value => {
-              value.style.display = 'flex';
-            })*/
-
+          console.log(passInput.value);
+          
+          if (passInput.value !== event.target.value) {
+            input.classList.add('error');
             message[0].style.display = 'block';
           } else {
+
             message[0].style.display = 'none';
-
-           /*messageConfirmIcon.forEach(value => {
-              value.style.display = 'flex';
-            })
-
-            messageErrorIcon.forEach(value => {
-              value.style.display = 'none';
-            })*/
+            input.classList.remove('error');
           }
 
           if (pass.length === 0 && event.target.value.length === 0) {
@@ -110,9 +112,15 @@ function inputsRequiredFields(z) {
           let valid = re.test(input.value);
 
           if (!valid) {
-            messageMail[0].style.display = 'block';
+            input.classList.add('error');
+            if(messageMail[0]){
+              messageMail[0].style.display = 'block';
+            }
           } else {
-            messageMail[0].style.display = 'none';
+            if(messageMail[0]){
+              messageMail[0].style.display = 'none';
+            }
+            input.classList.remove('error');
           }
         }
       }

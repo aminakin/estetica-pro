@@ -1517,7 +1517,7 @@ table {
     padding: 0px;
     background-color: #00000080;
     opacity: 0.75;
-    z-index: 2;
+    z-index: 3;
     display: none;
 }
 

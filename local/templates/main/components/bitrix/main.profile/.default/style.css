@@ -226,6 +226,7 @@ input[disabled] {
 
 .main-profile-block.password .profile-field{
     margin-bottom: 0;
+    width: 50%;
 }
 
 .profile-field__input--error {

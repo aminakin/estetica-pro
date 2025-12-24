@@ -169,9 +169,10 @@ $(document).ready(function () {
             $('.bxmaker-authuserphone-enter-forget').show();
             $('.bxmaker-authuserphone-enter-forget .bxmaker-authuserphone-enter-auth__title').show();
         });
+
+        $('.bxmaker-authuserphone-input-phone__input input[name="PHONE"]').attr('maxlength', 16);
     }, 1000);
 
-    $('.bxmaker-authuserphone-input-phone__input input').attr('maxlength', 16);
     $('.reviews-link_link').on('click', function (e) {
         e.preventDefault();
         var anchor = $(this).attr('href');

@@ -90,6 +90,7 @@ $APPLICATION->IncludeComponent(
 			4 => "46",
 			5 => "47",
 			6 => "129",
+			7 => "132",
 		],
 		"SHOW_COUPONS" => "Y",
 		"ADDITIONAL_PICT_PROP_72" => "-",

@@ -495,11 +495,13 @@ input[type="checkbox"] {
     font-size: 14px;
     font-weight: 500;
     display: inline-block;
-    letter-spacing: -0.5px
+    letter-spacing: -0.5px;
+    cursor: default;
 }
 
 .bx-soa-coupon-item strong.bx-soa-coupon-item-danger {
     color: #A94442;
+    cursor: default;
 }
 
 .bx-soa-coupon-item strong.bx-soa-coupon-item-success {
@@ -1520,6 +1522,9 @@ hr.bxe-light {
 
 .bx-soa-tooltip.bx-soa-tooltip-coupon {
     display: none;
+    min-width: 200px;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 .bx-soa-coupon-item-used:hover .bx-soa-tooltip,
@@ -1988,6 +1993,8 @@ body .wrapper-payment .sberbank__description {
     padding-left: 28px;
     display: block;
     background: url(images/alert-circle.svg) no-repeat left top;
+    min-height: 20px;
+    line-height: 18px;
 }
 
 .bx-soa-cart-total-button-container.disabled span .bx-soa-cart-total-button-container.disabled span+span {
@@ -2373,4 +2380,8 @@ div[data-property-id-row='59'] {
         top: 0 !important;
         position: relative !important;
     }
+}
+
+.basket-item-actions-remove{
+    cursor: pointer;
 }

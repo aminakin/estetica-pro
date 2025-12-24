@@ -162,7 +162,7 @@ Loc::loadMessages(__FILE__);
                 <div class="main-profile__title"><?= Loc::getMessage('PASSWORD_BLOCK') ?></div>
             </div>
             <div class="main-profile-block__body">
-                <div class="main-profile-block__field profile-field">
+                <?/*div class="main-profile-block__field profile-field">
                     <div class="profile-field__inner">
                         <div class="profile-field__title">
                             <?= Loc::getMessage('CURRENT_PASSWORD') ?><span>*</span>
@@ -173,7 +173,7 @@ Loc::loadMessages(__FILE__);
                                 maxlength="50" value="" />
                         </div>
                     </div>
-                </div>
+                </div*/?>
                 <div class="main-profile-block__field profile-field">
                     <div class="profile-field__inner">
                         <div class="profile-field__title">

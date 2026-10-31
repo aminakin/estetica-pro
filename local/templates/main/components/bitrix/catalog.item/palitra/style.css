@@ -686,3 +686,10 @@ a.btn.btn-link.buyBtn svg{
         font-size: 10px;
     }
 }
+
+.product-item-title a{
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Количество строк */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

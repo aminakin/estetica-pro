@@ -610,8 +610,8 @@ $(document).ready(function () {
         let headerH = 0;
         if ($('#bx-panel').length)
             headerH = $('#bx-panel').height();
-
-        $('.modal-background').css({ 'top': $('.header-mobile').height() + headerH });
+        
+        $('.modal-background').css({ 'top': $('.header-mobile').height() + headerH});
         $('.header-mobile-menu').css({ 'top': $('.header-mobile').height() + headerH });
 
         $(this).addClass('active');
@@ -623,10 +623,12 @@ $(document).ready(function () {
         $('.close-menu').show();
         $('.modal-background').show();
     });
-    $(document).on('click', '.header-burger.active, .close-menu', function (e) {
+    $(document).on('click', '.close-menu, .modal-background', function (e) {
         $('header').removeClass('active');
         $(this).removeClass('active');
         $('body').css('overflow', 'auto');
+        console.log(213123);
+        
         $('.header-mobile-menu').removeClass('active');
         $('.header-mobile-menu').css('display', 'none');
         $('.burger-menu').show();
@@ -757,7 +759,12 @@ $(document).ready(function () {
         var href = that.attr('href');
 
         if (href == '#auth' || href == '#about_bonus' || href == '#basket') {
-            $('.modal-background').fadeIn()
+            if($(window).width() > 1025){
+                $('.modal-background').fadeIn();
+            }
+            if($(window).width() < 1025){
+                $('body').css('overflow', 'hidden');
+            }
         }
         if (href == '#menu' && !$(this).hasClass('opened')) {
             $('.header-mobile').addClass('hide-icons')
@@ -771,6 +778,23 @@ $(document).ready(function () {
         linkOpen.filter('.opened').not(that).removeClass('opened');
         $(href).toggleClass('opened');
         that.toggleClass('opened');
+        
+        if ((href == '#auth' && that.hasClass('opened')) || (href == '#register' && that.hasClass('opened'))) {
+            if($(window).width() < 1025){
+                $('header').addClass('active')
+                let headerH = 0;
+                if ($('#bx-panel').length) {
+                    headerH = $('#bx-panel').height();
+                }
+
+                let headerHeight = 0;
+                if ($('.header-mobile').length) {
+                    headerHeight = $('.header-mobile').height();
+                }
+
+                $(href).css({'top': headerH + headerHeight, 'paddingBottom': headerH + headerHeight})
+            }
+        }
 
         if (href == '#about_bonus') {
             $('.toggleOpen.about_bonus').addClass('opened');
@@ -786,12 +810,31 @@ $(document).ready(function () {
 
     $(document).on('click', '.showPreAuthForm', function (e) {
         e.preventDefault();
+
+        let headerH = 0;
+        if ($('#bx-panel').length) {
+            headerH = $('#bx-panel').height();
+        }
+
+        let headerNotification = 0;
+        if ($('.notification').length) {
+            headerNotification = $('.notification').innerHeight();
+        }
+
+        let headerHeight = 0;
+        if($(window).width() > 1025){
+            if ($('.header-middle').length) {
+                headerHeight = $('.header-middle').height() + 20;
+            }
+        }else{
+            if ($('.header-mobile').length) {
+                headerHeight = $('.header-mobile').height();
+            }
+        }
+
         $(this).addClass('active');
         $('body').addClass('body-modal')
-        $('.auth-form').addClass('auth-form--showed').find('.auth-form__inner').css({
-            'right': $(window).width() - $(this).offset().left - 110,
-            'top': $(this).height() + $(this).position().top + 55,
-        });
+        $('.auth-form').addClass('auth-form--showed').find('.auth-form__inner').css({'top': headerH + headerNotification + headerHeight, 'right': $(window).width() - $(this).offset().left - 110});
         $('.burger-menu').hide()
         $('.close-menu').show()
     })
@@ -829,16 +872,21 @@ $(document).ready(function () {
             window.location = '/'
             return false
         }
-
+        if($(window).width() < 1025){
+            $('header').removeClass('active')
+            $('#auth').css('top', -2000)
+            $('#register').css('top', -2000)
+        }
         $('.modal-background').fadeOut()
         $('body').removeClass('body-modal');
+        $('body').css('overflow', 'auto');
         $('.toggleOpen.opened').removeClass('opened');
         $('.custom_popup_block.opened').removeClass('opened');
         $("#basket.custom_popup_block").animate({
             right: "-700px",
         }, 300);
         linkOpen.removeClass('opened');
-        return false;
+        //return false;
     });
     var UA = navigator.userAgent,
         iOS = !!(UA.match(/iPad|iPhone/i));
@@ -1682,49 +1730,51 @@ $(document).ready(function () {
             right: "-700px",
         }, 300);
     });
-    $('.baskLink').on('click', function (e) {
-        e.preventDefault();
-        $("#basket.custom_popup_block").animate({
-            right: "0px",
-        }, 300);
-
-        $.get('/local/ajax/smallBasketContent.php', function (data) {
-            data = JSON.parse(data);
-
-            if (data['HTML']) {
-                $basketContent = $('#small-basket-content');
-                $basketContent.html(data['HTML']);
-                $('#basket input').styler();
-
-                $('.jq-number__field input', $basketContent).each(function (event) {
-                    changeTotalPrice(this);
-                });
-                $('.jq-number__field input', $basketContent).change(function (event) {
-                    changeTotalPrice(this);
-
-                    $.get('/local/ajax/getAllSum.php', function (allSum) {
-                        $basketContent.find('#allSum_FORMATED').html(allSum);
+    if($(window).width() > 1025){
+        $('.baskLink').on('click', function (e) {
+            e.preventDefault();
+            $("#basket.custom_popup_block").animate({
+                right: "0px",
+            }, 300);
+    
+            $.get('/local/ajax/smallBasketContent.php', function (data) {
+                data = JSON.parse(data);
+    
+                if (data['HTML']) {
+                    $basketContent = $('#small-basket-content');
+                    $basketContent.html(data['HTML']);
+                    $('#basket input').styler();
+    
+                    $('.jq-number__field input', $basketContent).each(function (event) {
+                        changeTotalPrice(this);
                     });
-                });
-
-                $.get('/local/ajax/getAllSum.php', function (allSum) {
-                    $('#allSum_FORMATED').html(allSum);
-
-                    /*if (allSum.replace(/\D+/g, "") > 1499) {
-                        $(".bottom-buttons .button").show();
-                        $(".minsum").hide();
+                    $('.jq-number__field input', $basketContent).change(function (event) {
+                        changeTotalPrice(this);
     
-                    } else {
-                        $(".bottom-buttons .button").hide();
-                        $('.minsum__value').html(1500 - allSum.replace(/\D+/g, ""))
-                        $(".minsum").show();
+                        $.get('/local/ajax/getAllSum.php', function (allSum) {
+                            $basketContent.find('#allSum_FORMATED').html(allSum);
+                        });
+                    });
     
-                    }*/
-                });
-
-            }
+                    $.get('/local/ajax/getAllSum.php', function (allSum) {
+                        $('#allSum_FORMATED').html(allSum);
+    
+                        /*if (allSum.replace(/\D+/g, "") > 1499) {
+                            $(".bottom-buttons .button").show();
+                            $(".minsum").hide();
+        
+                        } else {
+                            $(".bottom-buttons .button").hide();
+                            $('.minsum__value').html(1500 - allSum.replace(/\D+/g, ""))
+                            $(".minsum").show();
+        
+                        }*/
+                    });
+    
+                }
+            });
         });
-    });
+    }
     $('.cart-element').styler();
     $('[href = "#about_bonus"]').on('click', function () {
         $('[href = "#about_bonus"]').toggleClass('opened');
@@ -1824,7 +1874,7 @@ function scrollAfterLink() {
 function prodquant(countprod) {
     removeQuatWrap();
     removeFlyProd();
-    var countprodwin = $("<div class='quantity-wrappper'><div class='close' onclick='remove()'><div class='line'></div><div class='line'></div></div><div class='image-close-buy'>Доступное для заказа<br> " + countprod + " шт.</div><div class='close-prod'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'><path fill-rule='evenodd' clip-rule='evenodd' d='M18.7071 6.70711C19.0976 6.31658 19.0976 5.68342 18.7071 5.29289C18.3166 4.90237 17.6834 4.90237 17.2929 5.29289L12 10.5858L6.70711 5.29289C6.31658 4.90237 5.68342 4.90237 5.29289 5.29289C4.90237 5.68342 4.90237 6.31658 5.29289 6.70711L10.5858 12L5.29289 17.2929C4.90237 17.6834 4.90237 18.3166 5.29289 18.7071C5.68342 19.0976 6.31658 19.0976 6.70711 18.7071L12 13.4142L17.2929 18.7071C17.6834 19.0976 18.3166 19.0976 18.7071 18.7071C19.0976 18.3166 19.0976 17.6834 18.7071 17.2929L13.4142 12L18.7071 6.70711Z' fill='black'/></svg></div></div>");
+    var countprodwin = $("<div class='quantity-wrappper'><div class='close' onclick='remove()'><div class='line'></div><div class='line'></div></div><div class='image-close-buy'>Доступно для заказа<br> " + countprod + " шт.</div><div class='close-prod'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'><path fill-rule='evenodd' clip-rule='evenodd' d='M18.7071 6.70711C19.0976 6.31658 19.0976 5.68342 18.7071 5.29289C18.3166 4.90237 17.6834 4.90237 17.2929 5.29289L12 10.5858L6.70711 5.29289C6.31658 4.90237 5.68342 4.90237 5.29289 5.29289C4.90237 5.68342 4.90237 6.31658 5.29289 6.70711L10.5858 12L5.29289 17.2929C4.90237 17.6834 4.90237 18.3166 5.29289 18.7071C5.68342 19.0976 6.31658 19.0976 6.70711 18.7071L12 13.4142L17.2929 18.7071C17.6834 19.0976 18.3166 19.0976 18.7071 18.7071C19.0976 18.3166 19.0976 17.6834 18.7071 17.2929L13.4142 12L18.7071 6.70711Z' fill='black'/></svg></div></div>");
     countprodwin.appendTo($("body .fly-prod-wrap"));
     countprodwin.show();
 }
@@ -1917,5 +1967,10 @@ $(document).ready(function () {
             $('.detail-popup .delivery-popup.pochta').hide();
             $(detailPopupBonus).hide();
         }
+    });
+
+    $('.spoiler-show').on('click', function (){
+        $(this).prev().addClass('show');
+        $(this).hide();
     });
 });

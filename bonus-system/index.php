@@ -34,15 +34,15 @@ $APPLICATION->SetTitle("Бонусная система");
 							 01
 						</div>
 						<div class="level">
-							 уровень<br>
-							 бонусной<br>
+							 уровень
+							 бонусной
 							 системы
 						</div>
 					</div>
 					<div class="grey-text">
-						 5% от суммы покупки<br>
+						 3% от суммы покупки
 						 при накоплении<br>
-						 от 1&nbsp;₽ до 39&nbsp;999&nbsp;₽
+						 от 0 до 99&nbsp;999&nbsp;₽
 					</div>
 				</div>
 				<div class="level-item">
@@ -51,18 +51,18 @@ $APPLICATION->SetTitle("Бонусная система");
 							 02
 						</div>
 						<div class="level">
-							 уровень<br>
-							 бонусной<br>
+							 уровень
+							 бонусной
 							 системы
 						</div>
 					</div>
 					<div class="grey-text">
-						 7% от суммы покупки<br>
+						 5% от суммы покупки
 						 при накоплениях<br>
-						 от 40&nbsp;000&nbsp;₽ до 99&nbsp;999&nbsp;₽
+						 от 100&nbsp;000&nbsp;₽
 					</div>
 				</div>
-				<div class="level-item">
+				<?/*div class="level-item">
 					<div class="number-wrap">
 						<div class="number">
 							 03
@@ -78,7 +78,7 @@ $APPLICATION->SetTitle("Бонусная система");
 						 при накоплениях<br>
 						 от 100&nbsp;000&nbsp;₽
 					</div>
-				</div>
+				</div*/?>
 			</div>
 		</div>
 		<div class="section-top">

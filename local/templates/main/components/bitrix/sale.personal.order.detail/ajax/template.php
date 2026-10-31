@@ -27,6 +27,7 @@ if (!empty($arResult['ERRORS']['FATAL'])) {
     }
     ?>
     <div class="sale-order-detail">
+        
         <div class="sale-order-detail__close" onclick="BX.Sale.PersonalOrderComponent.PersonalOrderList.closeDetailOrder()">
              <?= classBuildSCG::buildSVG('big-cross'); ?>
         </div>
@@ -89,19 +90,19 @@ if (!empty($arResult['ERRORS']['FATAL'])) {
                     <div class="order-detail-info__part"><?= Loc::getMessage('TOTAL_PRICE') ?></div>
                     <div class="order-detail-info__part">
                         <div class="order-detail-info__payment order-pay">
-                            <?= $arResult['SUM_REST_FORMATED'] ?>
+                            <?= $arResult['PRICE_FORMATED'] ?>
                             <? if ($arResult['CANCELED'] != 'Y' && $arResult['STATUS']['ID'] != 'F') { ?>
                                 <div class="order-pay__toggle"><?= Loc::getMessage('SPOD_ORDER_PAY') ?></div>
                             <? } ?>
                         </div>
-                    </div>
-                    <? /*if (count($arResult['PAY'])) { ?>
+                        <? if (!empty($arResult['PAY'][0])) { ?>
                         <div class="order-pay__buttons">
                             <? foreach ($arResult['PAY'] as $pay) {
                                 echo $pay;
                             } ?>
                         </div>
-                    <? } */?>
+                    <? } ?>
+                    </div>
                 </div>
             </div>
             <div class="order-detail-products">
@@ -154,3 +155,4 @@ if (!empty($arResult['ERRORS']['FATAL'])) {
         </div>
     </div>
 <?}?>
+

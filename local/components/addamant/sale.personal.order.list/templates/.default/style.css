@@ -407,9 +407,26 @@
     border-color: transparent;
 }
 
-.order-pay__buttons {
+.order-pay__buttons>div>.widget-payment-checkout-info,
+.order-pay__buttons .alert.alert-info{
     display: none;
+}
+
+.order-pay__buttons a.btn-success{
+    border-radius: 12px;
+    line-height: 38px;
+    background: var(--btn-color);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 0 20px;
+    color: #ffffff;
+    text-transform: lowercase;
+    max-width: 179px;
     width: 100%;
+    text-align: center;
+    margin: 10px 0;
+    display: block;
 }
 
 .sberbank__wrapper {

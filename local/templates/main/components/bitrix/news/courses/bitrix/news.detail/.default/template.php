@@ -56,7 +56,7 @@ endif;
 					<span> <?= $arResult['PROPERTIES']['FORM_STYLE']['VALUE']; ?></span>
 				</div>
 			<?php endif; ?>
-			<a href="https://wa.me/79229776867" target="_blank">
+			<a href="https://t.me/+79229776867" target="_blank">
 				<?= GetMessage('WRITE'); ?>
 			</a>
 		</div>
@@ -276,7 +276,7 @@ endif;
 				<div class="title"><?= GetMessage('WRITE'); ?></div>
 				<div class="text"><?= GetMessage('WRITE_OR_CALL'); ?></div>
 				<div class="course-btn-wrap">
-					<a href="https://wa.me/79229776867" target="_blank" class="whatapp">
+					<a href="https://t.me/+79229776867" target="_blank" class="tele">
 						<?= GetMessage('PHONE_WHATAPP'); ?>
 					</a>
 					<a href="/courses/raspisanie/" target="_blank" class="table">

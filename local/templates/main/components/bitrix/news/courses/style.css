@@ -129,4 +129,9 @@
 		grid-auto-columns: 1fr;
 		grid-template-columns: 1fr;
 	}
+
+	.courses-list-more a,
+	.courses-page.list .courses-list-more a{
+		width: 100%;
+	}
 }

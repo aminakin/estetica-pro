@@ -162,7 +162,8 @@
         </div>
     </div>
 </div>
-<div class="toggleOpen about_bonus" id="about_bonus">
+<!--noindex-->
+<div class="toggleOpen about_bonus" id="about_bonus" data-nosnippet>
     <a href="#" class="close basket-close"><?= classBuildSCG::buildSVG('big-cross'); ?></a>
     <? $APPLICATION->IncludeComponent(
         "bitrix:main.include",
@@ -175,6 +176,7 @@
         )
     ); ?>
 </div>
+<!--/noindex-->
 <div class="toggleOpen no_fav_popup" id="no_fav_popup">
     <a href="#" class="close basket-close"><?= classBuildSCG::buildSVG('big-cross'); ?></a>
     <? $APPLICATION->IncludeComponent(

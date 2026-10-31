@@ -2385,3 +2385,13 @@ div[data-property-id-row='59'] {
 .basket-item-actions-remove{
     cursor: pointer;
 }
+
+.popup-window-close-icon{
+    background: url('images/cross.svg')no-repeat center center;
+    background-size: contain;
+}
+
+body.modal-sale-open {
+    touch-action: none;
+    -ms-touch-action: none;
+}

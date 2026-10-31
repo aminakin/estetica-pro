@@ -1,8 +1,8 @@
 
 <div class="new-design">
     <div class="take-consult">
-        <a href='https://wa.me/79229776867' target='_blank'> 
-            <img src="<?= SITE_TEMPLATE_PATH; ?>/images/socials.svg">
+        <a href='https://t.me/+79229776867' target='_blank'> 
+            <img src="<?= SITE_TEMPLATE_PATH; ?>/images/socials_tg.svg">
             <?= GetMessage('SBB_CONSULT');?>
         </a>                                 
     </div>

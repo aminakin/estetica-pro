@@ -101,7 +101,12 @@ use Bitrix\Main\Context;
 use Bitrix\Sale\Delivery;
 use Bitrix\Main\Application;
 use Bitrix\Main\EventManager;
+use Bitrix\Main\EventResult;
+use Bitrix\Sale\Cashbox\Check;
+use Bitrix\Sale\Cashbox\FullPrepaymentCheck;
 use Bitrix\Sale\DiscountCouponsManager;
+use Bitrix\Sale\Payment;
+use Bitrix\Sale\Shipment;
 
 CModule::AddAutoloadClasses(
   '', // не указываем имя модуля
@@ -116,7 +121,88 @@ CModule::AddAutoloadClasses(
 AddEventHandler("iblock", "OnBeforeIBlockElementUpdate", array("AfterElement", "OnBeforeIBlockElementUpdateHandler"));
 AddEventHandler("iblock", "OnAfterIBlockElementUpdate", array("AfterElement", "OnAfterIBlockElementUpdateHandler"));
 
-Main\EventManager::getInstance()->addEventHandler('sale', 'onSaleDeliveryServiceCalculate', [ChangePriceShipment::class, 'calcPriceShipment'], false, 1000);
+//Main\EventManager::getInstance()->addEventHandler('sale', 'onSaleDeliveryServiceCalculate', [ChangePriceShipment::class, 'calcPriceShipment'], false, 1000);
+
+EventManager::getInstance()->addEventHandler(
+  'sale',
+  'OnSaleCheckPrepareData',
+  'customOnSaleCheckPrepareDataFFD12'
+);
+
+EventManager::getInstance()->addEventHandler(
+  'sale',
+  'OnCheckCollateDocuments',
+  'customOnCheckCollateDocumentsFFD12'
+);
+
+function customOnCheckCollateDocumentsFFD12(\Bitrix\Main\Event $event)
+{
+  $parameters = $event->getParameters();
+  $entities = $parameters['ENTITIES'] ?? [];
+  if (!is_array($entities) || empty($entities)) {
+    return null;
+  }
+
+  $entity = reset($entities);
+  if (!$entity instanceof Payment) {
+    return null;
+  }
+
+  $fields = $entity->getFields();
+  $originalFields = $fields->getOriginalValues();
+  if (($originalFields['PAID'] ?? 'N') === 'Y' || $fields->get('IS_RETURN') === 'Y') {
+    return null;
+  }
+
+  $paySystem = $entity->getPaySystem();
+  if (!$paySystem || $paySystem->getField('IS_CASH') !== 'Y') {
+    return null;
+  }
+
+  $order = $entity->getOrder();
+  $relatedEntities = [];
+  foreach ($order->getShipmentCollection()->getNotSystemItems() as $shipment) {
+    if (!$shipment instanceof Shipment) {
+      continue;
+    }
+
+    $relatedEntities[Check::SHIPMENT_TYPE_NONE][] = $shipment;
+  }
+
+  return new EventResult(
+    EventResult::SUCCESS,
+    [[
+      'TYPE' => FullPrepaymentCheck::getType(),
+      'ENTITIES' => [$entity],
+      'RELATED_ENTITIES' => $relatedEntities,
+    ]]
+  );
+}
+
+function customOnSaleCheckPrepareDataFFD12($data, $type)
+{
+  if (!is_array($data)) {
+    return $data;
+  }
+
+  if (!empty($data['PRODUCTS'])) {
+    foreach ($data['PRODUCTS'] as &$product) {
+      $product['PAYMENT_OBJECT'] = Check::PAYMENT_OBJECT_PAYMENT;
+      $product['PAYMENT_METHOD'] = 'full_prepayment';
+    }
+    unset($product);
+  }
+
+  if (!empty($data['DELIVERY'])) {
+    foreach ($data['DELIVERY'] as &$delivery) {
+      $delivery['PAYMENT_OBJECT'] = Check::PAYMENT_OBJECT_PAYMENT;
+      $delivery['PAYMENT_METHOD'] = 'full_prepayment';
+    }
+    unset($delivery);
+  }
+
+  return $data;
+}
 
 
 AddEventHandler('catalog', 'OnSuccessCatalogImport1C', 'customCatalogImportStep');
@@ -368,78 +454,80 @@ function OnAfterUserRegisterHandler($arFields)
 AddEventHandler("sale", "OnOrderNewSendEmail", "bxModifySaleMails");
 function bxModifySaleMails($orderID, &$eventName, &$arFields)
 {
-  $order_props = CSaleOrderPropsValue::GetOrderProps($orderID);
-  $couponList = \Bitrix\Sale\Internals\OrderCouponsTable::getList(array(
-    'select' => array('COUPON'),
-    'filter' => array('=ORDER_ID' => $orderID)
-  ));
-  $usecoupon = '';
-  while ($coupon = $couponList->fetch()) {
-    $usecoupon = $coupon['COUPON'];
-  }
-  $dbRes = \Bitrix\Sale\ShipmentCollection::getList([
-    'select' => ['DELIVERY_NAME'],
-    'filter' => ['=ORDER_ID' => $orderID]
-  ]);
-  if ($item = $dbRes->fetch()) {
-    $curDelivery = $item['DELIVERY_NAME'];
-  }
-  $arFields['DELIV'] = $curDelivery;
+    $order = Order::load($orderID);
+    $order_props = $order->getPropertyCollection()->getArray()['properties'];
 
-  $dbResPay = \Bitrix\Sale\PaymentCollection::getList([
-    'select' => ['PAY_SYSTEM_NAME'],
-    'filter' => ['=ORDER_ID' => $orderID]
-  ]);
-  if ($itemPay = $dbResPay->fetch()) {
-    $curPayment = $itemPay['PAY_SYSTEM_NAME'];
-  }
-  $arFields['PAYMENTNAME'] = $curPayment;
+    $couponList = \Bitrix\Sale\Internals\OrderCouponsTable::getList(array(
+        'select' => array('COUPON'),
+        'filter' => array('=ORDER_ID' => $orderID)
+    ));
+    $usecoupon = '';
+    while ($coupon = $couponList->fetch()) {
+        $usecoupon = $coupon['COUPON'];
+    }
+    $dbRes = \Bitrix\Sale\ShipmentCollection::getList([
+        'select' => ['DELIVERY_NAME'],
+        'filter' => ['=ORDER_ID' => $orderID]
+    ]);
+    if ($item = $dbRes->fetch()) {
+        $curDelivery = $item['DELIVERY_NAME'];
+    }
+    $arFields['DELIV'] = $curDelivery;
 
-  while ($arProps = $order_props->Fetch()) {
-    if ($arProps['CODE'] == 'FIO') {
-      $arFields['FIO'] = $arProps['VALUE'];
+    $dbResPay = \Bitrix\Sale\PaymentCollection::getList([
+        'select' => ['PAY_SYSTEM_NAME'],
+        'filter' => ['=ORDER_ID' => $orderID]
+    ]);
+    if ($itemPay = $dbResPay->fetch()) {
+        $curPayment = $itemPay['PAY_SYSTEM_NAME'];
     }
-    if ($arProps['CODE'] == 'PHONE') {
-      $arFields['PHONE'] = '+' . $arProps['VALUE'];
-    }
-    if ($delivery_id != 2) {
-      if ($arProps["CODE"] == "FULL_ADRESS") {
-        $arFields['CITY'] = 'местоположение:  ' . $arProps["VALUE"];
-      }
-      if ($arProps['CODE'] == 'STREET') {
-        $arFields['ADDRESS'] = 'адрес: ул. ' . $arProps['VALUE'];
-      }
-      if ($arProps['CODE'] == 'HOUSE') {
-        $arFields['ADDRESS'] .= ' д. ' . $arProps['VALUE'];
-      }
-      if ($arProps['CODE'] == 'CORPUSE') {
-        $arFields['ADDRESS'] .= ' корп. ' . $arProps['VALUE'];
-      }
-      if ($arProps['CODE'] == 'APARTMENT') {
-        $arFields['ADDRESS'] .= ' кв. ' . $arProps['VALUE'];
-      }
-    }
-    if ($arProps['CODE'] == 'DISCONCART') {
-      $arFields['DISCONCART'] = $usecoupon;
-    }
-    if ($arProps['CODE'] == 'DELIVERY') {
-      $arFields['PICK_POINT'] = 'Пункт выдачи: ' . $arProps['VALUE'];
-    }
-    if ($arProps['CODE'] == 'RUSPOSTTYPE') {
-      $arFields['RUSPOSTTYPE'] = !empty($arProps['VALUE']) ? "<b>Доставка в:</b> " . $arProps['VALUE'] : "";
-    }
-    if ($arProps['CODE'] == 'MANAGER_CALL') {
-      if ($arProps["VALUE"] == 'N') {
-        $arFields['MANAGER_CALL'] = 'Нет';
-      } else {
-        $arFields['MANAGER_CALL'] = 'Да';
-      }
-    }
-  }
+    $arFields['PAYMENTNAME'] = $curPayment;
 
-  // комментарий к заказу
-  $order = Order::load($orderID);
-  $arFields["ORDER_DESCRIPTION"] = $order->getField('USER_DESCRIPTION');
+    foreach ($order_props as $arProps) {
+        if ($arProps['CODE'] == 'FIO') {
+            $arFields['FIO'] = current($arProps['VALUE']);
+        }
+        if ($arProps['CODE'] == 'PHONE') {
+            $arFields['PHONE'] = '+' . current($arProps['VALUE']);
+        }
+        if ($arProps["CODE"] == "FULL_ADRESS") {
+            $arFields['CITY'] = 'местоположение:  ' . current($arProps["VALUE"]);
+        }
+        if ($arProps['CODE'] == 'STREET') {
+            $arFields['ADDRESS'] = 'адрес: ул. ' . current($arProps['VALUE']);
+        }
+        if ($arProps['CODE'] == 'HOUSE') {
+            $arFields['ADDRESS'] .= ' д. ' . current($arProps['VALUE']);
+        }
+        if ($arProps['CODE'] == 'CORPUSE') {
+            $arFields['ADDRESS'] .= ' корп. ' . current($arProps['VALUE']);
+        }
+        if ($arProps['CODE'] == 'APARTMENT') {
+            $arFields['ADDRESS'] .= ' кв. ' . current($arProps['VALUE']);
+        }
+        if ($arProps['CODE'] == 'DISCONCART') {
+            $arFields['DISCONCART'] = $usecoupon;
+        }
+        if ($arProps['CODE'] == 'DELIVERY') {
+            $arFields['PICK_POINT'] = 'Пункт выдачи: ' . current($arProps['VALUE']);
+        }
+        if ($arProps['CODE'] == 'RUSPOSTTYPE') {
+            $arFields['RUSPOSTTYPE'] = !empty(current($arProps['VALUE'])) ? "<b>Доставка в:</b> " . current($arProps['VALUE']) : "";
+        }
+        if ($arProps['CODE'] == 'YD_PVZ') {
+            $arFields['YD_PVZ'] = !empty(current($arProps['VALUE'])) ? "<b>Доставка в:</b> " . current($arProps['VALUE']) : "";
+        }
+        if ($arProps['CODE'] == 'MANAGER_CALL') {
+            if (current($arProps["VALUE"]) == 'N') {
+                $arFields['MANAGER_CALL'] = 'Нет';
+            } else {
+                $arFields['MANAGER_CALL'] = 'Да';
+            }
+        }
+    }
+
+    // комментарий к заказу
+    $arFields["ORDER_DESCRIPTION"] = $order->getField('USER_DESCRIPTION');
 }
 
 

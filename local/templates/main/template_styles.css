@@ -320,10 +320,9 @@ a[data-filter="delayed"] {
 .auth-form__menu-item:last-of-type .auth-form__menu-link {
     margin-bottom: 0;
 }
-
+ 
 @media (max-width: 1024px) {
     .auth-form--authorized .auth-form__inner {
-        top: 207px !important;
         right: 0 !important;
     }
 }
@@ -630,12 +629,7 @@ a[data-filter="delayed"] {
 .notification .social a{
     background: white;
     border-radius: 33px;
-    display: none;
     margin-left: 20px;
-}
-
-.notification .social a[href*='wa.me']{
-    display: block;
 }
 
 .notification a{
@@ -651,6 +645,7 @@ a[data-filter="delayed"] {
 .notification a:active{
     color: white;
 }
+
 @media (max-width:1024px) {
     .notification{
         font-size: 14px;
@@ -661,4 +656,29 @@ a[data-filter="delayed"] {
 .catalog-top-menu-catalog a[href="/catalog/"],
 .top-mobile-menu__catalog_opener.root-item-brand span{
     color: #F781BF;
+}
+
+.bonus-delivery-desctop .take-consult a img{
+    background-color: #FFFFFF;
+    border-radius: 25px;
+}
+
+.spoiler {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.spoiler.show {
+    display: block;
+}
+
+.button.spoiler-show {
+    color: #F781BF;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 5px 0 0 0;
+    cursor: pointer;
 }

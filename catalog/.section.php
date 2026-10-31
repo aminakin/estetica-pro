@@ -1,6 +1,6 @@
 <?
-$sSectionName = "Каталог";
+$sSectionName = "estetica-pro.ru";
 $arDirProperties = Array(
-   "description" => "Профессиональные материалы для маникюра и наращивания ресниц. Доставка заказов по всей России в короткие сроки."
+   "keywords" => "Onelaf, murena, vesnail,BG,  golden trace, nail republic, нейл репаблик, мурена, база Мурена, Голден трейс, Linto, линто, веснейл, курсы маникюра, курсы педикюра, обучение маникюру Киров, обучение педикюру Киров"
 );
 ?>

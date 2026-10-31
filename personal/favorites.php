@@ -13,7 +13,8 @@ if (!$USER->IsAuthorized()) // Для неавторизованного
 	$rsUser = CUser::GetByID($idUser);
 	$arUser = $rsUser->Fetch();
 	$favorites = $arUser['UF_FAVORITES'];
-	$countNumber = count($favorites);
+	
+	$countNumber = is_array($favorites)? count($favorites) : 0;
 }
 $APPLICATION->AddViewContent('counter', $countNumber);
 ?>
@@ -236,7 +237,6 @@ if ($USER->IsAuthorized()) {
 				<div class="personal-favorite-empty-product"></div>
 				<div class="personal-favorite-empty-message">Ваш список товаров пуст</div>
 				<div class="personal-favorite-empty-desc">Тут будут отображаться товары, добавленные в избранное.</div>
-				<a href="#auth" class="enterLink linkOpen personal-favorite-empty-link">войти в личный кабинет</a>
 			</div>
 		</div>
 	<? } ?>

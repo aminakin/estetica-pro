@@ -33,6 +33,7 @@ $APPLICATION->SetTitle("Доставка и оплата");
 			</li>
 		</ul>
 	</div>
+    <a id="delivery"></a>
 	<div class="delPay-page-wrap delivery">
 		<div class="delPay-page-title major-title-pages"><?= classBuildSCG::buildSVG('delivery'); ?> Доставка</div>
 		<ul>
@@ -62,10 +63,28 @@ $APPLICATION->SetTitle("Доставка и оплата");
 			<li>
 				<h4>Бесплатно</h4>
 				<p class="grey-text">
-					При заказе от 5 000 ₽
+					При заказе от 8 500 ₽
 				</p>
 				<p class="grey-text">
-					<b>Только при выборе способов доставки: 5 Post, Yandex.</b>
+					Только при выборе способа доставки 5 Post.<br>
+                    <span class="spoiler">(за исключением регионов: <br>
+                    Чукотский автономный округ<br>
+                    Камчатский край<br>
+                    Магаданская область<br>
+                    Хабаровский край<br>
+                    Приморский край<br>
+                    Сахалинская область<br>
+                    Амурская область<br>
+                    Забайкальский край<br>
+                    Республика Саха (Якутия)<br>
+                    Республика Бурятия<br>
+                    Иркутская область<br>
+                    Республика Тыва<br>
+                    Республика Хакасия<br>
+                    Республика Алтай<br>
+                    Ямало-Ненецкий автономный округ)<br>
+                    </span>
+                    <button class="button spoiler-show">Развернуть</button>
 				</p>
 				<br>
 				<h4>От 280 ₽</h4>

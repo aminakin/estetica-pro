@@ -429,12 +429,17 @@ bx-auth-reg{
 
     #register>div {
         overflow: unset;
-        padding: 48px 0 56px;
+        padding: 0px 0 56px;
         height: auto;
     }
 
     div.bx-auth-reg {
         max-width: 640px;
+    }
+
+    #register,
+    #auth{
+        padding:0 32px;
     }
 }
 
@@ -473,7 +478,7 @@ bx-auth-reg{
 
 @media (max-width: 690px) {
     div.bx-auth-reg {
-        padding: 0 32px;
+        padding: 0px;
     }
 }
 

@@ -31,7 +31,7 @@ $this->setFrameMode(true);
 			</div>
 		<?endforeach;?>
 	</div>
-	<a href="https://wa.me/79229776867" target="_blank" >
+	<a href="https://t.me/+79229776867" target="_blank" >
 		<?= GetMessage('WRITE');?>
 	</a>
 </div>

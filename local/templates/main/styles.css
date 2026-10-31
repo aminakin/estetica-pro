@@ -953,25 +953,11 @@ div.header-phone {
     box-sizing: border-box;
 }
 
-::selection {
+/*::selection,
+*::-moz-selection  {
     background: #1a1a1a;
     color: #fff;
-}
-
-::-moz-selection {
-    background: #1a1a1a;
-    color: #fff;
-}
-
-input::selection {
-    background: #fff;
-    color: #1a1a1a;
-}
-
-input::-moz-selection {
-    background: #fff;
-    color: #1a1a1a;
-}
+}*/
 
 :focus::-webkit-input-placeholder {
     color: transparent;
@@ -1292,7 +1278,6 @@ html body .toggleOpen .close {
         width: 32px;
         height: 32px;
         margin-top: 16px;
-        margin-right: 16px;
         margin-left: auto;
         position: static;
     }
@@ -1560,7 +1545,6 @@ table {
 
 #layer .layer_body {
     padding: 0;
-
 }
 
 main {
@@ -1574,6 +1558,11 @@ main {
 }
 
 @media (max-width: 768px) {
+    #about_bonus .close{
+        top: 2px;
+        right: 2px;
+    }
+    
     .row.SUBMIT .message-input-spec {
         margin-bottom: 10px;
     }
@@ -4096,7 +4085,7 @@ html body .toggleOpen.no_fav_popup .fav-close:hover {
 }
 
 .bonus-page .level-item {
-    width: 33%;
+    width: 50%;
 }
 
 .bonus-page .level-item+.level-item {
@@ -4105,6 +4094,7 @@ html body .toggleOpen.no_fav_popup .fav-close:hover {
 
 .bonus-page .number-wrap {
     display: flex;
+    align-items: center;
 }
 
 .bonus-page .number {

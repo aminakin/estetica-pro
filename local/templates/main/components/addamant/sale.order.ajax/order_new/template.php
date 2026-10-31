@@ -748,3 +748,31 @@ $secondName = $arUser['SECOND_NAME']; ?>
 	$('#soa-property-35').val(mainName);
 	$('#soa-property-36').val(secondName);
 </script>
+<script>
+	// запрет скролла при открытии модалок выбора пвз
+	const body = document.body;
+
+	function checkModalState() {
+		const hasNoScrollClass = body.classList.contains('no-scroll');
+		const overflowHidden = getComputedStyle(body).overflow === 'hidden';
+		const needLock = hasNoScrollClass || overflowHidden;
+		const alreadyLocked = body.classList.contains('modal-sale-open');
+
+		if (needLock && !alreadyLocked) {
+			body.classList.add('modal-sale-open');
+		}
+
+		if (!needLock && alreadyLocked) {
+			body.classList.remove('modal-sale-open');
+		}
+	}
+
+	const observer = new MutationObserver(checkModalState);
+
+	observer.observe(body, {
+	attributes: true,
+	attributeFilter: ['class', 'style']
+	});
+
+	checkModalState();
+</script>

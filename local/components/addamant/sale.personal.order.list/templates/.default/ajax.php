@@ -11,7 +11,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/prolog_be
 global $USER;
 $userID = $USER->getid();
 $result = [];
-
+ 
 if (isset($_POST['orderID']) && $_POST['orderID'] !== '') {
     $APPLICATION->IncludeComponent(
         "bitrix:sale.personal.order.detail",

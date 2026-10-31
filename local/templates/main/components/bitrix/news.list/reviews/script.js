@@ -29,7 +29,7 @@ $(document).ready(function () {
         ]
     });
     $('.review-text').each(function(){
-        let size = 100;
+        let size = 80;
         let fulltext = $(this).text();
 
         if(fulltext.length > size){

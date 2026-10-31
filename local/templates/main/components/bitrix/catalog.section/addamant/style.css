@@ -33,6 +33,10 @@
 	margin: 0px auto 30px;
 }
 
+.bx-section-desc {
+	margin-top: 50px;
+}
+
 @media (max-width: 1024px) {
     .page_section_wrapper>.row{
         margin-right: -6px;

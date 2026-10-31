@@ -67,10 +67,10 @@
 	opacity: 0.5;
 }
 .reviews-list .slick-next{
-	right: 0px;
+	right: -9px;
 }
 .reviews-list .slick-prev{
-	left: 0px;
+	left: -9px;
 }
 .reviews-list-slide:not(.slick-slider){
     display: flex;

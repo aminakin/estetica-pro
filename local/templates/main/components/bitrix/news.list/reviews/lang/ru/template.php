@@ -3,4 +3,5 @@ $MESS["CT_BNL_ELEMENT_DELETE_CONFIRM"] = "Будет удалена вся ин�
 $MESS["CT_TELL_ABOUT_US"] = "Есть что сказать о нашем магазине?";
 $MESS["CT_READ_MORE"] = "Читать далее";
 $MESS["CT_LESS_MORE"] = "Свернуть";
+$MESS["CT_REVIEWS_MAIN"] = "Отзывы";
 ?>

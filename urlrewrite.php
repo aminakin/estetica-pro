@@ -1,8 +1,8 @@
 <?php
 $arUrlRewrite=array (
-  65 => 
+  73 => 
   array (
-    'CONDITION' => '#^={"/new-catalog/"."([^/]+?)/filter/(.+?)/apply/"}\\??(.*)#',
+    'CONDITION' => '#^={"/catalog/"."([^/]+?)/filter/(.+?)/apply/"}\\??(.*)#',
     'RULE' => 'SECTION_CODE=$1&SMART_FILTER_PATH=$2&$3',
     'ID' => 'bitrix:catalog.smart.filter',
     'PATH' => '/local/templates/main/components/bitrix/news/new-catalog/section.php',

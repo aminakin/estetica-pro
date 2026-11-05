@@ -276,7 +276,7 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
         </div>
         <div class="main_info product-detail-right-block">
             <div class="product-detail-item-right-section">
-                <div class="product-detail-item-title"><?= $name ?></div>
+                <h1 class="product-detail-item-title"><?= $name ?></h1>
                 <div class="product-item-detail-pay-block">
                     <? if ($arResult['PROPERTIES']['BEZNACHISLENIYABONUSA']['VALUE'] == 'Да'): ?>
                         <div class="no-bonus-product">

@@ -61,3 +61,15 @@ if ($request->isAjaxRequest() && ($request->get('action') === 'showMore' || $req
 		'epilogue' => $epilogue,
 	));
 }
+
+if (!empty($arParams['SEO_VALUES']['SECTION_META_TITLE'])) {
+    $APPLICATION->SetPageProperty('title', $arParams['SEO_VALUES']['SECTION_META_TITLE']);
+}
+
+if (!empty($arParams['SEO_VALUES']['SECTION_META_DESCRIPTION'])) {
+    $APPLICATION->SetPageProperty('description', $arParams['SEO_VALUES']['SECTION_META_DESCRIPTION']);
+}
+
+if (!empty($arParams['SEO_VALUES']['SECTION_PAGE_TITLE'])) {
+    $APPLICATION->SetTitle($arParams['SEO_VALUES']['SECTION_PAGE_TITLE']);
+}

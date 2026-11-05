@@ -67,3 +67,10 @@ if (isset($_GET['price_max']) && $_GET['price_max'] !== '' && $_GET['price_max']
 
 $arResult['arrFilter'] = array_merge($arResult['arrFilter'], $arFilter);
 
+if ($arResult['VARIABLES']['SECTION_ID']) {
+    $ipropValues = new \Bitrix\Iblock\InheritedProperty\SectionValues($arParams['IBLOCK_ID'], $arResult['VARIABLES']['SECTION_ID']);
+
+    // Получаем массив всех вычисленных/наследуемых SEO-значений
+    $seoValues = $ipropValues->getValues();
+    $arResult['SEO_VALUES'] = $seoValues;
+}

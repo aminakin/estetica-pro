@@ -124,7 +124,7 @@
 }
 
 .catalog-filter-sort {
-    margin: 0px;
+    margin: 0px 0 16px 0;
 }
 
 @media (min-width: 1025px) {

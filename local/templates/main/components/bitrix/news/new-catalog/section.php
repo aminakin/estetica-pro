@@ -269,7 +269,8 @@ $arrFilter = $arResult['arrFilter']; ?>
 					),
 					"PRODUCT_BLOCKS_ORDER" => "price,quantity,props,sku,buttons,quantityLimit,compare",
 					"DISCOUNT_PERCENT_POSITION" => "bottom-right",
-					"MESS_BTN_LAZY_LOAD" => "Показать ещё"
+					"MESS_BTN_LAZY_LOAD" => "Показать ещё",
+                    'SEO_VALUES' => $arResult['SEO_VALUES']
 				),
 				false
 			); ?>

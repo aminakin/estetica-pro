@@ -66,6 +66,17 @@ class classBuildSCG
   }
 }
 
+function debug($var)
+{	
+	global $USER;
+	$userId = $USER->GetID();
+	if ($userId == 41) {
+		print_r('<pre>');
+		print_r($var);
+		print_r('</pre>');
+	}
+}
+
 function file_get_contents_alt($url)
 {
 

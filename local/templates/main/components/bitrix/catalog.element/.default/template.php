@@ -279,7 +279,7 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
         </div>
         <div class="product-detail-right-block">
             <div class="product-detail-item-right-section">
-                <div class="product-detail-item-title"><?= $name ?></div>
+                <h1 class="product-detail-item-title"><?= $name ?></h1>
                 <div class="product-item-detail-pay-block">
                     <? foreach ($arParams['PRODUCT_PAY_BLOCK_ORDER'] as $blockName) {
                         switch ($blockName) {

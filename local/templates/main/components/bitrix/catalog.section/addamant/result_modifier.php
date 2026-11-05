@@ -117,5 +117,14 @@ foreach ($arResult['ITEMS'] as &$item) {
                 / $item['ITEM_PRICES'][$item['ITEM_PRICE_SELECTED']]['PRICE'] * 100);
         }
     }
+}
 
+$arResult['SEO_VALUES'] = $arParams['SEO_VALUES'];
+
+$component = $this->__component;
+if (is_object($component)) {
+    // Сохраняем ключи, чтобы они были доступны в component_epilog.php даже при отдаче из кеша
+    $component->SetResultCacheKeys([
+        'SEO_VALUES'
+    ]);
 }

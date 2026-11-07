@@ -23,6 +23,7 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/scrollpage.js');
 $arrFilter = $arResult['arrFilter']; ?>
 
         <div class="row">
+            <?php $APPLICATION->ShowViewContent('sectionTitle'); ?>
 			<div class="filter catalog-filter">
             	<div class="catalog-filter-sort other sort col-xs-12<?= (isset($arParams['FILTER_HIDE_ON_MOBILE']) && $arParams['FILTER_HIDE_ON_MOBILE'] === 'Y' ? ' hidden-xs' : '') ?>">
             	    <?

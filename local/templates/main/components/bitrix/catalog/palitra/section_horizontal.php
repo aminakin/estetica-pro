@@ -30,6 +30,7 @@ else
 
 	<div class="col-12 <?/*=($isSidebar ? "col-md-9 col-sm-8" : "col-md-9")*/?>">
 		<div class="row">
+            <?php $APPLICATION->ShowViewContent('sectionTitle'); ?>
 			<? if ($isFilter): ?>
 				<div class="filter catalog-filter">
 					<div class="catalog-filter-sort other sort col-xs-12<?=(isset($arParams['FILTER_HIDE_ON_MOBILE']) && $arParams['FILTER_HIDE_ON_MOBILE'] === 'Y' ? ' hidden-xs' : '')?>">

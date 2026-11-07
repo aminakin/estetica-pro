@@ -5,6 +5,7 @@ $APPLICATION->SetTitle("New");
 $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . '/js/scrollpage.js'); ?>
 <div class="page_section_wrapper">
 	<div class="row">
+		<h1 class="section-title col-xs-12 important-title major-title-pages"><?=$APPLICATION->GetTitle(false)?></h1>
 		<? $APPLICATION->IncludeComponent(
 			"bitrix:catalog.section",
 			"addamant",

@@ -138,7 +138,15 @@ if (!isset($arParams['HIDE_SECTION_DESCRIPTION']) || $arParams['HIDE_SECTION_DES
 	</div>
 	<?
 }
+
+$sectionTitle = $arResult['NAME'];
+if (empty($sectionTitle)) {
+    $sectionTitle = $arResult['IPROPERTY_VALUES']['SECTION_PAGE_TITLE'];
+}
 ?>
+<?php $this->SetViewTarget("sectionTitle"); ?>
+    <h1 class="section-title col-xs-12 important-title major-title-pages"><?=$sectionTitle?></h1>
+<?php $this->EndViewTarget(); ?>
 
 <div class="catalog-section bx-<?=$arParams['TEMPLATE_THEME']?>" data-entity="<?=$containerName?>">
 	<?

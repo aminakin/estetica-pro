@@ -116,6 +116,7 @@ header a {
     text-transform: uppercase;
     margin-bottom: 32px;
     font-weight: 400;
+    float: none;
 }
 
 header .sticky .header-wrap {
